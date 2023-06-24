@@ -1,56 +1,3 @@
-/* ********************************************NAVBAR*********************************************************** */
-#mainNavigation a {
-  font-family: 'Cabin', sans-serif;
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
-  display: block !important;
-}
-.logo {
-  height: 100px;
-}
-.dropdown-menu {
-  background: #04555c;
-}
-a.dropdown-toggle {
-  color: #dfdfdf !important;
-}
-.f-green {
-  color: #04555c !important;
-}
-a.dropdown-item:hover {
-  color: #03727d !important;
-}
-.nav-item a {
-  color: #dfdfdf;
-}
-.nav-item a:hover {
-  color: #fff;
-}
-.nav-item {
-  min-width: 12vw;
-}
-#mainNavigation {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 123;
-  padding-bottom: 120px;
-  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0.65+0,0+100;Neutral+Density */
-}
-#navbarNavDropdown.collapsing .navbar-nav,
-#navbarNavDropdown.show .navbar-nav {
-  background: #037582;
-  padding: 12px;
-}
-.f-dark {
-  color: grey !important;
-}
-/* *****************************************************END************************************************** */
-
-
 
 /* /////////////VIDEO SHOWCASE///////// */
 
@@ -214,5 +161,8 @@ header .logo
   .text h3
   {
     font-size: 2em;
-  }
-}
+  }}
+
+
+
+  /* //////////////////////////SHOWCASE END///////////////// */
