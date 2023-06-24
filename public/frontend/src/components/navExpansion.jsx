@@ -4,8 +4,20 @@ import { useState } from "react";
 
 let spArr = [
   {
-    heading: "Work",
+    heading: "Home",
     subheads: [
+      {
+        head: "View",
+        points: ["Hello", "hi", "hola"],
+      },
+      {
+        head: "View",
+        points: ["Hello", "hi", "hola"],
+      },
+      {
+        head: "View",
+        points: ["Hello", "hi", "hola"],
+      },
       {
         head: "View",
         points: ["Hello", "hi", "hola"],
@@ -122,7 +134,7 @@ const NavExpansion = (myclass) => {
   console.log("curr",curr);
 
   return (
-    <div className={`${myclass.width} expansion_main_u`}>
+    <div className={`${myclass.width} z-2 expansion_main_u`}>
       <div className="left_nav_u">
         <div className={` left_nav_content ${currNav? `${myclass.width100}` : ""}`}>
           <SPoint point={curr.length > 0 ? curr[0].subheads : undefined} key={curr.length > 0 ? curr[0].subheads : undefined} />

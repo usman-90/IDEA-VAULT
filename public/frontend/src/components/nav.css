@@ -178,4 +178,7 @@
 	-o-transform: rotate(-135deg);
 	transform: rotate(-135deg);
   }
+  .z-3{
+    z-index: 3;
+  }
   
