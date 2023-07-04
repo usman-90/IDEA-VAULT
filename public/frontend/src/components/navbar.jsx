@@ -1,59 +1,40 @@
-import 'bootstrap/dist/css/bootstrap.css';
+import NavExpansion from "./navExpansion.jsx";
+import { useState } from "react";
 
-const Navbar=()=>{
-    return(
-        <div id="mainNavigation">
-        <nav role="navigation">
-          <div className="py-3 text-center border-bottom">
-            <img src="..\images\logo.png" alt="" className="invert logo"/> 
+const MyNavbar = () => {
+  const [isExpanded, setisExpanded] = useState(false);
+
+  const handleExpansion = () => {
+    setisExpanded(!isExpanded);
+    console.log(isExpanded);
+  };
+
+  return (
+    <>
+      <div className="z-3 px-5 py-3" style={{ position: "relative" }}>
+        <div className="nav_main_u nav_u">
+          <div className="logo d-flex justify-content-center align-items-center">
+            <h1 >Idea Vault</h1>
           </div>
-        </nav>
-        <div className="navbar-expand-md">
-          <div className="navbar-dark text-center my-2">
-            <button className="navbar-toggler w-75" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-              <span className="navbar-toggler-icon"></span> <span className="align-middle f-green">Menu</span>
+          <div className="toggler d-flex justify-content-center align-items-center">
+            <button onClick={handleExpansion} className="text-light">
+              <div className={`${isExpanded ? "open" : ""}`} id="nav-icon1">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
             </button>
-          </div>
-          <div className="text-center mt-3 collapse navbar-collapse" id="navbarNavDropdown">
-            <ul className="navbar-nav mx-auto ">
-              <li className="nav-item">
-                <a className="nav-link active f-green" aria-current="page" href="/">Home</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link f-green" href="/">Book Hotel</a>
-              </li>
-
-              <li className="nav-item">
-                <a className="nav-link f-green" href="/">Destinations</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link f-green" href="/">Policy</a>
-              </li>
-              <li className="nav-item dropdown">
-                {/* <a className="nav-link dropdown-toggle f-green" href="/" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="true">
-                  <span className='f-green'>
-                  Company
-                  </span>
-                </a>
-                <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <li><a className="dropdown-item" href="/">Blog</a></li>
-                  <li><a className="dropdown-item" href="/">Contact us</a></li>
-                  <li><a className="dropdown-item" href="/">About Us</a></li>
-                </ul> */}
-                <a className="nav-link dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul className="dropdown-menu">
-            <li><a className="dropdown-item" href="/">Action</a></li>
-            <li><a className="dropdown-item" href="/">Another action</a></li>
-            <li><hr className="dropdown-divider"/></li>
-            <li><a className="dropdown-item" href="/">Something else here</a></li>
-          </ul>
-              </li>
-            </ul>
           </div>
         </div>
       </div>
-    )
+      <div style={{ position: "relative" }}>
+        <NavExpansion
+          width={`${isExpanded ? "" : "w-0"}`}
+          width100={`${isExpanded ? "w-100" : ""}`}
+        />
+      </div>
+    </>
+  );
 };
-export default Navbar;
+
+export default MyNavbar;
