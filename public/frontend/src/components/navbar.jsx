@@ -1,12 +1,12 @@
 import NavExpansion from "./navExpansion.jsx";
 import { useState } from "react";
+import "./nav.css";
 
 const MyNavbar = () => {
   const [isExpanded, setisExpanded] = useState(false);
 
   const handleExpansion = () => {
     setisExpanded(!isExpanded);
-    console.log(isExpanded);
   };
 
   return (
@@ -14,7 +14,7 @@ const MyNavbar = () => {
       <div className="z-3 px-5 py-3" style={{ position: "relative" }}>
         <div className="nav_main_u nav_u">
           <div className="logo d-flex justify-content-center align-items-center">
-            <h1 >Idea Vault</h1>
+            <h1>Idea Vault</h1>
           </div>
           <div className="toggler d-flex justify-content-center align-items-center">
             <button onClick={handleExpansion} className="text-light">

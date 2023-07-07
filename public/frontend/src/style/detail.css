@@ -1,0 +1,12 @@
+.chat-boxbutton:hover{
+letter-spacing: 6px;
+}
+.selected-img {
+    border: 2px solid red;
+  }
+  @media (min-width: 768px){
+
+    .butt-social{
+        flex-direction: column;
+    }
+  }
