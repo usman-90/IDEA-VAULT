@@ -6,7 +6,7 @@
     border: 5px solid;
     border-radius: 6px;
     background-color: #000;
-    animation: borderAnimation 5s infinite;
+    /* animation: borderAnimation 5s infinite; */
   }
   
   @keyframes borderAnimation {
