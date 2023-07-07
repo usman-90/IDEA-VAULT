@@ -1,5 +1,5 @@
-import './nav.css'
-import 'bootstrap'
+import "./nav.css";
+import "bootstrap";
 import { useState } from "react";
 
 let spArr = [
@@ -37,7 +37,7 @@ let spArr = [
       {
         head: "View",
         points: ["Hello", "hi", "hola"],
-      }
+      },
     ],
   },
   {
@@ -84,19 +84,22 @@ const SPoint = (props) => {
   console.log(props);
   return (
     <>
-      {!props.point ? <p></p> :
-      props.point.map((subhead) => {
-        return (
-          <>
-            <p className="sm-point text-light" key={subhead.head}>
-              {subhead.head}
-            </p>
-            {subhead.points.map((point) => {
-              return <Spoint2 point={point} key={point} />;
-            })}
-          </>
-        );
-      })}
+      {!props.point ? (
+        <p></p>
+      ) : (
+        props.point.map((subhead) => {
+          return (
+            <>
+              <p className="sm-point text-light" key={subhead.head}>
+                {subhead.head}
+              </p>
+              {subhead.points.map((point) => {
+                return <Spoint2 point={point} key={point} />;
+              })}
+            </>
+          );
+        })
+      )}
     </>
   );
 };
@@ -124,20 +127,27 @@ const NavExpansion = (myclass) => {
   console.log(currNav);
   const handleNavChange = (curr) => {
     setcurrNav(null);
-    setTimeout(()=>{
-        setcurrNav(curr);
-    },200)
+    setTimeout(() => {
+      setcurrNav(curr);
+    }, 200);
   };
   let curr = spArr.filter((sp) => {
     return sp.heading == currNav;
   });
-  console.log("curr",curr);
+  console.log("curr", curr);
 
   return (
     <div className={`${myclass.width} z-2 expansion_main_u`}>
       <div className="left_nav_u">
-        <div className={` left_nav_content ${currNav? `${myclass.width100}` : ""}`}>
-          <SPoint point={curr.length > 0 ? curr[0].subheads : undefined} key={curr.length > 0 ? curr[0].subheads : undefined} />
+        <div
+          className={` left_nav_content ${
+            currNav ? `${myclass.width100}` : ""
+          }`}
+        >
+          <SPoint
+            point={curr.length > 0 ? curr[0].subheads : undefined}
+            key={curr.length > 0 ? curr[0].subheads : undefined}
+          />
         </div>
       </div>
       <div className={`right_nav_u`}>
