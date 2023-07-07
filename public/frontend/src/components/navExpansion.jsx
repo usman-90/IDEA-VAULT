@@ -72,16 +72,12 @@ let spArr = [
     ],
   },
 ];
-const Spoint2 = (props) => {
-  console.log("Sp2");
-  console.log(props);
-  return <p className="text-light">{props.point}</p>;
+const Spoint2 = ({point}) => {
+  console.log(point);
+  return <p className="text-light">{point}</p>;
 };
 
 const SPoint = (props) => {
-  console.log("Sp");
-
-  console.log(props);
   return (
     <>
       {!props.point ? (

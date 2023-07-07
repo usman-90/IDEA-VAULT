@@ -1,0 +1,121 @@
+.cardcat {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    /* Add the following lines */
+    border: 5px solid;
+    border-radius: 6px;
+    background-color: #000;
+    animation: borderAnimation 5s infinite;
+  }
+  
+  @keyframes borderAnimation {
+    0% {
+      border-color: rgba(228, 31, 31, 0.705);
+    }
+    25% {
+      border-color: rgba(28, 28, 212, 0.493);
+    }
+    50% {
+      border-color: rgb(10, 129, 10);
+    }
+    75% {
+      border-color: rgba(234, 237, 14, 0.651);
+    }
+    100% {
+      border-color: rgb(8, 125, 154);
+    }
+  }
+  
+  .cardcat-heading {
+    position: absolute;
+    top: 14%;
+    left: 20%;
+    font-size: 2em;
+    font-weight: 700;
+    text-transform: uppercase;
+    z-index: 1;
+    color: #f7f7f7;
+    font-family: "poppins";
+  }
+  
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .cardcat-heading {
+      font-size: 1.2em; /* Adjust the font size to your desired value */
+    }
+  }
+  
+  @media (max-width: 376px) {
+    .cardcat-heading {
+      font-size: 1.9em;
+      left: 16% !important; /* Add !important to override any conflicting styles */
+    }
+  }
+  
+  @media (max-width: 320px) {
+    .cardcat-heading {
+      font-size: 1.8em;
+      left: 12% !important; /* Add !important to override any conflicting styles */
+    }
+  }
+  
+  .cardcat-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    top: 0;
+    left: 0;
+  }
+  
+  .cardcat-body {
+    width: 80%;
+    height: 10rem;
+    /* z-index: 10; */
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    font-size: 0.6rem;
+    background-color: #000;
+    /* opacity: 0.1; */
+    letter-spacing: 1px;
+    color: #f7f7f7;
+    padding: 1rem;
+    transform: scale(0, 1);
+    transition: all 0.35s linear;
+  }
+  
+  .cardcat:hover .cardcat-body {
+    transform: scale(1, 1);
+    z-index: 3;
+  } 
+  
+  .cardcat:hover .cardcat-image {
+    opacity: 0.4;
+  }
+  
+  .cardcat-body h2 {
+    font-size: 0.8rem;
+    color: tomato;
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+  }
+  
+  .cardcat-body a {
+    font-size: 1em;
+    background: #fff;
+    padding: 10px 30px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 500;
+    margin-top: 10px;
+    color: #111;
+    letter-spacing: 2px;
+    transition: 0.2s;
+  }
+  
+  .cardcat-body a:hover {
+    letter-spacing: 6px;
+  }
+  

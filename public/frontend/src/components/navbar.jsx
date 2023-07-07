@@ -1,12 +1,12 @@
 import NavExpansion from "./navExpansion.jsx";
 import { useState } from "react";
+import "./nav.css";
 
 const MyNavbar = () => {
   const [isExpanded, setisExpanded] = useState(false);
 
   const handleExpansion = () => {
     setisExpanded(!isExpanded);
-    console.log(isExpanded);
   };
 
   return (

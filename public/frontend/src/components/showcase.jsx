@@ -5,16 +5,16 @@ const Showcase = () => {
   return (
     <>
       <section className="showcase">
-        <video src="../images/video.mp4" muted loop autoPlay></video>
+        <video src="../images/video2.mp4" muted loop autoPlay></video>
         <div className="overlay"></div>
         <div className="text">
-          <h2>Never Stop To</h2>
-          <h3>Exploring The World</h3>
+          <h2>Bridge the Gap</h2>
+          <h3>Exchange the Brilliance</h3>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
+            Unleash the power of limitless thinking within our Idea Vault.
+            Explore new frontiers, shatter conventional wisdom, and ignite a
+            revolution of ideas. Connect with a vibrant community of passionate
+            thinkers and creatives, where collaboration knows no bounds.
           </p>
           <a href="/">Explore</a>
         </div>
