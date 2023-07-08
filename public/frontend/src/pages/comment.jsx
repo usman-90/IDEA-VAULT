@@ -1,27 +1,81 @@
-const Comment=()=>{
-    return(
-        <div className="container my-3">
-            <div className="row">
-                <div className="col-md-6">
-                    <div  style={{height:"15rem"}}className="container-fluid border border-solid-primary">
-                        <div className="header container-fluid d-flex gap-3 my-3" >
-                            <div>
-                                <img  style={{width:"4rem",height:"4rem",borderRadius:"4rem"}}className="img-fluid" src="../images/edu2.jpg" alt="oo" />
-                            </div>
-                            <div  className="d-flex flex-column border-bottom-solid-primary">
-                            <h5> <strong>By Rajja farhan</strong></h5>
-                            <h6> rajjafarhan@gamil.com</h6>
-                            <h6 className="fs-6">wednesday,9:00 pm</h6>
-                            </div>
-                        </div>
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 
-                    </div>
-                </div>
-                <div className="col-md-6"></div>
+import { useState } from "react";
+import Postedcomment from "../postedComment";
+
+const Comment = () => {
+  const [comment, setComment] = useState("");
+ 
+  const handleChange = (e) => {
+    setComment(e.target.value);
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      
+      const obj = {
+        comment: comment,
+        date: new Date()
+      };
+      
+      console.log(obj);
+      
+      // Perform any action you need with the comment
+      
+      setComment("");
+    }
+  };
+
+  const submitComment = () => {
+    // Perform any action you need with the comment
+    const obj = {
+      comment: comment,
+      date: new Date()
+    };
+    console.log(obj);
+
+    setComment("");
+  };
+
+ 
+  return (
+    <div className="container my-3">
+      <div className="row">
+        <div className="col-lg-6">
+          <div style={{ height: "10rem" }} className="container-fluid border border-solid-primary">
+            <div className="container-fluid d-flex gap-6 my-3">
+              <div>
+                <img style={{ width: "4rem", height: "4rem", borderRadius: "50%" }} className="img-fluid " src="../images/edu2.jpg" alt="oo" />
+              </div>
+              <textarea
+                style={{ border: "none", width: "80%" }}
+                className="container-fluid my-3 ml-3"
+                placeholder="Write your comment..."
+                value={comment}
+                onChange={handleChange}
+                onKeyDown={handleKeyDown}
+              />
             </div>
-
-
+            <div className="container-fluid d-flex justify-content-end">
+              <div >
+              <i
+                  className="fa-regular fa-paper-plane"
+                  style={{ color: "grey", cursor: "pointer", fontSize: "1.3rem" }}
+                  onClick={submitComment}
+                  onMouseEnter={(e) => (e.target.style.color = "black")}
+                  onMouseLeave={(e) => (e.target.style.color = "grey")}
+                ></i>
+              </div>
+            </div>
+          </div>
         </div>
-    )
-}
+        <div className="col-lg-6"></div>
+      </div>
+      <Postedcomment/>
+    </div>
+  );
+};
+
 export default Comment;

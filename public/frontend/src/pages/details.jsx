@@ -55,17 +55,15 @@ const Details = ({ title, tagline,name,country,funding,teamMembers}) => {
                 {title}
               </p>
               <p className="fs-3 my-1">{tagline}</p>
-              <div style={{height:"12rem",borderRadius:".5rem"}}className="container-fluid border border-success my-2">
-                    <p style={{textTransform:"capitalize"}}className=""><strong>{name},{country} </strong></p>
-                    <p>Funding Required = {funding}</p>
-
+              <div style={{height:"12rem",borderRadius:".5rem"}}className="container-fluid border border-success my-2 p-3">
+                    <p style={{textTransform:"capitalize"}}className="my-3"><strong>{name},{country} </strong></p>
                     <p>TEAM MEMBERS={teamMembers}</p>
-                    <button className="chat-boxbutton fw-5" style={{height:"3rem",width:"9rem",letterSpacing:"2px",border:"none",backgroundColor:"rgba(0, 128, 0, 1)",color:"black"}}>CHATBOX <i style={{color:"white"}} className="fa-brands fa-rocketchat"></i> </button>
+                    <button className="chat-boxbutton fw-5" style={{height:"3rem",width:"100%",letterSpacing:"2px",border:"none",backgroundColor:"rgba(0, 128, 0, 1)",color:"white"}}>CHAT WITH US <i style={{color:"white"}} className="fa-brands fa-rocketchat"></i> </button>
 
 
               </div>
-              <div style={{flexDirection:"column",gap:"2rem"}} className="d-flex justify-content-between ">
-                <div className="d-flex gap-3">
+              <div style={{flexDirection:"column",gap:"1rem"}} className="d-flex justify-content-between ">
+                <div className="d-flex gap-3 justify-content-center">
                   <button
                     style={{
                       backgroundColor: upvoteClicked ? "#00ff00" : "transparent",
@@ -74,7 +72,8 @@ const Details = ({ title, tagline,name,country,funding,teamMembers}) => {
                       padding: "10px 20px",
                       transition: "background-color 0.3s ease-in-out, border-color 0.3s ease-in-out",
                       boxShadow: upvoteClicked ? "0 0 5px #00ff00" : "none",
-                      height:"4rem"
+                      height:"3rem",
+                      width:"10rem"
                     }}
                     onClick={handleUpvoteClick}
                     disabled={downvoteClicked}
@@ -89,7 +88,8 @@ const Details = ({ title, tagline,name,country,funding,teamMembers}) => {
                       padding: "10px 20px",
                       transition: "background-color 0.3s ease-in-out, border-color 0.3s ease-in-out",
                       boxShadow: downvoteClicked ? "0 0 5px red" : "none",
-                      height:"4rem"
+                      height:"3rem",
+                      width:"10rem"
                     }}
                     onClick={handleDownvoteClick}
                     disabled={upvoteClicked}
@@ -97,18 +97,23 @@ const Details = ({ title, tagline,name,country,funding,teamMembers}) => {
                     DOWNVOTE <i style={{color:"brown"}} className="fa-sharp fa-solid fa-thumbs-down"></i>
                   </button>
                 </div>
-                <div className="socials d-flex gap-2">
+                <div className="socials d-flex gap-2 justify-content-center">
                   <i style={{fontSize:"1.5rem",color:"blue"}} className="fa-brands fa-facebook"></i>
                   <i style={{fontSize:"1.5rem",color:"red"}} className="fa-brands fa-instagram"></i>
                   <i style={{fontSize:"1.5rem",color:"blue"}} className="fa-brands fa-linkedin"></i>
                   <i style={{fontSize:"1.5rem",color:"blue"}} className="fa-brands fa-twitter"></i>
                 </div>
+                
               </div>
-              <div style={{width:"100%",justifyContent:"center",flexDirection:"column"}} className="d-flex my-3">
-                    <p className="fs-4 fw-bold ">FUNDING REQUIRED</p>
-                    <MyCircularProgress totalCount={funding} />
-
+              <div  style={{gap:"10%"}}className="container my-3 d-flex ">
+              <div style={{width:"50%",height:"6rem",alignItems:"center"}} className="d-flex justify-content-center align-item-center">
+                <p className="fs-4 fw-bold ">FUNDING REQUIRED</p>    
+                </div>
+                <div className="d-flex  justify-content-center">
+                <MyCircularProgress totalCount={funding} />
+                </div>
               </div>
+            
               
             </div>
           </div>

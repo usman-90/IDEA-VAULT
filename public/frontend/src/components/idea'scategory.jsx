@@ -1,7 +1,6 @@
 import "../style/ideacat.css";
 import "bootstrap";
-import techimg from "../images/tech.jpg";
-
+import techimg from "../images/tech.jpg"; 
 const Category = () => {
   return (
     <div className="container text-center">
