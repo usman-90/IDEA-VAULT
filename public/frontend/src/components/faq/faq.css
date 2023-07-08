@@ -1,0 +1,18 @@
+/* faq.css */
+
+/* Add custom style for the accordion header question */
+.accordion-header {
+    background-color: white;
+  }
+  
+  /* Add custom style for the expanded accordion answer */
+  .accordion-body {
+    background: linear-gradient(to bottom, #83dca7, #ffffff);
+  }
+  .glow-input{
+    box-shadow: 0 0 5px #00ff88;
+  }
+  .glow-input:focus {
+  box-shadow: 0 0 5px #00ff00, 0 0 10px #00ff7398;
+  outline: none;
+}

@@ -1,45 +1,47 @@
-import React from "react";
-import { createRoot } from "react-dom/client";
-import MyNavbar from "./components/navbar";
+/* eslint-disable import/no-unresolved */
 import "bootstrap/dist/css/bootstrap.min.css";
-// import MyCarousel from "./components/carousel";
-import { Showcase } from "./components/showcase";
-// import Card from "./components/card";
-import Heading from "./components/heading";
-import Category from "./components/idea'scategory";
-import FAQ from "./components/faq";
-import Details from "./pages/details";
+import Layout from "./layout/layout";
+import Home from "./pages/homePg/home";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Idea from "./pages/ideaPG/idea";
 
-
-const obj={
-  name:"rajja farhan",
-  country:"Canada",
-  title:"hydra station",
-  teamMembers:"usman,zainab",
-  description:"this is my description",
-  tagline:"give world the more power",
-  funding:500,
-  socialsFb:"www.facebook.com",
-  insta:"www.instagram.com"
-}
+const obj = {
+  name: "rajja farhan",
+  country: "Canada",
+  title: "hydra station",
+  teamMembers: "usman,zainab",
+  description: "this is my description",
+  tagline: "give world the more power",
+  funding: 500,
+  socialsFb: "www.facebook.com",
+  insta: "www.instagram.com",
+};
 const App = () => {
   return (
     <>
-      <MyNavbar />
-      {/* <MyCarousel/> */}
-      <Showcase />
-      <Heading text="Idea's Categories" />
-      <Category />
-
-      {/* <Card /> */}
-      <Heading text="Frequently Ask Questions"/>
-      <FAQ/>
-      <Details title={obj.title} description={obj.description} tagline={obj.tagline} name={obj.name} country={obj.country} funding={obj.funding} teamMembers={obj.teamMembers}/>
-      
-      
+      <BrowserRouter>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route
+              path="/idea"
+              element={
+                <Idea
+                  name={obj.name}
+                  description={obj.description}
+                  title={obj.title}
+                  tagline={obj.tagline}
+                  country={obj.country}
+                  funding={obj.funding}
+                  teamMembers={obj.teamMembers}
+                />
+              }
+            />
+          </Routes>
+        </Layout>
+      </BrowserRouter>
     </>
   );
 };
-const container = document.getElementById("root");
-const root = createRoot(container);
-root.render(<App />);
+
+export default App;
