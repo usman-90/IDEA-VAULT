@@ -6,7 +6,7 @@
     border: 5px solid;
     border-radius: 6px;
     background-color: #000;
-    /* animation: borderAnimation 5s infinite; */
+    animation: borderAnimation 5s infinite;
   }
   
   @keyframes borderAnimation {
@@ -30,7 +30,8 @@
   .cardcat-heading {
     position: absolute;
     top: 14%;
-    left: 20%;
+    left: 0;
+    width: 100%;
     font-size: 2em;
     font-weight: 700;
     text-transform: uppercase;

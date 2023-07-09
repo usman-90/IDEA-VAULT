@@ -4,3 +4,42 @@
 Link{
     text-decoration: none;
 }
+/* //// color classes //// */
+
+.bg-black{
+    background-color: #0A090C !important;
+}
+.text-black{
+    background-color: #0A090C !important;
+}
+.bg-white{
+    background-color: #f0edee !important;
+}
+.text-white{
+    color: #f0edee !important;
+}
+.bg-midnight-green{
+    background-color: #07393c !important;
+}
+.text-midnight-green{
+    color: #07393c !important;
+}
+.bg-caribbean-current{
+    background-color: #2c666e !important;
+}
+.text-caribbean-current{
+color: #2c666e !important;
+}
+.bg-photo-blue{
+    background-color: #90ddf0 !important;
+}
+.text-photo-blue{
+    color: #90ddf0 !important;
+}
+.bg-mustard{
+    background-color: #fed766 !important;
+}
+.text-mustard{
+    color: #fed766 !important;
+}
+
