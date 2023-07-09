@@ -5,6 +5,7 @@ import Layout from "./layout/layout";
 import Home from "./pages/homePg/home";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Idea from "./pages/ideaPG/idea";
+import Chatbox from "./pages/chatbox/chatbox";
 
 const obj = {
   name: "rajja farhan",
@@ -38,6 +39,7 @@ const App = () => {
                 />
               }
             />
+            <Route path="/messages" element={<Chatbox />} />
           </Routes>
         </Layout>
       </BrowserRouter>
