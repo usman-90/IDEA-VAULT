@@ -1,5 +1,6 @@
 /* eslint-disable import/no-unresolved */
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./style/app.css";
 import Layout from "./layout/layout";
 import Home from "./pages/homePg/home";
 import { BrowserRouter, Route, Routes } from "react-router-dom";

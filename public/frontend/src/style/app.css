@@ -1,8 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Caprasimo&display=swap');
 *{
     font-family: 'Poppins', sans-serif;
 }
-Link{
-    text-decoration: none;
+.f-caprasimo{
+    font-family: 'Caprasimo',cursive !important;
+}
+a{
+    text-decoration: none !important;
 }
 /* //// color classes //// */
 
@@ -10,7 +14,7 @@ Link{
     background-color: #0A090C !important;
 }
 .text-black{
-    background-color: #0A090C !important;
+    color: #0A090C !important;
 }
 .bg-white{
     background-color: #f0edee !important;

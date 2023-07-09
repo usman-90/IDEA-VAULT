@@ -119,7 +119,7 @@ const LPoint = ({ onChange, point, link, handleExpansion }) => {
       onFocus={showNavContents}
       to={link}
     >
-      <p className="p-2 xl-point">{point}</p>
+      <p className="p-2 xl-point text-white">{point}</p>
     </Link>
   );
 };
@@ -140,7 +140,7 @@ const NavExpansion = ({ width, width100, handleExpansion }) => {
 
   return (
     <div className={`${width} z-2 expansion_main_u`}>
-      <div className="left_nav_u">
+      <div className="left_nav_u bg-caribbean-current">
         <div className={` left_nav_content ${currNav ? `${width100}` : ""}`}>
           <SPoint
             point={curr.length > 0 ? curr[0].subheads : undefined}
@@ -148,7 +148,7 @@ const NavExpansion = ({ width, width100, handleExpansion }) => {
           />
         </div>
       </div>
-      <div className={`right_nav_u`}>
+      <div className={`right_nav_u bg-midnight-green`}>
         <div className={`right_nav_content`}>
           {spArr.map((point) => {
             return (

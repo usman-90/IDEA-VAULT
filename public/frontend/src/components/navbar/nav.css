@@ -32,17 +32,15 @@
 }
   .left_nav_u{
 	flex-basis: 70%;
-	background-color: rgb(54, 53, 53);
 
   }
   .right_nav_u{
 	flex-basis: 30%;
-	background-color: rgb(112, 111, 111);
 
 	
   }
   .left_nav_content{
-	margin:6rem 2rem 2rem 3rem;
+	margin:7rem 2rem 2rem 3rem;
 	display: flex;
 	flex-direction: column;
 	flex-wrap:wrap;
