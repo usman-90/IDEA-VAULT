@@ -6,31 +6,32 @@
     border: 5px solid;
     border-radius: 6px;
     background-color: #000;
-    /* animation: borderAnimation 5s infinite; */
+    animation: borderAnimation 5s infinite;
   }
   
   @keyframes borderAnimation {
     0% {
-      border-color: rgba(228, 31, 31, 0.705);
+      border-color:#07393c;
     }
     25% {
-      border-color: rgba(28, 28, 212, 0.493);
+      border-color:#2c666e ;
     }
     50% {
-      border-color: rgb(10, 129, 10);
+      border-color:#90ddf0  ;
     }
     75% {
-      border-color: rgba(234, 237, 14, 0.651);
+      border-color:#fed766 ;
     }
     100% {
-      border-color: rgb(8, 125, 154);
+      border-color: #f0edee ;
     }
   }
   
   .cardcat-heading {
     position: absolute;
     top: 14%;
-    left: 20%;
+    left: 0;
+    width: 100%;
     font-size: 2em;
     font-weight: 700;
     text-transform: uppercase;

@@ -1,11 +1,16 @@
+/* eslint-disable react/display-name */
 import React from "react";
 import "../../style/showcase.css";
+
+const VideoPlayer = React.memo(() => (
+  <video src="../images/video2.mp4" muted loop autoPlay></video>
+));
 
 const Showcase = () => {
   return (
     <>
       <section className="showcase">
-        <video src="../images/video2.mp4" muted loop autoPlay></video>
+        <VideoPlayer />
         <div className="overlay"></div>
         <div className="text">
           <h2>Bridge the Gap</h2>
@@ -43,4 +48,4 @@ const Showcase = () => {
   );
 };
 
-export default Showcase ;
+export default Showcase;

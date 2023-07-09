@@ -1,211 +1,73 @@
 import "../../style/ideacat.css";
 import "bootstrap";
-import techimg from "../../images/techimg.jpg";
+import CategoryCard from "./categorycard";
+
+const categories = [
+  {
+    categoryTitle: "Technology",
+    categoryCardSrc:
+      "https://img.freepik.com/free-vector/digital-global-connection-network-technology-background_1017-23324.jpg?w=1800&t=st=1688852954~exp=1688853554~hmac=cae5bbfcbf89e5945ef6c459bd9364080e1c82162bbd970a3a599bd5b3a46bd8",
+    categoryDesc: `Ideas related to new technologies, software, hardware, gadgets,
+  apps, and innovative solutions.`,
+  },
+  {
+    categoryTitle: "Business",
+    categoryCardSrc:
+      "https://img.freepik.com/free-photo/aerial-view-business-team_53876-124515.jpg?w=1480&t=st=1688853073~exp=1688853673~hmac=475ce799eaf6fd6a917c7b5845fdd715e92d8856c0d95f2821b7b2832a48c4d9",
+    categoryDesc: ` Ideas for startups, business models, marketing strategies,
+    product development, and growth opportunities.`,
+  },
+  {
+    categoryTitle: "Art & Craft",
+    categoryCardSrc:
+      "https://img.freepik.com/free-photo/colorful-image-woman-s-face-with-words-word-bottom_188544-12871.jpg?w=1480&t=st=1688853211~exp=1688853811~hmac=7ff92eddb16cfddf7cbbbcfdd65cf9f3ef169f35c18a3c00fa74f53efc768827",
+    categoryDesc: ` Ideas related to art, design, music, literature, filmmaking,
+    photography, and other creative expressions.`,
+  },
+  {
+    categoryTitle: "Education",
+    categoryCardSrc:
+      "https://img.freepik.com/free-photo/graduation-gown-cap-tassel-success-achieved-generated-by-ai_188544-25873.jpg?t=st=1688851957~exp=1688852557~hmac=48b4e5c43efb056e498c0fa04786a6762be3183a1964487a29e51c6ae708a4ab",
+    categoryDesc: ` Ideas to improve education systems, e-learning platforms,
+    teaching methodologies, skill development, and lifelong
+    learning.`,
+  },
+  {
+    categoryTitle: "Science",
+    categoryCardSrc:
+      "https://img.freepik.com/free-vector/abstract-technology-particle-background_23-2148408853.jpg?w=1380&t=st=1688852192~exp=1688852792~hmac=54a01e14ac8d21ad26516756dd301406be4d131ac9deac906e7daff971db62a3",
+    categoryDesc: `Ideas in the fields of scientific research, discoveries,
+    experiments, space exploration, and technological advancements.`,
+  },
+  {
+    categoryTitle: "Tourism",
+    categoryCardSrc:
+      "https://img.freepik.com/free-photo/sunset-pool_1203-3192.jpg?w=1380&t=st=1688852230~exp=1688852830~hmac=a796e4df303698027285826f0d7ba386e07ab1b0b1f762ebfd136379387f66a5",
+    categoryDesc: `Ideas to enhance travel experiences, sustainable tourism
+    practices, destination recommendations, and cultural exchange.`,
+  },
+];
 
 const Category = () => {
   return (
     <div className="container text-center">
       <div className="row">
-        <div style={{ height: "18rem" }} className="col-md-4  my-3 ">
-          <div className="cardcat mx-1 ">
-            <a href="/">
-              <img
-                style={{ objectFit: "cover" }}
-                src={techimg}
-                className="cardcat-image img-fluid"
-                alt="ooo"
+        {categories.map((category) => {
+          return (
+            <div
+              key={category}
+              style={{ height: "18rem" }}
+              className="col-md-4   my-3"
+            >
+              <CategoryCard
+                categoryCardSrc={category.categoryCardSrc}
+                categoryDesc={category.categoryDesc}
+                categoryTitle={category.categoryTitle}
               />
-            </a>
-            <p className="cardcat-heading h3 text-center"> Technology</p>
-            <div className="cardcat-body">
-              <h2>Technology and Innovation</h2>
-              <p>
-                Ideas related to new technologies, software, hardware, gadgets,
-                apps, and innovative solutions.
-              </p>
-              <a href="/"> View More</a>
-            </div>
-          </div>
-        </div>
-        <div style={{ height: "18rem" }} className="col-md-4   my-3">
-          <div className="cardcat mx-1 ">
-            <a href="/">
-              <img
-                style={{ objectFit: "cover" }}
-                src="../images/business2.jpg"
-                className="cardcat-image img-fluid"
-                alt="ooo"
-              />
-            </a>
-            <p className="cardcat-heading h3">Startups</p>
-            <div className="cardcat-body">
-              <h2>Business and Entrepreneurship</h2>
-              <p>
-                Ideas for startups, business models, marketing strategies,
-                product development, and growth opportunities.
-              </p>
-              <a href="/"> View More</a>
-            </div>
-          </div>
-        </div>
-        <div style={{ height: "18rem" }} className="col-md-4   my-3">
-          <div className="cardcat mx-1 ">
-            <a href="/">
-              <img
-                style={{ objectFit: "cover" }}
-                src="../images/art.jpg"
-                className="cardcat-image img-fluid"
-                alt="ooo"
-              />
-            </a>
-            <p className="cardcat-heading h3"> Art & Craft</p>
-            <div className="cardcat-body">
-              <h2>Art and Creativity</h2>
-              <p>
-                Ideas related to art, design, music, literature, filmmaking,
-                photography, and other creative expressions.
-              </p>
-              <a href="/"> View More</a>
-            </div>
-          </div>
-        </div>
+            </div> 
+          );
+        })}
       </div>
-
-      <div className="row">
-        <div style={{ height: "18rem" }} className="col-md-4  my-3 ">
-          <div className="cardcat mx-1 ">
-            <a href="/">
-              <img
-                style={{ objectFit: "cover" }}
-                src="../images/edu.jpg"
-                className="cardcat-image img-fluid"
-                alt="ooo"
-              />
-            </a>
-            <p className="cardcat-heading h3 text-center"> Education </p>
-            <div className="cardcat-body">
-              <h2> Education and Learning</h2>
-              <p>
-                Ideas to improve education systems, e-learning platforms,
-                teaching methodologies, skill development, and lifelong
-                learning.
-              </p>
-              <a href="/"> View More</a>
-            </div>
-          </div>
-        </div>
-        <div style={{ height: "18rem" }} className="col-md-4   my-3">
-          <div className="cardcat mx-1 ">
-            <a href="/">
-              <img
-                style={{ objectFit: "cover" }}
-                src="../images/sci.jpg"
-                className="cardcat-image img-fluid"
-                alt="ooo"
-              />
-            </a>
-            <p className="cardcat-heading h3"> Science </p>
-            <div className="cardcat-body">
-              <h2>Science and Research</h2>
-              <p>
-                Ideas in the fields of scientific research, discoveries,
-                experiments, space exploration, and technological advancements.
-              </p>
-              <a href="/"> View More</a>
-            </div>
-          </div>
-        </div>
-        <div style={{ height: "18rem" }} className="col-md-4   my-3">
-          <div className="cardcat mx-1 ">
-            <a href="/">
-              <img
-                style={{ objectFit: "cover" }}
-                src="../images/travel.jpg"
-                className="cardcat-image img-fluid"
-                alt="ooo"
-              />
-            </a>
-            <p className="cardcat-heading h3"> Tourism</p>
-            <div className="cardcat-body">
-              <h2> Travel and Tourism</h2>
-              <p>
-                Ideas to enhance travel experiences, sustainable tourism
-                practices, destination recommendations, and cultural exchange.
-              </p>
-              <a href="/"> View More</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* <div className="row">
-        <div style={{ height: "20rem" }} className="col-md-4  my-3 ">
-          <div className="cardcat mx-1 ">
-            <a href="/">
-              <img
-                style={{ objectFit: "cover" }}
-                src={techimg}
-                className="cardcat-image img-fluid"
-                alt="ooo"
-              />
-            </a>
-            <p className="cardcat-heading h3 text-center"> Technology</p>
-            <div className="cardcat-body">
-              <h2>This is a card</h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt
-                unde minus quia dolorum corrupti! Voluptates molestiae eum in
-                ipsum sunt!
-              </p>
-              <a href="/"> View More</a>
-            </div>
-          </div>
-        </div>
-        <div style={{ height: "20rem" }} className="col-md-4   my-3">
-          <div className="cardcat mx-1 ">
-            <a href="/">
-              <img
-                style={{ objectFit: "cover" }}
-                src={img4}
-                className="cardcat-image img-fluid"
-                alt="ooo"
-              />
-            </a>
-            <p className="cardcat-heading h3"> Technology</p>
-            <div className="cardcat-body">
-              <h2>This is a card</h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt
-                unde minus quia dolorum corrupti! Voluptates molestiae eum in
-                ipsum sunt!
-              </p>
-              <a href="/"> View More</a>
-            </div>
-          </div>
-        </div>
-        <div style={{ height: "20rem" }} className="col-md-4   my-3">
-          <div className="cardcat mx-1 ">
-            <a href="/">
-              <img
-                style={{ objectFit: "cover" }}
-                src={img4}
-                className="cardcat-image img-fluid"
-                alt="ooo"
-              />
-            </a>
-            <p className="cardcat-heading h3"> Technology</p>
-            <div className="cardcat-body">
-              <h2>This is a card</h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt
-                unde minus quia dolorum corrupti! Voluptates molestiae eum in
-                ipsum sunt!
-              </p>
-              <a href="/"> View More</a>
-            </div>
-          </div>
-        </div>
-      </div> */}
     </div>
   );
 };

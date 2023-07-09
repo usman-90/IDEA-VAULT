@@ -1,6 +1,6 @@
 import NavExpansion from "./navExpansion.jsx";
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./nav.css";
 
 const MyNavbar = () => {
@@ -20,8 +20,6 @@ const MyNavbar = () => {
 
   useEffect(() => {
     handleNavColor();
-    console.log(isItHome);
-    console.log(location.path);
   }, [location.pathname]);
 
   return (
@@ -30,12 +28,16 @@ const MyNavbar = () => {
         className={`${
           isItHome
             ? "position-absolute w-100 bg-transparent"
-            : "position-relative bg-info"
+            : "position-relative bg-midnight-green"
         } z-3 px-5 py-3 `}
       >
         <div className="nav_main_u nav_u">
           <div className="logo d-flex justify-content-center align-items-center">
-            <h1>Idea Vault</h1>
+            <Link to={"/"}>
+              <h1 className="text-white f-caprasimo fs-1">
+                Idea <span className="f-caprasimo text-mustard">Vault</span>
+              </h1>
+            </Link>
           </div>
           <div className="toggler d-flex justify-content-center align-items-center">
             <button onClick={handleExpansion} className="text-light">

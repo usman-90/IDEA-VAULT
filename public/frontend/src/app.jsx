@@ -1,9 +1,11 @@
 /* eslint-disable import/no-unresolved */
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./style/app.css";
 import Layout from "./layout/layout";
 import Home from "./pages/homePg/home";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Idea from "./pages/ideaPG/idea";
+import Chatbox from "./pages/chatbox/chatbox";
 
 
 const obj = {
@@ -39,6 +41,7 @@ const App = () => {
                 
               }
             />
+            <Route path="/messages" element={<Chatbox />} />
           </Routes>
         </Layout>
       </BrowserRouter>

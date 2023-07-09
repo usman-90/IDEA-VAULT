@@ -3,13 +3,15 @@ const Heading = ({ text }) => {
     <div style={{ display: "flex", justifyContent: "center" }}>
       <h2
         style={{
-          fontSize: "2em",
-          fontWeight: 800,
+          fontSize: "2.5rem",
+          fontWeight: 700,
           lineHeight: "1em",
           textTransform: "uppercase",
-          marginTop: ".9em",
-          marginBottom:".5em"
+          marginTop: "3rem",
+          marginBottom:"3rem",
+          borderBottom:"3px solid #fed766"
         }}
+        className="text-center text-midnight-green"
       >
         {text}
       </h2>
