@@ -1,11 +1,7 @@
 import "../../style/ideacat.css";
 import "bootstrap";
-<<<<<<< HEAD:public/frontend/src/components/idea'scategory.jsx
-import techimg from "../images/tech.jpg"; 
-=======
 import techimg from "../../images/techimg.jpg";
 
->>>>>>> 4784964f1e17a302a67fb612ee9457b7da33ef34:public/frontend/src/pages/homePg/idea'scategory.jsx
 const Category = () => {
   return (
     <div className="container text-center">

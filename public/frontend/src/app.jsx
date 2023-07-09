@@ -5,6 +5,7 @@ import Home from "./pages/homePg/home";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Idea from "./pages/ideaPG/idea";
 
+
 const obj = {
   name: "rajja farhan",
   country: "Canada",
@@ -35,6 +36,7 @@ const App = () => {
                   funding={obj.funding}
                   teamMembers={obj.teamMembers}
                 />
+                
               }
             />
           </Routes>

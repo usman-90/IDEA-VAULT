@@ -4,9 +4,78 @@ letter-spacing: 6px;
 .selected-img {
     border: 2px solid red;
   }
-  @media (min-width: 768px){
-
-    .butt-social{
-        flex-direction: column;
+  @media (max-width: 768px){
+    .handlebox{
+      flex-direction: column;
     }
+
+    
   }
+  .bg-grey{
+    background-color: gray !important;
+  }
+
+.upvotebutt{
+  background-color: rgb(4, 156, 4);
+  width: 7rem;
+  height: 2.6rem;
+  color: white;
+  border:none;
+  cursor: pointer;
+  text-align: center;
+  transition-duration: 0.4s;
+  font-size: 14px;
+  gap: 3px;
+}
+.upvotebutt:hover{
+  background-color: rgb(17, 130, 17);
+  color: rgb(15, 1, 1);
+  font-size: 16px;
+}
+
+
+
+.downvotebutt{
+  background-color: rgb(238, 34, 44);
+  color: white;
+  width: 7rem;
+  height: 2.6rem;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  transition-duration: 0.4s;
+  font-size: 14px;
+}
+.downvotebutt:hover{
+  background-color: red;
+  color: black;
+  font-size: 16px;
+}
+.namebox{
+  gap:2%
+  
+}
+.detailbox{
+  box-shadow:  0 0 5px 6px #2c666e;
+  cursor: pointer;
+}
+.socials a{
+  font-size:20px;
+  width:30px;
+  height:30px;
+  line-height:30px;
+  display:inline-block;
+  text-align:center;
+  border-radius:50%;
+  border:1px solid #000000;
+  margin-left:10px;
+  /* margin-top:22px; */
+  color:inherit;
+  opacity:0.75;
+  transition: box-shadow 0.3s ease-in-out;
+}
+.socials a:hover{
+  box-shadow: 0 0 20px #07393c; /* Add box shadow on hover */
+    opacity:1;
+    cursor: pointer;
+}

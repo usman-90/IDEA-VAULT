@@ -10,6 +10,7 @@ const Home = () => {
       <Category />
       <Heading text="Frequently Ask Questions" />
       <FaqSection />
+      
     </>
   );
 };

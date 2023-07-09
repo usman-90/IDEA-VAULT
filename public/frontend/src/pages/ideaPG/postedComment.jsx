@@ -1,20 +1,20 @@
-
+import "./postedcomment.css"
 const Postedcomment=()=>{
 const commentarr=[{comments:"hey this is my very first comment",reply:{replytime:'9:00pm',replyday:'wednesday',replymsg:"thats my first reply too"}},{comments:"hey this is my very second comment",reply:{replytime:'9:00pm',replyday:'wednesday',replymsg:"thats my second reply too"}},{comments:"hey this is my very third comment",reply:{replytime:'9:00pm',replyday:'wednesday',replymsg:"thats my third reply too"}},{comments:"hey this is my very fourth comment",reply:{replytime:'9:00pm',replyday:'wednesday',replymsg:"thats my fourth reply too"}}]
 console.log(commentarr.comment)
     return(
 
         <div className="row my-4">
-        <div className="col-lg-6">
-            <div className="container-fluid border border-solid-primary my-2"> 
-            <div className=" container-fluid d-flex gap-3 py-1  border border-solid-primary my-2 ">
+        <div className="col-xlg-6">
+            <div style={{border:"2px solid #07393c"}}className="container-fluid  my-2"> 
+            <div style={{border:"2px solid #07393c",backgroundColor:"#07393c",color:"white"}} className=" container-fluid d-flex gap-2 py-1 my-2  ">
               <div>
-                <img style={{ width: "3rem", height: "3rem", borderRadius: "50%" }} className="img-fluid mx-2" src="../images/edu2.jpg" alt="oo" />
+                <img style={{ width: "3rem", height: "3rem", borderRadius: "50%" }} className="img-fluid mx-2" src="../images/edu.jpg" alt="oo" />
               </div>
-              <div style={{ justifyContent: "space-between" ,alignItems:'center'}} className="container-fluid d-flex">
-  <h6 style={{ fontSize: ".9rem" }}>rajjafarhan@gamil.com</h6>
-  <h6 style={{ fontSize: ".9rem" }} className="">wednesday, 9:00 pm</h6>
-</div>
+              <div style={{ justifyContent: "space-between" ,alignItems:'center'}} className="container-fluid d-flex commentheader">
+              <h6 style={{ fontSize: ".9rem" }}>rajjafarhan@gamil.com</h6>
+               <h6 style={{ fontSize: ".9rem" }} className="">wednesday, 9:00 pm</h6>
+            </div>
 
             </div>
             <div className="container-fluid">
@@ -28,15 +28,15 @@ console.log(commentarr.comment)
 
               </div>
 
-
+{/* /////////////////////////////////////////////reply/////// */}
 
               <div style={{height:"maxcontent",marginLeft:"9%",width:"90%"}}  className="container d-flex flex-column  ">
-                  <div style={{width:"100%",}}className=" container d-flex gap-3 py-1  border border-solid-primary my-2 ">
-                  <div>
-                    <img style={{ width: "3rem", height: "3rem", borderRadius: "50%" }} className="img-fluid mx-2" src="../images/edu2.jpg" alt="oo" />
+                  <div style={{border:"2px solid #07393c",backgroundColor:"#07393c",color:"white"}}className=" d-flex gap-2 py-1   my-2 ">
+                  <div >
+                    <img style={{ width: "3rem", height: "3rem", borderRadius: "50%" }} className="img-fluid mx-2" src="../images/edu.jpg" alt="oo" />
                   </div>
-                  <div style={{ justifyContent: "space-between" ,alignItems:'center'}} className="container-fluid d-flex">
-                  <h6 style={{ fontSize: ".9rem" }}>rajjafarhan@gamil.com</h6>
+                  <div style={{ justifyContent: "space-between" ,alignItems:'center'}} className="container-fluid d-flex commentheader">
+                  <h6 style={{ fontSize: ".8rem" }}>rajjafarhan@gamil.com</h6>
                   <h6 style={{ fontSize: ".9rem" }} className="">wednesday, 9:00 pm</h6>
                 </div>
 

@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import "./nav.css";
 import "bootstrap";
 import { useState } from "react";

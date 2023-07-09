@@ -2,7 +2,8 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 
 import { useState } from "react";
-import Postedcomment from "../postedComment";
+import Postedcomment from "./postedComment";
+import "./postedcomment.css"
 
 const Comment = () => {
   const [comment, setComment] = useState("");
@@ -38,16 +39,14 @@ const Comment = () => {
 
     setComment("");
   };
-
- 
   return (
     <div className="container my-3">
       <div className="row">
-        <div className="col-lg-6">
-          <div style={{ height: "10rem" }} className="container-fluid border border-solid-primary">
+        <div className="col-xlg-6  ">
+          <div style={{ height: "10rem",border:"2px solid #07303c" }} className="container-fluid  commentshadow">
             <div className="container-fluid d-flex gap-6 my-3">
               <div>
-                <img style={{ width: "4rem", height: "4rem", borderRadius: "50%" }} className="img-fluid " src="../images/edu2.jpg" alt="oo" />
+                <img style={{ width: "4rem", height: "4rem", borderRadius: "50%" }} className="img-fluid " src="../images/edu.jpg" alt="oo" />
               </div>
               <textarea
                 style={{ border: "none", width: "80%" }}

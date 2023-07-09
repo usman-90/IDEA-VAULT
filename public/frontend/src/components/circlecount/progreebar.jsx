@@ -15,7 +15,7 @@ const CircularProgress = ({ size, progress, totalCount }) => {
   return (
     <svg width={size} height={size}>
       <circle
-        stroke="#00FF00"
+        stroke="#07393c"
         strokeWidth={strokeWidth}
         fill="transparent"
         r={radius}
@@ -23,7 +23,7 @@ const CircularProgress = ({ size, progress, totalCount }) => {
         cy={size / 2}
       />
       <circle
-        stroke="#00FF00"
+        stroke="#07393c"
         strokeWidth={strokeWidth}
         strokeLinecap="round"
         fill="transparent"
@@ -41,12 +41,12 @@ const CircularProgress = ({ size, progress, totalCount }) => {
         y="50%"
         dominantBaseline="middle"
         textAnchor="middle"
-        fontSize="40"
+        fontSize="35"
         fontWeight="bold"
-        fill="#00046c"
+        fill="#07393c"
         className="font-italic "
       >
-        {progress}+
+        {progress}$
       </text>
     </svg>
   );
@@ -78,7 +78,7 @@ const MyCircularProgress = ({ totalCount }) => {
 
   return (
     <div ref={progressRef}>
-      <CircularProgress size={160} progress={progress} totalCount={totalCount} />
+      <CircularProgress size={120} progress={progress} totalCount={totalCount} />
     </div>
   );
 };

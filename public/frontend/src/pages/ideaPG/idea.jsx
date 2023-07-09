@@ -1,4 +1,4 @@
-import Details from "./details";
+import Details from "../ideaPG/details";
 import DetailNav from "./detailNav";
 
 const Idea = ({
@@ -22,6 +22,7 @@ const Idea = ({
         teamMembers={teamMembers}
       />
       <DetailNav />
+      
     </>
   );
 };
