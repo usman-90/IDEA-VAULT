@@ -28,7 +28,7 @@ const Idea = ({
         funding={funding}
         teamMembers={teamMembers}
       />
-      <DetailNav changeSection={handleSectionChange} />
+      <DetailNav currSection={currSection} changeSection={handleSectionChange} />
       <Comment currSection={currSection} />
 
       <Description currSection={currSection} />
