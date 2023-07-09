@@ -1,33 +1,59 @@
-import Comment from "../ideaPG/comment";
-import Description from "./description";
-import "./postedcomment.css"
+import "./postedcomment.css";
 
-const DetailNav = () => {
+const DetailNav = ({ changeSection }) => {
   return (
     <>
       <div className="container">
-        <nav style={{backgroundColor:"#07393c",color:"white"}} className="navbar navbar-expand-lg ">
+        <nav
+          style={{ backgroundColor: "#07393c", color: "white" }}
+          className="navbar navbar-expand-lg "
+        >
           <div className="container-fluid">
             <div className="navbar-nav detailnav">
-              <a style={{color:"white"}} className="nav-link active" aria-current="page" href="/">
+              <button
+                style={{ color: "white" }}
+                onClick={() => {
+                  changeSection("description");
+                }}
+                className="nav-link active"
+                aria-current="page"
+              >
                 Description
-              </a>
-              <a style={{color:"white"}}  className="nav-link" href="/">
+              </button>
+              <button
+                style={{ color: "white" }}
+                onClick={() => {
+                  changeSection("faqs");
+                }}
+                className="nav-link"
+                href="/"
+              >
                 FAQs
-              </a>
-              <a style={{color:"white"}}  className="nav-link" href="/">
+              </button>
+              <button
+                style={{ color: "white" }}
+                onClick={() => {
+                  changeSection("updates");
+                }}
+                className="nav-link"
+                href="/"
+              >
                 Updates
-              </a>
-              <a style={{color:"white"}} className="nav-link" href="/">
+              </button>
+              <button
+                style={{ color: "white" }}
+                onClick={() => {
+                  changeSection("comment");
+                }}
+                className="nav-link"
+                href="/"
+              >
                 Comment
-              </a>
+              </button>
             </div>
           </div>
         </nav>
       </div>
-      <Comment />
-      <Description/>
-
     </>
   );
 };

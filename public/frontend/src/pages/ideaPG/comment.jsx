@@ -5,7 +5,7 @@ import { useState } from "react";
 import Postedcomment from "./postedComment";
 import "./postedcomment.css"
 
-const Comment = () => {
+const Comment = ({currSection}) => {
   const [comment, setComment] = useState("");
  
   const handleChange = (e) => {
@@ -40,7 +40,7 @@ const Comment = () => {
     setComment("");
   };
   return (
-    <div className="container my-3">
+    <div className={`${(currSection == "comment" ? "d-block" : "d-none") } container my-3`}>
       <div className="row">
         <div className="col-xlg-6  ">
           <div style={{ height: "10rem",border:"2px solid #07303c" }} className="container-fluid  commentshadow">

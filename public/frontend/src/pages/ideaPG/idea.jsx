@@ -1,6 +1,9 @@
 import Details from "../ideaPG/details";
 import DetailNav from "./detailNav";
-
+import Comment from "./comment";
+import Description from "./description";
+import Update from "./update";
+import { useState } from "react";
 const Idea = ({
   title,
   description,
@@ -10,6 +13,10 @@ const Idea = ({
   funding,
   teamMembers,
 }) => {
+  const [currSection, setcurrSection] = useState("description");
+  const handleSectionChange = (section) => {
+    setcurrSection(section);
+  };
   return (
     <>
       <Details
@@ -21,8 +28,11 @@ const Idea = ({
         funding={funding}
         teamMembers={teamMembers}
       />
-      <DetailNav />
-      
+      <DetailNav changeSection={handleSectionChange} />
+      <Comment currSection={currSection} />
+
+      <Description currSection={currSection} />
+      <Update currSection={currSection} />
     </>
   );
 };
