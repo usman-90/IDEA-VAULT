@@ -1,6 +1,6 @@
 import "./postedcomment.css";
 
-const DetailNav = ({ changeSection }) => {
+const DetailNav = ({ changeSection, currSection }) => {
   return (
     <>
       <div className="container">
@@ -15,7 +15,9 @@ const DetailNav = ({ changeSection }) => {
                 onClick={() => {
                   changeSection("description");
                 }}
-                className="nav-link active"
+                className={`${
+                  currSection == "description" ? "fw-bold" : ""
+                } nav-link`}
                 aria-current="page"
               >
                 Description
@@ -25,8 +27,9 @@ const DetailNav = ({ changeSection }) => {
                 onClick={() => {
                   changeSection("faqs");
                 }}
-                className="nav-link"
-                href="/"
+                className={`${
+                  currSection == "faqs" ? "fw-bold" : ""
+                }  nav-link`}
               >
                 FAQs
               </button>
@@ -35,8 +38,9 @@ const DetailNav = ({ changeSection }) => {
                 onClick={() => {
                   changeSection("updates");
                 }}
-                className="nav-link"
-                href="/"
+                className={`${
+                  currSection == "updates" ? "fw-bold" : ""
+                }  nav-link`}
               >
                 Updates
               </button>
@@ -45,8 +49,9 @@ const DetailNav = ({ changeSection }) => {
                 onClick={() => {
                   changeSection("comment");
                 }}
-                className="nav-link"
-                href="/"
+                className={`${
+                  currSection == "comment" ? "fw-bold" : ""
+                }  nav-link`}
               >
                 Comment
               </button>
