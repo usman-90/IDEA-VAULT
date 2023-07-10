@@ -86,11 +86,9 @@
 		height: max-content !important;
 	}
 	.right_nav_u{
-		background-color: rgb(54, 53, 53);
+		padding-top: 5rem;
 	}
-	.left_nav_u{
-	background-color: rgb(112, 111, 111);
-}
+
 .right_nav_content{
 	margin:1rem 2rem;
 	height: max-content;

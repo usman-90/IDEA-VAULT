@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-sm-4 col-md-3 items">
-              <h3 style={{color:"#0a090c",fontSize:"2rem",fontWeight:"3rem"}}> IDEA VAULT</h3>
+              <h3 style={{fontSize:"2rem",fontWeight:"3rem"}} className="f-caprasimo text-white"> IDEA <span className="text-mustard f-caprasimo">VAULT</span></h3>
               <ul>
                 
               <li  style={{fontSize:"1rem",color:"white",fontWeight:"4rem"}}> <a href="/">Your Idea Oasis - Idea Vault</a></li>
