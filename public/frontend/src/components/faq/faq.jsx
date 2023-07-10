@@ -66,12 +66,12 @@ const FaqSection = () => {
           />
         </div>
 
-        <div className=" accordion my-2" id="accordionExample">
+        <div className=" accordion my-2 " id="accordionExample">
           {filteredFaqs.map((faq, index) => (
-            <div className="accordion-item my-2" key={index}>
+            <div className="accordion-item my-2 faqbox" key={index}>
               <h2 className="accordion-header">
                 <button
-                  className="accordion-button collapsed"
+                  className="accordion-button faqheaderbutton collapsed"
                   type="button"
                   data-bs-toggle="collapse"
                   data-bs-target={`#collapse${index}`}

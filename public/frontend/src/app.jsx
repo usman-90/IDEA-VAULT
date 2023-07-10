@@ -43,6 +43,8 @@ const App = () => {
                   funding={obj.funding}
                   teamMembers={obj.teamMembers}
                 />
+                
+                
               }
             />
             <Route path="/messages" element={<Chatbox />} />

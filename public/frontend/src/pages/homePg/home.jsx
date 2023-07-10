@@ -7,6 +7,7 @@ import SimpleSlider from "../../components/owlcarousel/owlcarousel.jsx";
 import Contact from "../../components/contactus/contact";
 import IdeaCard from "../../components/ideacard/ideacard";
 import ReviewCard from "../../components/reviewcard/reviewcard";
+import Banner from "../../components/banner/banner";
 
 const reviews = [
   {
@@ -73,6 +74,7 @@ const Home = () => {
           );
         })}
       </SimpleSlider>
+      <Banner/>
       <Contact />
       <SimpleSlider>
         <IdeaCard
