@@ -1,0 +1,35 @@
+/* faq.css */
+
+/* Add custom style for the accordion header question */
+.accordion-header {
+    background-color: white;
+  }
+  
+  /* Add custom style for the expanded accordion answer */
+  .accordion-body {
+    background: linear-gradient(to bottom, #4f7c82, #a9e9f9);
+  }
+  .glow-input{
+    box-shadow: 0 0 4px 4px #2c666e;
+  }
+  .glow-input:focus {
+  box-shadow: 0 0 5px 6px #2c666e;
+  outline: none;
+}
+.faqbox{
+  margin-top: 1.5rem !important;
+  margin-bottom: 1.5rem !important;
+  
+}
+.accordion-header{
+  border: 2px solid #2c666e;
+  
+}
+/* .accordion-header:hover{
+  box-shadow: 0 0 5px 3px #2c666e;
+
+} */
+.faqheaderbutton{
+  background-color: #2c666e;
+  color: white;
+}

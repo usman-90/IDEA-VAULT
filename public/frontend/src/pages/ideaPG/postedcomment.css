@@ -1,0 +1,13 @@
+@media (max-width: 450px){
+.commentheader{
+    flex-direction: column;
+}
+   }
+
+.detailnav button:hover{
+    cursor: pointer;
+    font-weight: bold;
+}
+.commentshadow:hover{
+    box-shadow:  0 0 5px 2px #07393c;
+}
