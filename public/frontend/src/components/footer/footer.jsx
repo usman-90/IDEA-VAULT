@@ -1,5 +1,6 @@
 import React from "react";
 import "./footer.css";
+import logo from '../../images/BULBLOGO.png'
 
 const Footer = () => {
   return (
@@ -13,7 +14,7 @@ const Footer = () => {
                 
               <li  style={{fontSize:"1rem",color:"white",fontWeight:"4rem"}}> <a href="/">Your Idea Oasis - Idea Vault</a></li>
 
-                <li><a href="/"><img style={{height:"7rem",width:"50%"}} src="../images/BULBLOGO.png" alt="" /></a></li>
+                <li><a href="/"><img style={{height:"7rem",width:"50%"}} src={logo} alt="" /></a></li>
               </ul>
             </div>
             <div className="col-sm-4 col-md-3 items">

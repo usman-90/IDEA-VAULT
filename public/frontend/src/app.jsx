@@ -12,6 +12,7 @@ import BasicInfoPage from "./pages/ideaform/basicinfo";
 import Content from "./pages/ideaform/content";
 import PosterInfo from "./pages/ideaform/posterinfo";
 import Settings from "./pages/ideaform/settings";
+import LoginPage from "./pages/loginPg/loginForm";
 
 const obj = {
   name: "rajja farhan",
@@ -43,16 +44,15 @@ const App = () => {
                   funding={obj.funding}
                   teamMembers={obj.teamMembers}
                 />
-                
-                
               }
             />
-            <Route path="/messages" element={<Chatbox />} />
+            <Route path="/inbox" element={<Chatbox />} />
             <Route path="/bulb" element={<BulbCanvas />} />
             <Route path="/basicinfo" element={<BasicInfoPage />} />
             <Route path="/contentinfo" element={<Content />} />
             <Route path="/posterinfo" element={<PosterInfo />} />
             <Route path="/settings" element={<Settings />} />
+            <Route path="/login" element={<LoginPage/>}/>
           </Routes>
         </Layout>
       </BrowserRouter>

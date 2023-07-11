@@ -5,7 +5,7 @@ import { useState } from "react";
 import Message from "./message.jsx";
 import { useRef, useEffect } from "react";
 import EmojiPicker from "emoji-picker-react";
-const ChatMid = ({ messages, currUser, isMobile }) => {
+const ChatMid = ({ messages, currUser, isMobile, setcurrSec }) => {
   const messageRef = useRef();
   const scrollToBottom = () => {
     messageRef.current.scrollTop = messageRef.current.scrollHeight;
@@ -18,18 +18,35 @@ const ChatMid = ({ messages, currUser, isMobile }) => {
   const [dropdownExpanded, setdropdownExpanded] = useState(false);
   return (
     <div
-      className={`${
-        isMobile && currUser ? "" : ""
-      } position-relative chatmain_u w-50 h-100 flex-grow-1 b-red`}
+      className={`  position-relative chatmain_u w-50 h-100 flex-grow-1 b-white`}
     >
-      <div className="py-custom w-100 h-12_5  d-flex align-items-center justify-content-between b-red">
+      <div className="py-custom w-100 h-12_5  d-flex align-items-center justify-content-between b-white">
         <div className="d-flex justify-content-start align-items-center mx-4">
+          {isMobile && (
+            <div>
+              <button
+                className="me-3 border-0 bg-light"
+                onClick={() => {
+                  setcurrSec("chats");
+                }}
+              >
+                <i className="fs-4 fa-solid fa-arrow-left"></i>
+              </button>
+            </div>
+          )}
           <img
             className="rounded-circle upimage"
             src={`${currUser.length != 0 ? `${currUser[0].img}` : ""}`}
             alt=""
           />
-          <div className="d-flex flex-column justify-content-center align-items-start  mx-4">
+
+          <div
+            onClick={() => {
+              setcurrSec("chatinfo");
+            }}
+            style={{ cursor: "pointer" }}
+            className="d-flex flex-column justify-content-center align-items-start  mx-4"
+          >
             <h4 className="d-inline-block m-0">
               {currUser.length == 1 ? `${currUser[0].name}` : ""}
             </h4>
@@ -87,11 +104,11 @@ const ChatMid = ({ messages, currUser, isMobile }) => {
       </div>
 
       <div className="messageinput h-12_5  w-100 position-absolute">
-        <div className="d-flex m-3  rounded-pill">
+        <div className="d-flex m-3  rounded-pill bg-midnight-green">
           <input
             placeholder="Type here..."
             type="text"
-            className="w-75"
+            className="w-75" 
             value={inputValue}
             onChange={(e) => {
               setinputValue(e.target.value);
@@ -99,7 +116,10 @@ const ChatMid = ({ messages, currUser, isMobile }) => {
           />
           <div className="d-flex">
             <div className="wrapper mx-2">
-              <input type="file" id="file-input" />
+              <input
+                type="file"
+                id="file-input"
+              />
               <label htmlFor="file-input">
                 <i className="fs-4 fa fa-paperclip fa-2x"></i>
                 <span></span>

@@ -123,6 +123,7 @@ const Chatbox = () => {
   const [openedChat, setopenedChat] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
   const [currUser, setcurrUser] = useState([]);
+  const [currSec, setcurrSec] = useState("chats");
   const handleheight = () => {
     setheight(window.innerHeight - chatcontRef.current.offsetTop - 10);
   };
@@ -134,7 +135,7 @@ const Chatbox = () => {
     };
   }, []);
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 500px)");
+    const mediaQuery = window.matchMedia("(max-width: 600px)");
 
     setIsMobile(mediaQuery.matches);
 
@@ -162,15 +163,26 @@ const Chatbox = () => {
   }, [openedChat]);
 
   return (
-    <div className="m-0 mx-3 p-0 chatcont_u d-flex " ref={chatcontRef}>
-      <ChatLeft
-        users={users}
-        setopenedChat={setopenedChat}
-        isMobile={isMobile}
-      />
-
-      <ChatMid messages={messages} currUser={currUser} isMobile={isMobile} />
-      <ChatRight currUser={currUser} />
+    <div className="m-0  p-0 chatcont_u d-flex " ref={chatcontRef}>
+      {(!isMobile || (isMobile && currSec == "chats")) && (
+        <ChatLeft
+          users={users}
+          setopenedChat={setopenedChat}
+          isMobile={isMobile}
+          setcurrSec={setcurrSec}
+        />
+      )}
+      {(!isMobile || (isMobile && currSec == "messages")) && (
+        <ChatMid
+          messages={messages}
+          currUser={currUser}
+          isMobile={isMobile}
+          setcurrSec={setcurrSec}
+        />
+      )}
+      {(!isMobile || (isMobile && currSec == "chatinfo")) && (
+        <ChatRight currUser={currUser} setcurrSec={setcurrSec} isMobile={isMobile}/>
+      )}
     </div>
   );
 };
