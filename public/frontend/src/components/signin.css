@@ -1,0 +1,669 @@
+
+.parent_z{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    width:100%;
+    margin-top: 70px;
+    gap:70px;
+}
+.img_z{
+    height:150px;
+    width:250px;
+}
+.logo_z{
+    text-align: center;
+    width:30%;
+}
+.h2_z{
+    font-size: 25px;
+    text-align: center;
+}
+.google_z{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height:7px;
+   
+}
+.login_z{
+    border:1px solid black;
+    width:25%;
+    text-align: center;
+    height: 660px;
+    
+}
+.formpic_z{
+    float: left;
+    height:25px;
+    width:35px;
+}
+.cred_z{
+    width: 70%;
+    height:7%;
+    border: 1px solid grey;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: rgb(234, 232, 232);
+    padding-left: 6px;
+}
+.or_z{
+    text-decoration: wavy;
+    font-size: 20px;
+}
+.head_z{
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: normal;
+    color:rgb(13, 82, 13);
+    height:55px;
+}
+.btn_z{
+    width: 70%;
+    height:7%;
+    background-color: rgb(33, 100, 78);
+    color:white;
+    border-radius: 5px;
+    font-size: 20px;
+}
+.link_z{
+font-size:14px;
+text-decoration: none;
+}
+.signup1_z{
+color:rgb(31, 92, 71);
+font-weight: bold;
+}
+.signup_z{
+font-size: 23px;
+
+}
+#forgot_z{
+font-size: 18px;
+}
+.logvideo_z{
+    border: 1px dotted black; 
+}
+.phone-container_z{
+  position: relative;
+  width: 350px; 
+  height: auto;
+}
+.phone-image_z {
+  width: 150%;
+  height: 750px; 
+}
+
+.video-overlay_z {
+  position: absolute;
+  top: 0px; 
+  left: 37px; 
+  width: 90%; 
+  height: 586px;
+  pointer-events: none; 
+}
+.logwithgoogle_z{
+    display: inline;
+    font-size: 20px;
+}
+@media screen and (min-width:585px) and (max-width:768px){
+    .parent_z{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    width:100%;
+    margin-top: 70px;
+    gap:20px;
+}
+.img_z{
+    height:150px;
+    width:250px;
+}
+.logo_z{
+    text-align: center;
+    width:30%;
+}
+.h2_z{
+    font-size: 25px;
+    text-align: center;
+}
+.google_z{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height:7px;
+   
+}
+.login_z{
+    border:1px solid black;
+    width:45%;
+    text-align: center;
+    height: 460px;
+    
+}
+.formpic_z{
+    float: left;
+    height:25px;
+    width:35px;
+}
+.cred_z{
+    width: 70%;
+    height:5%;
+    border: 1px solid grey;
+    border-radius: 5px;
+    font-size: 11px;
+    background-color: rgb(234, 232, 232);
+    padding-left: 6px;
+}
+.or_z{
+    text-decoration: wavy;
+    font-size: 17px;
+}
+.head_z{
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: normal;
+    color:rgb(13, 82, 13);
+    height:20px;
+}
+.btn_z{
+    width: 73%;
+    height:5%;
+    background-color: rgb(33, 100, 78);
+    color:white;
+    border-radius: 5px;
+    font-size: 16px;
+}
+.link_z{
+font-size:11px;
+text-decoration: none;
+}
+.signup1_z{
+color:rgb(31, 92, 71);
+font-weight: bold;
+}
+.signup_z{
+font-size: 16px;
+
+}
+#forgot_z{
+font-size: 16px;
+}
+.logvideo_z{
+    border: 1px dotted black; 
+}
+.phone-container_z{
+  position: relative;
+  width: 350px; 
+  height: auto;
+}
+.phone-image_z{
+  width: 120%;
+  height: 550px; 
+}
+
+.video-overlay_z {
+  position: absolute;
+  top: 0px; 
+  left: 37px; 
+  width: 68%; 
+  height: 490px;
+  pointer-events: none; 
+}
+.logwithgoogle_z{
+    font-size: 16px;
+}
+
+}
+
+
+
+
+@media screen and (min-width:425px) and (max-width:482px){
+    .parent_z{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    width:100%;
+    margin-top: 70px;
+    gap:9px;
+}
+.img_z{
+    height:150px;
+    width:250px;
+}
+
+.h2_z{
+    font-size: 25px;
+    text-align: center;
+}
+.google_z{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height:0px;
+   
+}
+.login_z{
+    border:1px solid black;
+    width:57%;
+    text-align: center;
+    height: 460px;
+    
+}
+.formpic_z{
+    float: left;
+    height:19px;
+    width:25px;
+}
+.cred_z{
+    width: 80%;
+    height:5%;
+    border: 1px solid grey;
+    border-radius: 5px;
+    font-size: 10px;
+    background-color: rgb(234, 232, 232);
+    padding-left: 6px;
+}
+.or_z{
+    text-decoration: wavy;
+    font-size: 15px;
+}
+.head_z{
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: normal;
+    color:rgb(13, 82, 13);
+    height:17px;
+}
+.btn_z{
+    width: 82%;
+    height:5%;
+    background-color: rgb(33, 100, 78);
+    color:white;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.link_z{
+font-size:10px;
+text-decoration: none;
+
+}
+.logwithgoogle_z{
+display: inline;
+font-size:14px ;
+}
+
+.signup1_z{
+color:rgb(31, 92, 71);
+font-weight: bold;
+}
+.signup_z{
+font-size: 14px;
+
+}
+#forgot_z{
+font-size: 14px;
+}
+.logvideo_z{
+    border: 1px dotted black; 
+}
+.phone-container_z{
+  position: relative;
+  width: 188px; 
+  height: auto;
+  margin: auto;
+}
+.phone-image_z{
+  width: 127%;
+  height: 352px; 
+}
+
+.video-overlay_z {
+  position: absolute;
+  top: 0px; 
+  left: 19px; 
+  width: 72%; 
+  height: 297px;
+  pointer-events: none; 
+}
+
+}
+
+
+@media screen and (min-width:481px) and (max-width:586px){
+
+    .img_z{
+        height:150px;
+        width:250px;
+    }
+        
+    .h2_z{
+        font-size: 25px;
+        text-align: center;
+    }
+    .google_z{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        height:0px;
+    
+    }
+    .login_z{
+        border:1px solid black;
+        width:57%;
+        text-align: center;
+        height: 460px;            
+    }
+    .formpic_z{
+        float: left;
+        height:19px;
+        width:25px;
+    }
+    .cred_z{
+        width: 80%;
+        height:5%;
+        border: 1px solid grey;
+        border-radius: 5px;
+        font-size: 10px;
+        background-color: rgb(234, 232, 232);
+        padding-left: 6px;
+    }
+    .or_z{
+        text-decoration: wavy;
+        font-size: 15px;
+    }
+    .head_z{
+        justify-content: center;
+        align-items: center;
+        font-size: 18px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-weight: normal;
+        color:rgb(13, 82, 13);
+        height:17px;
+    }
+    .btn_z{
+        width: 82%;
+        height:5%;
+        background-color: rgb(33, 100, 78);
+        color:white;
+        border-radius: 5px;
+        font-size: 14px;
+        }
+    .link_z{
+        font-size:10px;
+        text-decoration: none;
+        
+    }
+    .logwithgoogle_z{
+        display: inline;
+        font-size: 14px;
+    }
+    
+    .signup1_z{
+        color:rgb(31, 92, 71);
+        font-weight: bold;
+    }
+    .signup_z{
+        font-size: 14px;
+        
+    }
+    #forgot_z{
+        font-size: 14px;
+    }
+    .logvideo_z{
+            border: 1px dotted black; 
+    }
+    
+    .parent_z{
+        display:flex;
+        flex-direction: row;
+        justify-content: center;
+        width:100%;
+        margin-top: 70px;
+        gap:30px;
+    }
+    .phone-container_z{
+        position: relative;
+        width: 188px; 
+        height: auto;
+        margin: auto;
+    }
+    .phone-image_z{
+        width: 144%;
+        height: 407px; 
+    }
+
+    .video-overlay_z {
+        position: absolute;
+        top: 0px; 
+        left: 21px;
+        width: 84%;
+        height: 332px
+    
+    }
+
+}
+@media screen and (min-width:481px) and (max-width:586px){
+    .img_z{
+        height:150px;
+        width:250px;
+    }
+        
+    .h2_z{
+        font-size: 25px;
+        text-align: center;
+    }
+    .google_z{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        height:0px;
+    
+    }
+    .login_z{
+        border:1px solid black;
+        width:57%;
+        text-align: center;
+        height: 460px;            
+    }
+    .formpic_z{
+        float: left;
+        height:19px;
+        width:25px;
+    }
+    .cred_z{
+        width: 80%;
+        height:5%;
+        border: 1px solid grey;
+        border-radius: 5px;
+        font-size: 10px;
+        background-color: rgb(234, 232, 232);
+        padding-left: 6px;
+    }
+    .or_z{
+        text-decoration: wavy;
+        font-size: 15px;
+    }
+    .head_z{
+        justify-content: center;
+        align-items: center;
+        font-size: 18px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-weight: normal;
+        color:rgb(13, 82, 13);
+        height:17px;
+    }
+    .btn_z{
+        width: 82%;
+        height:5%;
+        background-color: rgb(33, 100, 78);
+        color:white;
+        border-radius: 5px;
+        font-size: 14px;
+        }
+    .link_z{
+        font-size:10px;
+        text-decoration: none;
+        
+    }
+    h2{
+        display: inline;
+    }
+    
+    .signup1_z{
+        color:rgb(31, 92, 71);
+        font-weight: bold;
+    }
+    .signup_z{
+        font-size: 14px;
+        
+    }
+    #forgot_z{
+        font-size: 14px;
+    }
+    .logvideo_z{
+            border: 1px dotted black; 
+    }
+    
+    .parent_z{
+        display:flex;
+        flex-direction: row;
+        justify-content: center;
+        width:100%;
+        margin-top: 70px;
+        gap:30px;
+    }
+    .phone-container_z{
+        position: relative;
+        width: 188px; 
+        height: auto;
+        margin: auto;
+    }
+    .phone-image_z{
+        width: 144%;
+        height: 407px; 
+    }
+
+    .video-overlay_z {
+        position: absolute;
+        top: 0px; 
+        left: 21px;
+        width: 84%;
+        height: 332px
+    
+    }
+
+}
+@media screen and (max-width:420px){
+    .img_z{
+        height:150px;
+        width:250px;
+    }
+        
+    .h2_z{
+        font-size: 25px;
+        text-align: center;
+    }
+    .google_z{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        height:0px;
+    
+    }
+    .login_z{
+        border:1px solid black;
+        width:85%;
+        text-align: center;
+        height: 460px;            
+    }
+    .formpic_z{
+        float: left;
+        height:19px;
+        width:25px;
+    }
+    .cred_z{
+        width: 80%;
+        height:5%;
+        border: 1px solid grey;
+        border-radius: 5px;
+        font-size: 10px;
+        background-color: rgb(234, 232, 232);
+        padding-left: 6px;
+    }
+    .or_z{
+        text-decoration: wavy;
+        font-size: 15px;
+    }
+    .head_z{
+        justify-content: center;
+        align-items: center;
+        font-size: 18px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-weight: normal;
+        color:rgb(13, 82, 13);
+        height:17px;
+    }
+    .btn_z{
+        width: 82%;
+        height:5%;
+        background-color: rgb(33, 100, 78);
+        color:white;
+        border-radius: 5px;
+        font-size: 14px;
+        }
+    .link_z{
+        font-size:10px;
+        text-decoration: none;
+        
+    }
+    h2{
+        display: inline;
+    }
+    
+    .signup1_z{
+        color:rgb(31, 92, 71);
+        font-weight: bold;
+    }
+    .signup_z{
+        font-size: 14px;
+        
+    }
+    #forgot_z{
+        font-size: 14px;
+    }
+    .logvideo_z{
+            border: 1px dotted black; 
+    }
+    
+    .parent_z{
+        justify-content: center;
+        width:100%;
+        margin-top: 70px;
+        gap:0px;
+    }
+    .phone-container_z{
+        position: relative;
+        width: 0px; 
+        height: 0;
+        margin: 0;
+    }
+    .phone-image_z {
+        width: 0px;
+        height: 0px; 
+    }
+
+}
