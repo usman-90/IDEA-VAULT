@@ -1,3 +1,12 @@
+import React from "react";
+import { createRoot } from "react-dom/client";
+import SignIn from "./components/signin";
+import Term from "./components/terms";
+import MyCarousel from "./components/carousel";
+import IdeaPoster from "./components/ideaposter";
+import YourIdeas from "./components/yourideas";
+import SignUp from "./components/signup";
+
 /* eslint-disable import/no-unresolved */
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./style/app.css";
