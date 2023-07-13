@@ -1,3 +1,4 @@
+<<<<<<< HEAD:public/frontend/src/pages/terms-conditions/terms.jsx
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './terms.css';
 import { ReactDOM } from 'react';
@@ -48,5 +49,18 @@ const Term=()=> {
                 
         </div>
     );
+=======
+import "./terms.css";
+import NavbarTerms from "./navbar/navbar3";
+
+const Term = () => {
+  return (
+    <div className="w-100 ">
+    <NavbarTerms />
+
+      <div id="content"></div>
+    </div>
+  );
+>>>>>>> e4be1ca9d74ab34e5e38a758f5be4d445cd0cea0:public/frontend/src/components/terms.jsx
 };
 export default Term;
