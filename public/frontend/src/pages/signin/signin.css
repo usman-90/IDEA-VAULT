@@ -7,6 +7,10 @@
     margin-top: 70px;
     gap:70px;
 }
+.signinform_z{
+    height:200px;
+    align-items: center;
+}
 .img_z{
     height:150px;
     width:250px;
@@ -27,6 +31,7 @@
     height:7px;
    
 }
+
 .login_z{
     border:1px solid black;
     width:25%;
@@ -41,7 +46,7 @@
 }
 .cred_z{
     width: 70%;
-    height:7%;
+    height:38px;
     border: 1px solid grey;
     border-radius: 5px;
     font-size: 16px;
@@ -63,7 +68,7 @@
 }
 .btn_z{
     width: 70%;
-    height:7%;
+    height:47px;
     background-color: rgb(33, 100, 78);
     color:white;
     border-radius: 5px;
@@ -78,11 +83,11 @@ color:rgb(31, 92, 71);
 font-weight: bold;
 }
 .signup_z{
-font-size: 23px;
+font-size: 20px;
 
 }
 #forgot_z{
-font-size: 18px;
+font-size: 20px;
 }
 .logvideo_z{
     border: 1px dotted black; 
@@ -110,6 +115,12 @@ font-size: 18px;
     font-size: 20px;
 }
 @media screen and (min-width:585px) and (max-width:768px){
+    .signinform_z{
+        height:150px;
+    }
+    .signup1_{
+        font-size: 17px;
+    }
     .parent_z{
     display:flex;
     flex-direction: row;
@@ -152,7 +163,7 @@ font-size: 18px;
 }
 .cred_z{
     width: 70%;
-    height:5%;
+    height:32px;
     border: 1px solid grey;
     border-radius: 5px;
     font-size: 11px;
@@ -161,12 +172,12 @@ font-size: 18px;
 }
 .or_z{
     text-decoration: wavy;
-    font-size: 17px;
+    font-size: 12px;
 }
 .head_z{
     justify-content: center;
     align-items: center;
-    font-size: 20px;
+    font-size: 18px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: normal;
     color:rgb(13, 82, 13);
@@ -174,7 +185,7 @@ font-size: 18px;
 }
 .btn_z{
     width: 73%;
-    height:5%;
+    height:30px;
     background-color: rgb(33, 100, 78);
     color:white;
     border-radius: 5px;
@@ -189,11 +200,11 @@ color:rgb(31, 92, 71);
 font-weight: bold;
 }
 .signup_z{
-font-size: 16px;
+font-size: 14px;
 
 }
 #forgot_z{
-font-size: 16px;
+font-size: 14px;
 }
 .logvideo_z{
     border: 1px dotted black; 
@@ -226,6 +237,12 @@ font-size: 16px;
 
 
 @media screen and (min-width:425px) and (max-width:482px){
+    .signinform_z{
+        height:120px;
+    }
+    .signup1_{
+        font-size: 14px;
+    }
     .parent_z{
     display:flex;
     flex-direction: row;
@@ -265,7 +282,7 @@ font-size: 16px;
 }
 .cred_z{
     width: 80%;
-    height:5%;
+    height:29px;
     border: 1px solid grey;
     border-radius: 5px;
     font-size: 10px;
@@ -287,7 +304,7 @@ font-size: 16px;
 }
 .btn_z{
     width: 82%;
-    height:5%;
+    height:29px;
     background-color: rgb(33, 100, 78);
     color:white;
     border-radius: 5px;
@@ -341,6 +358,9 @@ font-size: 14px;
 
 
 @media screen and (min-width:481px) and (max-width:586px){
+    .signinform_z{
+        height:127px;
+    }
 
     .img_z{
         height:150px;
@@ -372,7 +392,7 @@ font-size: 14px;
     }
     .cred_z{
         width: 80%;
-        height:5%;
+        height:32px;
         border: 1px solid grey;
         border-radius: 5px;
         font-size: 10px;
@@ -394,16 +414,19 @@ font-size: 14px;
     }
     .btn_z{
         width: 82%;
-        height:5%;
+        height:30px;
         background-color: rgb(33, 100, 78);
         color:white;
         border-radius: 5px;
         font-size: 14px;
-        }
+    }
     .link_z{
         font-size:10px;
         text-decoration: none;
         
+    }
+    .signup1_{
+        font-size: 16px;
     }
     .logwithgoogle_z{
         display: inline;
@@ -454,119 +477,11 @@ font-size: 14px;
     }
 
 }
-@media screen and (min-width:481px) and (max-width:586px){
-    .img_z{
-        height:150px;
-        width:250px;
-    }
-        
-    .h2_z{
-        font-size: 25px;
-        text-align: center;
-    }
-    .google_z{
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        height:0px;
-    
-    }
-    .login_z{
-        border:1px solid black;
-        width:57%;
-        text-align: center;
-        height: 460px;            
-    }
-    .formpic_z{
-        float: left;
-        height:19px;
-        width:25px;
-    }
-    .cred_z{
-        width: 80%;
-        height:5%;
-        border: 1px solid grey;
-        border-radius: 5px;
-        font-size: 10px;
-        background-color: rgb(234, 232, 232);
-        padding-left: 6px;
-    }
-    .or_z{
-        text-decoration: wavy;
-        font-size: 15px;
-    }
-    .head_z{
-        justify-content: center;
-        align-items: center;
-        font-size: 18px;
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        font-weight: normal;
-        color:rgb(13, 82, 13);
-        height:17px;
-    }
-    .btn_z{
-        width: 82%;
-        height:5%;
-        background-color: rgb(33, 100, 78);
-        color:white;
-        border-radius: 5px;
-        font-size: 14px;
-        }
-    .link_z{
-        font-size:10px;
-        text-decoration: none;
-        
-    }
-    h2{
-        display: inline;
-    }
-    
-    .signup1_z{
-        color:rgb(31, 92, 71);
-        font-weight: bold;
-    }
-    .signup_z{
-        font-size: 14px;
-        
-    }
-    #forgot_z{
-        font-size: 14px;
-    }
-    .logvideo_z{
-            border: 1px dotted black; 
-    }
-    
-    .parent_z{
-        display:flex;
-        flex-direction: row;
-        justify-content: center;
-        width:100%;
-        margin-top: 70px;
-        gap:30px;
-    }
-    .phone-container_z{
-        position: relative;
-        width: 188px; 
-        height: auto;
-        margin: auto;
-    }
-    .phone-image_z{
-        width: 144%;
-        height: 407px; 
-    }
 
-    .video-overlay_z {
-        position: absolute;
-        top: 0px; 
-        left: 21px;
-        width: 84%;
-        height: 332px
-    
-    }
-
-}
 @media screen and (max-width:420px){
+    .signinform_z{
+        height:125px;
+    }
     .img_z{
         height:150px;
         width:250px;
@@ -597,7 +512,7 @@ font-size: 14px;
     }
     .cred_z{
         width: 80%;
-        height:5%;
+        height:26px;
         border: 1px solid grey;
         border-radius: 5px;
         font-size: 10px;
@@ -617,9 +532,12 @@ font-size: 14px;
         color:rgb(13, 82, 13);
         height:17px;
     }
+    .signup1_{
+        font-size: 15px;
+    }
     .btn_z{
         width: 82%;
-        height:5%;
+        height:25px;
         background-color: rgb(33, 100, 78);
         color:white;
         border-radius: 5px;

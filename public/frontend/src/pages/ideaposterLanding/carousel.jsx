@@ -1,5 +1,5 @@
 import { Carousel } from "react-bootstrap";
-import '../components/ideaposter.css';
+import './ideaposter.css';
 
 const MyCarousel=()=>{
     return(

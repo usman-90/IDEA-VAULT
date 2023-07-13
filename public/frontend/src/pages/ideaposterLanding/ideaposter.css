@@ -41,12 +41,12 @@ a{
     flex-direction: column;
     gap:50px;
 }
-.container{
+.idea1_z{
     display: flex;
     flex-direction: row;
     gap:50px;
 }
-.container-fluid{
+.shareideas_z{
     display: flex;
     flex-direction: column;
     gap:30px;
@@ -123,12 +123,12 @@ button:hover{
         width:738px;
     }
 
-    .container{
+    .idea1_z{
         display: flex;
         flex-direction: row;
         gap:50px;
     }
-    .container-fluid{
+    .shareideas_z{
         display: flex;
         flex-direction: column;
         gap:30px;
@@ -186,12 +186,12 @@ button:hover{
         box-shadow: 1px 1px 5px 3px grey;
         width:180%;
     }
-    .container{
+    .idea1_z{
         display: flex;
         flex-direction: row;
         gap:50px;
     }
-    .container-fluid{
+    .shareideas_z{
         display: flex;
         flex-direction: column;
         gap:30px;
@@ -267,12 +267,12 @@ button:hover{
         flex-direction: column;
         gap:50px;
     }
-    .container{
+    .idea1_z{
         display: flex;
         flex-direction: row;
         gap:50px;
     }
-    .container-fluid{
+    .shareideas_z{
         display: flex;
         flex-direction: column;
         gap:30px;

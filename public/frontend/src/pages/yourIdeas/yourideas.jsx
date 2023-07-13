@@ -1,11 +1,9 @@
-import MyCarousel from "./carousel";
-import "../components/yourideas.css";
-import CardComponent from "./card";
-import MyNavbar from "./navbar";
+import "./yourideas.css";
+import MyNavbar from "../../components/navbar/navbar";
 
 const YourIdeas=()=>{
     return(
-        <div className="container-fluid">
+        <div className="container-fluid_z">
             <div className="navidea_z">
                 <MyNavbar/>
             </div>
@@ -14,7 +12,6 @@ const YourIdeas=()=>{
             </div>
             <div className="container">
                 <div className="cardidea_z">
-                    <CardComponent/>
                 </div>
             </div>
             

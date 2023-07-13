@@ -1,11 +1,11 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import SignIn from "./components/signin";
-import Term from "./components/terms";
-import MyCarousel from "./components/carousel";
-import IdeaPoster from "./components/ideaposter";
-import YourIdeas from "./components/yourideas";
-import SignUp from "./components/signup";
+import SignIn from "./pages/signin/signin";
+import Term from "./pages/terms-conditions/terms";
+import MyCarousel from "./pages/ideaposterLanding/carousel";
+import IdeaPoster from "./pages/ideaposterLanding/ideaposter";
+import YourIdeas from "./pages/yourIdeas/yourideas";
+import SignUp from "./pages/signup/signup";
 
 /* eslint-disable import/no-unresolved */
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -36,7 +36,7 @@ const obj = {
 const App = () => {
   return (
     <>
-      <BrowserRouter>
+      {/* <BrowserRouter>
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -64,7 +64,8 @@ const App = () => {
             <Route path="/settings" element={<Settings />} />
           </Routes>
         </Layout>
-      </BrowserRouter>
+      </BrowserRouter> */}
+      <SignUp/>
     </>
   );
 };

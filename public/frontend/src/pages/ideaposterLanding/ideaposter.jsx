@@ -1,13 +1,13 @@
-import MyNavbar from "./navbar";
-import "../components/ideaposter.css";
+import MyNavbar from "../../components/navbar/navbar.jsx";
+import "./ideaposter.css";
 import { ReactDOM } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import MyCarousel from "./carousel";
-import YourIdeas from "./yourideas";
+import MyCarousel from "./carousel.jsx";
+import YourIdeas from "../yourIdeas/yourideas.jsx";
 const IdeaPoster=()=>{
     return(
         <div className="full_z">
-            <div className="container-fluid">
+            <div className="container-fluid shareideas_z">
                 <div className="navideaposter_z">
                     <Router>
                         <div className="abc_z">
@@ -23,7 +23,7 @@ const IdeaPoster=()=>{
                     <MyCarousel/>
                 </div>
             </div>
-            <div className="container">
+            <div className="container idea1_z">
                 <div className="body_z">
                     <div className="filter_z">
                         <span style={{fontSize:20}}><b>Filter results </b></span> <br/> 

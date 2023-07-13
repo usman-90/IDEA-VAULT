@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../components/terms.css';
+import './terms.css';
 import { ReactDOM } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Condition from  './condition';
@@ -9,12 +9,12 @@ import User from './userguide';
 const Term=()=> {
 
     return(
-        <div className="container">
+        <div className="container_zz">
             <Router>
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                     <div className='top_z'>
                         
-                        <div className='img-fluid'>
+                        <div className='img-fluid_z'>
                             <img src="../images/logo.png" style={{width:100, height:72, backgroundColor:'transparent',float:"left"}}/>
                         </div>
                         <div className='nav1_z'>

@@ -33,11 +33,11 @@ const MyNavbar = () => {
       >
         <div className="nav_main_u nav_u">
           <div className="logo d-flex justify-content-center align-items-center">
-            <Link to={"/"}>
+            <Link to={"/"}> 
               <h1 className="text-white f-caprasimo fs-1">
                 Idea <span className="f-caprasimo text-mustard">Vault</span>
               </h1>
-            </Link>
+            </Link> 
           </div>
           <div className="toggler d-flex justify-content-center align-items-center">
             <button onClick={handleExpansion} className="text-light">
