@@ -1,6 +1,5 @@
 import React from "react";
-import NavbarTerms from "./navbar/navbar3";
-const Copyright = () => {
+import NavbarTerms from "../../components/navbar/navbar3";const Copyright = () => {
   return (
     <div>
       <NavbarTerms />

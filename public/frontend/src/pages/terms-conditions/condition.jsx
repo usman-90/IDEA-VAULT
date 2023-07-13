@@ -1,5 +1,4 @@
-import NavbarTerms from "./navbar/navbar3";
-
+import NavbarTerms from "../../components/navbar/navbar3";
 const Condition = () => {
   return (
     <div>

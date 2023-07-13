@@ -1,4 +1,4 @@
-import NavbarTerms from "./navbar/navbar3";
+import NavbarTerms from "../../components/navbar/navbar3";
 const Privacy = () => {
   return (
     <div>

@@ -21,14 +21,15 @@ import BasicInfoPage from "./pages/ideaform/basicinfo";
 import Content from "./pages/ideaform/content";
 import PosterInfo from "./pages/ideaform/posterinfo";
 import Settings from "./pages/ideaform/settings";
-import YourIdeas from "./components/yourideas";
-import Condition from "./components/condition";
-import Privacy from "./components/privacypolicy";
-import Copyright from "./components/copyright";
-import User from "./components/userguide";
-import SignUpForm from "./components/signup";
-import SignIn from "./components/signin";
-import Term from "./components/terms";
+import YourIdeas from "./pages/yourIdeas/yourideas";
+import Condition from "./pages/terms-conditions/condition";
+import Privacy from "./pages/terms-conditions/privacypolicy";
+import User from "./pages/terms-conditions/userguide";
+import Copyright from "./pages/terms-conditions/copyright";
+
+import SignUpForm from "./pages/signup/signup";
+import SignIn from "./pages/signin/signin";
+import Term from "./pages/terms-conditions/terms";
 
 const obj = {
   name: "rajja farhan",
@@ -44,7 +45,7 @@ const obj = {
 const App = () => {
   return (
     <>
-      {/* <BrowserRouter>
+      <BrowserRouter>
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -78,8 +79,8 @@ const App = () => {
             <Route path="/login" element={<SignIn />} />
           </Routes>
         </Layout>
-      </BrowserRouter> */}
-      <SignUp/>
+      </BrowserRouter> 
+      
     </>
   );
 };
