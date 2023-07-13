@@ -7,8 +7,8 @@ const NavbarTerms = () => {
         <div className="img-fluid">
           {/* <img src="../images/logo.png" style={{width:100, height:72, backgroundColor:'transparent',float:"left"}}/> */}
         </div>
-        <div className="nav1_z">
-          <ul className="nav">
+        <div className="nav11_z">
+          <ul className="navvv_z">
             <li className="nav-item scale_on_hover">
               <Link className="text-black " to="/condition">
                 Terms and conditions

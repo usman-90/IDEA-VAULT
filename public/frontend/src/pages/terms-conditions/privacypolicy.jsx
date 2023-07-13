@@ -5,7 +5,7 @@ const Privacy = () => {
       <NavbarTerms />
       <div className="container bg-white p-4 rounded mb-5">
         <h2> Privacy Policy: </h2>
-        <p>
+        <p style={{fontSize:20}}>
           <ul>
             <li>
               {" "}

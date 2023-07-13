@@ -6,7 +6,7 @@ const Condition = () => {
       <div id="condition_z" className=" mx-5 bg-white p-4 rounded mb-5">
         <h1>Idea Vaults Terms of Use</h1> <br />
         <h2>Introduction</h2> <br />
-        <p>
+        <p style={{fontSize:20}} >
           Please read these Terms of Use carefully as they govern your use of
           (which includes access to) Idea Vaults personalized services for
           posting ideas and viewing them. Use of the Idea Vault Service may be
@@ -18,7 +18,7 @@ const Condition = () => {
         </p>{" "}
         <br />
         <h2>Terms and Conditions:</h2> <br />
-        <p>
+        <p style={{fontSize:20}}>
           <ul>
             <li>
               <b>Acceptance of Terms:</b> By accessing and using our Idea Vault
