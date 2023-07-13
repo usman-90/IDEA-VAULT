@@ -1,11 +1,11 @@
-import React from "react";
-import { createRoot } from "react-dom/client";
-import SignIn from "./components/signin";
-import Term from "./components/terms";
-import MyCarousel from "./components/carousel";
-import IdeaPoster from "./components/ideaposter";
-import YourIdeas from "./components/yourideas";
-import SignUp from "./components/signup";
+// import React from "react";
+// import { createRoot } from "react-dom/client";
+// import SignIn from "./components/signin";
+// import Term from "./components/terms";
+// import MyCarousel from "./components/carousel";
+// import IdeaPoster from "./components/ideaposter";
+// import YourIdeas from "./components/yourideas";
+// import SignUp from "./components/signup";
 
 /* eslint-disable import/no-unresolved */
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -21,7 +21,14 @@ import BasicInfoPage from "./pages/ideaform/basicinfo";
 import Content from "./pages/ideaform/content";
 import PosterInfo from "./pages/ideaform/posterinfo";
 import Settings from "./pages/ideaform/settings";
-import LoginPage from "./pages/loginPg/loginForm";
+import YourIdeas from "./components/yourideas";
+import Condition from "./components/condition";
+import Privacy from "./components/privacypolicy";
+import Copyright from "./components/copyright";
+import User from "./components/userguide";
+import SignUpForm from "./components/signup";
+import SignIn from "./components/signin";
+import Term from "./components/terms";
 
 const obj = {
   name: "rajja farhan",
@@ -61,7 +68,14 @@ const App = () => {
             <Route path="/contentinfo" element={<Content />} />
             <Route path="/posterinfo" element={<PosterInfo />} />
             <Route path="/settings" element={<Settings />} />
-            <Route path="/login" element={<LoginPage/>}/>
+            <Route path="/ideasection" element={<YourIdeas />} />
+            <Route path="/condition" element={<Condition />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/copyright1" element={<Copyright />} />
+            <Route path="/userguide1" element={<User />} />
+            <Route path="/signup" element={<SignUpForm />} />
+            <Route path="/terms" element={<Term />} />
+            <Route path="/login" element={<SignIn />} />
           </Routes>
         </Layout>
       </BrowserRouter>
