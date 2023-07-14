@@ -4,7 +4,7 @@ const Heading = ({ text }) => {
       <h2
         style={{
           fontSize: "2.5rem",
-          fontWeight: 700,
+          fontWeight: 900,
           lineHeight: "1em",
           textTransform: "uppercase",
           marginTop: "3rem",

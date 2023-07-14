@@ -1,11 +1,11 @@
 import "./contact.css";
 const Contact = () => {
   return (
-    <section className="fifthsec my-5">
+    <section style={{backgroundColor:"#daeaf0"}} className="fifthsec py-5">
       <div className="container">
         <div className="row">
-          <div className="col-md-8 col-xl-8 col-xxl-8 col-lg-8">
-            <div className="rounded bg-light shadow d-flex justify-content-center flex-column b-1  my-3">
+          <div className="col-md-8 col-xl-8 col-xxl-8 col-lg-8 ">
+            <div className="rounded bg-light shadow d-flex justify-content-center flex-column b-1  my-3 form">
               <div className="contactbody d-flex flex-wrap justify-content-start align-items-start">
                 <div className="d-flex flex-column p-3 flex-wrap">
                   <label
@@ -44,8 +44,8 @@ const Contact = () => {
                 </div>
               </div>
               <button
-                style={{ margin: "1rem auto", width: "90%" }}
-                className="btn btn-outline-warning"
+                style={{ margin: "1rem auto", width: "90%" ,border:"2px solid #07393c" }}
+                className="btn-submit "
               >
                 Submit
               </button>
@@ -71,7 +71,7 @@ const Contact = () => {
                   </div>
                   <div className="py-3 d-flex justify-content-between align-items-center">
                     <i className="fs-2 color fa-regular fa-envelope"></i>
-                    <span className="fs-10 fw-bold m-1 w-100 px-3">
+                    <span className="fs-8 fw-bold m-1 w-100 px-3">
                       nomansiddiqui12424@gmail.com
                     </span>
                   </div>

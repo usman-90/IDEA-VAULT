@@ -50,6 +50,8 @@ const categories = [
 
 const Category = () => {
   return (
+    <div style={{backgroundColor:"#daeaf0",paddingBottom:"8rem"}} className="container-fluid">
+      
     <div className="container text-center">
       <div className="row">
         {categories.map((category) => {
@@ -60,6 +62,7 @@ const Category = () => {
               className="col-md-4   my-3"
             >
               <CategoryCard
+
                 categosryCardSrc={category.categoryCardSrc}
                 categoryDesc={category.categoryDesc}
                 categoryTitle={category.categoryTitle}
@@ -68,6 +71,8 @@ const Category = () => {
           );
         })}
       </div>
+    </div>
+    
     </div>
   );
 };

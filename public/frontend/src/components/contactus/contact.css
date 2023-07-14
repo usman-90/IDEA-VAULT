@@ -1,5 +1,7 @@
 .form{
-    border: 1px solid lightgrey;
+    border: 2px solid #07393c;
+    box-shadow:  0 0 5px 6px #41909b !important;
+    cursor: pointer;
     
 }
 .commentbox{
@@ -31,6 +33,10 @@
 .contactbody{
     padding-left: 3rem ;
     padding-right: 3rem;
+}
+.btn-submit:hover{
+background-color: #60d4e3;
+color: rgb(161, 94, 5);
 }
 
 @media screen and (max-width: 480px) {

@@ -30,6 +30,7 @@ import Copyright from "./pages/terms-conditions/copyright";
 import SignUpForm from "./pages/signup/signup";
 import SignIn from "./pages/signin/signin";
 import Term from "./pages/terms-conditions/terms";
+import UserProfile from "./pages/viewprofile/userprofile";
 
 const obj = {
   name: "rajja farhan",
@@ -77,6 +78,8 @@ const App = () => {
             <Route path="/signup" element={<SignUpForm />} />
             <Route path="/terms" element={<Term />} />
             <Route path="/signin" element={<SignIn />} />
+            <Route path="/profile" element={<UserProfile/>}/>
+
           </Routes>
         </Layout>
       </BrowserRouter> 
