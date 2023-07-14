@@ -1,12 +1,35 @@
+// import React from "react";
+// import { createRoot } from "react-dom/client";
+// import SignIn from "./components/signin";
+// import Term from "./components/terms";
+// import MyCarousel from "./components/carousel";
+// import IdeaPoster from "./components/ideaposter";
+// import YourIdeas from "./components/yourideas";
+// import SignUp from "./components/signup";
+
 /* eslint-disable import/no-unresolved */
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./style/app.css";
+import "./pages/ideaform/ideapost.css";
 import Layout from "./layout/layout";
 import Home from "./pages/homePg/home";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Idea from "./pages/ideaPG/idea";
 import Chatbox from "./pages/chatbox/chatbox";
+import BulbCanvas from "./pages/bulb/bulb";
+import BasicInfoPage from "./pages/ideaform/basicinfo";
+import Content from "./pages/ideaform/content";
+import PosterInfo from "./pages/ideaform/posterinfo";
+import Settings from "./pages/ideaform/settings";
+import YourIdeas from "./pages/yourIdeas/yourideas";
+import Condition from "./pages/terms-conditions/condition";
+import Privacy from "./pages/terms-conditions/privacypolicy";
+import User from "./pages/terms-conditions/userguide";
+import Copyright from "./pages/terms-conditions/copyright";
 
+import SignUpForm from "./pages/signup/signup";
+import SignIn from "./pages/signin/signin";
+import Term from "./pages/terms-conditions/terms";
 
 const obj = {
   name: "rajja farhan",
@@ -38,14 +61,26 @@ const App = () => {
                   funding={obj.funding}
                   teamMembers={obj.teamMembers}
                 />
-                
-                
               }
             />
-            <Route path="/messages" element={<Chatbox />} />
+            <Route path="/inbox" element={<Chatbox />} />
+            <Route path="/bulb" element={<BulbCanvas />} />
+            <Route path="/basicinfo" element={<BasicInfoPage />} />
+            <Route path="/contentinfo" element={<Content />} />
+            <Route path="/posterinfo" element={<PosterInfo />} />
+            <Route path="/settings" element={<Settings />} />
+            <Route path="/ideasection" element={<YourIdeas />} />
+            <Route path="/condition" element={<Condition />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/copyright1" element={<Copyright />} />
+            <Route path="/userguide1" element={<User />} />
+            <Route path="/signup" element={<SignUpForm />} />
+            <Route path="/terms" element={<Term />} />
+            <Route path="/signin" element={<SignIn />} />
           </Routes>
         </Layout>
-      </BrowserRouter>
+      </BrowserRouter> 
+      
     </>
   );
 };

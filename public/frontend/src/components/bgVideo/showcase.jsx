@@ -1,9 +1,10 @@
 /* eslint-disable react/display-name */
 import React from "react";
 import "../../style/showcase.css";
+import video from "../../images/video2.mp4";
 
 const VideoPlayer = React.memo(() => (
-  <video src="../images/video2.mp4" muted loop autoPlay></video>
+  <video src={video} muted loop autoPlay></video>
 ));
 
 const Showcase = () => {

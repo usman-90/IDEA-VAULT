@@ -1,7 +1,7 @@
 import Chat from "./chat.jsx";
 const ChatLeftHeading = () => {
   return (
-    <div className="py-3 d-flex w-100 justify-content-around align-items-center  b-red">
+    <div className="py-3 d-flex w-100 justify-content-around align-items-center  b-white">
       <h1 className="fs-2">Messages</h1>
       <div className="icons">
         <i className="fa-solid px-2 fs-4 fa-pen-to-square"></i>
@@ -12,7 +12,7 @@ const ChatLeftHeading = () => {
 };
 const ChatSearch = () => {
   return (
-    <div className="b-red h-12_5">
+    <div className= " b-white h-12_5">
       <form
         action=""
         className="px-3 py-2 search-bar d-flex justify-content-end"
@@ -25,22 +25,24 @@ const ChatSearch = () => {
     </div>
   );
 };
-const ChatLeft = ({ users, setopenedChat ,isMobile}) => {
-    console.log(isMobile)
+const ChatLeft = ({ users, setopenedChat, isMobile, setcurrSec }) => {
+  console.log(isMobile);
   return (
-    <div className={`${isMobile ?"w-100" : "w-25"} chatleft_u b-red h-100`}>
+    <div className={` chatleft_u b-white h-100`}>
       <ChatLeftHeading />
       <ChatSearch />
       <div className="chats overflow-y-auto " style={{ height: "73%" }}>
         {users.map((user) => {
           return (
             <Chat
+              isMobile={isMobile}
               onChange={setopenedChat}
               image={user.img}
               name={user.name}
               last_msg={user.last_msg}
               date={user.date}
               key={user.name}
+              setcurrSec={setcurrSec}
             />
           );
         })}

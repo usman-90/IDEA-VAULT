@@ -286,3 +286,22 @@
 	vertical-align:middle;
 
 }
+
+
+@media only screen and (max-width: 600px) {
+    .chatleft_u{
+        width:100% !important; 
+    }
+    .chatright_u{
+        width:100% !important;
+    }
+  }
+  @media only screen and (min-width: 600px) {
+
+	  .chatleft_u{
+		width: 25% !important;
+	  }
+  }
+  .b-white{
+	border: 2px solid #f0edee;
+  }

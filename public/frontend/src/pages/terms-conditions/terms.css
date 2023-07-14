@@ -1,0 +1,36 @@
+.container_zz{
+    display:flex;
+    flex-direction: column;
+    width: 100%;
+    gap:50px;
+}
+.top_z{
+    display:flex;
+    flex-direction: row;
+    width:100%;
+    height:50px;
+}
+.nav11_z{
+    font-size: 22px;
+    margin: auto;
+    width:80%;
+}
+.img-fluid_z{
+    margin:auto;
+    width:10%;
+    margin-top: -9px;
+    
+}
+
+.side_z{
+    display: flex;
+    flex-direction: row;
+    gap:10px;
+}
+.navvv_z{
+    gap:20px;
+    display:flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: space-evenly;
+}

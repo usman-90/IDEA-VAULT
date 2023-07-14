@@ -1,0 +1,304 @@
+.custom-height{
+    height:500px;
+}
+.filter_z{
+    line-height: 42px;
+}
+.mainnav_z{
+    margin-top:-56px;
+}
+.navideaposter_z{
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap:10px;
+}
+.yourideasec_z{
+    font-size: 25px;
+    color:white;
+}
+.abc_z{
+    background-color: teal;
+    height:40px;
+    border-radius: 20px;
+    width:200px;
+    padding-bottom: 10px;
+    margin-top: 20px;
+    text-align: center;
+    margin-right:-240px;
+}
+.carousel_z{
+    box-shadow: 1px 1px 5px 3px grey;
+}
+a{
+    color:black;
+    text-decoration: none;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 22px;
+}
+.full_z{
+    display: flex;
+    flex-direction: column;
+    gap:50px;
+}
+.idea1_z{
+    display: flex;
+    flex-direction: row;
+    gap:50px;
+}
+.shareideas_z{
+    display: flex;
+    flex-direction: column;
+    gap:30px;
+
+}
+.body_z{
+    display: flex;
+    flex-direction: row;
+    gap:70px;
+}
+.typeidea_z{
+    width:950px;
+    height:max-content;
+    padding-left: 20px;
+    padding:7px;
+    margin: auto;
+    
+}
+.search_z{
+    display: flex;
+    flex-direction: row;
+}
+button{
+    background-color: green;
+    color:white;
+    width:80px;
+    height:40px;
+}
+button:hover{
+    background-color: rgb(1, 160, 1);
+}
+.filter_z{
+    width:260px;
+    line-height: 60px;
+    border:0.75px solid rgba(0, 0, 0, 0.562);
+    box-shadow: rgb(204, 219, 232) 2px 2.75px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+    padding:24px;
+    margin-left: -30px;
+}
+
+@media screen and (max-width:460px){
+    .custom-height{
+        height:500px;
+    }
+    .filter_z{
+        line-height: 42px;
+    }
+    .mainnav_z{
+        margin-top:-56px;
+        margin-right:-372px;
+    }
+    .navideaposter_z{
+        display:flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        gap:361px;
+    }
+    .yourideasec_z{
+        font-size: 25px;
+        color:white;
+    }
+    .abc_z{
+        background-color: teal;
+        height:40px;
+        border-radius: 20px;
+        width:200px;
+        padding-bottom: 10px;
+        margin-top: 20px;
+        text-align: center;
+        margin-right:-537px;
+    }
+    .carousel_z{
+        box-shadow: 1px 1px 5px 3px grey;
+        width:738px;
+    }
+
+    .idea1_z{
+        display: flex;
+        flex-direction: row;
+        gap:50px;
+    }
+    .shareideas_z{
+        display: flex;
+        flex-direction: column;
+        gap:30px;
+    
+    }
+    .body_z{
+        display: flex;
+        flex-direction: row;
+        gap:44px;
+    }
+    .typeidea_z{
+        width:373px;
+        height:max-content;
+        padding-left: 20px;
+        padding:7px;
+        margin: auto;
+        
+    }
+    .filter_z{
+        width:238px;
+        line-height: 60px;
+        border:0.75px solid rgba(0, 0, 0, 0.562);
+        box-shadow: rgb(204, 219, 232) 2px 2.75px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+        padding:24px;
+        margin-left: -3px;
+    }
+}
+@media screen and (max-width:800px) and (min-width:450px){
+
+    .mainnav_z{
+        margin-top:-56px;
+        margin-right: -616px;
+    }
+    .navideaposter_z{
+        display:flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        gap:40px;
+    }
+    .yourideasec_z{
+        font-size: 25px;
+        color:white;
+    }
+    .abc_z{
+        background-color: teal;
+        height:40px;
+        border-radius: 20px;
+        width:200px;
+        padding-bottom: 10px;
+        margin-top: 20px;
+        text-align: center;
+        margin-right:-240px;
+    }
+    .carousel_z{
+        box-shadow: 1px 1px 5px 3px grey;
+        width:180%;
+    }
+    .idea1_z{
+        display: flex;
+        flex-direction: row;
+        gap:50px;
+    }
+    .shareideas_z{
+        display: flex;
+        flex-direction: column;
+        gap:30px;
+    
+    }
+    .body_z{
+        display: flex;
+        flex-direction: row;
+        gap:50px;
+    }
+    .typeidea_z{
+        width:891px;
+        height:max-content;
+        padding-left: 20px;
+        padding:7px;
+        margin: auto;
+        
+    }
+    .filter_z{
+        width:229px;
+        line-height: 60px;
+        border:0.75px solid rgba(0, 0, 0, 0.562);
+        box-shadow: rgb(204, 219, 232) 2px 2.75px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+        padding:24px;
+        margin-left: 24px;
+    }
+
+}
+
+@media screen and (max-width:1200px) and (min-width:770px){
+    .custom-height{
+        height:500px;
+    }
+    .filter_z{
+        line-height: 42px;
+    }
+    .mainnav_z{
+        margin-top:-56px;
+        margin-right: -376px;
+    }
+    .navideaposter_z{
+        display:flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        gap:10px;
+    }
+    .yourideasec_z{
+        font-size: 25px;
+        color:white;
+    }
+    .abc_z{
+        background-color: teal;
+        height:40px;
+        border-radius: 20px;
+        width:200px;
+        padding-bottom: 10px;
+        margin-top: 20px;
+        text-align: center;
+        margin-right:-240px;
+    }
+    .carousel_z{
+        box-shadow: 1px 1px 5px 3px grey;
+        width:135%;
+    }
+    a{
+        color:black;
+        text-decoration: none;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 22px;
+    }
+    .full_z{
+        display: flex;
+        flex-direction: column;
+        gap:50px;
+    }
+    .idea1_z{
+        display: flex;
+        flex-direction: row;
+        gap:50px;
+    }
+    .shareideas_z{
+        display: flex;
+        flex-direction: column;
+        gap:30px;
+    
+    }
+    .body_z{
+        display: flex;
+        flex-direction: row;
+        gap:50px;
+    }
+    .typeidea_z{
+        width:820px;
+        height:max-content;
+        padding-left: 20px;
+        padding:7px;
+        margin: auto;
+        
+    }
+
+    .filter_z{
+        width:240px;
+        line-height: 60px;
+        border:0.75px solid rgba(0, 0, 0, 0.562);
+        box-shadow: rgb(204, 219, 232) 2px 2.75px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+        padding:24px;
+        margin-left: 45px;
+    }
+
+}

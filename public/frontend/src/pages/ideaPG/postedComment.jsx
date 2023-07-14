@@ -45,7 +45,6 @@ const [replydisplay,setreplydisplay]=useState(false)
 const [likescolor,setlikescolor]=useState("");
 
     return(
-
         <div className="row my-4">
         <div className="col-xlg-6">
             <div style={{border:"2px solid #07393c"}}className="container-fluid  my-2"> 
@@ -55,7 +54,9 @@ const [likescolor,setlikescolor]=useState("");
               </div>
               <div style={{ justifyContent: "space-between" ,alignItems:'center'}} className="container-fluid d-flex commentheader">
               <h6 style={{ fontSize: ".9rem" }}>rajjafarhan@gamil.com</h6>
-               <h6 style={{ fontSize: ".9rem" }} className="">wednesday, 9:00 pm</h6>
+              <h6 style={{ fontSize: ".9rem" }} className="">
+                wednesday, 9:00 pm
+              </h6>
             </div>
 
             </div>
@@ -78,33 +79,14 @@ const [likescolor,setlikescolor]=useState("");
                   </div>
 
               </div>
-
-{/* /////////////////////////////////////////////reply/////// */}
-
-              <div style={{height:"maxcontent",marginLeft:"9%",width:"90%"}}  className="container d-flex flex-column  ">
-                  <div style={{border:"2px solid #07393c",backgroundColor:"#07393c",color:"white"}}className=" d-flex gap-2 py-1   my-2 ">
-                  <div >
-                    <img style={{ width: "3rem", height: "3rem", borderRadius: "50%" }} className="img-fluid mx-2" src="../images/edu.jpg" alt="oo" />
-                  </div>
-                  <div style={{ justifyContent: "space-between" ,alignItems:'center'}} className="container-fluid d-flex commentheader">
-                  <h6 style={{ fontSize: ".8rem" }}>rajjafarhan@gamil.com</h6>
-                  <h6 style={{ fontSize: ".9rem" }} className="">wednesday, 9:00 pm</h6>
-                </div>
-
-                </div>
-                  <p style={{ width:"90%",height:"maxcontent"}}>learningorem20 Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, similique? Praesentium cumque, ipsum incidunt reprehenderit voluptas inventore consequatur fuga enim.</p>
-              </div>
-
             </div>
 
 
-            </div>
-        </div>
-        <div className="col-lg-6">
             
+          </div>
         </div>
       </div>
-
-)
-}
+     
+  );
+};
 export default Postedcomment;

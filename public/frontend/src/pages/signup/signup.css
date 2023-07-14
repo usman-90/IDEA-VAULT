@@ -1,0 +1,131 @@
+
+.parent_{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    width:100%;
+    margin-top: 70px;
+    gap:7px;
+    
+}
+.phone-container_{
+  position: relative;
+  width: 350px; 
+  height: auto;
+}
+.phone-image_ {
+  width: 120%;
+  height: 600px; 
+}
+
+.video-overlay_ {
+
+    position: absolute;
+    top: 0px; 
+    left: 28px; 
+    width: 72%; 
+    height: 494px;
+    pointer-events: none; 
+}
+.signup_{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 340px;
+    margin: 6px 49px 16px;
+    padding: 20px;
+    background-color: #cdd6d2;
+    border-radius: 5px;
+    font-size: 13px;
+}
+
+.signuplabel_z {
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+.namesignup_z,
+#email,
+#password {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    height:32px;
+
+}
+
+.submitsignup_z {
+    background-color:rgb(33, 100, 78);
+    color: white;
+    padding: 6px 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 12px;
+}
+
+.submitsignup_z:hover {
+    background-color: #608562;
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 20px;
+  
+}
+
+.login-link a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 15px;
+  
+}
+.head_{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: normal;
+    color:rgb(13, 82, 13);
+    height:53px;
+}
+.logo_{
+    margin:auto;
+    align-items:center;
+    justify-content: center;
+    width:40%;
+}
+form{
+    display:flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width:550px){
+
+    .phone-container_{
+      position: relative;
+      display:none;
+      width: 350px; 
+      height: auto;
+    }
+    .phone-image_ {
+      width: 120%;
+      height: 600px; 
+      display:none;
+    }
+    
+    .video-overlay_ {
+    
+        position: absolute;
+        display:none;
+        top: 0px; 
+        left: 28px; 
+        width: 72%; 
+        height: 494px;
+        pointer-events: none; 
+    }
+}

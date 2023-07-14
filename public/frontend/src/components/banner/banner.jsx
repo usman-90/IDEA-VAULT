@@ -1,4 +1,5 @@
 import "./banner.css"
+import img2 from "../../images/img2.png"
 const Banner=()=>{
     return(
         <>
@@ -15,7 +16,7 @@ const Banner=()=>{
                     </div>
                 </div>
                 <div className="col-md-4 bannerimg">
-                    <img   src="../images/img2.png" alt="uu" />
+                    <img   src={img2}alt="uu" />
                     
                 </div>
             </div>

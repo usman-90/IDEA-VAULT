@@ -1,15 +1,18 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import { useState } from "react";
-const Chat = ({ image, name, last_msg, date, onChange }) => {
+const Chat = ({ image, name, last_msg, date, onChange ,setcurrSec}) => {
   const handleChange = () => {
     onChange(name);
     setisRead(true);
+    setcurrSec('messages')
   };
   const [isRead, setisRead] = useState(false);
   return (
     // eslint-disable-next-line jsx-a11y/click-events-have-key-events
+    
     <div
-      className="w-100 chat_u d-flex b-red"
+      className="w-100 chat_u d-flex b-white"
       onFocus={handleChange}
       onClick={handleChange}
     >

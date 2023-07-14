@@ -1,0 +1,12 @@
+.yourideas_z{
+  display: flex;
+  flex-direction: column;
+}
+.ideahead_z{
+  text-align: center;
+  align-items: center;
+  font-size: 40px;
+  background-color: teal;
+  color:white;
+  box-shadow: rgb(204, 219, 232) 2px 2.75px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+}

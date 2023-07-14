@@ -47,3 +47,10 @@ color: #2c666e !important;
     color: #fed766 !important;
 }
 
+/* .scale_on_hover{
+    transition: ease all 0.5s;
+}
+.scale_on_hover:hover{
+   transform: scale(1.09);
+   border-bottom: 2px solid #07393c;
+} */
