@@ -1,61 +1,104 @@
-
-import React, { useState } from 'react';
-import './signup.css';
+import { Link } from "react-router-dom";
+import { createAccount } from "./createAcc";
+import { useNavigate } from "react-router-dom";
+import "./signup.css";
+import {  setCookie } from "../../helpers/cookies";
+import UserContext from "../../context/context";
+import { useContext } from "react";
 
 function SignUpForm() {
-  const [fullName, setFullName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  // eslint-disable-next-line no-unused-vars
+  const [_,loggedinUser] = useContext(UserContext)
+  
+  const navigate = useNavigate();
 
-    if (password !== confirmPassword) {
-      alert("Passwords do not match");
-      return;
+  const createAcc = async (obj) => {
+    const res = await createAccount(obj);
+    if (res.message == "successful") {
+      setCookie("token", res.token);
+      loggedinUser(res)
+      navigate("/");
     }
-
-    console.log("Full Name:", fullName);
-    console.log("Email:", email);
-    console.log("Password:", password);
-    console.log("Confirm Password:", confirmPassword);
-
-    setFullName('');
-    setEmail('');
-    setPassword('');
-    setConfirmPassword('');
   };
 
   return (
     <div className="container">
       <div className="parent_">
         <div className="phone-container_">
-          <img className="phone-image_" src="../../src/images/phone.png" alt="Phone Image" />
+          <img
+            className="phone-image_"
+            src="../../src/images/phone.png"
+            alt="Phone "
+          />
           <video className="video-overlay_" autoPlay muted loop>
             <source src="../../src/images/last_V7.mp4" type="video/mp4" />
           </video>
         </div>
         <div className="signup_">
-          <img src="../../src/images/logoBULB.png" className="logo_" alt="logo image" />
+          <img
+            src="../../src/images/logoBULB.png"
+            className="logo_"
+            alt="logo "
+          />
           <h1 className="head_">Sign Up</h1>
-          <form className="cred">
-            <label className='signuplabel_z' htmlFor="fullname">Full Name:</label>
-            <input type="text" id="fullname" className='namesignup_z' value={fullName} onChange={(e) => setFullName(e.target.value)} required />
+          <form
+            className="cred"
+            onSubmit={(e) => {
+              e.preventDefault();
+              const formData = new FormData(e.target);
+              const obj = {
+                name: formData.get("name"),
+                lastName: formData.get("lastName"),
+                userName: formData.get("username"),
+                email: formData.get("email"),
+                password: formData.get("password"),
+              };
+              createAcc(obj);
+            }}
+          >
+            <label className="signuplabel_z" htmlFor="name">
+              Full Name:
+              <input
+                type="text"
+                id="fullname"
+                name="name"
+                className="namesignup_z"
+                required
+              />
+            </label>
 
-            <label className='signuplabel_z' htmlFor="email">Email Address:</label>
-            <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+            <label className="signuplabel_z" htmlFor="lastName">
+              Last Name:
+              <input type="text" id="password" name="lastName" required />
+            </label>
+            <label className="signuplabel_z" htmlFor="username">
+              <div>User Name:</div>
+              <input type="username" id="username" name="username" required />
+            </label>
+            <label className="signuplabel_z" htmlFor="email">
+              Email Address:
+              <input type="email" id="email" required name="email" />
+            </label>
 
-            <label className='signuplabel_z' htmlFor="password">Password:</label>
-            <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+            <label className="signuplabel_z" htmlFor="password">
+              <div>Password:</div>
+              <input
+                type="password"
+                id="confirm-password"
+                name="password"
+                required
+              />
+            </label>
 
-            <label className='signuplabel_z' htmlFor="confirm-password">Confirm Password:</label>
-            <input type="password" id="confirm-password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
-
-            <input type="submit" className="submitsignup_z" value="Create Account" onClick={handleSubmit} />
+            <input
+              type="submit"
+              className="submitsignup_z"
+              value="Create Account"
+            />
           </form>
           <div className="login-link">
-            Already have an account? <a href="../../components/pages/signin/signin.jsx">Log In</a>
+            Already have an account? <Link to={"/signin"}>Log In</Link>
           </div>
         </div>
       </div>

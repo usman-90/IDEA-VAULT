@@ -4,12 +4,15 @@ import ImageUploader from "./imageuploader.jsx";
 import YoutubeVideo from "./youtubeVideo.jsx";
 import Editor from "./editor.jsx";
 import Faq from "./faq.jsx";
+import { getUrl } from "../../firebase/upload.jsx";
 import SideBar from "./sidebar.jsx";
 const Content = () => {
   const [videoUrl, setvideoUrl] = useState(null);
   const [mounted, setMounted] = useState(false);
   const [mycomponents, setComponents] = useState([]);
   const [description, setDescription] = useState("");
+  const [selectedImages, setSelectedImages] = useState([]);
+
   const handleDescription = (desc) => {
     setDescription(desc);
   };
@@ -52,12 +55,14 @@ const Content = () => {
           <form
             onSubmit={(e) => {
               e.preventDefault();
+              console.log(getUrl("2343"));
+
               let faqs = mycomponents.map((comp) => {
                 return comp.data;
               });
               const formdata = new FormData(e.target);
               const obj = {
-                images: formdata.get("images"),
+                images: selectedImages,
                 videoid: formdata.get("videoid"),
                 description: description,
                 faqs: faqs,
@@ -68,7 +73,10 @@ const Content = () => {
             <label htmlFor="images" className="w-100">
               <div className="my-4">
                 <H2WithToolTip heading={"Images"} />
-                <ImageUploader />
+                <ImageUploader
+                  selectedImages={selectedImages}
+                  setSelectedImages={setSelectedImages}
+                />
               </div>
             </label>
             <div className="my-4">
@@ -129,7 +137,7 @@ const Content = () => {
                 className="formbtn bg-midnight-green"
                 style={{ verticalAlign: "middle" }}
               >
-                <span >Save & Continue </span>
+                <span>Save & Continue </span>
               </button>
             </div>
           </form>
