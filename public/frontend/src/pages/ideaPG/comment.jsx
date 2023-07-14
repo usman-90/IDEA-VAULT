@@ -49,7 +49,7 @@ const Comment = ({currSection}) => {
                 <img style={{ width: "4rem", height: "4rem", borderRadius: "50%" }} className="img-fluid " src="../images/edu.jpg" alt="oo" />
               </div>
               <textarea
-                style={{ border: "none", width: "80%" }}
+                style={{ border: "none", width: "80%",height:"3rem" }}
                 className="container-fluid my-3 ml-3"
                 placeholder="Write your comment..."
                 value={comment}
