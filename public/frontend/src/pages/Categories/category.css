@@ -1,0 +1,27 @@
+.technologyCategory_z{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap:40px;
+   
+}
+
+.categorytop_z{
+    display:flex;
+    flex-direction: row;
+    width:100%;
+    height:50px;
+    
+}
+.cat-navvv_z{
+    gap:100px;
+    display:flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: space-around;
+    margin:auto;
+
+}
+.container-small{
+    width:1500px;
+}

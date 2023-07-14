@@ -1,7 +1,8 @@
-import Navbar2 from "./navbar/navbar2";
+import Navbar2 from "../../components/navbar/navbar2";
 import "./ideaposter.css";
+import IdeaCard from "../../components/ideacard/ideacard";
 import { Link } from "react-router-dom";
-import MyCarousel from "./carousel/carousel.jsx";
+import MyCarousel from "./carousel";
 const IdeaPoster = () => {
   return (
     <div className="full_z">
@@ -61,7 +62,10 @@ const IdeaPoster = () => {
                 <button>Search</button>
               </div>
             </div>
-            <div className="tech"></div>
+            <div className="tech">
+              <IdeaCard/>
+
+            </div>
           </div>
         </div>
       </div>

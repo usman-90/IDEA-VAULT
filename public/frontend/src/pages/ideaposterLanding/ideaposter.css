@@ -4,13 +4,10 @@
 .filter_z{
     line-height: 42px;
 }
-.mainnav_z{
-    margin-top:-56px;
-}
+
 .navideaposter_z{
     display:flex;
     flex-direction: row;
-    justify-content: flex-end;
     gap:10px;
 }
 .yourideasec_z{
@@ -18,12 +15,12 @@
     color:white;
 }
 .abc_z{
-    background-color: teal;
+    background-color: rgb(142, 142, 16);
     height:40px;
     border-radius: 20px;
     width:200px;
     padding-bottom: 10px;
-    margin-top: 20px;
+    margin-top: -2px;
     text-align: center;
     margin-right:-240px;
 }

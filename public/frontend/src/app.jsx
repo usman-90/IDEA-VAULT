@@ -26,10 +26,16 @@ import Condition from "./pages/terms-conditions/condition";
 import Privacy from "./pages/terms-conditions/privacypolicy";
 import User from "./pages/terms-conditions/userguide";
 import Copyright from "./pages/terms-conditions/copyright";
-
+import IdeaPoster from "./pages/ideaposterLanding/ideaposter";
 import SignUpForm from "./pages/signup/signup";
 import SignIn from "./pages/signin/signin";
 import Term from "./pages/terms-conditions/terms";
+import Technology from "./pages/Categories/techcat";
+import Bussiness from "./pages/Categories/bussinesscat";
+import Arts from "./pages/Categories/arts";
+import Tourism from "./pages/Categories/tourism";
+import Education from "./pages/Categories/education";
+import Science from "./pages/Categories/sciencecat";
 
 const obj = {
   name: "rajja farhan",
@@ -77,6 +83,17 @@ const App = () => {
             <Route path="/signup" element={<SignUpForm />} />
             <Route path="/terms" element={<Term />} />
             <Route path="/signin" element={<SignIn />} />
+            <Route path="/ideaposter" element={<IdeaPoster />} />
+            <Route path="/technology" element={<Technology />} />
+            <Route path="/bussiness" element={<Bussiness />} />
+            <Route path="/arts" element={<Arts />} />
+            <Route path="/tourism" element={<Tourism/>} />
+            <Route path="/education" element={<Education />} />
+            <Route path="/science" element={<Science />} />
+
+            
+
+
           </Routes>
         </Layout>
       </BrowserRouter> 
