@@ -5,7 +5,7 @@ import { useState } from "react";
 import Message from "./message.jsx";
 import { useRef, useEffect } from "react";
 import EmojiPicker from "emoji-picker-react";
-const ChatMid = ({ messages, currUser, isMobile, setcurrSec }) => {
+const ChatMid = ({ messages, currUser, isMobile, setcurrSec, socket }) => {
   const messageRef = useRef();
   const scrollToBottom = () => {
     messageRef.current.scrollTop = messageRef.current.scrollHeight;
@@ -16,6 +16,31 @@ const ChatMid = ({ messages, currUser, isMobile, setcurrSec }) => {
   const [inputValue, setinputValue] = useState("");
   const [emojiOpened, setemojiOpened] = useState(false);
   const [dropdownExpanded, setdropdownExpanded] = useState(false);
+  const [message, setMessages] = useState([]);
+  const handleMessageRecieve = (newmsg) => {
+    setMessages([...message, newmsg]);
+  };
+  const sendMessage = async () => {
+    const data = {
+      body: inputValue,
+      room: 2,
+      senderid: 1,
+    };
+    await socket.emit("send_message", data);
+    setMessages([...message, data]);
+    setinputValue("");
+  };
+  useEffect(() => {
+    const recievemsg = async () => {
+      await socket.on("recieve_message", (data) => {
+        handleMessageRecieve(data);
+        console.log("new message", data);
+        console.log(message);
+      });
+    };
+    recievemsg();
+  }, [socket]);
+
   return (
     <div
       className={`  position-relative chatmain_u w-50 h-100 flex-grow-1 b-white`}
@@ -92,12 +117,12 @@ const ChatMid = ({ messages, currUser, isMobile, setcurrSec }) => {
       </div>
 
       <div ref={messageRef} className="messages overflow-y-scroll">
-        {messages.map((message) => {
+        {message.map((msg) => {
           return (
             <Message
               key={Math.random()}
-              body={message.body}
-              senderid={message.senderid}
+              body={msg.body}
+              senderid={msg.senderid}
             />
           );
         })}
@@ -108,7 +133,7 @@ const ChatMid = ({ messages, currUser, isMobile, setcurrSec }) => {
           <input
             placeholder="Type here..."
             type="text"
-            className="w-75" 
+            className="w-75 text-white"
             value={inputValue}
             onChange={(e) => {
               setinputValue(e.target.value);
@@ -116,17 +141,14 @@ const ChatMid = ({ messages, currUser, isMobile, setcurrSec }) => {
           />
           <div className="d-flex">
             <div className="wrapper mx-2">
-              <input
-                type="file"
-                id="file-input"
-              />
+              <input type="file" id="file-input" />
               <label htmlFor="file-input">
                 <i className="fs-4 fa fa-paperclip fa-2x"></i>
                 <span></span>
               </label>
               <i className="fa fa-times-circle remove"></i>
             </div>
-            <button className="bg-transparent border-0">
+            <button onClick={sendMessage} className="bg-transparent border-0">
               <i className="text-light mx-2 fs-4 cursor-pointer fa-solid fa-paper-plane"></i>
             </button>
 

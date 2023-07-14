@@ -12,8 +12,8 @@ const Userprofiledetail=()=>{
                 <p style={{height:"maxcontent"}} className="my-1">{profilearr.bio}</p>
                 </div>
             </div>
-            <div className="col-md-6 ">
-               <div className="mx-5">
+            <div style={{border:"2px solid #07939c"}}className="col-md-6 py-2">
+               <div className="mx-5 py-3">
                 <h2  className="fs-2">About Me</h2>
                 <div className="d-flex   my-3">
                     <img style={{height:"4rem",width:"4rem",borderRadius:"4rem"}} src={profilearr.profilesrc} alt="ooo" />

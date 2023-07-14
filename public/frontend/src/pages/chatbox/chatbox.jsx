@@ -5,6 +5,7 @@ import { useEffect, useState, useRef } from "react";
 import ChatLeft from "./chatleft.jsx";
 import ChatMid from "./chatmid.jsx";
 import ChatRight from "./chatright.jsx";
+import io from "socket.io-client";
 import "./chatbox.css";
 const users = [
   {
@@ -117,6 +118,8 @@ const messages = [
   },
 ];
 
+const socket = io.connect("http://localhost:3000");
+
 const Chatbox = () => {
   const chatcontRef = useRef(null);
   const [height, setheight] = useState(null);
@@ -124,6 +127,11 @@ const Chatbox = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [currUser, setcurrUser] = useState([]);
   const [currSec, setcurrSec] = useState("chats");
+
+  const joinRoom = (roomid) => {
+    socket.emit("join_room", roomid);
+  };
+
   const handleheight = () => {
     setheight(window.innerHeight - chatcontRef.current.offsetTop - 10);
   };
@@ -159,6 +167,7 @@ const Chatbox = () => {
       return user.name == openedChat;
     });
     setcurrUser(curr);
+    joinRoom(2)
     console.log("currUser", currUser);
   }, [openedChat]);
 
@@ -178,10 +187,15 @@ const Chatbox = () => {
           currUser={currUser}
           isMobile={isMobile}
           setcurrSec={setcurrSec}
+          socket={socket}
         />
       )}
       {(!isMobile || (isMobile && currSec == "chatinfo")) && (
-        <ChatRight currUser={currUser} setcurrSec={setcurrSec} isMobile={isMobile}/>
+        <ChatRight
+          currUser={currUser}
+          setcurrSec={setcurrSec}
+          isMobile={isMobile}
+        />
       )}
     </div>
   );

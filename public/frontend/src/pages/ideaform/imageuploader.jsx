@@ -1,16 +1,14 @@
-import React, { useState } from "react";
-
-function ImageUploader() {
-  const [selectedImages, setSelectedImages] = useState([]);
-
+import { uploadImage } from "../../firebase/upload";
+function ImageUploader({ selectedImages, setSelectedImages }) {
   const handleImageChange = (event) => {
-    console.log("target files", event.target.files);
+    // uploadImage(2343, event.target.files[0]);
+
     if (event.target.files.length > 6) {
       alert("only six images are allowed");
       return;
     }
     const files = Array.from(event.target.files);
-
+    console.log(files);
     const imagePreviews = files.map((file) => URL.createObjectURL(file));
     setSelectedImages(imagePreviews);
   };
