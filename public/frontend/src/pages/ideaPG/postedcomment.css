@@ -11,3 +11,17 @@
 .commentshadow:hover{
     box-shadow:  0 0 5px 2px #07393c;
 }
+.activelikescolor{
+    color: green;
+}
+.fa-thumbs-up:hover{
+    font-size: large;
+    cursor: pointer;
+}
+.activedislikescolor{
+    color: rgb(182, 2, 2);
+}
+.fa-thumbs-down:hover{
+    font-size: large;
+    cursor: pointer;
+}
