@@ -60,7 +60,7 @@ const Category = () => {
               className="col-md-4   my-3"
             >
               <CategoryCard
-                categoryCardSrc={category.categoryCardSrc}
+                categosryCardSrc={category.categoryCardSrc}
                 categoryDesc={category.categoryDesc}
                 categoryTitle={category.categoryTitle}
               />

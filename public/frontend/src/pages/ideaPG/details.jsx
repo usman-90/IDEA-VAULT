@@ -6,6 +6,8 @@ import "../../style/detail.css";
 // import DetailNav from "../pages/ideaPG/detailNav";
 
 const Details = ({ title, tagline, name, country, funding, teamMembers }) => {
+  const upvote=10;
+  
   const srcArr = [
     "../images/art.jpg",
     "../images/business2.jpg",
@@ -15,7 +17,31 @@ const Details = ({ title, tagline, name, country, funding, teamMembers }) => {
     "../images/travel.jpg",
   ];
   const [currentImg, setCurrentImg] = useState(srcArr[0]);
-  const [buttoncolor, setbuttoncolor] = useState("");
+  const [buttonColor, setButtonColor] = useState('');
+  // const [upvoteCount, setUpvoteCount] = useState(25);
+  // const [downvoteCount, setDownvoteCount] = useState(9);
+  const handleUpvoteClick = () => {
+    if (buttonColor === 'green') {
+      // setUpvoteCount(upvoteCount - 1);
+      // setDownvoteCount(downvoteCount-1);
+      setButtonColor('');
+    } else {
+      // setUpvoteCount(upvoteCount + 1);
+      setButtonColor('green');
+    }
+  };
+
+  const handleDownvoteClick = () => {
+    if (buttonColor === 'red') {
+      // setDownvoteCount(downvoteCount - 1);
+      // setUpvoteCount(upvoteCount-1);
+      setButtonColor('');
+    } else {
+      // setDownvoteCount(downvoteCount + 1);
+      setButtonColor('red');
+    }
+  };
+
   return (
     <>
       <div className="container-fluid coloranimation">
@@ -152,38 +178,22 @@ const Details = ({ title, tagline, name, country, funding, teamMembers }) => {
                   className=" handlebox container d-flex justify-content-between  my-3"
                 >
                   <div style={{ gap: "2rem" }} className="d-flex">
-                    <button
-                      className={`${
-                        buttoncolor == "red" ? "bg-grey" : ""
-                      } upvotebutt`}
-                      onClick={() => {
-                        setbuttoncolor("green");
-                      }}
-                    >
-                      {" "}
-                      <i
-                        className="fa-solid fa-up-long"
-                        disabled={buttoncolor == "red"}
-                      >
-                        Vote
-                      </i>
-                    </button>
-                    <button
-                      className={`${
-                        buttoncolor == "green" ? "bg-grey" : ""
-                      } downvotebutt`}
-                      onClick={() => {
-                        setbuttoncolor("red");
-                      }}
-                    >
-                      <i
-                        className="fa-solid fa-down-long"
-                        disabled={buttoncolor == "green"}
-                      >
-                        {" "}
-                        Vote
-                      </i>
-                    </button>
+                  <button
+        className={`${buttonColor === 'red' ? 'bg-grey' : ''} upvotebutt`}
+        onClick={handleUpvoteClick}
+      >
+        <i className="fa-solid fa-up-long" disabled={buttonColor === 'red'}>
+          Vote <span>{upvote}</span>
+        </i>
+      </button>
+                     <button
+        className={`${buttonColor === 'green' ? 'bg-grey' : ''} downvotebutt`}
+        onClick={handleDownvoteClick}
+      >
+        <i className="fa-solid fa-down-long" disabled={buttonColor === 'green'}>
+          Vote <span></span>
+        </i>
+      </button>
                   </div>
 
                   <div className="socials d-flex gap-2 justify-content-center">
