@@ -5,26 +5,40 @@ import { useState } from "react";
 import Message from "./message.jsx";
 import { useRef, useEffect } from "react";
 import EmojiPicker from "emoji-picker-react";
-const ChatMid = ({ messages, currUser, isMobile, setcurrSec, socket }) => {
+import { getCookie } from "../../helpers/cookies.js";
+const ChatMid = ({ messages, isMobile, setcurrSec, socket, openedChat }) => {
+  const [message, setMessages] = useState([...messages]);
+  console.log("recieved", messages);
   const messageRef = useRef();
+
   const scrollToBottom = () => {
     messageRef.current.scrollTop = messageRef.current.scrollHeight;
   };
+
   useEffect(() => {
     scrollToBottom();
   }, []);
+
   const [inputValue, setinputValue] = useState("");
   const [emojiOpened, setemojiOpened] = useState(false);
-  const [dropdownExpanded, setdropdownExpanded] = useState(false);
-  const [message, setMessages] = useState([]);
+
   const handleMessageRecieve = (newmsg) => {
-    setMessages([...message, newmsg]);
+    const updatedMessages = [...message];
+    updatedMessages.push(newmsg);
+    setMessages(updatedMessages);
   };
+
   const sendMessage = async () => {
+    const id = JSON.parse(getCookie("logindata")).userId;
+    const users = [id, openedChat].sort();
     const data = {
-      body: inputValue,
-      room: 2,
-      senderid: 1,
+      messagebody: inputValue,
+      messagestatus: "delivered",
+      receiver: openedChat,
+      room: parseInt(users.join("")),
+      user1: users[0],
+      user2: users[1],
+      senderid: id,
     };
     await socket.emit("send_message", data);
     setMessages([...message, data]);
@@ -35,12 +49,13 @@ const ChatMid = ({ messages, currUser, isMobile, setcurrSec, socket }) => {
       await socket.on("recieve_message", (data) => {
         handleMessageRecieve(data);
         console.log("new message", data);
-        console.log(message);
       });
     };
+
     recievemsg();
   }, [socket]);
 
+  console.log("mesa", message);
   return (
     <div
       className={`  position-relative chatmain_u w-50 h-100 flex-grow-1 b-white`}
@@ -59,11 +74,7 @@ const ChatMid = ({ messages, currUser, isMobile, setcurrSec, socket }) => {
               </button>
             </div>
           )}
-          <img
-            className="rounded-circle upimage"
-            src={`${currUser.length != 0 ? `${currUser[0].img}` : ""}`}
-            alt=""
-          />
+          <img className="rounded-circle upimage" src={``} alt="" />
 
           <div
             onClick={() => {
@@ -72,60 +83,29 @@ const ChatMid = ({ messages, currUser, isMobile, setcurrSec, socket }) => {
             style={{ cursor: "pointer" }}
             className="d-flex flex-column justify-content-center align-items-start  mx-4"
           >
-            <h4 className="d-inline-block m-0">
-              {currUser.length == 1 ? `${currUser[0].name}` : ""}
-            </h4>
+            <h4 className="d-inline-block m-0">{}</h4>
             <p className="d-inline-block mb-2">is Typing...</p>
           </div>
         </div>
-        <div className="w-25 d-flex justify-content-center align-items-center">
-          <div className="dropdown">
-            <p
-              className="btn btn-success "
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-              onClick={() => {
-                setdropdownExpanded(!dropdownExpanded);
-              }}
-            >
-              <i className="fa-solid fs-4  px-2 fa-ellipsis-vertical"></i>
-            </p>
-
-            <ul
-              className={`dropdown-menu ${
-                dropdownExpanded ? "d-block" : "d-none"
-              }`}
-            >
-              <li>
-                <a className="dropdown-item" href="/">
-                  Mark as unread
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item" href="/">
-                  Delete
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item text-danger" href="/">
-                  Report
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
+        <div className="w-25 d-flex justify-content-center align-items-center"></div>
       </div>
 
       <div ref={messageRef} className="messages overflow-y-scroll">
-        {message.map((msg) => {
-          return (
-            <Message
-              key={Math.random()}
-              body={msg.body}
-              senderid={msg.senderid}
-            />
-          );
-        })}
+        {message
+          ? message.map((msg) => {
+              {
+                console.log("message:", message);
+              }
+              console.log("invoked");
+              return (
+                <Message
+                  key={Math.random()}
+                  body={msg.messagebody}
+                  senderid={msg.senderid}
+                />
+              );
+            })
+          : null}
       </div>
 
       <div className="messageinput h-12_5  w-100 position-absolute">

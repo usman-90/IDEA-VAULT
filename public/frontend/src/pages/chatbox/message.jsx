@@ -1,6 +1,8 @@
+import { getCookie } from "../../helpers/cookies";
 const Message = ({ body, senderid }) => {
-  let userid = 1;
-
+  let userid = JSON.parse(getCookie("logindata")).userId;
+  console.log(userid);
+  console.log(senderid);
   return (
     <div
       className={`${

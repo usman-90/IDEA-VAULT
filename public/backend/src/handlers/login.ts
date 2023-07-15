@@ -17,8 +17,8 @@ export const signup = async (req, res) => {
     data.name,
     data.lastName,
     data.email,
-  ])
+  ]);
   const token = await createToken(rows[0]);
   console.log(rows);
-  res.json({ token: token, message: "successful" }).status(200).end();
+  res.json({ token: token, rows, message: "successful" }).status(200).end();
 };

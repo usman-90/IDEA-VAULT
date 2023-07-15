@@ -12,36 +12,30 @@ const ChatLeftHeading = () => {
 };
 const ChatSearch = () => {
   return (
-    <div className= " b-white h-12_5">
-      <form
-        action=""
-        className="px-3 py-2 search-bar d-flex justify-content-end"
-      >
-        <input type="search" name="search" pattern=".*\S.*" required />
-        <button className="search-btn" type="submit">
-          <span>Search</span>
-        </button>
-      </form>
+    <div className=" b-white h-12_5">
+      <input type="text" />
     </div>
   );
 };
-const ChatLeft = ({ users, setopenedChat, isMobile, setcurrSec }) => {
-  console.log(isMobile);
+const ChatLeft = ({ row, setopenedChat, isMobile, setcurrSec }) => {
+
+
   return (
     <div className={` chatleft_u b-white h-100`}>
       <ChatLeftHeading />
       <ChatSearch />
       <div className="chats overflow-y-auto " style={{ height: "73%" }}>
-        {users.map((user) => {
+        {row.map((user) => {
           return (
             <Chat
               isMobile={isMobile}
               onChange={setopenedChat}
-              image={user.img}
-              name={user.name}
-              last_msg={user.last_msg}
-              date={user.date}
-              key={user.name}
+              image={`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEvRgYzCTU0gXJBopoZpnBj8-FmNsUMTcmiEcYDgo&s`}
+              name={user.other_user_name}
+              last_msg={user.messagebody}
+              date={user.messagetime}
+              key={user.messagetime}
+              id={user.other_user_id}
               setcurrSec={setcurrSec}
             />
           );
