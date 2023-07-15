@@ -24,7 +24,7 @@ export const postMessage = async (data) => {
   const values = [
     users[0],
     users[1],
-    data.senderid,
+    data.sender,
     reciever,
     data.messagebody,
   ];

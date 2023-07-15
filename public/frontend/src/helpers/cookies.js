@@ -14,6 +14,9 @@ export const getCookie = (name) => {
       (acc, [key, value]) => ({ ...acc, [key]: decodeURIComponent(value) }),
       {}
     );
-
-  return cookies[name];
+  if (cookies[name]) {
+    return JSON.parse(cookies[name]);
+  } else {
+    return null;
+  }
 };
