@@ -39,7 +39,7 @@ const Chatbox = () => {
   };
   useEffect(() => {
     const roomid = parseInt(
-      [(getCookie("logindata")).userId, openedChat].sort().join("")
+      [JSON.parse(getCookie("logindata")).userId, openedChat].sort().join("")
     );
     joinRoom(roomid);
   }, [openedChat]);

@@ -16,7 +16,7 @@ const SignIn = () => {
 
 
 
-
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (fullNameOrEmail && password) {
@@ -39,7 +39,7 @@ const SignIn = () => {
           })
         );
 
-        setusercontext((getCookie("logindata")));
+        setusercontext(JSON.parse(getCookie("logindata")));
 
         navigate("/");
       }
