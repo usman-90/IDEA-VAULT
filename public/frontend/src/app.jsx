@@ -36,6 +36,7 @@ import Arts from "./pages/Categories/arts";
 import Tourism from "./pages/Categories/tourism";
 import Education from "./pages/Categories/education";
 import Science from "./pages/Categories/sciencecat";
+import AdminLogIn from "./pages/AdminPage/adminlogin";
 
 const obj = {
   name: "rajja farhan",
@@ -90,6 +91,7 @@ const App = () => {
             <Route path="/tourism" element={<Tourism/>} />
             <Route path="/education" element={<Education />} />
             <Route path="/science" element={<Science />} />
+            <Route path="/adminlogin" element={<AdminLogIn />} />
 
             
 

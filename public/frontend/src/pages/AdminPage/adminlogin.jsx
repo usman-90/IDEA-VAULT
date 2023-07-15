@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import './signin.css';
-import video from "../../images/last_V7.mp4"; 
+import './adminlogin.css';
 import { Link } from 'react-router-dom';
 
 document.body.style.backgroundColor = "white";
 
-const SignIn = () => {
+const AdminLogIn = () => {
   const [fullNameOrEmail, setFullNameOrEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -26,19 +25,17 @@ const SignIn = () => {
   };
 
   return (
-    <div className="parent_z">
-      <div className="phone-container_z">
-        <img className="phone-image_z" src="../../src/images/phone.png" alt="Phone Image" />
-        <video className="video-overlay_z" autoPlay muted loop>
-          <source src={video} type="video/mp4" />
-        </video>
+    <div className="adminparent_z">
+      <div className="phone-container_zz">
+        <img className="phone-image_zz" src="../../src/images/lastadmin.png" alt="Phone Image" />
+        
       </div>
-      <div className="login_z">
+      <div className="login_zz">
         <img src="../../src/images/logoBULB.png" className="logo_z" alt="logo image" />
-        <h1 className="head_z">Idea Vault</h1>
-        <form className='signinform_z'>
+        <h1 className="head_zz">Admin Log In</h1> <br/>
+        <form className='signinform_zz'>
           <input
-            className="cred_z"
+            className="cred_zz"
             type="text"
             placeholder="Full Name or Email"
             value={fullNameOrEmail}
@@ -47,7 +44,7 @@ const SignIn = () => {
           />
           <br /> 
           <input
-            className="cred_z"
+            className="cred_zz"
             type="password"
             placeholder="Password"
             value={password}
@@ -55,25 +52,14 @@ const SignIn = () => {
             required
           />
           <br /> 
-          <button className="btn_z" type="submit" onClick={handleSubmit}>Log in</button>
+          <button className="btn_zz" type="submit" onClick={handleSubmit}>Log in</button>
         </form>
-        <span className="or_z">OR</span>
+        <span className="or_zz">OR</span>
         <br /> <br />
-        <div className="google_z">
-          <div className="lg_z">
-            <img className="formpic_z" src="../../src/images/google.png" alt="Google logo" />
-          </div>
-          <div className="link_z">
-            <a href="#" target="_blank">
-              <h2 className="logwithgoogle_z">Log in with Google</h2>
-            </a>
-          </div>
-        </div>
-        <br />
-        <a href="#" id="forgot_z">Forgot Password?</a>
+        <a href="#" id="forgot_zz">Forgot Password?</a>
         <br /> <br />
-        <div className="signup_z">
-          Don't have an account?<Link to="/signup"> Sign Up</Link>
+        <div className="signup_zz">
+          Don't have an account?<Link to="/signupadmin"> Sign Up</Link>
 
         </div>
       </div>
@@ -81,4 +67,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default AdminLogIn;

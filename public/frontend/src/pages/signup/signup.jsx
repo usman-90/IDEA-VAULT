@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import './signup.css';
-
+import { Link } from "react-router-dom";
 function SignUpForm() {
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
@@ -55,7 +55,8 @@ function SignUpForm() {
             <input type="submit" className="submitsignup_z" value="Create Account" onClick={handleSubmit} />
           </form>
           <div className="login-link">
-            Already have an account? <a href="../../components/pages/signin/signin.jsx">Log In</a>
+            Already have an account?
+              <Link to="/signin">Log In</Link>
           </div>
         </div>
       </div>

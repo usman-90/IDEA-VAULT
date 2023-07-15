@@ -1,0 +1,587 @@
+.adminparent_z {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    margin-top: 70px;
+    gap: 80px;
+}
+
+.signinform_zz {
+    height: 200px;
+    align-items: center;
+}
+
+.img_zz {
+    height: 150px;
+    width: 250px;
+}
+
+.logo_zz {
+    text-align: center;
+    width: 30%;
+}
+
+.h2_zz {
+    font-size: 25px;
+    text-align: center;
+}
+
+.login_zz {
+    border: 1px solid black;
+    width: 25%;
+    text-align: center;
+    height: 620px;
+    margin-bottom: 20px;
+
+}
+
+.formpic_zz {
+    float: left;
+    height: 25px;
+    width: 35px;
+}
+
+.cred_zz {
+    width: 70%;
+    height: 38px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: rgb(234, 232, 232);
+    padding-left: 6px;
+}
+
+.or_zz {
+    text-decoration: wavy;
+    font-size: 20px;
+}
+
+.head_zz {
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: normal;
+    color: rgb(13, 82, 13);
+    height: 55px;
+}
+
+.btn_zz {
+    width: 70%;
+    height: 47px;
+    background-color: rgb(33, 100, 78);
+    color: white;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+.link_zz {
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.signup1_zz {
+    color: rgb(31, 92, 71);
+    font-weight: bold;
+}
+
+.signup_zz {
+    font-size: 20px;
+
+}
+
+#forgot_zz {
+    font-size: 20px;
+}
+
+.logvideo_zz {
+    border: 1px dotted black;
+}
+
+.phone-container_zz {
+    position: relative;
+    width: 350px;
+    height: auto;
+}
+
+.phone-image_zz {
+    width: 103%;
+    height: 416px;
+    margin-top:30px;
+    box-shadow: 5px 10px #888888;
+    border:1px solid black;
+}
+
+@media screen and (min-width:585px) and (max-width:768px) {
+    .signinform_zz {
+        height: 150px;
+    }
+
+    .signup1_ {
+        font-size: 17px;
+    }
+
+    .adminparent_z {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+        margin-top: 70px;
+        gap: 20px;
+    }
+
+    .img_zz {
+        height: 150px;
+        width: 250px;
+    }
+
+    .logo_zz {
+        text-align: center;
+        width: 30%;
+    }
+
+    .h2_zz {
+        font-size: 25px;
+        text-align: center;
+    }
+
+    .login_zz {
+        border: 1px solid black;
+        width: 45%;
+        text-align: center;
+        height: 460px;
+        margin-bottom: 20px;
+
+    }
+
+    .formpic_zz {
+        float: left;
+        height: 25px;
+        width: 35px;
+    }
+
+    .cred_zz {
+        width: 70%;
+        height: 32px;
+        border: 1px solid grey;
+        border-radius: 5px;
+        font-size: 11px;
+        background-color: rgb(234, 232, 232);
+        padding-left: 6px;
+    }
+
+    .or_zz {
+        text-decoration: wavy;
+        font-size: 12px;
+    }
+
+    .head_zz {
+        justify-content: center;
+        align-items: center;
+        font-size: 18px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-weight: normal;
+        color: rgb(13, 82, 13);
+        height: 20px;
+    }
+
+    .btn_zz {
+        width: 73%;
+        height: 30px;
+        background-color: rgb(33, 100, 78);
+        color: white;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    .link_zz {
+        font-size: 11px;
+        text-decoration: none;
+    }
+
+    .signup1_zz {
+        color: rgb(31, 92, 71);
+        font-weight: bold;
+    }
+
+    .signup_zz {
+        font-size: 14px;
+
+    }
+
+    #forgot_zz {
+        font-size: 14px;
+    }
+
+    .logvideo_zz {
+        border: 1px dotted black;
+    }
+
+    .phone-container_zz {
+        position: relative;
+        width: 350px;
+        height: auto;
+    }
+
+    .phone-image_zz {
+        width: 90%;
+        height: 395px;
+        margin:auto;
+    }
+}
+
+@media screen and (min-width:425px) and (max-width:482px) {
+        .signinform_zz {
+            height: 120px;
+        }
+
+        .signup1_ {
+            font-size: 14px;
+        }
+
+        .adminparent_zz {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            width: 100%;
+            margin-top: 70px;
+            gap: 9px;
+        }
+
+        .img_zz {
+            height: 150px;
+            width: 250px;
+        }
+
+        .h2_zz {
+            font-size: 25px;
+            text-align: center;
+        }
+
+        .login_zz {
+            border: 1px solid black;
+            width: 70%;
+            text-align: center;
+            height: 460px;
+            margin-bottom: 20px;
+
+        }
+
+        .formpic_zz {
+            float: left;
+            height: 19px;
+            width: 25px;
+        }
+
+        .cred_zz {
+            width: 80%;
+            height: 29px;
+            border: 1px solid grey;
+            border-radius: 5px;
+            font-size: 10px;
+            background-color: rgb(234, 232, 232);
+            padding-left: 6px;
+        }
+
+        .or_zz {
+            text-decoration: wavy;
+            font-size: 15px;
+        }
+
+        .head_zz {
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-weight: normal;
+            color: rgb(13, 82, 13);
+            height: 17px;
+        }
+
+        .btn_zz {
+            width: 82%;
+            height: 29px;
+            background-color: rgb(33, 100, 78);
+            color: white;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .link_zz {
+            font-size: 10px;
+            text-decoration: none;
+
+        }
+
+        .signup1_zz {
+            color: rgb(31, 92, 71);
+            font-weight: bold;
+        }
+
+        .signup_zz {
+            font-size: 14px;
+
+        }
+
+        #forgot_zz {
+            font-size: 14px;
+        }
+
+        .phone-container_zz {
+            position: relative;
+            width: 188px;
+            height: auto;
+            margin: auto;
+        }
+
+        .phone-image_zz {
+            width: 100%;
+            height: 280px;
+            margin-left:30px;
+            margin-bottom:180px;
+        }
+
+}
+
+
+@media screen and (min-width:481px) and (max-width:586px)
+{
+        .signinform_zz {
+            height: 127px;
+        }
+
+        .img_zz {
+            height: 150px;
+            width: 250px;
+        }
+
+        .h2_zz {
+            font-size: 25px;
+            text-align: center;
+        }
+
+        .login_zz {
+            border: 1px solid black;
+            width: 57%;
+            text-align: center;
+            height: 460px;
+            margin-bottom: 20px;
+        }
+
+        .formpic_zz {
+            float: left;
+            height: 19px;
+            width: 25px;
+        }
+
+        .cred_zz {
+            width: 80%;
+            height: 32px;
+            border: 1px solid grey;
+            border-radius: 5px;
+            font-size: 10px;
+            background-color: rgb(234, 232, 232);
+            padding-left: 6px;
+        }
+
+        .or_zz {
+            text-decoration: wavy;
+            font-size: 15px;
+        }
+
+        .head_zz {
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-weight: normal;
+            color: rgb(13, 82, 13);
+            height: 17px;
+        }
+
+        .btn_zz {
+            width: 82%;
+            height: 30px;
+            background-color: rgb(33, 100, 78);
+            color: white;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .link_zz {
+            font-size: 10px;
+            text-decoration: none;
+
+        }
+
+        .signup1_ {
+            font-size: 16px;
+        }
+
+        .logwithgoogle_zz {
+            display: inline;
+            font-size: 14px;
+        }
+
+        .signup1_zz {
+            color: rgb(31, 92, 71);
+            font-weight: bold;
+        }
+
+        .signup_zz {
+            font-size: 14px;
+
+        }
+
+        #forgot_zz {
+            font-size: 14px;
+        }
+
+        .adminparent_z {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            width: 100%;
+            margin-top: 70px;
+            gap: 30px;
+        }
+
+        .phone-container_zz {
+            position: relative;
+            width: 188px;
+            height: auto;
+            margin: auto;
+        }
+
+        .phone-image_zz {
+            width: 90%;
+            height: 389px;
+        }
+
+}
+
+@media screen and (max-width:420px) {
+    .signinform_zz {
+        height: 125px;
+    }
+
+    .img_zz {
+        height: 150px;
+        width: 250px;
+    }
+
+    .h2_zz {
+        font-size: 25px;
+        text-align: center;
+    }
+
+    .login_zz {
+        border: 1px solid black;
+        width: 85%;
+        text-align: center;
+        height: 460px;
+    }
+
+        .formpic_zz {
+            float: left;
+            height: 19px;
+            width: 25px;
+        }
+
+        .cred_zz {
+            width: 80%;
+            height: 26px;
+            border: 1px solid grey;
+            border-radius: 5px;
+            font-size: 10px;
+            background-color: rgb(234, 232, 232);
+            padding-left: 6px;
+        }
+
+        .or_zz {
+            text-decoration: wavy;
+            font-size: 15px;
+        }
+
+        .head_zz {
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-weight: normal;
+            color: rgb(13, 82, 13);
+            height: 17px;
+        }
+
+        .signup1_ {
+            font-size: 15px;
+        }
+
+        .btn_zz {
+            width: 82%;
+            height: 25px;
+            background-color: rgb(33, 100, 78);
+            color: white;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .link_zz {
+            font-size: 10px;
+            text-decoration: none;
+
+        }
+
+        h2 {
+            display: inline;
+        }
+
+        .signup1_zz {
+            color: rgb(31, 92, 71);
+            font-weight: bold;
+        }
+
+        .signup_zz {
+            font-size: 14px;
+
+        }
+
+        #forgot_zz {
+            font-size: 14px;
+        }
+
+        .adminparent_z {
+            justify-content: center;
+            width: 100%;
+            margin-top: 70px;
+            gap: 0px;
+        }
+
+        .phone-container_zz {
+            position: relative;
+            width: 0px;
+            height: 0;
+            margin: 0;
+        }
+
+    .phone-image_zz {
+        width: 0px;
+        height: 0px;
+    }
+
+}
+@media screen and (min-width:770px) and (max-width:1200px) {
+    .login_zz {
+        border: 1px solid black;
+        width: 40%;
+        text-align: center;
+        height: 600px;
+    }
+    .phone-image_zz {
+        width: 107%;
+        height: 420px;
+        margin-left:20px;
+    }
+    
+}
