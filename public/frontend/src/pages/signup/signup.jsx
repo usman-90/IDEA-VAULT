@@ -22,10 +22,10 @@ function SignUpForm() {
         status: "loggedin",
       });
       loggedinUser({
-        token: res.token,
-        userName: res.rows[0].username,
-        userId: res.rows[0].userid,
-        status: "loggedin",
+        token: res.token ?? null,
+        userName: res.rows[0].username ?? null,
+        userId: res.rows[0].userid ?? null,
+        status: "loggedin" ,
       });
       console.log("cookies",getCookie("logindata"));
       navigate("/");

@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import { useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import ChatLeft from "./chatleft.jsx";
 import ChatMid from "./chatmid.jsx";
 import ChatRight from "./chatright.jsx";
@@ -17,23 +17,28 @@ const Chatbox = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [openedChat, setopenedChat] = useState(1);
   const [currSec, setcurrSec] = useState("chats");
-  
+  const chatsData = useQuery(["chats"], fetchChat);
+  const messageResult = useQuery(
+    ["messages", { id: openedChat, level: 0 }],
+    getMessages
+  );
+
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 600px)");
-    
+
     setIsMobile(mediaQuery.matches);
-    
+
     const handleMediaQueryChange = (event) => {
       setIsMobile(event.matches);
     };
-    
+
     mediaQuery.addEventListener("change", handleMediaQueryChange);
-    
+
     return () => {
       mediaQuery.removeEventListener("change", handleMediaQueryChange);
     };
   }, []);
-  
+
   const joinRoom = (roomid) => {
     socket.emit("join_room", roomid);
   };
@@ -44,10 +49,6 @@ const Chatbox = () => {
     joinRoom(roomid);
   }, [openedChat]);
 
-  
-  const chatsData = useQuery(["chats"], fetchChat);
-
-
   if (chatsData.isLoading) {
     return <div>no</div>;
   }
@@ -57,22 +58,11 @@ const Chatbox = () => {
 
   console.log(openedChat);
 
-
-
-  const messageResult = useQuery(
-    ["messages", { id: openedChat, level: 0 }],
-    getMessages
-  );
-
   const messages = messageResult?.data?.row ?? [];
   console.log(messages);
 
   return (
-    <div
-      style={{ height: "85vh" }}
-      className="m-0  p-0 chatcont_u d-flex "
-     
-    >
+    <div style={{ height: "85vh" }} className="m-0  p-0 chatcont_u d-flex ">
       {(!isMobile || (isMobile && currSec === "chats")) && (
         <ChatLeft
           row={chats.row}
