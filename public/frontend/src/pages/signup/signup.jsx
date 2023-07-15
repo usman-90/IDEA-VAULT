@@ -21,7 +21,13 @@ function SignUpForm() {
         userId: res.rows[0].userid,
         status: "loggedin",
       });
-      loggedinUser(JSON.parse(getCookie("logindata")));
+      loggedinUser({
+        token: res.token,
+        userName: res.rows[0].username,
+        userId: res.rows[0].userid,
+        status: "loggedin",
+      });
+      console.log("cookies",getCookie("logindata"));
       navigate("/");
     }
   };
