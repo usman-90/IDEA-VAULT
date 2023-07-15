@@ -34,16 +34,16 @@ const IdeaPoster = () => {
             <br />
             <ul className="list-unstyled">
               <li>
-                <Link to="/technology">Tech and Innovation</Link>
+                <Link className="linkcat_z" to="/technology">Tech and Innovation</Link>
               </li>
               <li>
-                <Link to="/healthcare">Health Care</Link>
+                <Link className="linkcat_z" to="/healthcare">Health Care</Link>
               </li>
               <li>
-                <Link to="/food">Food and Beverage</Link>
+                <Link className="linkcat_z" to="/food">Food and Beverage</Link>
               </li>
               <li>
-                <Link to="/education">Education and Training</Link>
+                <Link className="linkcat_z" to="/education">Education and Training</Link>
               </li>
             </ul>
           </div>
@@ -59,7 +59,7 @@ const IdeaPoster = () => {
                 ></input>
               </div>
               <div className="button_z">
-                <button>Search</button>
+                <button className="searchbutton">Search</button>
               </div>
             </div>
             <div className="tech">

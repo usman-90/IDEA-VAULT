@@ -27,7 +27,7 @@
 .carousel_z{
     box-shadow: 1px 1px 5px 3px grey;
 }
-a{
+.linkcat_z{
     color:black;
     text-decoration: none;
     font-family: 'Times New Roman', Times, serif;
@@ -66,13 +66,13 @@ a{
     display: flex;
     flex-direction: row;
 }
-button{
+.searchbutton{
     background-color: green;
     color:white;
     width:80px;
     height:40px;
 }
-button:hover{
+.searchbutton:hover{
     background-color: rgb(1, 160, 1);
 }
 .filter_z{
@@ -253,7 +253,7 @@ button:hover{
         box-shadow: 1px 1px 5px 3px grey;
         width:135%;
     }
-    a{
+    .linkcat_z{
         color:black;
         text-decoration: none;
         font-family: 'Times New Roman', Times, serif;
