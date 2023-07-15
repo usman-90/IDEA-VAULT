@@ -3,47 +3,18 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useState } from "react";
 import Message from "./message.jsx";
-import { useRef, useEffect } from "react";
+import { useEffect } from "react";
+import ScrollToBottom from "react-scroll-to-bottom";
 import EmojiPicker from "emoji-picker-react";
 import { getCookie } from "../../helpers/cookies.js";
 const ChatMid = ({ messages, isMobile, setcurrSec, socket, openedChat }) => {
-  const [message, setMessages] = useState([...messages]);
-  console.log("recieved", messages);
-  const messageRef = useRef();
-
-  const scrollToBottom = () => {
-    messageRef.current.scrollTop = messageRef.current.scrollHeight;
-  };
-
-  useEffect(() => {
-    scrollToBottom();
-  }, []);
-
+  const [message, setMessages] = useState([]);
   const [inputValue, setinputValue] = useState("");
   const [emojiOpened, setemojiOpened] = useState(false);
+  useEffect(() => {
+    setMessages([...messages]);
+  }, [messages]);
 
-  const handleMessageRecieve = (newmsg) => {
-    const updatedMessages = [...message];
-    updatedMessages.push(newmsg);
-    setMessages(updatedMessages);
-  };
-
-  const sendMessage = async () => {
-    const id = JSON.parse(getCookie("logindata")).userId;
-    const users = [id, openedChat].sort();
-    const data = {
-      messagebody: inputValue,
-      messagestatus: "delivered",
-      receiver: openedChat,
-      room: parseInt(users.join("")),
-      user1: users[0],
-      user2: users[1],
-      senderid: id,
-    };
-    await socket.emit("send_message", data);
-    setMessages([...message, data]);
-    setinputValue("");
-  };
   useEffect(() => {
     const recievemsg = async () => {
       await socket.on("recieve_message", (data) => {
@@ -54,6 +25,30 @@ const ChatMid = ({ messages, isMobile, setcurrSec, socket, openedChat }) => {
 
     recievemsg();
   }, [socket]);
+  console.log("recieved", messages);
+
+  const handleMessageRecieve = (newmsg) => {
+    const updatedMessages = [...message];
+    updatedMessages.push(newmsg);
+    setMessages(updatedMessages);
+  };
+
+  const sendMessage = async () => {
+    const id = (getCookie("logindata")).userId;
+    const users = [id, openedChat].sort();
+    const data = {
+      messagebody: inputValue,
+      messagestatus: "delivered",
+      receiver: openedChat,
+      room: parseInt(users.join("")),
+      user1: users[0],
+      user2: users[1],
+      sender: id,
+    };
+    await socket.emit("send_message", data);
+    setMessages([...message, data]);
+    setinputValue("");
+  };
 
   console.log("mesa", message);
   return (
@@ -89,25 +84,17 @@ const ChatMid = ({ messages, isMobile, setcurrSec, socket, openedChat }) => {
         </div>
         <div className="w-25 d-flex justify-content-center align-items-center"></div>
       </div>
-
-      <div ref={messageRef} className="messages overflow-y-scroll">
-        {message
-          ? message.map((msg) => {
-              {
-                console.log("message:", message);
-              }
-              console.log("invoked");
-              return (
-                <Message
-                  key={Math.random()}
-                  body={msg.messagebody}
-                  senderid={msg.senderid}
-                />
-              );
-            })
-          : null}
+      <div className="messages overflow-y-scroll">
+        <ScrollToBottom className="message-container">
+          {message.map((msg) => (
+            <Message
+              key={Math.random()}
+              body={msg.messagebody}
+              senderid={msg.sender}
+            />
+          ))}
+        </ScrollToBottom>
       </div>
-
       <div className="messageinput h-12_5  w-100 position-absolute">
         <div className="d-flex m-3  rounded-pill bg-midnight-green">
           <input
