@@ -9,6 +9,10 @@ import { signup } from "./handlers/login";
 import http from "http";
 import { logIn } from "./handlers/signup";
 import unprotectedRouter from "./routes/unprotectedRoutes";
+import protectedRouter from "./routes/protectedRoutes";
+import { logout } from "./handlers/logout";
+import protect from "./modules/auth";
+import { postMessage } from "./handlers/protected/messages";
 
 const app = express();
 app.use(morgan("dev"));
@@ -24,7 +28,9 @@ app.get("/api", async (req, res) => {
 });
 app.post("/signup", signup);
 app.post("/login", logIn);
+app.get("/logout", logout);
 app.use("/ideavault", unprotectedRouter);
+app.use("/ideavault", protect, protectedRouter);
 
 const server = http.createServer(app);
 const io = new Server(server, {
@@ -39,9 +45,13 @@ io.on("connection", (socket) => {
     socket.join(id);
     console.log("room joined", id);
   });
-  socket.on("send_message", (data) => {
+  socket.on("send_message", async (data) => {
     console.log(data);
     socket.to(data.room).emit("recieve_message", data);
+    // const savetodb = async (data) => {
+    await postMessage(data);
+    // };
+    // await savetodb(data)
   });
 
   socket.on("disconnect", () => {

@@ -9,6 +9,7 @@ import {
   getCommentsAndReplies,
   getVotes,
 } from "../handlers/unprotectedHandlers/idea";
+import { getOneUser } from "../handlers/protected/admin";
 
 const unprotectedRouter = Router();
 
@@ -20,5 +21,6 @@ unprotectedRouter.get("/getideaupdates/:ideaid", getIdeaUpdates);
 unprotectedRouter.get("/getideabycategory/:id", getIdeaByCategory);
 unprotectedRouter.get("/getcommentsandreplies/:id", getCommentsAndReplies);
 unprotectedRouter.get("/getvotes/:ideaid", getVotes);
+unprotectedRouter.get("/getoneuser/:userid",getOneUser)
 
 export default unprotectedRouter;

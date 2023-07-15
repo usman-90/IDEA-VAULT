@@ -71,3 +71,16 @@ export const postIdeaUpdates = async (req, res) => {
     .status(200)
     .end();
 };
+
+export const deleteIdea = async (req, res) => {
+  const query = `DELETE FROM Idea WHERE ideaId = $1`;
+  const values = [req.params.ideaId];
+  const row = await executeQuery(query, values);
+  res
+    .json({
+      data: row,
+      message: "ok",
+    })
+    .status(200)
+    .end();
+};

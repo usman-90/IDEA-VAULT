@@ -1,83 +1,12 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable import/no-unresolved */
 import "./nav.css";
 import "bootstrap";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import UserContext from "../../context/context";
+import { logout } from "../../functions/logout";
 
-let spArr = [
-  {
-    heading: "Home",
-    link: "/",
-    subheads: [
-      {
-        head: "View",
-        points: ["Hello", "hi", "hola"],
-      },
-      {
-        head: "View",
-        points: ["Hello", "hi", "hola"],
-      },
-      {
-        head: "View",
-        points: ["Hello", "hi", "hola"],
-      },
-      {
-        head: "View",
-        points: ["Hello", "hi", "hola"],
-      },
-      {
-        head: "View",
-        points: ["Hello", "hi", "hola"],
-      },
-      {
-        head: "View",
-        points: ["Hello", "hi", "hola"],
-      },
-      {
-        head: "View",
-        points: ["Hello", "hi", "hola"],
-      },
-      {
-        head: "View",
-        points: ["Hello", "hi", "hola"],
-      },
-    ],
-  },
-  {
-    heading: "Services",
-    link: "/",
-    subheads: [
-      {
-        head: "View",
-        points: ["Hello", "hi", "hola"],
-      },
-    ],
-  },
-  {
-    heading: "Industries",
-    src: "/",
-    subheads: [
-      {
-        head: "View",
-        points: ["Hello", "hi", "hola"],
-      },
-    ],
-  },
-  {
-    heading: "About",
-    link: "/",
-    subheads: [
-      {
-        head: "View",
-        points: ["Hello", "hi", "hola"],
-      },
-      {
-        head: "View",
-        points: ["Hello", "hi", "hola"],
-      },
-    ],
-  },
-];
 const Spoint2 = ({ point }) => {
   return <p className="text-light">{point}</p>;
 };
@@ -106,6 +35,13 @@ const SPoint = (props) => {
 };
 
 const LPoint = ({ onChange, point, link, handleExpansion }) => {
+  //eslint-disable-next-line no-unused-vars
+  const [_,setcontext] = useContext(UserContext);
+  const handleLogout = async () => {
+    const res = await logout();
+    setcontext(null)
+    console.log(res);
+  };
   const showNavContents = () => {
     onChange(point);
   };
@@ -120,12 +56,107 @@ const LPoint = ({ onChange, point, link, handleExpansion }) => {
       onFocus={showNavContents}
       to={link}
     >
-      <p className="p-2 xl-point text-white">{point}</p>
+      <p
+        onClick={point == "Logout" ? handleLogout : null}
+        className="p-2 xl-point text-white"
+      >
+        {point}
+      </p>
     </Link>
   );
 };
 
 const NavExpansion = ({ width, width100, handleExpansion }) => {
+  const [readContext] = useContext(UserContext);
+  console.log("context", readContext);
+  let spArr = [
+    {
+      heading: "Home",
+      link: "/",
+      subheads: [
+        {
+          head: "View",
+          points: ["Hello", "hi", "hola"],
+        },
+        {
+          head: "View",
+          points: ["Hello", "hi", "hola"],
+        },
+        {
+          head: "View",
+          points: ["Hello", "hi", "hola"],
+        },
+        {
+          head: "View",
+          points: ["Hello", "hi", "hola"],
+        },
+        {
+          head: "View",
+          points: ["Hello", "hi", "hola"],
+        },
+        {
+          head: "View",
+          points: ["Hello", "hi", "hola"],
+        },
+        {
+          head: "View",
+          points: ["Hello", "hi", "hola"],
+        },
+        {
+          head: "View",
+          points: ["Hello", "hi", "hola"],
+        },
+      ],
+    },
+    {
+      heading: "Categories",
+      link: "/",
+      subheads: [
+        {
+          head: "View",
+          points: ["Hello", "hi", "hola"],
+        },
+      ],
+    },
+    {
+      heading: "Policies",
+      src: "/terms",
+      subheads: [
+        {
+          head: "View",
+          points: ["Hello", "hi", "hola"],
+        },
+      ],
+    },
+    {
+      heading: "Inbox",
+      link: "/inbox",
+      subheads: [
+        {
+          head: "View",
+          points: ["Hello", "hi", "hola"],
+        },
+        {
+          head: "View",
+          points: ["Hello", "hi", "hola"],
+        },
+      ],
+    },
+    {
+      heading: readContext ? "Logout" : "Login",
+      link: readContext ? "/signin" : "/signin",
+      subheads: [
+        {
+          head: "View",
+          points: ["Hello", "hi", "hola"],
+        },
+        {
+          head: "View",
+          points: ["Hello", "hi", "hola"],
+        },
+      ],
+    },
+  ];
   const [currNav, setcurrNav] = useState("");
 
   const handleNavChange = (curr) => {
@@ -152,6 +183,9 @@ const NavExpansion = ({ width, width100, handleExpansion }) => {
       <div className={`right_nav_u bg-midnight-green`}>
         <div className={`right_nav_content`}>
           {spArr.map((point) => {
+            if (point.heading == "Inbox" && !readContext) {
+              return null;
+            }
             return (
               <LPoint
                 onChange={handleNavChange}

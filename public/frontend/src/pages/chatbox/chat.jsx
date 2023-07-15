@@ -1,16 +1,35 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import { useState } from "react";
-const Chat = ({ image, name, last_msg, date, onChange ,setcurrSec}) => {
+const Chat = ({ image, name, id, last_msg, date, onChange, setcurrSec }) => {
+
+  const formatTime = (t) => {
+    const timestamp = t;
+
+    const options = { hour: "numeric", minute: "2-digit" };
+    const time = new Date(timestamp).toLocaleTimeString([], options);
+
+    const currentDate = new Date().toLocaleDateString();
+    const messageDate = new Date(timestamp).toLocaleDateString();
+
+    let formattedTime;
+    if (currentDate === messageDate) {
+      formattedTime = time;
+    } else {
+      formattedTime = new Date(timestamp).toLocaleDateString();
+    }
+    return formattedTime;
+  };
+
   const handleChange = () => {
-    onChange(name);
+    onChange(id);
     setisRead(true);
-    setcurrSec('messages')
+    setcurrSec("messages");
   };
   const [isRead, setisRead] = useState(false);
   return (
     // eslint-disable-next-line jsx-a11y/click-events-have-key-events
-    
+
     <div
       className="w-100 chat_u d-flex b-white"
       onFocus={handleChange}
@@ -26,7 +45,7 @@ const Chat = ({ image, name, last_msg, date, onChange ,setcurrSec}) => {
         </p>
       </div>
       <div className="w-25 d-flex flex-column justify-content-start align-items-center">
-        <span className="my-2">{date}</span>
+        <span className="my-2">{formatTime(date)}</span>
         <span className={`${isRead ? "d-none" : ""} msgread_u my-1`}></span>
       </div>
     </div>

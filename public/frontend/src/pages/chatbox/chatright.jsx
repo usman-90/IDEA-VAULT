@@ -1,7 +1,7 @@
 import ChatSideInfo from "./chatsideinfo.jsx";
 import IdeaSideCard from "./ideasidecard.jsx";
 
-const ChatRight = ({ currUser, setcurrSec, isMobile }) => {
+const ChatRight = ({ setcurrSec, isMobile }) => {
   return (
     <div className={`  chatright_u h-100 w-25 b-white`}>
       <div className="h-50">
@@ -18,7 +18,7 @@ const ChatRight = ({ currUser, setcurrSec, isMobile }) => {
               <i className="fa-solid fa-arrow-left"></i>
             </button>
           )}
-            {currUser.length != 0 ? `About ${currUser[0].name}` : ""}
+            {`About ${''}`}
           </h2>
         </div>
         <ChatSideInfo field={"From"} value={"Pakistan"} />
@@ -28,7 +28,7 @@ const ChatRight = ({ currUser, setcurrSec, isMobile }) => {
         <ChatSideInfo field={"Laugh"} value={"Hahahahha"} />
       </div>
       <div className="h-49 overflow-y-auto">
-        {currUser.map((user) => {
+        {/* {currUser.map((user) => {
           return (
             <IdeaSideCard
               image={user.img}
@@ -37,7 +37,7 @@ const ChatRight = ({ currUser, setcurrSec, isMobile }) => {
               key={user.id}
             />
           );
-        })}
+        })} */}
       </div>
     </div>
   );
