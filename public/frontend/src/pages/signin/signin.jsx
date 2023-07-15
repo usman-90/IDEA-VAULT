@@ -14,9 +14,6 @@ const SignIn = () => {
   // eslint-disable-next-line no-unused-vars
   const [_, setusercontext] = useContext(UserContext);
 
-
-
-  
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (fullNameOrEmail && password) {
@@ -40,7 +37,6 @@ const SignIn = () => {
         );
 
         setusercontext(JSON.parse(getCookie("logindata")));
-
         navigate("/");
       }
 
