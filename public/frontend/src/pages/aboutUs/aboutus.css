@@ -1,24 +1,27 @@
 .aboutusdiv{
     
-    background-image: url("https://c1.iggcdn.com/indiegogo-media-prod-cld/image/upload/v1/what_we_do/hero_desktop.png");
+    background-image: url("https://static.vecteezy.com/system/resources/previews/004/605/284/non_2x/creative-idea-concept-background-think-different-concept-outstanding-light-bulb-on-blue-wall-vector.jpg");
+    /* background-image: url("https://media.wired.com/photos/6449869f9a01d944fee35d1c/master/w_2560%2Cc_limit/6-Tips-for-Using-ChatGPT-to-Brainstorm-Better-Gear-'GettyImages-1254389031.png"); */
+    /* background-image: url("https://img.freepik.com/free-photo/idea-concept-with-light-bulb_23-2149105814.jpg?w=2000"); */
+    /* background-image: url("https://c1.iggcdn.com/indiegogo-media-prod-cld/image/upload/v1/what_we_do/hero_desktop.png"); */
     width: 100%;
-    height: 35rem;
+    height: 41rem;
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
 }
 .aboutus-heading-r{
-    margin-top: 10%;
-    margin-left: 5%;
+    margin-top: 24%;
+    margin-left: 9%;
     font-size: 4em;
-  font-weight: 800;
-  color: #917307;
+  font-weight: 700;
+  color: #0c4965;
   line-height: 1em;
   text-transform: uppercase;
 }
 .aboutus-heading-r2{
-    margin-top: 3%;
-    margin-left: 5%;
+    margin-top: 2%;
+    margin-left: 9%;
     font-size: 1.5em;
   font-weight: 700;
   color: #0a4551;
@@ -28,14 +31,40 @@
 @media (max-width: 991px){
   .aboutusdiv{
     
-    background-image: url("https://c1.iggcdn.com/indiegogo-media-prod-cld/image/upload/v1/what_we_do/hero_tablet.png");}
+    background-image: url("https://media.wired.com/photos/6449869f9a01d944fee35d1c/master/w_2560%2Cc_limit/6-Tips-for-Using-ChatGPT-to-Brainstorm-Better-Gear-'GettyImages-1254389031.png");}
     
 
 }
 
 .row2-aboutus{
+  
 
   margin-top: 2%;
   /* box-shadow:  1rem 3rem rgba(0,0,0,.175)!important */
   /* box-shadow: 10px 10px 5px lightblue; */
+}
+
+@media (max-width:425px){
+  .circlegoladiv{
+    flex-direction: column;
+  }
+}
+
+
+.aboutusbutton{
+  display: inline-block;
+  font-size: 1em;
+  background: #90c7e4;
+  width:10rem ;
+  padding: 10px 30px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 500;
+  margin-top: 10px;
+  color: #111;
+  letter-spacing: 2px;
+  transition: 0.2s;
+}
+.aboutusbutton{
+  letter-spacing: 6px;
 }

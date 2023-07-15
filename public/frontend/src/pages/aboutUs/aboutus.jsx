@@ -13,18 +13,19 @@ const AboutUs=()=>{
                 <div className="container-fluid aboutusdiv">
                    <div className="text-aboutus">
                     <h3 className="aboutus-heading-r">ABOUT US</h3>
-                    <h5 className="aboutus-heading-r2">Unleash Your Ideas: Connecting Visionaries with Idea Vault</h5>
+                    <h5 className="aboutus-heading-r2">Unleash Your Ideas: Connecting Visionaries <br></br> with Idea Vault</h5>
                    </div>
 
                 </div>
             </div>
             <div className="row row2-aboutus">
             
-                <div className="col-md-6">
+                <div style={{boxshadow:"  0 0 5px 6px #41909b !important"}} className="col-md-6">
                     <div style={{justifyContent:"center",flexDirection:"column",height:"30rem",marginLeft:"5%"}} className="container d-flex">
                         <h2 style={{color:"#07393c",fontSize:"3em"}}>What We Do?</h2>
                         <p style={{fontSize:"1em"}}>
                         Idea Vault is an innovative platform designed to empower individuals to share, explore, and collaborate on business ideas. It serves as a secure repository where visionaries can deposit their creative concepts, seeking funding, partners, or feedback. By connecting idea posters with potential investors and collaborators, Idea Vault fosters a dynamic ecosystem that fuels the growth of infuture groundbreaking ventures.</p>
+                        <a className="aboutusbutton" href="/">Explore</a>
                     </div>
                 </div>
                 <div className="col-md-6">
@@ -54,7 +55,7 @@ const AboutUs=()=>{
 
 
                     </div>
-                    <div className="container d-flex">
+                    <div className="container d-flex circlegoladiv">
 
                     <div style={{display:"flex",justifyContent:"center",alignItems:"center",flexDirection:"column"}} className="col-md-4">
                         <MyCircularProgress totalCount={2000}/>
