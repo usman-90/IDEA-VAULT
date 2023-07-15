@@ -53,7 +53,7 @@ const Chatbox = () => {
     return <div>no</div>;
   }
 
-  const chats = chatsData.data;
+  const chats = chatsData?.data;
   console.log("chat", chats);
 
   console.log(openedChat);

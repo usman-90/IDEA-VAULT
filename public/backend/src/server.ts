@@ -45,11 +45,11 @@ io.on("connection", (socket) => {
     socket.join(id);
     console.log("room joined", id);
   });
-  socket.on("send_message", async (data) => {
+  socket.on("send_message",(data) => {
     console.log(data);
     socket.to(data.room).emit("recieve_message", data);
     // const savetodb = async (data) => {
-    await postMessage(data);
+    // await postMessage(data);
     // };
     // await savetodb(data)
   });
