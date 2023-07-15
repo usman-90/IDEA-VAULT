@@ -149,7 +149,7 @@ const Details = ({ title, tagline, name, country, funding, teamMembers }) => {
                       }}
                       className="d-flex  align-item-center"
                     >
-                      <p className="fs-4 fw-bold ">FUNDING REQUIRED</p>
+                      <p className="fs-4 fw-bold ">FUNDING REQUIRED(In Dollars)</p>
                     </div>
                     <div className="d-flex  justify-content-start">
                       <MyCircularProgress totalCount={funding} />

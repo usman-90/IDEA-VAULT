@@ -63,7 +63,7 @@ const Category = () => {
             >
               <CategoryCard
 
-                categosryCardSrc={category.categoryCardSrc}
+                categoryCardSrc={category.categoryCardSrc}
                 categoryDesc={category.categoryDesc}
                 categoryTitle={category.categoryTitle}
               />

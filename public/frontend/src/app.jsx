@@ -31,6 +31,7 @@ import Arts from "./pages/Categories/arts";
 import Tourism from "./pages/Categories/tourism";
 import Education from "./pages/Categories/education";
 import Science from "./pages/Categories/sciencecat";
+import AboutUs from "./pages/aboutUs/aboutus";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -98,6 +99,8 @@ const App = () => {
                 <Route path="/tourism" element={<Tourism />} />
                 <Route path="/education" element={<Education />} />
                 <Route path="/science" element={<Science />} />
+                <Route path="/aboutus" element={<AboutUs />} />
+                
               </Routes>
             </Layout>
           </UserContext.Provider>

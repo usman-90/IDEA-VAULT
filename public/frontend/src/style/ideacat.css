@@ -55,7 +55,7 @@
   
   @media (max-width: 320px) {
     .cardcat-heading {
-      font-size: 1.8em;
+      font-size: 1.4em;
       left: 12% !important; /* Add !important to override any conflicting styles */
     }
   }
