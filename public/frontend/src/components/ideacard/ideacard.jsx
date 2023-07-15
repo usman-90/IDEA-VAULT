@@ -8,7 +8,7 @@ const IdeaCard = ({
 }) => {
   return (
     <div >
-      <article className="article-wrapper my-5 ">
+      <article className="article-wrapper my-2 ">
         <img className="container-project rounded-lg" src={cardSrc} alt="" />
         <div className="project-info">
           <div className="flex-pr">
