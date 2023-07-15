@@ -52,7 +52,8 @@
 }
 .text{
   position: relative;
-  z-index: 10;}
+  z-index: 10;
+padding-top: 30px;}
 
 .text h2{
   font-size: 5em;
@@ -136,6 +137,14 @@
   @media (max-width: 322px) {
     .showcase {
       min-height: 130vh;
+    }
+   
+  }
+
+  
+  @media (max-width: 769px){
+    .social{
+      display: none;
     }
   }
   

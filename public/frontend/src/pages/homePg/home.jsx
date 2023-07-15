@@ -8,6 +8,8 @@ import Contact from "../../components/contactus/contact";
 import IdeaCard from "../../components/ideacard/ideacard";
 import ReviewCard from "../../components/reviewcard/reviewcard";
 import Banner from "../../components/banner/banner";
+import { useQuery } from "@tanstack/react-query";
+import fetchIdea from "../../function2/fetchidea";
 
 const reviews = [
   {
@@ -52,7 +54,13 @@ const reviews = [
   },
 ];
 
+
 const Home = () => {
+  const ideadata = useQuery(["idea" ], fetchIdea);
+  // console.log(ideadata);
+  const result = ideadata?.data?.data?? [];
+  console.log(result)
+
   return (
     <div>
       <Showcase />
@@ -65,44 +73,21 @@ const Home = () => {
       <Heading style={{margintop:"3rem"}} className="my-5"text="Our top 10 Ideas"/>
     
       <SimpleSlider>
+      {result.map((idea, index) => (
         <IdeaCard
+          key={index}
           cardSrc={
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8FuKg3nog0iQGtEKOc_Hdo4nx0Dp0u5x-46o1wBygjA&s"
           }
-          ideaName={"Flying Laptop"}
-          ideaCardDesc={
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur cumque quos ullam hic suscipit, illo itaque praesentium odio fugiat quibusdam molestiae adipisci voluptatem fugit optio culpa, provident, facere error sit."
-          }
-          ideaDate={"7 / 7 /23"}
+          ideaName={idea.ideatitle}
+          ideaCardDesc={idea.carddescription}
+          ideaDate={idea.postedat}
           ideaCategory={"Technology"}
         />
-        <IdeaCard  cardSrc={
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8FuKg3nog0iQGtEKOc_Hdo4nx0Dp0u5x-46o1wBygjA&s"
-          }
-          ideaName={"Flying Laptop"}
-          ideaCardDesc={
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur cumque quos ullam hic suscipit, illo itaque praesentium odio fugiat quibusdam molestiae adipisci voluptatem fugit optio culpa, provident, facere error sit."
-          }
-          ideaDate={"7 / 7 /23"}
-          ideaCategory={"Technology"} />
-        <IdeaCard  cardSrc={
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8FuKg3nog0iQGtEKOc_Hdo4nx0Dp0u5x-46o1wBygjA&s"
-          }
-          ideaName={"Flying Laptop"}
-          ideaCardDesc={
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur cumque quos ullam hic suscipit, illo itaque praesentium odio fugiat quibusdam molestiae adipisci voluptatem fugit optio culpa, provident, facere error sit."
-          }
-          ideaDate={"7 / 7 /23"}
-          ideaCategory={"Technology"}/>
-        <IdeaCard  cardSrc={
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8FuKg3nog0iQGtEKOc_Hdo4nx0Dp0u5x-46o1wBygjA&s"
-          }
-          ideaName={"Flying Laptop"}
-          ideaCardDesc={
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur cumque quos ullam hic suscipit, illo itaque praesentium odio fugiat quibusdam molestiae adipisci voluptatem fugit optio culpa, provident, facere error sit."
-          }
-          ideaDate={"7 / 7 /23"}
-          ideaCategory={"Technology"}/>
+
+        ))}
+
+      
 
       </SimpleSlider>
 

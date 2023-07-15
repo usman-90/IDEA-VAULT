@@ -11,7 +11,7 @@ const MyNavbar = () => {
     setisExpanded(!isExpanded);
   };
   const handleNavColor = () => {
-    if (location.pathname == "/") {
+    if (location.pathname == "/" ) {
       setisItHome(true);
     } else {
       setisItHome(false);

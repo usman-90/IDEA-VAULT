@@ -46,7 +46,7 @@ const CircularProgress = ({ size, progress, totalCount }) => {
         fill="#07393c"
         className="font-italic "
       >
-        {progress}$
+        {progress}+
       </text>
     </svg>
   );
