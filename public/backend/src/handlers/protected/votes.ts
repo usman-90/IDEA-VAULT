@@ -22,5 +22,3 @@ export const upVote = async (req, res) => {
     .status(200)
     .end();
 };
-
-

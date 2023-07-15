@@ -21,7 +21,7 @@ function SignUpForm() {
         userId: res.rows[0].userid,
         status: "loggedin",
       });
-      loggedinUser((getCookie("logindata")));
+      loggedinUser(JSON.parse(getCookie("logindata")));
       navigate("/");
     }
   };

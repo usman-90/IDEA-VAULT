@@ -34,7 +34,7 @@ const ChatMid = ({ messages, isMobile, setcurrSec, socket, openedChat }) => {
   };
 
   const sendMessage = async () => {
-    const id = (getCookie("logindata")).userId;
+    const id = JSON.parse(getCookie("logindata")).userId;
     const users = [id, openedChat].sort();
     const data = {
       messagebody: inputValue,
