@@ -1,10 +1,10 @@
 import H2WithToolTip from "./h2withtooltip.jsx";
-import SideBar from "./sidebar.jsx";
+import UserprofileNav from "../viewprofile/userProfileNav.jsx";
 
 const PosterInfo = () => {
   return (
     <>
-      <SideBar />
+      <UserprofileNav />
       <div className="bg-white rounded container my-5">
         <div className="inner px-5 p-5">
           <form

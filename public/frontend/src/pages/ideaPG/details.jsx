@@ -1,13 +1,20 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MyCircularProgress from "../../components/circlecount/progreebar";
 import "../../style/detail.css";
+import { downvote, getVotes, upvote } from "../../functions/votes";
 // import DetailNav from "../pages/ideaPG/detailNav";
 
-const Details = ({ title, tagline, name, country, funding, teamMembers }) => {
-  const upvote=10;
-  
+const Details = ({
+  title,
+  tagline,
+  name,
+  country,
+  funding,
+  teamMembers,
+  ideaid,
+}) => {
   const srcArr = [
     "../images/art.jpg",
     "../images/business2.jpg",
@@ -17,28 +24,40 @@ const Details = ({ title, tagline, name, country, funding, teamMembers }) => {
     "../images/travel.jpg",
   ];
   const [currentImg, setCurrentImg] = useState(srcArr[0]);
-  const [buttonColor, setButtonColor] = useState('');
-  // const [upvoteCount, setUpvoteCount] = useState(25);
-  // const [downvoteCount, setDownvoteCount] = useState(9);
-  const handleUpvoteClick = () => {
-    if (buttonColor === 'green') {
-      // setUpvoteCount(upvoteCount - 1);
-      // setDownvoteCount(downvoteCount-1);
-      setButtonColor('');
+  const [buttonColor, setButtonColor] = useState("");
+  const [upvoteCount, setUpvoteCount] = useState();
+  const getinitialvotes = async (ideaid) => {
+    console.log("ideaid", ideaid);
+    const voteres = await getVotes(ideaid);
+    console.log(voteres);
+    setUpvoteCount(voteres.data[0].total_upvotes ?? 0);
+  };
+  useEffect(() => {
+    getinitialvotes(ideaid);
+  }, []);
+
+  const handleUpvoteClick = async () => {
+    const result = await upvote(ideaid);
+    if (result.message == "ok") {
+      setUpvoteCount(upvoteCount + 1);
+    }
+    if (buttonColor === "green") {
+      setButtonColor("");
     } else {
-      // setUpvoteCount(upvoteCount + 1);
-      setButtonColor('green');
+      setButtonColor("green");
     }
   };
 
-  const handleDownvoteClick = () => {
-    if (buttonColor === 'red') {
-      // setDownvoteCount(downvoteCount - 1);
-      // setUpvoteCount(upvoteCount-1);
-      setButtonColor('');
+  const handleDownvoteClick = async () => {
+    const result = await downvote(ideaid);
+    if (result.message == "ok") {
+      setUpvoteCount(upvoteCount - 1);
+    }
+    if (buttonColor === "red") {
+      setButtonColor("");
     } else {
       // setDownvoteCount(downvoteCount + 1);
-      setButtonColor('red');
+      setButtonColor("red");
     }
   };
 
@@ -128,12 +147,10 @@ const Details = ({ title, tagline, name, country, funding, teamMembers }) => {
                         className="my-1"
                       >
                         <strong>
-                          {name},{country}{" "}
+                          {`${name}   `} {country}{" "}
                         </strong>
                       </p>
-                      <p style={{ color: "o7393c" }}>
-                        Team Members:{teamMembers}
-                      </p>
+                      <p style={{ color: "o7393c" }}>{teamMembers}</p>
                     </div>
                   </div>
 
@@ -149,7 +166,9 @@ const Details = ({ title, tagline, name, country, funding, teamMembers }) => {
                       }}
                       className="d-flex  align-item-center"
                     >
-                      <p className="fs-4 fw-bold ">FUNDING REQUIRED(In Dollars)</p>
+                      <p className="fs-4 fw-bold ">
+                        FUNDING REQUIRED(In Dollars)
+                      </p>
                     </div>
                     <div className="d-flex  justify-content-start">
                       <MyCircularProgress totalCount={funding} />
@@ -178,22 +197,32 @@ const Details = ({ title, tagline, name, country, funding, teamMembers }) => {
                   className=" handlebox container d-flex justify-content-between  my-3"
                 >
                   <div style={{ gap: "2rem" }} className="d-flex">
-                  <button
-        className={`${buttonColor === 'red' ? 'bg-grey' : ''} upvotebutt`}
-        onClick={handleUpvoteClick}
-      >
-        <i className="fa-solid fa-up-long" disabled={buttonColor === 'red'}>
-          Vote <span>{upvote}</span>
-        </i>
-      </button>
-                     <button
-        className={`${buttonColor === 'green' ? 'bg-grey' : ''} downvotebutt`}
-        onClick={handleDownvoteClick}
-      >
-        <i className="fa-solid fa-down-long" disabled={buttonColor === 'green'}>
-          Vote <span></span>
-        </i>
-      </button>
+                    <button
+                      className={`${
+                        buttonColor === "red" ? "bg-grey" : ""
+                      } upvotebutt`}
+                      onClick={handleUpvoteClick}
+                    >
+                      <i
+                        className="fa-solid fa-up-long"
+                        disabled={buttonColor === "red"}
+                      >
+                        Vote <span>{upvoteCount}</span>
+                      </i>
+                    </button>
+                    <button
+                      className={`${
+                        buttonColor === "green" ? "bg-grey" : ""
+                      } downvotebutt`}
+                      onClick={handleDownvoteClick}
+                    >
+                      <i
+                        className="fa-solid fa-down-long"
+                        disabled={buttonColor === "green"}
+                      >
+                        Vote <span></span>
+                      </i>
+                    </button>
                   </div>
 
                   <div className="socials d-flex gap-2 justify-content-center">

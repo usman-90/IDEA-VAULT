@@ -6,6 +6,7 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import UserContext from "../../context/context";
 import { logout } from "../../functions/logout";
+import { checkCookieExists, destroyCookie } from "../../helpers/cookies";
 
 const Spoint2 = ({ point }) => {
   return <p className="text-light">{point}</p>;
@@ -36,10 +37,11 @@ const SPoint = (props) => {
 
 const LPoint = ({ onChange, point, link, handleExpansion }) => {
   //eslint-disable-next-line no-unused-vars
-  const [_,setcontext] = useContext(UserContext);
+  const [_, setcontext] = useContext(UserContext);
   const handleLogout = async () => {
     const res = await logout();
-    setcontext(null)
+    destroyCookie("logindata");
+    setcontext(null);
     console.log(res);
   };
   const showNavContents = () => {
@@ -58,7 +60,7 @@ const LPoint = ({ onChange, point, link, handleExpansion }) => {
     >
       <p
         onClick={point == "Logout" ? handleLogout : null}
-        className="p-2 xl-point text-white"
+        className="px-2 xl-point text-white"
       >
         {point}
       </p>
@@ -118,16 +120,7 @@ const NavExpansion = ({ width, width100, handleExpansion }) => {
         },
       ],
     },
-    {
-      heading: "Policies",
-      src: "/terms",
-      subheads: [
-        {
-          head: "View",
-          points: ["Hello", "hi", "hola"],
-        },
-      ],
-    },
+
     {
       heading: "Inbox",
       link: "/inbox",
@@ -142,8 +135,43 @@ const NavExpansion = ({ width, width100, handleExpansion }) => {
         },
       ],
     },
+
     {
-      heading: readContext ? "Logout" : "Login",
+      heading: "Profile",
+      link: "/profile",
+      subheads: [
+        {
+          head: "View",
+          points: ["Hello", "hi", "hola"],
+        },
+        {
+          head: "View",
+          points: ["Hello", "hi", "hola"],
+        },
+      ],
+    },
+    {
+      heading: checkCookieExists("logindata") ? "Post Your Idea" : "",
+      link: checkCookieExists("logindata") ? "/basicinfo" : "",
+      subheads: [
+        {
+          head: "View",
+          points: ["Hello", "hi", "hola"],
+        },
+      ],
+    },
+    {
+      heading: "Policies",
+      link: "/terms",
+      subheads: [
+        {
+          head: "View",
+          points: ["Hello", "hi", "hola"],
+        },
+      ],
+    },
+    {
+      heading: checkCookieExists("logindata") ? "Logout" : "Login",
       link: readContext ? "/signin" : "/signin",
       subheads: [
         {
@@ -183,7 +211,10 @@ const NavExpansion = ({ width, width100, handleExpansion }) => {
       <div className={`right_nav_u bg-midnight-green`}>
         <div className={`right_nav_content`}>
           {spArr.map((point) => {
-            if (point.heading == "Inbox" && !readContext) {
+            if (
+              (point.heading == "Inbox" || point.heading == "Post Your Idea" || point.heading == "Profile") &&
+              !checkCookieExists("logindata")
+            ) {
               return null;
             }
             return (

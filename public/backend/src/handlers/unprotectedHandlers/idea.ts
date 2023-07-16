@@ -1,7 +1,7 @@
 import executeQuery from "../../db";
 
 export const getAllIdeas = async (req, res) => {
-  const query = "SELECT ideaTitle , cardDescription, postedAt FROM Idea";
+  const query = "SELECT ideaTitle , cardDescription, postedAt,ideaId FROM Idea";
   const row = await executeQuery(query, []);
   res
     .json({
@@ -40,13 +40,12 @@ export const getIdeafaqs = async (req, res) => {
   const values = [id];
   const row = await executeQuery(query, values);
 
-  res
-    .json({
-      data: row,
-      message: "ok",
-    })
-    .status(200)
-    .end();
+  res.json({
+    data: row,
+    message: "ok",
+  });
+  res.status(200);
+  res.end();
 };
 
 export const getIdeaUpdates = async (req, res) => {
@@ -111,6 +110,6 @@ export const getVotes = async (req, res) => {
       data: row,
       message: "ok",
     })
-    .staus(200)
+    .status(200)
     .end();
 };

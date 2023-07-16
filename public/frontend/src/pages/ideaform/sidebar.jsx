@@ -50,13 +50,10 @@ const SideBar = () => {
             <Link to={"/basicinfo"}>Basic Information</Link>
           </div>
           <div className="menuopt_u">
-            <Link to={'/contentinfo'}>Content</Link>
+            <Link to={"/contentinfo"}>Content</Link>
           </div>
           <div className="menuopt_u">
-            <Link to={'/posterinfo'}>Your Information</Link>
-          </div>
-          <div className="menuopt_u">
-            <Link to={'/settings'}>Settings</Link>
+            <Link to={"/settings"}>Settings</Link>
           </div>
         </div>
       </div>

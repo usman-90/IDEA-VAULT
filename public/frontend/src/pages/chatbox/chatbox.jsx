@@ -11,8 +11,8 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchChat, getMessages } from "../../functions/message.js";
 import { getCookie } from "../../helpers/cookies.js";
 
-const socket = io.connect("http://localhost:3000");
 
+const socket = io.connect("http://localhost:3000");
 const Chatbox = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [openedChat, setopenedChat] = useState(1);
@@ -22,7 +22,13 @@ const Chatbox = () => {
     ["messages", { id: openedChat, level: 0 }],
     getMessages
   );
+useEffect(()=>{
+  socket.on("connect",()=>{
+    console.log("connected to the server")
+  })
 
+
+},[])
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 600px)");
 

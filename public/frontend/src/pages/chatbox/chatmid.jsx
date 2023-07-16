@@ -15,23 +15,20 @@ const ChatMid = ({ messages, isMobile, setcurrSec, socket, openedChat }) => {
     setMessages([...messages]);
   }, [messages]);
 
+
+
   useEffect(() => {
     const recievemsg = async () => {
       await socket.on("recieve_message", (data) => {
-        handleMessageRecieve(data);
-        console.log("new message", data);
+        setMessages([...message, data]);
+
+        console.log("new message1", message);
       });
     };
 
     recievemsg();
   }, [socket]);
   console.log("recieved", messages);
-
-  const handleMessageRecieve = (newmsg) => {
-    const updatedMessages = [...message];
-    updatedMessages.push(newmsg);
-    setMessages(updatedMessages);
-  };
 
   const sendMessage = async () => {
     const id = JSON.parse(getCookie("logindata")).userId;

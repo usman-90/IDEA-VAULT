@@ -42,20 +42,8 @@ const queryClient = new QueryClient({
   },
 });
 
-const obj = {
-  name: "rajja farhan",
-  country: "Canada",
-  title: "hydra station",
-  teamMembers: "usman,zainab",
-  description: "this is my description",
-  tagline: "give world the more power",
-  funding: 500,
-  socialsFb: "www.facebook.com",
-  insta: "www.instagram.com",
-};
 const App = () => {
   const UserContextHook = useState(null);
- 
 
   return (
     <>
@@ -65,20 +53,7 @@ const App = () => {
             <Layout>
               <Routes>
                 <Route path="/" element={<Home />} />
-                <Route
-                  path="/idea"
-                  element={
-                    <Idea
-                      name={obj.name}
-                      description={obj.description}
-                      title={obj.title}
-                      tagline={obj.tagline}
-                      country={obj.country}
-                      funding={obj.funding}
-                      teamMembers={obj.teamMembers}
-                    />
-                  }
-                />
+                <Route path="/ideadetail/:ideaid" element={<Idea />} />
                 <Route path="/inbox" element={<Chatbox />} />
                 <Route path="/bulb" element={<BulbCanvas />} />
                 <Route path="/basicinfo" element={<BasicInfoPage />} />
@@ -102,7 +77,6 @@ const App = () => {
                 <Route path="/education" element={<Education />} />
                 <Route path="/science" element={<Science />} />
                 <Route path="/aboutus" element={<AboutUs />} />
-                
               </Routes>
             </Layout>
           </UserContext.Provider>

@@ -54,3 +54,24 @@ color: #2c666e !important;
    transform: scale(1.09);
    border-bottom: 2px solid #07393c;
 } */
+
+.loading-pane {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    padding: 15px;
+  }
+
+    
+  .loader {
+    font-size: 100px;
+    animation: spin 1s linear infinite;
+  }
+
+  .mini.loading-pane {
+    height: 34px;
+  }
+  
+  .mini .loader {
+    font-size: 34px;
+  }
