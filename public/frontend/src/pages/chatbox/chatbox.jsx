@@ -10,10 +10,11 @@ import "./chatbox.css";
 import { useQuery } from "@tanstack/react-query";
 import { fetchChat, getMessages } from "../../functions/message.js";
 import { getCookie } from "../../helpers/cookies.js";
-
+import { formatTime } from "../../helpers/formatTime.js";
 
 const socket = io.connect("http://localhost:3000");
 const Chatbox = () => {
+  const [status, setstatus] = useState();
   const [isMobile, setIsMobile] = useState(false);
   const [openedChat, setopenedChat] = useState(1);
   const [currSec, setcurrSec] = useState("chats");
@@ -22,13 +23,11 @@ const Chatbox = () => {
     ["messages", { id: openedChat, level: 0 }],
     getMessages
   );
-useEffect(()=>{
-  socket.on("connect",()=>{
-    console.log("connected to the server")
-  })
-
-
-},[])
+  useEffect(() => {
+    socket.on("connect", () => {
+      console.log("connected to the server");
+    });
+  }, []);
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 600px)");
 
@@ -48,10 +47,18 @@ useEffect(()=>{
   const joinRoom = (roomid) => {
     socket.emit("join_room", roomid);
   };
+  const chats = chatsData?.data;
+  let arr;
+  if (openedChat) {
+    arr = chats?.arr?.filter((user) => {
+      return user.other_user_id == openedChat;
+    });
+  }
   useEffect(() => {
     const roomid = parseInt(
       [JSON.parse(getCookie("logindata")).userId, openedChat].sort().join("")
     );
+    setstatus(formatTime(arr ? arr[0]?.messagetime : ""));
     joinRoom(roomid);
   }, [openedChat]);
 
@@ -59,7 +66,6 @@ useEffect(()=>{
     return <div>no</div>;
   }
 
-  const chats = chatsData?.data;
   console.log("chat", chats);
 
   console.log(openedChat);
@@ -71,7 +77,7 @@ useEffect(()=>{
     <div style={{ height: "85vh" }} className="m-0  p-0 chatcont_u d-flex ">
       {(!isMobile || (isMobile && currSec === "chats")) && (
         <ChatLeft
-          row={chats.row}
+          row={chats.arr}
           setopenedChat={setopenedChat}
           isMobile={isMobile}
           setcurrSec={setcurrSec}
@@ -79,15 +85,18 @@ useEffect(()=>{
       )}
       {(!isMobile || (isMobile && currSec === "messages")) && (
         <ChatMid
+          user={arr}
           messages={messages ? messages : ""}
           isMobile={isMobile}
           openedChat={openedChat}
           setcurrSec={setcurrSec}
           socket={socket}
+          status={status}
+          setstatus={setstatus}
         />
       )}
       {(!isMobile || (isMobile && currSec === "chatinfo")) && (
-        <ChatRight setcurrSec={setcurrSec} isMobile={isMobile} />
+        <ChatRight user={arr} currSec={currSec} setcurrSec={setcurrSec} isMobile={isMobile} />
       )}
     </div>
   );

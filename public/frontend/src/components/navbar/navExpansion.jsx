@@ -6,7 +6,7 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import UserContext from "../../context/context";
 import { logout } from "../../functions/logout";
-import { checkCookieExists, destroyCookie } from "../../helpers/cookies";
+import { checkCookieExists, destroyCookie, getCookie } from "../../helpers/cookies";
 
 const Spoint2 = ({ point }) => {
   return <p className="text-light">{point}</p>;
@@ -138,7 +138,7 @@ const NavExpansion = ({ width, width100, handleExpansion }) => {
 
     {
       heading: "Profile",
-      link: "/profile",
+      link: `/profile/${checkCookieExists("logindata") ?`${JSON.parse(getCookie("logindata")).userId}`: ""}`,
       subheads: [
         {
           head: "View",

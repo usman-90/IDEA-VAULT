@@ -11,55 +11,21 @@ import Banner from "../../components/banner/banner";
 import { useQuery } from "@tanstack/react-query";
 import fetchIdea from "../../function2/fetchidea";
 import { Link } from "react-router-dom";
-
-const reviews = [
-  {
-    name: "Usman",
-    reviewBody:
-      "ahhahahahhahhhaskdjkasjd asdjfnajksdnf aksjdfnasjkdnf asjkdfnajksnfdk asjd fjkasdnfjk  jkasdfnk",
-    imgSrc:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cat03.jpg/1200px-Cat03.jpg",
-    starCount: 3,
-  },
-  {
-    name: "Usman",
-    reviewBody:
-      "ahhahahahhahhhaskdjkasjd asdjfnajksdnf aksjdfnasjkdnf asjkdfnajksnfdk asjd fjkasdnfjk  jkasdfnk",
-    imgSrc:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cat03.jpg/1200px-Cat03.jpg",
-    starCount: 4,
-  },
-  {
-    name: "Usman",
-    reviewBody:
-      "ahhahahahhahhhaskdjkasjd asdjfnajksdnf aksjdfnasjkdnf asjkdfnajksnfdk asjd fjkasdnfjk  jkasdfnk",
-    imgSrc:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cat03.jpg/1200px-Cat03.jpg",
-    starCount: 5,
-  },
-  {
-    name: "Usman",
-    reviewBody:
-      "ahhahahahhahhhaskdjkasjd asdjfnajksdnf aksjdfnasjkdnf asjkdfnajksnfdk asjd fjkasdnfjk  jkasdfnk",
-    imgSrc:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cat03.jpg/1200px-Cat03.jpg",
-    starCount: 5,
-  },
-  {
-    name: "Usman",
-    reviewBody:
-      "ahhahahahhahhhaskdjkasjd asdjfnajksdnf aksjdfnasjkdnf asjkdfnajksnfdk asjd fjkasdnfjk  jkasdfnk",
-    imgSrc:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cat03.jpg/1200px-Cat03.jpg",
-    starCount: 5,
-  },
-];
+import { fetchReviews } from "../../functions/fetchreviews";
 
 const Home = () => {
   const ideadata = useQuery(["idea"], fetchIdea);
-  // console.log(ideadata);
+  const reviewsRes = useQuery(["reviews"], fetchReviews);
+  if (reviewsRes.isLoading) {
+    console.log("loading reviews");
+  }
+  if (reviewsRes.isError) {
+    console.log("loading reviews");
+  }
+  console.log(reviewsRes.data);
   const result = ideadata?.data?.data ?? [];
-  console.log(result);
+  const reviews = reviewsRes?.data?.data ?? [];
+  console.log(reviews);
 
   return (
     <div>
@@ -81,8 +47,7 @@ const Home = () => {
 
       <SimpleSlider>
         {result.map((idea, index) => (
-          <Link key={index} to={`/ideadetail/${idea.ideaid}`}
-          >
+          <Link key={index} to={`/ideadetail/${idea.ideaid}`}>
             <IdeaCard
               cardSrc={
                 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8FuKg3nog0iQGtEKOc_Hdo4nx0Dp0u5x-46o1wBygjA&s"
@@ -105,11 +70,11 @@ const Home = () => {
           {reviews.map((review) => {
             return (
               <ReviewCard
-                key={review}
-                reviewBody={review.reviewBody}
-                name={review.name}
-                starCount={review.starCount}
-                imgSrc={review.imgSrc}
+                key={review.feedbackid ?? ""}
+                reviewBody={review.reviewbody ?? ""}
+                name={review.name ?? ""}
+                starCount={review.starcount ?? ""}
+                imgSrc={review.path ?? ""}
               />
             );
           })}

@@ -13,8 +13,8 @@ export const getAllIdeas = async (req, res) => {
 };
 export const getOneIdea = async (req, res) => {
   const id = req.params.ideaid;
-  const query = `SELECT i.ideaTitle, i.ideaTagline,i.requiredAmount, u.name , a.country , a.city ,
-  a.state , i.detailedDescription , COUNT(CASE WHEN v.voteType = 'upVote' AND v.ideaId = i.ideaId THEN 1 ELSE NULL END) AS total_upVotes FROM Idea i INNER JOIN "User" u ON i.userId = u.userId INNER JOIN Address a on a.addressId = u.addressId INNER JOIN Vote v on i.ideaId = v.ideaId WHERE i.ideaId = $1 GROUP BY i.ideaTitle ,i.ideaTagline,i.requiredAmount,u.name,a.country,a.city,a.state,i.detailedDescription`;
+  const query = `SELECT i.ideaTitle, i.visiblity,i.ideaTagline,i.requiredAmount, u.name , a.country , a.city ,
+  a.state , i.detailedDescription , COUNT(CASE WHEN v.voteType = 'upVote' AND v.ideaId = i.ideaId THEN 1 ELSE NULL END) AS total_upVotes FROM Idea i INNER JOIN "User" u ON i.userId = u.userId INNER JOIN Address a on a.addressId = u.addressId INNER JOIN Vote v on i.ideaId = v.ideaId WHERE i.ideaId = $1 GROUP BY i.ideaTitle ,i.visiblity,i.ideaTagline,i.requiredAmount,u.name,a.country,a.city,a.state,i.detailedDescription`;
   const query2 = `SELECT path , ideaTitle FROM Image img inner join Idea i on img.ideaId=i.ideaId WHERE img.ideaId= $1;`;
   const values = [id];
   const [idearow, ideaimagesrow] = await Promise.all([
@@ -109,6 +109,19 @@ export const getVotes = async (req, res) => {
     .json({
       data: row,
       message: "ok",
+    })
+    .status(200)
+    .end();
+};
+
+export const getIdeaByUserId = async (req, res) => {
+  const query = `select userId,ideaId, cardDescription,ideaTitle, ideaTagline, requiredAmount, postedAt from idea where idea.userId=$1`;
+  const value = [req.params.userid];
+  const row = await executeQuery(query, value);
+  res
+    .json({
+      message: "ok",
+      row,
     })
     .status(200)
     .end();

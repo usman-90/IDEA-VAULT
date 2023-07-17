@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import H2WithToolTip from "./h2withtooltip.jsx";
+import { checkCookieExists } from "../../helpers/cookies.js";
 import ImageUploader from "./imageuploader.jsx";
 import YoutubeVideo from "./youtubeVideo.jsx";
 import Editor from "./editor.jsx";
@@ -17,10 +18,17 @@ const Content = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    setvideoUrl(JSON.parse(getCookie("contentinfo")).videoid ?? "");
-    setDescription(JSON.parse(getCookie("contentinfo")).description ?? "");
-    setSelectedImages(JSON.parse(getCookie("contentinfo")).images ?? "");
-    console.log(JSON.parse(getCookie("contentinfo")));
+    if (
+      checkCookieExists("logindata") &&
+      checkCookieExists("forminfo") &&
+      checkCookieExists("forminfo") &&
+      checkCookieExists("forminfo")
+    ) {
+      setvideoUrl(JSON.parse(getCookie("contentinfo")).videoid ?? "");
+      setDescription(JSON.parse(getCookie("contentinfo")).description ?? "");
+      setSelectedImages(JSON.parse(getCookie("contentinfo")).images ?? "");
+      console.log(JSON.parse(getCookie("contentinfo")));
+    }
   }, []);
 
   const handleDescription = (desc) => {
@@ -86,7 +94,7 @@ const Content = () => {
                       JSON.parse(getCookie("logindata")).userId
                     }/${index}`
                   );
-                  return {path:url,type:"ideaimage"};
+                  return { path: url, type: "ideaimage" };
                 })
               );
 
@@ -153,9 +161,8 @@ const Content = () => {
             <div>
               <H2WithToolTip heading={"FAQ's"} />
               <div className="d-flex flex-column align-items-center">
-                {console.log(JSON.parse(getCookie("contentinfo")).faqs)}
                 <div className="d-flex justify-content-center">
-                  {JSON.parse(getCookie("contentinfo")).faqs ? (
+                  {checkCookieExists("contentinfo")?.faq ? (
                     JSON.parse(getCookie("contentinfo")).faqs.map(
                       (faq, index) => {
                         return (

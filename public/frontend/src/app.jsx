@@ -32,6 +32,8 @@ import Tourism from "./pages/Categories/tourism";
 import Education from "./pages/Categories/education";
 import Science from "./pages/Categories/sciencecat";
 import AboutUs from "./pages/aboutUs/aboutus";
+import PasswordReset from "./pages/viewprofile/passwordreset";
+import Visibility from "./pages/visiblity/assignvisiblity";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -52,20 +54,22 @@ const App = () => {
           <UserContext.Provider value={UserContextHook}>
             <Layout>
               <Routes>
+                <Route
+                  path="/assignvisiblity/:userid"
+                  element={<Visibility />}
+                />
                 <Route path="/" element={<Home />} />
                 <Route path="/ideadetail/:ideaid" element={<Idea />} />
                 <Route path="/inbox" element={<Chatbox />} />
                 <Route path="/bulb" element={<BulbCanvas />} />
                 <Route path="/basicinfo" element={<BasicInfoPage />} />
                 <Route path="/contentinfo" element={<Content />} />
-                <Route path="/posterinfo" element={<PosterInfo />} />
                 <Route path="/settings" element={<Settings />} />
                 <Route path="/ideasection" element={<YourIdeas />} />
                 <Route path="/condition" element={<Condition />} />
                 <Route path="/privacy" element={<Privacy />} />
                 <Route path="/copyright1" element={<Copyright />} />
                 <Route path="/userguide1" element={<User />} />
-                <Route path="/profile" element={<UserProfile />} />
                 <Route path="/signup" element={<SignUpForm />} />
                 <Route path="/terms" element={<Term />} />
                 <Route path="/signin" element={<SignIn />} />
@@ -77,6 +81,9 @@ const App = () => {
                 <Route path="/education" element={<Education />} />
                 <Route path="/science" element={<Science />} />
                 <Route path="/aboutus" element={<AboutUs />} />
+                <Route path="/posterinfo" element={<PosterInfo />} />
+                <Route path="/profile/:userid" element={<UserProfile />} />
+                <Route path="/security" element={<PasswordReset />} />
               </Routes>
             </Layout>
           </UserContext.Provider>

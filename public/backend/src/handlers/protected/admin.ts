@@ -13,7 +13,7 @@ export const getAllUsers = async (req, res) => {
     .end();
 };
 export const getOneUser = async (req, res) => {
-  const query = `select u.userId, u.userName, u.name, u.lastName , u.email, u.contactNo,u.createdAt,u.profession,u.organizationType,u.bio ,a.country,a.city,a.state,s.facebookLink,s.twitterLink,s.instaLink,s.linkedinLink,s.otherUrl FROM "User" u left join Address a ON u.addressId = a.addressId left join Social s ON s.userId=u.userId WHERE u.userId = $1`;
+  const query = `select u.userId, u.userName, u.name, u.lastName , u.email, u.contactNo,u.createdAt,u.profession,u.organizationType,u.bio ,a.country,a.city,a.state,s.facebookLink,s.twitterLink,s.instaLink,s.linkedinLink,s.otherUrl,img.path FROM "User" u left join Address a ON u.addressId = a.addressId left join Image img on img.userId=u.userId left join Social s ON s.userId=u.userId WHERE u.userId = $1`;
   const query2 = `select i.ideaTitle, i.ideaId from Idea i inner join "User" u ON i.userId=u.userId where u.userId=$1;`;
   const query3 = `select v.ideaId ,v.userId from Vote v inner join "User" u ON v.userId=u.userId where u.userId=$1;`;
   const values = [req.params.userId];
@@ -49,16 +49,15 @@ export const deleteUser = async (req, res) => {
     .end();
 };
 
-export const deleteReview = async (req,res) => {
-    const query = `DELETE FROM Feedback WHERE feedbackId = $1`;
-    const values = [req.params.feedbackId];
-    const row = await executeQuery(query, values);
-    res
-      .json({
-        data: row,
-        message: "ok",
-      })
-      .status(200)
-      .end();
-}
-
+export const deleteReview = async (req, res) => {
+  const query = `DELETE FROM Feedback WHERE feedbackId = $1`;
+  const values = [req.params.feedbackId];
+  const row = await executeQuery(query, values);
+  res
+    .json({
+      data: row,
+      message: "ok",
+    })
+    .status(200)
+    .end();
+};

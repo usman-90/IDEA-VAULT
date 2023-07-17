@@ -23,6 +23,7 @@ import {
   createChatRoom,
   getChats,
   getMessages,
+  saveMessages,
 } from "../handlers/protected/messages";
 import { setPreferences } from "../handlers/protected/preferences";
 import { checkVisiblity, setVisiblity } from "../handlers/protected/visiblity";
@@ -51,5 +52,6 @@ protectedRouter.post("/setpreferences", setPreferences);
 protectedRouter.post("/setvisiblity", setVisiblity);
 protectedRouter.get("/getvisiblity/:ideaId", checkVisiblity);
 protectedRouter.get("/chatbox", getChats);
+protectedRouter.get("/savemessages",saveMessages);
 
 export default protectedRouter;

@@ -30,7 +30,7 @@ const ChatLeft = ({ row, setopenedChat, isMobile, setcurrSec }) => {
             <Chat
               isMobile={isMobile}
               onChange={setopenedChat}
-              image={`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEvRgYzCTU0gXJBopoZpnBj8-FmNsUMTcmiEcYDgo&s`}
+              image={user[0].path}
               name={user.other_user_name}
               last_msg={user.messagebody}
               date={user.messagetime}

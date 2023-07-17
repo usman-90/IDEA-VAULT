@@ -11,8 +11,7 @@ export const createChatRoom = async (req, res) => {
     .status(200)
     .end();
 };
-
-export const postMessage = async (data) => {
+const postMessage = async (data) => {
   const users = [data.user1, data.user2].sort();
   let reciever;
   if (data.user1 == data.sender) {
@@ -24,6 +23,21 @@ export const postMessage = async (data) => {
   const values = [users[0], users[1], data.sender, reciever, data.messagebody];
   const row = await executeQuery(query, values);
   console.log("message posted", row);
+};
+export const saveMessages = async (req, res) => {
+  console.log(req.body.messages);
+  const messages = req.body.messages;
+  await Promise.all(
+    messages.map(async (message) => {
+      await postMessage(message);
+    })
+  );
+  res
+    .json({
+      message: "ok",
+    })
+    .status(200)
+    .end();
 };
 
 export const getMessages = async (req, res) => {
@@ -45,6 +59,17 @@ export const getChats = async (req, res) => {
 `;
   const values = [req.user.userId];
   const row = await executeQuery(query1, values);
-
-  res.json({ row, message: "ok" }).status(200).end();
+  const query2 = ` select path from image where userId = $1`;
+  const path = await Promise.all(
+    row.map(async (r) => {
+      return await executeQuery(query2, [r.other_user_id]);
+    })
+    );
+    console.log(path)
+  let arr = []
+  for (let i = 0 ; i < row.length ;i++){
+    arr.push({...row[i],...path[i]})
+  }
+  console.log(arr)
+  res.json({ arr, message: "ok" }).status(200).end();
 };

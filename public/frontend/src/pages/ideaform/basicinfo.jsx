@@ -25,7 +25,7 @@ const BasicInfoPage = () => {
   });
   useEffect(() => {
     let data;
-    if (checkCookieExists("logindata")) {
+    if (checkCookieExists("logindata") && checkCookieExists("forminfo")){
       data = JSON.parse(getCookie("forminfo"));
     } else {
       data = {

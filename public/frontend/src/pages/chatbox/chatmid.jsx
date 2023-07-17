@@ -7,29 +7,48 @@ import { useEffect } from "react";
 import ScrollToBottom from "react-scroll-to-bottom";
 import EmojiPicker from "emoji-picker-react";
 import { getCookie } from "../../helpers/cookies.js";
-const ChatMid = ({ messages, isMobile, setcurrSec, socket, openedChat }) => {
+const ChatMid = ({
+  status,
+  setstatus,
+  user,
+  messages,
+  isMobile,
+  setcurrSec,
+  socket,
+  openedChat,
+}) => {
   const [message, setMessages] = useState([]);
   const [inputValue, setinputValue] = useState("");
   const [emojiOpened, setemojiOpened] = useState(false);
-  useEffect(() => {
-    setMessages([...messages]);
-  }, [messages]);
 
-
-
+  // useEffect(() => {
+  //   setMessages([...messages, ...message]);
+  // }, []);
+  // console.log(message);
+  console.log("user", user);
   useEffect(() => {
     const recievemsg = async () => {
       await socket.on("recieve_message", (data) => {
-        setMessages([...message, data]);
+        setMessages((prevMessages) => [...prevMessages, data]);
 
         console.log("new message1", message);
+      });
+      await socket.on("settyping", (data) => {
+        setstatus(data.typing);
       });
     };
 
     recievemsg();
   }, [socket]);
   console.log("recieved", messages);
-
+  const handleStatus = async (s) => {
+    const id = JSON.parse(getCookie("logindata")).userId;
+    const users = [id, openedChat].sort();
+    await socket.emit("typing", {
+      typing: s,
+      room: parseInt(users.join("")),
+    });
+  };
   const sendMessage = async () => {
     const id = JSON.parse(getCookie("logindata")).userId;
     const users = [id, openedChat].sort();
@@ -46,6 +65,18 @@ const ChatMid = ({ messages, isMobile, setcurrSec, socket, openedChat }) => {
     setMessages([...message, data]);
     setinputValue("");
   };
+  socket.on("disconnect", async () => {
+    socket.emit("save_data", "loll");
+    const date = new Date();
+
+    // Format the date string
+    const formattedDate = date.toLocaleString("en-US", {
+      hour: "numeric",
+      minute: "numeric",
+      hour12: true,
+    });
+    setstatus(`Last seen: ${formattedDate}`);
+  });
 
   console.log("mesa", message);
   return (
@@ -66,7 +97,11 @@ const ChatMid = ({ messages, isMobile, setcurrSec, socket, openedChat }) => {
               </button>
             </div>
           )}
-          <img className="rounded-circle upimage" src={``} alt="" />
+          <img
+            className="rounded-circle upimage"
+            src={user[0]?.path ?? ""}
+            alt=""
+          />
 
           <div
             onClick={() => {
@@ -75,14 +110,26 @@ const ChatMid = ({ messages, isMobile, setcurrSec, socket, openedChat }) => {
             style={{ cursor: "pointer" }}
             className="d-flex flex-column justify-content-center align-items-start  mx-4"
           >
-            <h4 className="d-inline-block m-0">{}</h4>
-            <p className="d-inline-block mb-2">is Typing...</p>
+            {console.log(user[0]?.other_user_name)}
+            <h4 className="d-inline-block m-0">
+              {user[0]?.other_user_name ?? ""}
+            </h4>
+            <p className="d-inline-block mb-2">
+              {status == "Invalid Date" ? "" : status}
+            </p>
           </div>
         </div>
         <div className="w-25 d-flex justify-content-center align-items-center"></div>
       </div>
       <div className="messages overflow-y-scroll">
         <ScrollToBottom className="message-container">
+          {messages.map((msg) => (
+            <Message
+              key={Math.random()}
+              body={msg.messagebody}
+              senderid={msg.sender}
+            />
+          ))}
           {message.map((msg) => (
             <Message
               key={Math.random()}
@@ -100,7 +147,11 @@ const ChatMid = ({ messages, isMobile, setcurrSec, socket, openedChat }) => {
             className="w-75 text-white"
             value={inputValue}
             onChange={(e) => {
+              handleStatus("typing...");
               setinputValue(e.target.value);
+            }}
+            onBlur={() => {
+              handleStatus("Online");
             }}
           />
           <div className="d-flex">
