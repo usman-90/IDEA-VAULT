@@ -48,7 +48,7 @@ export const getIdeafaqs = async (req, res) => {
 };
 
 export const getIdeaUpdates = async (req, res) => {
-  const query = `SELECT u.updateTitle , u.updateTime, u.updateDescription FROM updates u INNER JOIN Idea i ON i.ideaId=u.ideaId WHERE i.ideaId = $1`;
+  const query = `SELECT u.updateTime, u.updateDescription FROM updates u INNER JOIN Idea i ON i.ideaId=u.ideaId WHERE i.ideaId = $1`;
 
   const row = await executeQuery(query, [req.params.ideaid]);
   res

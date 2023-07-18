@@ -56,7 +56,8 @@ export const upDateUserInfo = async (req, res) => {
     const query4 = `UPDATE Image SET path = $1 WHERE userId = $2 AND type=$3`;
     const values4 = [req.body.path, req.user.userId, req.body.type];
     const imagerow = await executeQuery(query4, values4);
-    if (imagerow.rowCount === 0) {
+    console.log("Image", imagerow.length);
+    if (imagerow.length == 0) {
       await executeQuery(
         `INSERT INTO Image (type,path,userId) values ($1,$2,$3)`,
         [req.body.type ?? "", req.body.path ?? "", req.user.userId]
