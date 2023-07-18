@@ -27,7 +27,8 @@ import Term from "./pages/terms-conditions/terms";
 import UserProfile from "./pages/viewprofile/userprofile";
 import Technology from "./pages/Categories/techcat";
 import Aboutus from "./pages/aboutUs/aboutus"
-
+import PasswordReset from "./pages/viewprofile/passwordreset"
+import Visibility from "./pages/visiblity/assignvisiblity"
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -38,20 +39,8 @@ const queryClient = new QueryClient({
   },
 });
 
-const obj = {
-  name: "rajja farhan",
-  country: "Canada",
-  title: "hydra station",
-  teamMembers: "usman,zainab",
-  description: "this is my description",
-  tagline: "give world the more power",
-  funding: 500,
-  socialsFb: "www.facebook.com",
-  insta: "www.instagram.com",
-};
 const App = () => {
   const UserContextHook = useState(null);
- 
 
   return (
     <>
@@ -60,39 +49,33 @@ const App = () => {
           <UserContext.Provider value={UserContextHook}>
             <Layout>
               <Routes>
-                <Route path="/" element={<Home />} />
                 <Route
-                  path="/idea"
-                  element={
-                    <Idea
-                      name={obj.name}
-                      description={obj.description}
-                      title={obj.title}
-                      tagline={obj.tagline}
-                      country={obj.country}
-                      funding={obj.funding}
-                      teamMembers={obj.teamMembers}
-                    />
-                  }
+                  path="/assignvisiblity/:userid"
+                  element={<Visibility />}
                 />
+                <Route path="/" element={<Home />} />
+                <Route path="/ideadetail/:ideaid" element={<Idea />} />
                 <Route path="/inbox" element={<Chatbox />} />
                 <Route path="/bulb" element={<BulbCanvas />} />
                 <Route path="/basicinfo" element={<BasicInfoPage />} />
                 <Route path="/contentinfo" element={<Content />} />
-                <Route path="/posterinfo" element={<PosterInfo />} />
                 <Route path="/settings" element={<Settings />} />
                 <Route path="/ideasection" element={<YourIdeas />} />
                 <Route path="/condition" element={<Condition />} />
                 <Route path="/privacy" element={<Privacy />} />
                 <Route path="/copyright1" element={<Copyright />} />
                 <Route path="/userguide1" element={<User />} />
-                <Route path="/profile" element={<UserProfile />} />
                 <Route path="/signup" element={<SignUpForm />} />
                 <Route path="/terms" element={<Term />} />
                 <Route path="/signin" element={<SignIn />} />
                 <Route path="/ideaposter" element={<IdeaPoster />} />
                 <Route path="/aboutus" element={<Aboutus />} />
                 <Route path="/category/:catid/:cattitle" element={<Technology />} />
+                <Route path="/technology" element={<Technology />} />
+                
+                <Route path="/posterinfo" element={<PosterInfo />} />
+                <Route path="/profile/:userid" element={<UserProfile />} />
+                <Route path="/security" element={<PasswordReset />} />
               </Routes>
             </Layout>
           </UserContext.Provider>

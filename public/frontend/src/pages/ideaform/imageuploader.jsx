@@ -1,7 +1,11 @@
-import { uploadImage } from "../../firebase/upload";
-function ImageUploader({ selectedImages, setSelectedImages }) {
+import { useEffect, useState } from "react";
+function ImageUploader({ setSelectedImages, selectedImages }) {
+  const [imagePreview, setimagePreviews] = useState([]);
+  useEffect(() => {
+    setimagePreviews(selectedImages ?? []);
+    console.log(selectedImages);
+  }, []);
   const handleImageChange = (event) => {
-    // uploadImage(2343, event.target.files[0]);
 
     if (event.target.files.length > 6) {
       alert("only six images are allowed");
@@ -9,8 +13,9 @@ function ImageUploader({ selectedImages, setSelectedImages }) {
     }
     const files = Array.from(event.target.files);
     console.log(files);
+    setSelectedImages(files);
     const imagePreviews = files.map((file) => URL.createObjectURL(file));
-    setSelectedImages(imagePreviews);
+    setimagePreviews(imagePreviews);
   };
 
   return (
@@ -25,7 +30,7 @@ function ImageUploader({ selectedImages, setSelectedImages }) {
       />
       <h4>Upload Images</h4>
       <div className="overflow-auto h-100">
-        {selectedImages.map((image) => (
+        {imagePreview.map((image) => (
           <img src={image} alt="Preview" key={image} />
         ))}
       </div>

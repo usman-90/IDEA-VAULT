@@ -1,44 +1,47 @@
+import { useQuery } from "@tanstack/react-query";
 import ChatSideInfo from "./chatsideinfo.jsx";
-import IdeaSideCard from "./ideasidecard.jsx";
+import { getUserInfo } from "../../functions/user.js";
 
-const ChatRight = ({ setcurrSec, isMobile }) => {
+const ChatRight = ({ user, currSec, setcurrSec, isMobile }) => {
+  let userData;
+  if (user[0]) {
+    const userDataRes = useQuery(
+      ["getuserdata", user[0]?.other_user_id],
+      getUserInfo
+    );
+    if (userDataRes.isLoading) {
+      console.log("ops error");
+    }
+    userData = userDataRes?.data?.row[0];
+  }
+  console.log(userData);
+
   return (
     <div className={`  chatright_u h-100 w-25 b-white`}>
-      <div className="h-50">
+      {
+        <div className="h-50">
         <div className="h-12_5 my-2">
-
           <h2 className="mx-4">
-          {isMobile && (
-            <button
-              className="border-0 fs-3"
-              onClick={() => {
-                setcurrSec("messages");
-              }}
-            >
-              <i className="fa-solid fa-arrow-left"></i>
-            </button>
-          )}
-            {`About ${''}`}
+            {isMobile && (
+              <button
+                className="border-0 fs-3"
+                onClick={() => {
+                  setcurrSec("messages");
+                }}
+              >
+                <i className="fa-solid fa-arrow-left"></i>
+              </button>
+            )}
+            {`About ${user[0]?.other_user_name ?? ""}`}
           </h2>
         </div>
-        <ChatSideInfo field={"From"} value={"Pakistan"} />
-        <ChatSideInfo field={"From"} value={"Pakistan"} />
-        <ChatSideInfo field={"Data"} value={"Blah"} />
-        <ChatSideInfo field={"Some Other Data"} value={"Blah Blah "} />
-        <ChatSideInfo field={"Laugh"} value={"Hahahahha"} />
-      </div>
-      <div className="h-49 overflow-y-auto">
-        {/* {currUser.map((user) => {
-          return (
-            <IdeaSideCard
-              image={user.img}
-              title={user.title}
-              username={user.name}
-              key={user.id}
-            />
-          );
-        })} */}
-      </div>
+        <ChatSideInfo field={"Country"} value={userData?.country} />
+        <ChatSideInfo field={"City"} value={userData?.city} />
+        <ChatSideInfo field={"State"} value={userData?.state} />
+        <ChatSideInfo field={"Profession"} value={userData?.profession} />
+        <ChatSideInfo field={"Linked In"} value={userData?.linkedinlink} />
+      </div> }
+      <div className="h-49 overflow-y-auto"></div>
     </div>
   );
 };

@@ -36,10 +36,10 @@ const DetailNav = ({ changeSection, currSection }) => {
               <button
                 style={{ color: "white" }}
                 onClick={() => {
-                  changeSection("updates");
+                  changeSection("update");
                 }}
                 className={`${
-                  currSection == "updates" ? "fw-bold" : ""
+                  currSection == "update" ? "fw-bold" : ""
                 }  nav-link`}
               >
                 Updates

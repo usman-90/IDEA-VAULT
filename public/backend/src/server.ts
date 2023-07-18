@@ -12,7 +12,6 @@ import unprotectedRouter from "./routes/unprotectedRoutes";
 import protectedRouter from "./routes/protectedRoutes";
 import { logout } from "./handlers/logout";
 import protect from "./modules/auth";
-import { postMessage } from "./handlers/protected/messages";
 
 const app = express();
 app.use(morgan("dev"));
@@ -45,13 +44,17 @@ io.on("connection", (socket) => {
     socket.join(id);
     console.log("room joined", id);
   });
-  socket.on("send_message",(data) => {
+  socket.on("send_message", (data) => {
     console.log(data);
-    socket.to(data.room).emit("recieve_message", data);
-    // const savetodb = async (data) => {
     // await postMessage(data);
-    // };
-    // await savetodb(data)
+    socket.to(data.room).emit("recieve_message", data);
+    console.log(data);
+  });
+  socket.on("typing", (data) => {
+    socket.to(data.room).emit("settyping",data);
+  });
+  socket.on("save_data", (data) => {
+    console.log("data", data);
   });
 
   socket.on("disconnect", () => {

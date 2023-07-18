@@ -11,7 +11,7 @@ const categories = [
     categoryDesc: `Ideas related to new technologies, software, hardware, gadgets,
   apps, and innovative solutions.`,
   },
-  { categoryid:5,
+  { categoryid:8,
     categoryTitle: "Business",
     categoryCardSrc:
       "https://img.freepik.com/free-photo/aerial-view-business-team_53876-124515.jpg?w=1480&t=st=1688853073~exp=1688853673~hmac=475ce799eaf6fd6a917c7b5845fdd715e92d8856c0d95f2821b7b2832a48c4d9",

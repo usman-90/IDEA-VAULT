@@ -1,0 +1,10 @@
+.password_input{
+    width: 14rem;
+    height: 2rem;
+    border: none;
+    padding: 0.5rem;
+    border: 1px solid grey;
+}
+.password_input:focus{
+    outline: none !important;
+}

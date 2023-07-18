@@ -1,17 +1,35 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import H2WithToolTip from "./h2withtooltip.jsx";
+import { checkCookieExists } from "../../helpers/cookies.js";
 import ImageUploader from "./imageuploader.jsx";
 import YoutubeVideo from "./youtubeVideo.jsx";
 import Editor from "./editor.jsx";
 import Faq from "./faq.jsx";
-import { getUrl } from "../../firebase/upload.jsx";
+import { getUrl, uploadImage } from "../../firebase/upload.jsx";
 import SideBar from "./sidebar.jsx";
+import { getCookie, setCookie } from "../../helpers/cookies.js";
+import { useNavigate } from "react-router-dom";
 const Content = () => {
-  const [videoUrl, setvideoUrl] = useState(null);
+  const [videoUrl, setvideoUrl] = useState();
   const [mounted, setMounted] = useState(false);
   const [mycomponents, setComponents] = useState([]);
   const [description, setDescription] = useState("");
   const [selectedImages, setSelectedImages] = useState([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (
+      checkCookieExists("logindata") &&
+      checkCookieExists("forminfo") &&
+      checkCookieExists("forminfo") &&
+      checkCookieExists("forminfo")
+    ) {
+      setvideoUrl(JSON.parse(getCookie("contentinfo")).videoid ?? "");
+      setDescription(JSON.parse(getCookie("contentinfo")).description ?? "");
+      setSelectedImages(JSON.parse(getCookie("contentinfo")).images ?? "");
+      console.log(JSON.parse(getCookie("contentinfo")));
+    }
+  }, []);
 
   const handleDescription = (desc) => {
     setDescription(desc);
@@ -47,27 +65,54 @@ const Content = () => {
       },
     ]);
   };
+
+  const uploadImages = async (path, file) => {
+    await uploadImage(path, file);
+  };
+  const generateUrl = async (path) => {
+    const url = await getUrl(path);
+    return url;
+  };
+
   return (
     <>
       <SideBar />
       <div className="bg-white rounded container my-5">
         <div className="inner p-5 px-5">
           <form
-            onSubmit={(e) => {
+            onSubmit={async (e) => {
               e.preventDefault();
-              console.log(getUrl("2343"));
+              const images = await Promise.all(
+                selectedImages.map(async (image, index) => {
+                  const path = `descriptionImages/${
+                    JSON.parse(getCookie("logindata")).userId
+                  }/${new Date().getMilliseconds().toString() + index}`;
+
+                  await uploadImages(path, image);
+                  const url = await generateUrl(
+                    `descriptionImages/${
+                      JSON.parse(getCookie("logindata")).userId
+                    }/${index}`
+                  );
+                  return { path: url, type: "ideaimage" };
+                })
+              );
 
               let faqs = mycomponents.map((comp) => {
                 return comp.data;
               });
+              setSelectedImages(images);
               const formdata = new FormData(e.target);
               const obj = {
-                images: selectedImages,
+                images: images,
                 videoid: formdata.get("videoid"),
                 description: description,
                 faqs: faqs,
               };
               console.log(obj);
+              setCookie("contentinfo", JSON.stringify(obj));
+
+              navigate("/settings");
             }}
           >
             <label htmlFor="images" className="w-100">
@@ -116,10 +161,27 @@ const Content = () => {
             <div>
               <H2WithToolTip heading={"FAQ's"} />
               <div className="d-flex flex-column align-items-center">
+                <div className="d-flex justify-content-center">
+                  {checkCookieExists("contentinfo")?.faq ? (
+                    JSON.parse(getCookie("contentinfo")).faqs.map(
+                      (faq, index) => {
+                        return (
+                          <Faq
+                            key={index}
+                            question={faq.question}
+                            ans={faq.ans}
+                          />
+                        );
+                      }
+                    )
+                  ) : (
+                    <div></div>
+                  )}
+                </div>
+
                 {mycomponents.map((comp, index) => (
                   <div key={index}>{comp.component}</div>
                 ))}
-                {console.log(mycomponents)}
 
                 <button
                   className="bg-transparent text-center border-0 d-flex align-items-center"

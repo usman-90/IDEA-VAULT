@@ -17,3 +17,18 @@ export const getCookie = (name) => {
 
   return cookies[name];
 };
+
+export const checkCookieExists = (cookieName) => {
+  const cookies = document.cookie.split(";");
+  for (let i = 0; i < cookies.length; i++) {
+    const cookie = cookies[i].trim();
+    if (cookie.startsWith(`${cookieName}=`)) {
+      return true; // Cookie exists
+    }
+  }
+  return false; // Cookie does not exist
+};
+
+export const destroyCookie = (name) => {
+  document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+};
