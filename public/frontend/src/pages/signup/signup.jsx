@@ -88,7 +88,7 @@ function SignUpForm() {
               <input type="text" id="password" name="lastName" required />
             </label>
             <label className="signuplabel_z" htmlFor="username">
-              <div>User Name:</div>
+              User Name:     
               <input type="username" id="username" name="username" required />
             </label>
             <label className="signuplabel_z" htmlFor="email">
