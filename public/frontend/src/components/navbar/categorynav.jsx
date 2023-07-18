@@ -8,32 +8,32 @@ const CategoryNav = () => {
         <div className="categorytop_z">
           <ul className="cat-navvv_z">
             <li className="nav-item scale_on_hover">
-              <Link className="text-black " to="/technology">
+              <Link className="text-black " to={`/category/3/Technology`}>
                 Technology
               </Link>
             </li>
             <li className="nav-item scale_on_hover">
-              <Link className="text-black" to="/bussiness">
+              <Link className="text-black" to={`/category/8/Business`}>
                 Bussiness
               </Link>
             </li>
             <li className="nav-item scale_on_hover">
-              <Link className="text-black" to="/arts">
+              <Link className="text-black" to={`/category/2/Art & Craft`}>
                 Arts and Crafts
               </Link>
             </li>
             <li className="nav-item scale_on_hover">
-              <Link className="text-black" to="/education">
+              <Link className="text-black" to={`/category/4/Education`}>
                 Education
               </Link>
             </li>
             <li className="nav-item scale_on_hover">
-              <Link className="text-black" to="/science">
+              <Link className="text-black" to={`/category/6/Science`}>
                 Science
               </Link>
             </li>
             <li className="nav-item scale_on_hover">
-              <Link className="text-black" to="/tourism">
+              <Link className="text-black" to={`/category/7/Tourism`}>
                 Tourism
               </Link>
             </li>

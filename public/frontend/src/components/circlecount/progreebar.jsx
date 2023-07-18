@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { useState, useEffect } from "react";
 
 const CircularProgress = ({ size, progress, totalCount }) => {
-  const strokeWidth = 8;
+  const strokeWidth = 9;
   const radius = (size - strokeWidth) / 2;
   const circumference = 2 * Math.PI * radius;
   const [offset, setOffset] = useState(0);
@@ -41,7 +41,7 @@ const CircularProgress = ({ size, progress, totalCount }) => {
         y="50%"
         dominantBaseline="middle"
         textAnchor="middle"
-        fontSize="35"
+        fontSize="33"
         fontWeight="bold"
         fill="#07393c"
         className="font-italic "
@@ -78,7 +78,7 @@ const MyCircularProgress = ({ totalCount }) => {
 
   return (
     <div ref={progressRef}>
-      <CircularProgress size={120} progress={progress} totalCount={totalCount} />
+      <CircularProgress size={140} progress={progress} totalCount={totalCount} />
     </div>
   );
 };

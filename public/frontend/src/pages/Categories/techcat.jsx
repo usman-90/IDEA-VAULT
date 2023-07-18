@@ -6,6 +6,7 @@ import Heading from '../../components/headin/heading';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import fetchIdeaByCategory from '../../function2/fetchIdeaBycategory';
+import { Link } from "react-router-dom";
 
 const Technology = () => {
   const { catid } = useParams();
@@ -22,15 +23,20 @@ const Technology = () => {
 
       <div style={{ backgroundColor: '#daeaf0' }} className="container-fluid container-small">
         <div className="technologyCategory_z">
+          
+        
+        
           {ideasData?.map((idea, index) => (
+            <Link key={index} to={`/ideadetail/${idea.ideaid}`}>
             <IdeaCard
               className="mx-3"
-              key={index}
+             
               ideaName={idea.ideatitle}
               ideaCardDesc={idea.carddescription}
              
               ideaDate={idea.postedat}
             />
+            </Link>
           ))}
         </div>
       </div>
