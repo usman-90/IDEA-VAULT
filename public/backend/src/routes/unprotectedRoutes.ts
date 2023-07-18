@@ -22,5 +22,7 @@ unprotectedRouter.get("/getideabycategory/:id", getIdeaByCategory);
 unprotectedRouter.get("/getcommentsandreplies/:id", getCommentsAndReplies);
 unprotectedRouter.get("/getvotes/:ideaid", getVotes);
 unprotectedRouter.get("/getoneuser/:userid",getOneUser)
+// unprotectedRouter.get("/getcategory",getIdeaByCategory)
+
 
 export default unprotectedRouter;
