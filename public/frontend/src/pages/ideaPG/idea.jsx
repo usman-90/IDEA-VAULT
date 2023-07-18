@@ -9,7 +9,7 @@ import { useParams } from "react-router-dom";
 import { fetchOneIdea } from "../../functions/fetchoneidea";
 import { fetchIdeaUpdates } from "../../functions/fetchcomments";
 import { checkCookieExists, getCookie } from "../../helpers/cookies";
-import { checkUserVisiblity } from "../../functions/visinlity";
+// import { checkUserVisiblity } from "../../functions/visinlity";
 const Idea = () => {
   let userid;
   if (checkCookieExists("logindata")) {
@@ -30,8 +30,8 @@ const Idea = () => {
     );
   }
   const data = ideaResult?.data?.data ?? [];
-let vis;
-
+  
+  let vis;
   const hanldevisiblity = (a) => {
     if (a) {
       vis= true
