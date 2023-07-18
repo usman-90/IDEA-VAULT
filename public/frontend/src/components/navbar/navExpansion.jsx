@@ -21,9 +21,10 @@ const SPoint = (props) => {
         props.point.map((subhead) => {
           return (
             <>
+              <a href="#categoryDIVV"> 
               <p className="sm-point text-light" key={subhead.head}>
                 {subhead.head}
-              </p>
+              </p></a>
               {subhead.points.map((point) => {
                 return <Spoint2 point={point} key={point} />;
               })}
@@ -58,12 +59,12 @@ const LPoint = ({ onChange, point, link, handleExpansion }) => {
       onFocus={showNavContents}
       to={link}
     >
-      <p
+      <a href="#categoryDIVV"> <p
         onClick={point == "Logout" ? handleLogout : null}
         className="px-2 xl-point text-white"
       >
         {point}
-      </p>
+      </p></a>
     </Link>
   );
 };
@@ -77,36 +78,55 @@ const NavExpansion = ({ width, width100, handleExpansion }) => {
       link: "/",
       subheads: [
         {
-          head: "View",
-          points: ["Hello", "hi", "hola"],
+          head: "Categories",
+          points: ["Buisness", "Science", "Education","Art & Craft","Technology","Travel"],
         },
         {
-          head: "View",
-          points: ["Hello", "hi", "hola"],
+          head: "",
+          points: ["  "  ],
         },
         {
-          head: "View",
-          points: ["Hello", "hi", "hola"],
+          head: "Top 10 Ideas",
+          points: ["Top Idea","Second Idea","Third Idea","Fourth Idea","Fifth Idea"],
         },
         {
-          head: "View",
-          points: ["Hello", "hi", "hola"],
+          head: "",
+          points: ["  "  ],
         },
         {
-          head: "View",
-          points: ["Hello", "hi", "hola"],
+          head: "Feedback",
+          points: ["client's Reviews "],
         },
         {
-          head: "View",
-          points: ["Hello", "hi", "hola"],
+          head: "",
+          points: ["  "  ],
+        },
+       
+        {
+          head: "FAQs",
+          points: ["Questions", "Answers"],
+        },
+         {
+          head: "",
+          points: ["  "  ],
+        },
+       
+        {
+          head: "Explore More",
+          points: [" About Us"],
         },
         {
-          head: "View",
-          points: ["Hello", "hi", "hola"],
+          head: "",
+          points: ["  "  ],
         },
         {
-          head: "View",
-          points: ["Hello", "hi", "hola"],
+          head: "Contact Us",
+          points: ["Message us", "Send us an email","Call Us"],
+        },
+       
+        {
+          head: "",
+          points: [" "],
         },
       ],
     },
@@ -115,8 +135,8 @@ const NavExpansion = ({ width, width100, handleExpansion }) => {
       link: "/",
       subheads: [
         {
-          head: "View",
-          points: ["Hello", "hi", "hola"],
+          head: "Categories",
+          points: ["Buisness", "Science", "Education","Art & Craft","Technology","Travel"],
         },
       ],
     },
@@ -126,12 +146,12 @@ const NavExpansion = ({ width, width100, handleExpansion }) => {
       link: "/inbox",
       subheads: [
         {
-          head: "View",
-          points: ["Hello", "hi", "hola"],
+          head: "Inbox",
+          points: ["Check your Message", "Received Messages", "Sent Messages"],
         },
         {
-          head: "View",
-          points: ["Hello", "hi", "hola"],
+          head: "",
+          points: [" "],
         },
       ],
     },
@@ -141,13 +161,18 @@ const NavExpansion = ({ width, width100, handleExpansion }) => {
       link: `/profile/${checkCookieExists("logindata") ?`${JSON.parse(getCookie("logindata")).userId}`: ""}`,
       subheads: [
         {
-          head: "View",
-          points: ["Hello", "hi", "hola"],
+          head: "view Profile",
+          points: ["View Profile picture", "View BIO", "View Socials"],
         },
         {
-          head: "View",
-          points: ["Hello", "hi", "hola"],
+          head: "Edit Profile",
+          points: ["Edit Name", "Edit profile picture", "Edit socials","Edit BIO"],
         },
+        {
+          head: "View Security",
+          points: ["Check the availabilty", "Grant avaiabilty"],
+        },
+
       ],
     },
     {
@@ -155,8 +180,8 @@ const NavExpansion = ({ width, width100, handleExpansion }) => {
       link: checkCookieExists("logindata") ? "/basicinfo" : "",
       subheads: [
         {
-          head: "View",
-          points: ["Hello", "hi", "hola"],
+          head: "Post Your Idea",
+          points: ["Basic Information", "Content", "Setting"],
         },
       ],
     },
@@ -165,8 +190,8 @@ const NavExpansion = ({ width, width100, handleExpansion }) => {
       link: "/terms",
       subheads: [
         {
-          head: "View",
-          points: ["Hello", "hi", "hola"],
+          head: "Policies",
+          points: ["Terms & Conditions", "Privacy Policy", "Copyright Policy","User guideline"],
         },
       ],
     },
@@ -175,12 +200,12 @@ const NavExpansion = ({ width, width100, handleExpansion }) => {
       link: readContext ? "/signin" : "/signin",
       subheads: [
         {
-          head: "View",
-          points: ["Hello", "hi", "hola"],
+          head: "",
+          points: [],
         },
         {
-          head: "View",
-          points: ["Hello", "hi", "hola"],
+          head: "",
+          points: [],
         },
       ],
     },
@@ -210,7 +235,7 @@ const NavExpansion = ({ width, width100, handleExpansion }) => {
       </div>
       <div className={`right_nav_u bg-midnight-green`}>
         <div className={`right_nav_content`}>
-          {spArr.map((point) => {
+          {spArr?.map((point) => {
             if (
               (point.heading == "Inbox" || point.heading == "Post Your Idea" || point.heading == "Profile") &&
               !checkCookieExists("logindata")

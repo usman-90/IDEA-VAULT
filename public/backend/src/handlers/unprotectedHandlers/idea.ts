@@ -61,7 +61,7 @@ export const getIdeaUpdates = async (req, res) => {
 };
 
 export const getIdeaByCategory = async (req, res) => {
-  const query = `SELECT i.ideaTitle, i.cardDescription, i.postedAt ,i.categoryId FROM Idea i INNER JOIN Category c ON i.categoryId = c.categoryId WHERE c.categoryId = $1;`;
+  const query = `SELECT i.ideaTitle,i.ideaId, i.cardDescription, i.postedAt ,i.categoryId FROM Idea i INNER JOIN Category c ON i.categoryId = c.categoryId WHERE c.categoryId = $1;`;
   const row = await executeQuery(query, [req.params.id]);
   res
     .json({
