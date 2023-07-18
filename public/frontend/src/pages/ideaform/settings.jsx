@@ -3,6 +3,7 @@ import H2WithToolTip from "./h2withtooltip.jsx";
 import SideBar from "./sidebar.jsx";
 import {
   checkCookieExists,
+  destroyCookie,
   getCookie,
   setCookie,
 } from "../../helpers/cookies.js";
@@ -84,6 +85,10 @@ const Settings = () => {
               if (res.message == "ok") {
                 console.log("ideaposted hehe");
               }
+              destroyCookie("forminfo");
+              destroyCookie("contentinfo");
+              destroyCookie("settings");
+
               navigate("/");
             }}
           >

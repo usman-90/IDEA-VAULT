@@ -35,7 +35,7 @@ const SignIn = () => {
             status: "loggedin",
           })
         );
-
+          console.log(JSON.parse(getCookie("logindata")))
         setusercontext(JSON.parse(getCookie("logindata")));
         navigate("/");
       }

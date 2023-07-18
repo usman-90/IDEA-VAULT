@@ -18,10 +18,7 @@ const Content = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (
-      checkCookieExists("logindata") &&
-      checkCookieExists("contentinfo") 
-    ) {
+    if (checkCookieExists("logindata") && checkCookieExists("contentinfo")) {
       setvideoUrl(JSON.parse(getCookie("contentinfo")).videoid ?? "");
       setDescription(JSON.parse(getCookie("contentinfo")).description ?? "");
       setSelectedImages(JSON.parse(getCookie("contentinfo")).images ?? "");
@@ -77,7 +74,6 @@ const Content = () => {
       <SideBar />
       <div className="bg-white rounded container my-5">
         <div className="inner p-5 px-5">
-     
           <form
             onSubmit={async (e) => {
               e.preventDefault();
@@ -88,11 +84,7 @@ const Content = () => {
                   }/${new Date().getMilliseconds().toString() + index}`;
 
                   await uploadImages(path, image);
-                  const url = await generateUrl(
-                    `descriptionImages/${
-                      JSON.parse(getCookie("logindata")).userId
-                    }/${index}`
-                  );
+                  const url = await generateUrl(path);
                   return { path: url, type: "ideaimage" };
                 })
               );

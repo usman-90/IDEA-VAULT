@@ -64,7 +64,7 @@ const App = () => {
                 <Route path="/basicinfo" element={<BasicInfoPage />} />
                 <Route path="/contentinfo" element={<Content />} />
                 <Route path="/settings" element={<Settings />} />
-                <Route path="/ideasection" element={<YourIdeas />} />
+                <Route path="/ideasection/:userid" element={<YourIdeas />} />
                 <Route path="/condition" element={<Condition />} />
                 <Route path="/privacy" element={<Privacy />} />
                 <Route path="/copyright1" element={<Copyright />} />
