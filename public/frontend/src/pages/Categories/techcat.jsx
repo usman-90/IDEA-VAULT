@@ -26,7 +26,7 @@ const Technology = () => {
           
         
         
-          {/* {ideasData?.map((idea, index) => (
+          {ideasData?.map((idea, index) => (
             <Link key={index} to={`/ideadetail/${idea.ideaid}`}>
             <IdeaCard
               className="mx-3"
@@ -37,7 +37,7 @@ const Technology = () => {
               ideaDate={idea.postedat}
             />
             </Link>
-          ))} */}
+          ))}
         </div>
       </div>
     </div>
