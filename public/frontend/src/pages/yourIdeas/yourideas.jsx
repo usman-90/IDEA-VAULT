@@ -6,52 +6,6 @@ import { useParams } from "react-router-dom";
 import { getIdeasByUserId } from "../../functions/votes";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
-const YourIdeaArray = [
-  {
-    ideaCategory: "Category 2",
-    description: [
-      {
-        ideaName: "Idea 1",
-        ideaCardDesc: "Description of Idea 2",
-        cardSrc: "../../src/images/1stsilde.webp",
-        ideaDate: "2023-06-02",
-      },
-    ],
-  },
-  {
-    ideaCategory: "Category 2",
-    description: [
-      {
-        ideaName: "Idea 1",
-        ideaCardDesc: "Description of Idea 2",
-        cardSrc: "../../src/images/food.webp",
-        ideaDate: "2023-06-02",
-      },
-    ],
-  },
-  {
-    ideaCategory: "Category 2",
-    description: [
-      {
-        ideaName: "Idea 1",
-        ideaCardDesc: "Description of Idea 2",
-        cardSrc: "../../src/images/art.jpg",
-        ideaDate: "2023-06-02",
-      },
-    ],
-  },
-  {
-    ideaCategory: "Category 2",
-    description: [
-      {
-        ideaName: "Idea 1",
-        ideaCardDesc: "Description of Idea 2",
-        cardSrc: "../../src/images/health.jpg",
-        ideaDate: "2023-06-02",
-      },
-    ],
-  },
-];
 
 const YourIdeas = () => {
   const { userid } = useParams();

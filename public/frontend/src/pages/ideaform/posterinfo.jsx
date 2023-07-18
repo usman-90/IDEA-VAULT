@@ -73,14 +73,20 @@ const PosterInfo = () => {
           <form
             onSubmit={async (e) => {
               e.preventDefault();
-              await uploadImage(`/profiles/${data.userid}`, profile);
+
+          
+
+              await uploadImage(`/profiles/${data.userid}`, profile).then((res)=>{
+                console.log(res)
+              });
+
               const path = await getUrl(`/profiles/${data.userid}`);
               const obj = { ...data, path };
               setdata({ ...data, path });
 
               const res = await updateuserinfo(obj);
               console.log(res);
-              navigate("/posterinfo");
+              navigate(`/posterinfo/${userid}`);
             }}
           >
             <div className="my-4 field">

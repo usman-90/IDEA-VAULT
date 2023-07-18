@@ -7,8 +7,9 @@ import "../../style/detail.css";
 import { downvote, getVotes, upvote } from "../../functions/votes";
 import { createChatRoom } from "../../functions/message";
 import { useNavigate } from "react-router-dom";
+import { checkCookieExists } from "../../helpers/cookies";
 // import DetailNav from "../pages/ideaPG/detailNav";
-
+import { getCookie } from "../../helpers/cookies";
 const Details = ({
   images,
   title,
@@ -19,9 +20,8 @@ const Details = ({
   funding,
   teamMembers,
   ideaid,
-  path
+  path,
 }) => {
-
   const navigate = useNavigate();
   const [currentImg, setCurrentImg] = useState();
   const [buttonColor, setButtonColor] = useState("");
@@ -34,7 +34,7 @@ const Details = ({
   };
   useEffect(() => {
     getinitialvotes(ideaid);
-    setCurrentImg(images[0]?.path)
+    setCurrentImg(images[0]?.path);
   }, []);
 
   const handleUpvoteClick = async () => {
@@ -66,6 +66,12 @@ const Details = ({
     console.log(res);
     navigate("/inbox");
   };
+
+  let thisuserid;
+
+  if (checkCookieExists("logindata")) {
+    thisuserid = JSON.parse(getCookie("logindata"))?.userId;
+  }
   return (
     <>
       <div className="container-fluid coloranimation">
@@ -120,6 +126,11 @@ const Details = ({
                   className="h1 my-2"
                 >
                   <b>{title}</b>
+                  {checkCookieExists("logindata") && thisuserid == userid && (
+                    <button className="btn bg-midnight-green text-mustard ms-5">
+                      Update idea
+                    </button>
+                  )}
                 </p>
                 <p
                   style={{ textTransform: "uppercase", color: "red" }}

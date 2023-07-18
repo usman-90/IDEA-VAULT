@@ -11,6 +11,7 @@ export const getUserInfo = async ({ queryKey }) => {
 };
 
 export const updateuserinfo = async (data) => {
+  console.log(data);
   if (checkCookieExists("logindata")) {
     const body = {
       country: data.country ?? "",
