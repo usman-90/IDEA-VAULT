@@ -3,6 +3,7 @@ import H2WithToolTip from "./h2withtooltip.jsx";
 import SideBar from "./sidebar.jsx";
 import {
   checkCookieExists,
+  destroyCookie,
   getCookie,
   setCookie,
 } from "../../helpers/cookies.js";
@@ -56,7 +57,7 @@ const Settings = () => {
               console.log(setting);
               setCookie("settings", JSON.stringify(setting));
               let ideaData = {};
-              console.log(checkCookieExists("basicinfo"));
+              console.log(checkCookieExists("forminfo"));
               console.log(checkCookieExists("contentinfo"));
               console.log(checkCookieExists("settings"));
 
@@ -84,6 +85,10 @@ const Settings = () => {
               if (res.message == "ok") {
                 console.log("ideaposted hehe");
               }
+              destroyCookie("forminfo");
+              destroyCookie("contentinfo");
+              destroyCookie("settings");
+
               navigate("/");
             }}
           >

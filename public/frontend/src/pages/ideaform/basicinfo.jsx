@@ -219,12 +219,12 @@ const BasicInfoPage = () => {
                       onChange={(e) => handleChange(e)}
                     >
                       <option value="none">Choose</option>
-                      <option value="education">Education</option>
-                      <option value="science">science</option>
-                      <option value="artncraft">Art & Craft</option>
-                      <option value="technology">Technology</option>
+                      <option value="Education">Education</option>
+                      <option value="Science">Science</option>
+                      <option value="Art & Craft">Art & Craft</option>
+                      <option value="Technology">Technology</option>
                       <option value="business">Business</option>
-                      <option value="travel">Travel</option>
+                      <option value="Tourism">Tourism</option>
                     </select>
                   </label>
                 </div>

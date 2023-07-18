@@ -15,20 +15,25 @@ function SignUpForm() {
   const createAcc = async (obj) => {
     const res = await createAccount(obj);
     if (res.message == "successful") {
-      setCookie("logindata", {
-        token: res.token,
-        userName: res.rows[0].username,
-        userId: res.rows[0].userid,
-        status: "loggedin",
-      });
+      setCookie(
+        "logindata",
+        JSON.stringify({
+          token: res.token,
+          userName: res.rows[0].username,
+          userId: res.rows[0].userid,
+          status: "loggedin",
+        })
+      );
       loggedinUser({
         token: res.token ?? null,
         userName: res.rows[0].username ?? null,
         userId: res.rows[0].userid ?? null,
-        status: "loggedin" ,
+        status: "loggedin",
       });
-      console.log("cookies",getCookie("logindata"));
+      console.log("cookies", getCookie("logindata"));
       navigate("/");
+    } else if (res.message == "username already taken") {
+      alert("lol");
     }
   };
 
@@ -83,7 +88,7 @@ function SignUpForm() {
               <input type="text" id="password" name="lastName" required />
             </label>
             <label className="signuplabel_z" htmlFor="username">
-              <div>User Name:</div>
+              User Name:     
               <input type="username" id="username" name="username" required />
             </label>
             <label className="signuplabel_z" htmlFor="email">

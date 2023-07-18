@@ -43,9 +43,10 @@
     margin-bottom: 8px;
     font-weight: bold;
 }
+
 .namesignup_z,
 #email,
-#password {
+#confirm-password,#username,#password {
     width: 100%;
     padding: 10px;
     border-radius: 5px;

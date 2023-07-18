@@ -5,6 +5,7 @@ import { signin } from "../../functions/signin";
 import { getCookie, setCookie } from "../../helpers/cookies";
 import UserContext from "../../context/context";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 document.body.style.backgroundColor = "white";
 
 const SignIn = () => {
@@ -35,7 +36,7 @@ const SignIn = () => {
             status: "loggedin",
           })
         );
-
+          console.log(JSON.parse(getCookie("logindata")))
         setusercontext(JSON.parse(getCookie("logindata")));
         navigate("/");
       }
@@ -112,12 +113,11 @@ const SignIn = () => {
         <br /> <br />
         <div className="signup_z">
           Don&apos;t have an account?{" "}
-          <a
-            href="../../components/pages/signup/signup.jsx"
+          <Link to="/signup"
             className="signup1_"
           >
             Sign Up
-          </a>
+          </Link>
         </div>
       </div>
     </div>

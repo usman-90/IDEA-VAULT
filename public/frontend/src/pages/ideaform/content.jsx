@@ -18,12 +18,7 @@ const Content = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (
-      checkCookieExists("logindata") &&
-      checkCookieExists("forminfo") &&
-      checkCookieExists("forminfo") &&
-      checkCookieExists("forminfo")
-    ) {
+    if (checkCookieExists("logindata") && checkCookieExists("contentinfo")) {
       setvideoUrl(JSON.parse(getCookie("contentinfo")).videoid ?? "");
       setDescription(JSON.parse(getCookie("contentinfo")).description ?? "");
       setSelectedImages(JSON.parse(getCookie("contentinfo")).images ?? "");
@@ -69,10 +64,6 @@ const Content = () => {
   const uploadImages = async (path, file) => {
     await uploadImage(path, file);
   };
-  const generateUrl = async (path) => {
-    const url = await getUrl(path);
-    return url;
-  };
 
   return (
     <>
@@ -89,11 +80,10 @@ const Content = () => {
                   }/${new Date().getMilliseconds().toString() + index}`;
 
                   await uploadImages(path, image);
-                  const url = await generateUrl(
-                    `descriptionImages/${
-                      JSON.parse(getCookie("logindata")).userId
-                    }/${index}`
-                  );
+
+                  await new Promise((resolve) => setTimeout(resolve, 2000));
+                  const url = await getUrl(path);
+
                   return { path: url, type: "ideaimage" };
                 })
               );

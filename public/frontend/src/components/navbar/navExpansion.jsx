@@ -71,6 +71,8 @@ const LPoint = ({ onChange, point, link, handleExpansion }) => {
 
 const NavExpansion = ({ width, width100, handleExpansion }) => {
   const [readContext] = useContext(UserContext);
+  console.log(getCookie("logindata"))
+  
   console.log("context", readContext);
   let spArr = [
     {
@@ -158,7 +160,9 @@ const NavExpansion = ({ width, width100, handleExpansion }) => {
 
     {
       heading: "Profile",
-      link: `/profile/${checkCookieExists("logindata") ?`${JSON.parse(getCookie("logindata")).userId}`: ""}`,
+      link: `/profile/${checkCookieExists("logindata") && getCookie("logindata").toString() !== "[object Object]" ?`${JSON.parse(getCookie("logindata")).userId}`: ""}`,
+
+    
       subheads: [
         {
           head: "view Profile",

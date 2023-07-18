@@ -56,12 +56,8 @@ export const postIdea = async (req, res) => {
 };
 
 export const postIdeaUpdates = async (req, res) => {
-  const query = `INSERT INTO Updates (updateTitle, updateDescription,ideaId) VALUES ($1,$2,$3)`;
-  const values = [
-    req.body.updateTitle,
-    req.body.updateDescription,
-    req.params.ideaid,
-  ];
+  const query = `INSERT INTO Updates (updateDescription,ideaId) VALUES ($1,$2)`;
+  const values = [req.body.updateDescription, req.params.ideaid];
   const row = await executeQuery(query, values);
   res
     .json({

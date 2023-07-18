@@ -1,18 +1,82 @@
+
 .custom-height{
     height:500px;
 }
 .filter_z{
-    line-height: 42px;
+    line-height: 50px;
 }
+
+.catideaHead_z{
+    background: linear-gradient(to right, #c1ebdd, #68dbe3e5);
+    text-decoration: none;
+    width:90%;
+    height:70px;
+    font-size: 45px;
+    font-weight: bold;
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-bottom: 10px;
+
+}
+.postidea_z{
+    display: inline-block;
+    font-size: 1em;
+    background: #0eb8a4cc;
+    margin-left: 3%;
+    padding: 10px 30px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 500;
+    margin-top: 10px;
+    color: #fff7f7;
+    letter-spacing: 1px;
+    transition: 0.2s;
+    border-radius: 3px;
+    height:50px;
+    width:215px;
+
+  }
+  .postidea_z:hover
+  {
+    letter-spacing: 3px;
+    box-shadow: 0 0 5px 6px #2c666e;
+  }
+.tech_z{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap:10px;
+    width:100%;
+} 
 
 .navideaposter_z{
     display:flex;
     flex-direction: row;
     gap:10px;
 }
+
 .yourideasec_z{
-    font-size: 25px;
     color:white;
+    font-size: 15px;
+    padding:2px;
+}
+.navideaposter_z{
+    background: linear-gradient(to right, #43c6ac, #156067e5);
+    margin-bottom:-20px;
+    margin-top:7px;
+    height:70px;
+
+
+}
+.posting_z{
+    display:flex;
+    flex-direction: row;
+    gap:5px;
+    width:107%;
+    margin-left: 970px;
+    margin-bottom: 6px;
+    height:60px;
+    padding:3px;
 }
 .abc_z{
     background-color: rgb(142, 142, 16);
@@ -20,19 +84,20 @@
     border-radius: 20px;
     width:200px;
     padding-bottom: 10px;
-    margin-top: -2px;
+    margin-top: 9px;
     text-align: center;
-    margin-right:-240px;
+    margin-left:1380px;
 }
 .carousel_z{
     box-shadow: 1px 1px 5px 3px grey;
+
 }
-/* a{
+.linkcat_z{
     color:black;
     text-decoration: none;
     font-family: 'Times New Roman', Times, serif;
-    font-size: 22px;
-} */
+    font-size: 20px;
+} 
 .full_z{
     display: flex;
     flex-direction: column;
@@ -65,200 +130,131 @@
 .search_z{
     display: flex;
     flex-direction: row;
+    width:90%;
 }
-/* button{
+.searchbutton{
     background-color: green;
     color:white;
     width:80px;
     height:40px;
 }
-button:hover{
+.searchbutton:hover{
     background-color: rgb(1, 160, 1);
-} */
+} 
 .filter_z{
-    width:260px;
+    width:430px;
     line-height: 60px;
     border:0.75px solid rgba(0, 0, 0, 0.562);
     box-shadow: rgb(204, 219, 232) 2px 2.75px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
     padding:24px;
-    margin-left: -30px;
+    margin-left: -58px;
+    height:800px;
+}
+.ideacarsec_z{
+    display: flex;
+    flex-direction: row;
 }
 
-@media screen and (max-width:460px){
+
+
+@media screen and (max-width:435px) {
     .custom-height{
-        height:500px;
+        height:300px;
     }
     .filter_z{
-        line-height: 42px;
+        line-height: 50px;
     }
-    .mainnav_z{
-        margin-top:-56px;
-        margin-right:-372px;
-    }
-    .navideaposter_z{
-        display:flex;
-        flex-direction: row;
-        justify-content: flex-end;
-        gap:361px;
-    }
-    .yourideasec_z{
-        font-size: 25px;
-        color:white;
-    }
-    .abc_z{
-        background-color: teal;
-        height:40px;
-        border-radius: 20px;
-        width:200px;
-        padding-bottom: 10px;
-        margin-top: 20px;
+    
+    .catideaHead_z{
+        background: linear-gradient(to right, #c1ebdd, #68dbe3e5);
+        text-decoration: none;
+        width:90%;
+        height:60px;
+        font-size: 37px;
+        font-weight: bold;
         text-align: center;
-        margin-right:-537px;
-    }
-    .carousel_z{
-        box-shadow: 1px 1px 5px 3px grey;
-        width:738px;
-    }
-
-    .idea1_z{
-        display: flex;
-        flex-direction: row;
-        gap:50px;
-    }
-    .shareideas_z{
-        display: flex;
-        flex-direction: column;
-        gap:30px;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        margin-bottom: 10px;
     
     }
-    .body_z{
-        display: flex;
-        flex-direction: row;
-        gap:44px;
-    }
-    .typeidea_z{
-        width:373px;
-        height:max-content;
-        padding-left: 20px;
-        padding:7px;
-        margin: auto;
-        
-    }
-    .filter_z{
-        width:238px;
-        line-height: 60px;
-        border:0.75px solid rgba(0, 0, 0, 0.562);
-        box-shadow: rgb(204, 219, 232) 2px 2.75px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
-        padding:24px;
-        margin-left: -3px;
-    }
-}
-@media screen and (max-width:800px) and (min-width:450px){
-
-    .mainnav_z{
-        margin-top:-56px;
-        margin-right: -616px;
-    }
-    .navideaposter_z{
-        display:flex;
-        flex-direction: row;
-        justify-content: flex-end;
-        gap:40px;
-    }
-    .yourideasec_z{
-        font-size: 25px;
-        color:white;
-    }
-    .abc_z{
-        background-color: teal;
-        height:40px;
-        border-radius: 20px;
-        width:200px;
-        padding-bottom: 10px;
-        margin-top: 20px;
-        text-align: center;
-        margin-right:-240px;
-    }
-    .carousel_z{
-        box-shadow: 1px 1px 5px 3px grey;
-        width:180%;
-    }
-    .idea1_z{
-        display: flex;
-        flex-direction: row;
-        gap:50px;
-    }
-    .shareideas_z{
-        display: flex;
-        flex-direction: column;
-        gap:30px;
+    .postidea_z{
+        display: inline-block;
+        font-size: 0em;
+        background: #0eb8a4cc;
+        margin-left: 3%;
+        padding: 10px 30px;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-weight: 500;
+        margin-top: 10px;
+        color: #fff7f7;
+        letter-spacing: 1px;
+        transition: 0.2s;
+        border-radius: 3px;
+        height:31px;
+        width:150px;
     
-    }
-    .body_z{
-        display: flex;
+      }
+      .postidea_z:hover
+      {
+        letter-spacing: 3px;
+        box-shadow: 0 0 5px 6px #2c666e;
+      }
+    .tech_z{
+        display:flex;
         flex-direction: row;
-        gap:50px;
-    }
-    .typeidea_z{
-        width:891px;
-        height:max-content;
-        padding-left: 20px;
-        padding:7px;
-        margin: auto;
-        
-    }
-    .filter_z{
-        width:229px;
-        line-height: 60px;
-        border:0.75px solid rgba(0, 0, 0, 0.562);
-        box-shadow: rgb(204, 219, 232) 2px 2.75px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
-        padding:24px;
-        margin-left: 24px;
-    }
-
-}
-
-@media screen and (max-width:1200px) and (min-width:770px){
-    .custom-height{
-        height:500px;
-    }
-    .filter_z{
-        line-height: 42px;
-    }
-    .mainnav_z{
-        margin-top:-56px;
-        margin-right: -376px;
-    }
+        flex-wrap: wrap;
+        gap:10px;
+        width:100%;
+    } 
+    
     .navideaposter_z{
         display:flex;
         flex-direction: row;
-        justify-content: flex-end;
         gap:10px;
     }
+    
     .yourideasec_z{
-        font-size: 25px;
         color:white;
+        font-size: 11px;
+    }
+    .navideaposter_z{
+        background: linear-gradient(to right, #43c6ac, #156067e5);
+        margin-bottom:-20px;
+        margin-top:7px;
+        height:49px;
+    
+    
+    }
+    .posting_z{
+        display:flex;
+        flex-direction: row;
+        gap:5px;
+        width:110%;
+        margin-left: 80px;
+        margin-bottom: 6px;
+        height:60px;
     }
     .abc_z{
-        background-color: teal;
+        background-color: rgb(142, 142, 16);
         height:40px;
         border-radius: 20px;
         width:200px;
         padding-bottom: 10px;
-        margin-top: 20px;
+        margin-top: 9px;
         text-align: center;
-        margin-right:-240px;
+        margin-left:1380px;
     }
     .carousel_z{
         box-shadow: 1px 1px 5px 3px grey;
-        width:135%;
+    
     }
-    /* a{
+    .linkcat_z{
         color:black;
         text-decoration: none;
         font-family: 'Times New Roman', Times, serif;
-        font-size: 22px;
-    } */
+        font-size: 20px;
+    } 
     .full_z{
         display: flex;
         flex-direction: column;
@@ -278,24 +274,343 @@ button:hover{
     .body_z{
         display: flex;
         flex-direction: row;
-        gap:50px;
+        gap:70px;
     }
     .typeidea_z{
-        width:820px;
+        width:319px;
         height:max-content;
         padding-left: 20px;
         padding:7px;
         margin: auto;
         
     }
-
+    .search_z{
+        display: flex;
+        flex-direction: row;
+        width:90%;
+    }
+    .searchbutton{
+        background-color: green;
+        color:white;
+        width:80px;
+        height:40px;
+    }
+    .searchbutton:hover{
+        background-color: rgb(1, 160, 1);
+    } 
     .filter_z{
-        width:240px;
+        display:none;
+    }
+    .ideacarsec_z{
+        display: flex;
+        flex-direction: row;
+    }
+    
+}
+
+@media screen and (min-width:600px) and (max-width:780px) {
+    .custom-height{
+        height:300px;
+    }
+    .filter_z{
+        line-height: 50px;
+    }
+    
+    .catideaHead_z{
+        background: linear-gradient(to right, #c1ebdd, #68dbe3e5);
+        text-decoration: none;
+        width:90%;
+        height:60px;
+        font-size: 37px;
+        font-weight: bold;
+        text-align: center;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        margin-bottom: 10px;
+    
+    }
+    .postidea_z{
+        display: inline-block;
+        font-size: 0em;
+        background: #0eb8a4cc;
+        margin-left: 3%;
+        padding: 10px 30px;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-weight: 500;
+        margin-top: 10px;
+        color: #fff7f7;
+        letter-spacing: 1px;
+        transition: 0.2s;
+        border-radius: 3px;
+        height:31px;
+        width:150px;
+    
+      }
+      .postidea_z:hover
+      {
+        letter-spacing: 3px;
+        box-shadow: 0 0 5px 6px #2c666e;
+      }
+    .tech_z{
+        display:flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap:10px;
+        width:100%;
+    } 
+    
+    .navideaposter_z{
+        display:flex;
+        flex-direction: row;
+        gap:10px;
+    }
+    
+    .yourideasec_z{
+        color:white;
+        font-size: 11px;
+    }
+    .navideaposter_z{
+        background: linear-gradient(to right, #43c6ac, #156067e5);
+        margin-bottom:-20px;
+        margin-top:7px;
+        height:49px;
+    
+    
+    }
+    .posting_z{
+        display:flex;
+        flex-direction: row;
+        gap:5px;
+        width:100%;
+        margin-left: 411px;
+        margin-bottom: 6px;
+        height:60px;
+    }
+    .abc_z{
+        background-color: rgb(142, 142, 16);
+        height:40px;
+        border-radius: 20px;
+        width:200px;
+        padding-bottom: 10px;
+        margin-top: 9px;
+        text-align: center;
+        margin-left:1380px;
+    }
+    .carousel_z{
+        box-shadow: 1px 1px 5px 3px grey;
+    
+    }
+    .linkcat_z{
+        color:black;
+        text-decoration: none;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 20px;
+    } 
+    .full_z{
+        display: flex;
+        flex-direction: column;
+        gap:50px;
+    }
+    .idea1_z{
+        display: flex;
+        flex-direction: row;
+        gap:50px;
+    }
+    .shareideas_z{
+        display: flex;
+        flex-direction: column;
+        gap:30px;
+    
+    }
+    .body_z{
+        display: flex;
+        flex-direction: row;
+        gap:70px;
+    }
+    .typeidea_z{
+        width:548px;
+        height:max-content;
+        padding-left: 20px;
+        padding:7px;
+        margin: auto;
+        
+    }
+    .search_z{
+        display: flex;
+        flex-direction: row;
+        width:90%;
+    }
+    .searchbutton{
+        background-color: green;
+        color:white;
+        width:80px;
+        height:40px;
+    }
+    .searchbutton:hover{
+        background-color: rgb(1, 160, 1);
+    } 
+    .filter_z{
+        display:none;
+    }
+    .ideacarsec_z{
+        display: flex;
+        flex-direction: row;
+    }
+    
+}
+
+@media screen and (min-width:781px) and (max-width:1026px) {
+    .custom-height{
+        height:300px;
+    }
+    .filter_z{
+        line-height: 50px;
+    }
+    
+    .catideaHead_z{
+        background: linear-gradient(to right, #c1ebdd, #68dbe3e5);
+        text-decoration: none;
+        width:90%;
+        height:60px;
+        font-size: 37px;
+        font-weight: bold;
+        text-align: center;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        margin-bottom: 10px;
+    
+    }
+    .postidea_z{
+        display: inline-block;
+        font-size: 0em;
+        background: #0eb8a4cc;
+        margin-left: 3%;
+        padding: 10px 30px;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-weight: 500;
+        margin-top: 10px;
+        color: #fff7f7;
+        letter-spacing: 1px;
+        transition: 0.2s;
+        border-radius: 3px;
+        height:31px;
+        width:150px;
+    
+      }
+      .postidea_z:hover
+      {
+        letter-spacing: 3px;
+        box-shadow: 0 0 5px 6px #2c666e;
+      }
+    .tech_z{
+        display:flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap:10px;
+        width:100%;
+    } 
+    
+    .navideaposter_z{
+        display:flex;
+        flex-direction: row;
+        gap:10px;
+    }
+    
+    .yourideasec_z{
+        color:white;
+        font-size: 11px;
+    }
+    .navideaposter_z{
+        background: linear-gradient(to right, #43c6ac, #156067e5);
+        margin-bottom:-20px;
+        margin-top:7px;
+        height:49px;
+    
+    
+    }
+    .posting_z{
+        display:flex;
+        flex-direction: row;
+        gap:5px;
+        width:110%;
+        margin-left: 651px;
+        margin-bottom: 6px;
+        height:60px;
+    }
+    .abc_z{
+        background-color: rgb(142, 142, 16);
+        height:40px;
+        border-radius: 20px;
+        width:200px;
+        padding-bottom: 10px;
+        margin-top: 9px;
+        text-align: center;
+        margin-left:1380px;
+    }
+    .carousel_z{
+        box-shadow: 1px 1px 5px 3px grey;
+    
+    }
+    .linkcat_z{
+        color:black;
+        text-decoration: none;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 20px;
+    } 
+    .full_z{
+        display: flex;
+        flex-direction: column;
+        gap:50px;
+    }
+    .idea1_z{
+        display: flex;
+        flex-direction: row;
+        gap:50px;
+    }
+    .shareideas_z{
+        display: flex;
+        flex-direction: column;
+        gap:30px;
+    
+    }
+    .body_z{
+        display: flex;
+        flex-direction: row;
+        gap:70px;
+    }
+    .typeidea_z{
+        width:408px;
+        height:max-content;
+        padding-left: 20px;
+        padding:7px;
+        margin: auto;
+        
+    }
+    .search_z{
+        display: flex;
+        flex-direction: row;
+        width:90%;
+    }
+    .searchbutton{
+        background-color: green;
+        color:white;
+        width:80px;
+        height:40px;
+    }
+    .searchbutton:hover{
+        background-color: rgb(1, 160, 1);
+    } 
+    .filter_z{
+        width:450px;
         line-height: 60px;
         border:0.75px solid rgba(0, 0, 0, 0.562);
         box-shadow: rgb(204, 219, 232) 2px 2.75px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
         padding:24px;
-        margin-left: 45px;
+        margin-left: 23px;
+        height:800px;    }
+    .ideacarsec_z{
+        display: flex;
+        flex-direction: row;
     }
-
+    
 }

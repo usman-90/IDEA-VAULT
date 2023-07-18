@@ -24,9 +24,7 @@ unprotectedRouter.get("/getideaupdates/:ideaid", getIdeaUpdates);
 unprotectedRouter.get("/getideabycategory/:id", getIdeaByCategory);
 unprotectedRouter.get("/getcommentsandreplies/:id", getCommentsAndReplies);
 unprotectedRouter.get("/getvotes/:ideaid", getVotes);
-unprotectedRouter.get("/getoneuser/:userid",getOneUser)
 // unprotectedRouter.get("/getcategory",getIdeaByCategory)
-
 unprotectedRouter.get("/getoneuser/:userid", getOneUser);
 unprotectedRouter.get("/getuserinfo/:userid", getUserInfo);
 unprotectedRouter.get("/getideasbyuserid/:userid", getIdeaByUserId);
