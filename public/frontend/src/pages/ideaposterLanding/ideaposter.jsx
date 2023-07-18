@@ -1,25 +1,37 @@
-import Navbar2 from "../../components/navbar/navbar2";
+
+import React from "react";
 import "./ideaposter.css";
 import IdeaCard from "../../components/ideacard/ideacard";
 import { Link } from "react-router-dom";
 import MyCarousel from "./carousel";
+import cardData from "../Categories/cardarray";
+
 const IdeaPoster = () => {
+  const techIdeas = cardData.filter((card) => card.ideaCategory === "Tech");
+  const artIdeas = cardData.filter((card) => card.ideaCategory === "Category 3");
+  const bussIdeas = cardData.filter((card) => card.ideaCategory === "Category 2");
+  const eduIdeas = cardData.filter((card) => card.ideaCategory === "Education");
+  const sciIdeas = cardData.filter((card) => card.ideaCategory === "Science");
+  const tourIdeas = cardData.filter((card) => card.ideaCategory === "Tourism");
+
   return (
     <div className="full_z">
-      <div className="container-fluid shareideas_z">
-        <div className="navideaposter_z">
-          <div className="abc_z">
-            <Link to="/ideasection" className="yourideasec_z">
-              {" "}
-              Your Ideas
-            </Link>
-          </div>
-
-          <div className="mainnav_z">
-            <Navbar2 />
+      <div className="shareideas_z w-100">
+        <div className="navideaposter_z w-100">
+          <div className="posting_z">
+            <div className="postidea_z">
+              <Link to="/ideasection" className="yourideasec_z">
+                Your Ideas
+              </Link>
+            </div>
+            <div className="postidea_z">
+              <Link to="/basicinfo" className="yourideasec_z">
+                Post an Idea
+              </Link>
+            </div>
           </div>
         </div>
-        <div className="carousel_z">
+        <div className="carousel_z w-100">
           <MyCarousel />
         </div>
       </div>
@@ -34,16 +46,34 @@ const IdeaPoster = () => {
             <br />
             <ul className="list-unstyled">
               <li>
-                <Link className="linkcat_z" to="/technology">Tech and Innovation</Link>
+                <Link className="linkcat_z" to="/technology">
+                  Tech and Innovation
+                </Link>
               </li>
               <li>
-                <Link className="linkcat_z" to="/healthcare">Health Care</Link>
+                <Link className="linkcat_z" to="/arts">
+                  Arts and Crafts
+                </Link>
               </li>
               <li>
-                <Link className="linkcat_z" to="/food">Food and Beverage</Link>
+                <Link className="linkcat_z" to="/science">
+                  Science
+                </Link>
               </li>
               <li>
-                <Link className="linkcat_z" to="/education">Education and Training</Link>
+                <Link className="linkcat_z" to="/education">
+                  Education and Training
+                </Link>
+              </li>
+              <li>
+                <Link className="linkcat_z" to="/tourism">
+                  Tourism
+                </Link>
+              </li>
+              <li>
+                <Link className="linkcat_z" to="/bussiness">
+                  Bussiness
+                </Link>
               </li>
             </ul>
           </div>
@@ -62,9 +92,109 @@ const IdeaPoster = () => {
                 <button className="searchbutton">Search</button>
               </div>
             </div>
-            <div className="tech">
-              <IdeaCard/>
+            <br />
+            <div className="tech_z">
+              <div className="catideaHead_z">Technology</div>
+              {techIdeas.map((card, index) => (
+                <div className="tech_z" key={index}>
+                  {card.description.map((idea, ideaIndex) => (
+                    <IdeaCard
+                      className="mx-3"
+                      key={ideaIndex}
+                      ideaName={idea.ideaName}
+                      ideaCardDesc={idea.ideaCardDesc}
+                      cardSrc={idea.cardSrc}
+                      ideaDate={idea.ideaDate}
+                    />
+                  ))}
+                </div>
+              ))}
+            </div>
 
+            <div className="art_z">
+              <div className="catideaHead_z">Arts and Crafts</div>
+              {artIdeas.map((card, index) => (
+                <div className="tech_z" key={index}>
+                  {card.description.map((idea, ideaIndex) => (
+                    <IdeaCard
+                      className="mx-3"
+                      key={ideaIndex}
+                      ideaName={idea.ideaName}
+                      ideaCardDesc={idea.ideaCardDesc}
+                      cardSrc={idea.cardSrc}
+                      ideaDate={idea.ideaDate}
+                    />
+                  ))}
+                </div>
+              ))}
+            </div>
+            <div className="buss_z">
+              <div className="catideaHead_z">Bussiness</div>
+              {bussIdeas.map((card, index) => (
+                <div className="tech_z" key={index}>
+                  {card.description.map((idea, ideaIndex) => (
+                    <IdeaCard
+                      className="mx-3"
+                      key={ideaIndex}
+                      ideaName={idea.ideaName}
+                      ideaCardDesc={idea.ideaCardDesc}
+                      cardSrc={idea.cardSrc}
+                      ideaDate={idea.ideaDate}
+                    />
+                  ))}
+                </div>
+              ))}
+            </div>
+            <div className="edu_z">
+              <div className="catideaHead_z">Education</div>
+              {eduIdeas.map((card, index) => (
+                <div className="tech_z" key={index}>
+                  {card.description.map((idea, ideaIndex) => (
+                    <IdeaCard
+                      className="mx-3"
+                      key={ideaIndex}
+                      ideaName={idea.ideaName}
+                      ideaCardDesc={idea.ideaCardDesc}
+                      cardSrc={idea.cardSrc}
+                      ideaDate={idea.ideaDate}
+                    />
+                  ))}
+                </div>
+              ))}
+            </div>
+            <div className="sci_z">
+              <div className="catideaHead_z">Science</div>
+              {sciIdeas.map((card, index) => (
+                <div className="tech_z" key={index}>
+                  {card.description.map((idea, ideaIndex) => (
+                    <IdeaCard
+                      className="mx-3"
+                      key={ideaIndex}
+                      ideaName={idea.ideaName}
+                      ideaCardDesc={idea.ideaCardDesc}
+                      cardSrc={idea.cardSrc}
+                      ideaDate={idea.ideaDate}
+                    />
+                  ))}
+                </div>
+              ))}
+            </div>
+            <div className="tour_z">
+              <div className="catideaHead_z">Tourism</div>
+              {tourIdeas.map((card, index) => (
+                <div className="tech_z" key={index}>
+                  {card.description.map((idea, ideaIndex) => (
+                    <IdeaCard
+                      className="mx-3"
+                      key={ideaIndex}
+                      ideaName={idea.ideaName}
+                      ideaCardDesc={idea.ideaCardDesc}
+                      cardSrc={idea.cardSrc}
+                      ideaDate={idea.ideaDate}
+                    />
+                  ))}
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -72,4 +202,5 @@ const IdeaPoster = () => {
     </div>
   );
 };
+
 export default IdeaPoster;

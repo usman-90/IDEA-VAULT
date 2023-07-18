@@ -27,7 +27,7 @@ const AdminLogIn = () => {
   return (
     <div className="adminparent_z">
       <div className="phone-container_zz">
-        <img className="phone-image_zz" src="../../src/images/lastadmin.png" alt="Phone Image" />
+        <img className="phone-image_zz" src="../../src/images/front.jpg" alt="Phone Image" />
         
       </div>
       <div className="login_zz">

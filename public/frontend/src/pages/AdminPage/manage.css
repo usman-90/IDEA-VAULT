@@ -1,0 +1,34 @@
+.handle_z{
+    background-color: teal;
+    color:white;
+    width:90px;
+    height:30px;
+    margin:2px;
+    
+}
+.adminheading_z{
+    text-align: center;
+    margin-top:20px;
+}
+.tablemanage_z{
+    width:100%;
+    height:600px;
+    padding:2px;
+    margin:auto;
+    border: 2px solid black;
+    border-spacing: 0px;
+
+}
+.headeradmin_z{
+    border:1px solid black;
+    padding:20px;
+}
+.datadmin_z{
+    border:1px solid black;
+    width:10%;
+    padding:10px;
+    height:20px;
+}
+.rowadmin{
+    height:20%;
+}

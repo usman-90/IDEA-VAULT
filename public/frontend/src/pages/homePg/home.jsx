@@ -56,26 +56,14 @@ const Home = () => {
   return (
     <div>
       <Showcase />
-      <Heading text="Idea's Categories" />
+      <div style={{backgroundColor:"#daeaf0"}} className="container-fluid py-3"><Heading text="Idea's Categories" /></div>
       <Category />
-
-      <Heading text="Frequently Ask Questions" />
-      <FaqSection />
-      <SimpleSlider>
-        {reviews.map((review) => {
-          return (
-            <ReviewCard
-              key={review}
-              reviewBody={review.reviewBody}
-              name={review.name}
-              starCount={review.starCount}
-              imgSrc={review.imgSrc}
-            />
-          );
-        })}
-      </SimpleSlider>
       <Banner/>
-      <Contact />
+
+      
+      
+      <Heading style={{margintop:"3rem"}} className="my-5"text="Our top 10 Ideas"/>
+    
       <SimpleSlider>
         <IdeaCard
           cardSrc={
@@ -88,10 +76,60 @@ const Home = () => {
           ideaDate={"7 / 7 /23"}
           ideaCategory={"Technology"}
         />
-        <IdeaCard />
-        <IdeaCard />
-        <IdeaCard />
+        <IdeaCard  cardSrc={
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8FuKg3nog0iQGtEKOc_Hdo4nx0Dp0u5x-46o1wBygjA&s"
+          }
+          ideaName={"Flying Laptop"}
+          ideaCardDesc={
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur cumque quos ullam hic suscipit, illo itaque praesentium odio fugiat quibusdam molestiae adipisci voluptatem fugit optio culpa, provident, facere error sit."
+          }
+          ideaDate={"7 / 7 /23"}
+          ideaCategory={"Technology"} />
+        <IdeaCard  cardSrc={
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8FuKg3nog0iQGtEKOc_Hdo4nx0Dp0u5x-46o1wBygjA&s"
+          }
+          ideaName={"Flying Laptop"}
+          ideaCardDesc={
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur cumque quos ullam hic suscipit, illo itaque praesentium odio fugiat quibusdam molestiae adipisci voluptatem fugit optio culpa, provident, facere error sit."
+          }
+          ideaDate={"7 / 7 /23"}
+          ideaCategory={"Technology"}/>
+        <IdeaCard  cardSrc={
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8FuKg3nog0iQGtEKOc_Hdo4nx0Dp0u5x-46o1wBygjA&s"
+          }
+          ideaName={"Flying Laptop"}
+          ideaCardDesc={
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur cumque quos ullam hic suscipit, illo itaque praesentium odio fugiat quibusdam molestiae adipisci voluptatem fugit optio culpa, provident, facere error sit."
+          }
+          ideaDate={"7 / 7 /23"}
+          ideaCategory={"Technology"}/>
+
       </SimpleSlider>
+
+      <div style={{backgroundColor:"#daeaf0"}}>
+      <Heading text="Feedbacks"/>
+      </div>
+
+        <div style={{backgroundColor:"#daeaf0",paddingBottom:"4rem"}}>
+      <SimpleSlider>
+        {reviews.map((review) => {
+          return (
+            <ReviewCard
+            key={review}
+            reviewBody={review.reviewBody}
+            name={review.name}
+            starCount={review.starCount}
+            imgSrc={review.imgSrc}
+            />
+            );
+          })}
+      </SimpleSlider>
+          </div>
+
+      <Heading text="Frequently Ask Questions" />
+      <FaqSection />
+      <div style={{backgroundColor:"#daeaf0"}} className="container-fluid py-1"><Heading text="Contact Us" /></div>
+      <Contact />
     </div>
   );
 };

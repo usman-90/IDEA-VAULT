@@ -3,7 +3,7 @@ import img2 from "../../images/img2.png"
 const Banner=()=>{
     return(
         <>
-        <div  className="container-fluid banner">
+        <div style={{backgroundColor:"#daeaf0"}} className="container-fluid banner ">
             <div className="row  banner">
                 <div className="col-md-8 ">
                     <div className="textbanner px-5">

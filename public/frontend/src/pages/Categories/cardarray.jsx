@@ -9,22 +9,22 @@ const cardData = [
         }, {
             ideaName: "Idea 1",
             ideaCardDesc: "Description of Idea 1",
-            cardSrc: "../../src/images/2nd.webp",
+            cardSrc: "../../src/images/adminlock2.png",
             ideaDate: "2023-06-01"
         }, {
             ideaName: "Idea 1",
             ideaCardDesc: "Description of Idea 1",
-            cardSrc: "../../src/images/2nd.webp",
+            cardSrc: "../../src/images/art.jpg",
             ideaDate: "2023-06-01"
         }, {
             ideaName: "Idea 1",
             ideaCardDesc: "Description of Idea 1",
-            cardSrc: "../../src/images/2nd.webp",
+            cardSrc: "../../src/images/bussiness2.jpg",
             ideaDate: "2023-06-01"
         }, {
             ideaName: "Idea 1",
             ideaCardDesc: "Description of Idea 1",
-            cardSrc: "../../src/images/2nd.webp",
+            cardSrc: "../../src/images/edu.jpg",
             ideaDate: "2023-06-01"
         }]
 

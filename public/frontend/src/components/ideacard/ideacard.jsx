@@ -7,8 +7,8 @@ const IdeaCard = ({
   ideaDate,
 }) => {
   return (
-    <div>
-      <article className="article-wrapper">
+    <div >
+      <article className="article-wrapper my-2 ">
         <img className="container-project rounded-lg" src={cardSrc} alt="" />
         <div className="project-info">
           <div className="flex-pr">
@@ -38,7 +38,7 @@ const IdeaCard = ({
             <span
               style={{
                 backgroundColor:
-                  "rgba(165, 96, 247, 0.43); color: rgb(85, 27, 177)",
+                  "#2c6663"
               }}
               className="project-type"
             >
@@ -47,7 +47,7 @@ const IdeaCard = ({
             <span
               style={{
                 backgroundColor:
-                  "rgba(165, 96, 247, 0.43); color: rgb(85, 27, 177)",
+                  "#2c6663",color:"f4d77f"
               }}
               className="project-type"
             >

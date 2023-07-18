@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const CategoryNav = () => {
   return (
-    <nav className="navbar navbar-expand-lg mb-5 bg-mustard text-white">        
+    <nav className="navbar navbar-expand-lg mb-2 bg-mustard text-white ">        
         <div className="categorytop_z">
           <ul className="cat-navvv_z">
             <li className="nav-item scale_on_hover">
