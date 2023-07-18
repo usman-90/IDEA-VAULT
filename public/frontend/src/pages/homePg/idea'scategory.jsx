@@ -1,6 +1,7 @@
 import "../../style/ideacat.css";
 import "bootstrap";
 import CategoryCard from "./categorycard";
+import { Link } from "react-router-dom";
 
 const categories = [
   { categoryid:3,
@@ -56,21 +57,21 @@ const Category = () => {
       <div className="row">
         {categories.map((category) => {
           return (
-            <Link>
             <div
             
-              key={category}
+            key={category}
               style={{ height: "18rem" }}
               className="col-md-4   my-3"
             >
+            <Link  to={`/category/${category.categoryid}/${category.categoryTitle}`}>
               <CategoryCard
 
                 categoryCardSrc={category.categoryCardSrc}
                 categoryDesc={category.categoryDesc}
                 categoryTitle={category.categoryTitle}
               />
+          </Link>
             </div> 
-            </Link>
           );
         })}
       </div>

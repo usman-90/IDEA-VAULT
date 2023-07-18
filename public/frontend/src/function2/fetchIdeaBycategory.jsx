@@ -1,4 +1,4 @@
-const fetchIdea = async ({queryKey} ) => {
+const fetchIdeaByCategory = async ({queryKey} ) => {
   const id = queryKey[1] 
     const apiRes = await fetch(`http://localhost:3000/ideavault/getideabycategory/${id}`);
   
@@ -9,4 +9,4 @@ const fetchIdea = async ({queryKey} ) => {
     return apiRes.json();
   };
   
-  export default fetchIdea;
+  export default fetchIdeaByCategory;
