@@ -1,5 +1,6 @@
 import "./banner.css"
 import img2 from "../../images/img2.png"
+import { Link } from "react-router-dom";
 const Banner=()=>{
     return(
         <>
@@ -11,7 +12,7 @@ const Banner=()=>{
                     <h3>Welcome to the Idea Vault</h3>
                     <h5 style={{marginTop:"4%"}}> <i  style={{marginRight:"4%"}}className="fa-solid fa-check my-2"></i>Idea Poster</h5>
                     <h5><i  style={{marginRight:"4%"}} className="fa-solid fa-check my-2"></i> Investor</h5>
-                    <a href="/">Explore</a>
+                    <a href="/"> <Link to={"./aboutus"}>Explore</Link></a>
 
                     </div>
                 </div>

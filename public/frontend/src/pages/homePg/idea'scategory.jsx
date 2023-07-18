@@ -51,7 +51,7 @@ const categories = [
 
 const Category = () => {
   return (
-    <div style={{backgroundColor:"#daeaf0",paddingBottom:"8rem"}}  id="categoryDIVV"className="container-fluid">
+    <div style={{backgroundColor:"#daeaf0",paddingBottom:"8rem"}}  id="categoryDIVV"className="container-fluid animatedboxx">
       
     <div className="container text-center">
       <div className="row">

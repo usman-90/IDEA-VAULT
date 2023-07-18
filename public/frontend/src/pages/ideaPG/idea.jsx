@@ -34,6 +34,12 @@ const Idea = () => {
       </div>
     );
   }
+  if (updates.isLoading) {
+    return (
+      <div className="loading-pane">
+        <h2 className="loader">🌀</h2>
+      </div>
+    );}
   const data = ideaResult?.data?.data ?? [];
   const updatesdata = updates?.data?.data ?? [];
   console.log(data);

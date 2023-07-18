@@ -9,6 +9,7 @@ import { postComment } from "../../functions/postComments";
 const Comment = ({ currSection, commentsData ,path}) => {
   const { ideaid } = useParams();
   const [comment, setComment] = useState("");
+  // const [commentarray,setcommentarray]=useState([]);
 
   const handleChange = (e) => {
     setComment(e.target.value);
@@ -32,6 +33,12 @@ const Comment = ({ currSection, commentsData ,path}) => {
   };
 
   const submitComment = async () => {
+
+    if(comment == ""){
+      return
+    }
+     
+    ;
     const res = await postComment({ content: comment, ideaid });
     console.log(res);
 

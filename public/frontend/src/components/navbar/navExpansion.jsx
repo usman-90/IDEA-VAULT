@@ -190,6 +190,16 @@ const NavExpansion = ({ width, width100, handleExpansion }) => {
       ],
     },
     {
+      heading: "About Us",
+      link: "/aboutus",
+      subheads: [
+        {
+          head: "About Us",
+          points: ["What We Do?", "Our Team", "Our Response"," "],
+        },
+      ],
+    },
+    {
       heading: "Policies",
       link: "/terms",
       subheads: [
