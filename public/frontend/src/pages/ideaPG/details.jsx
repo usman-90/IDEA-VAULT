@@ -1,29 +1,29 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import MyCircularProgress from "../../components/circlecount/progreebar";
 import "../../style/detail.css";
 import { downvote, getVotes, upvote } from "../../functions/votes";
+import { createChatRoom } from "../../functions/message";
+import { useNavigate } from "react-router-dom";
 // import DetailNav from "../pages/ideaPG/detailNav";
 
 const Details = ({
+  images,
   title,
+  userid,
   tagline,
   name,
   country,
   funding,
   teamMembers,
   ideaid,
+  path
 }) => {
-  const srcArr = [
-    "../images/art.jpg",
-    "../images/business2.jpg",
-    "../images/sci.jpg",
-    "../images/edu.jpg",
-    "../images/techimg.jpg",
-    "../images/travel.jpg",
-  ];
-  const [currentImg, setCurrentImg] = useState(srcArr[0]);
+
+  const navigate = useNavigate();
+  const [currentImg, setCurrentImg] = useState();
   const [buttonColor, setButtonColor] = useState("");
   const [upvoteCount, setUpvoteCount] = useState();
   const getinitialvotes = async (ideaid) => {
@@ -34,6 +34,7 @@ const Details = ({
   };
   useEffect(() => {
     getinitialvotes(ideaid);
+    setCurrentImg(images[0]?.path)
   }, []);
 
   const handleUpvoteClick = async () => {
@@ -60,7 +61,11 @@ const Details = ({
       setButtonColor("red");
     }
   };
-
+  const handlechatcreation = async (userid) => {
+    const res = await createChatRoom(userid);
+    console.log(res);
+    navigate("/inbox");
+  };
   return (
     <>
       <div className="container-fluid coloranimation">
@@ -85,13 +90,13 @@ const Details = ({
                 }}
                 className="container"
               >
-                {srcArr.map((src) => {
+                {images.map((image) => {
                   return (
                     <img
-                      key={src}
+                      key={image.path}
                       className="img-fluid "
                       style={{ height: "4rem", width: "4.5rem" }}
-                      src={src}
+                      src={image.path}
                       alt="oo"
                       onClick={(e) => {
                         setCurrentImg(e.target.src);
@@ -123,36 +128,41 @@ const Details = ({
                   {tagline}
                 </p>
                 <div style={{ height: "maxcontent" }} className="w-100 ">
-                  <div
-                    style={{
-                      border: "2px solid #07393c",
-                      backgroundColor: "#07393c",
-                      color: "white",
-                    }}
-                    className="d-flex namebox "
-                  >
-                    <img
+                  <Link to={`/profile/${userid}`}>
+                    <div
                       style={{
-                        width: "3rem",
-                        height: "3rem",
-                        borderRadius: "50%",
+                        border: "2px solid #07393c",
+                        backgroundColor: "#07393c",
+                        color: "white",
                       }}
-                      className="img-fluid mx-2 my-2"
-                      src="../images/edu.jpg"
-                      alt="oo"
-                    />
-                    <div style={{ flexDirection: "column" }} className="d-flex">
-                      <p
-                        style={{ textTransform: "capitalize" }}
-                        className="my-1"
+                      className="d-flex namebox "
+                    >
+                      <img
+                        style={{
+                          width: "3rem",
+                          height: "3rem",
+                          borderRadius: "50%",
+                        }}
+                        className="img-fluid mx-2 my-2"
+                        src={path}
+                        alt="oo"
+                      />
+                      <div
+                        style={{ flexDirection: "column" }}
+                        className="d-flex"
                       >
-                        <strong>
-                          {`${name}   `} {country}{" "}
-                        </strong>
-                      </p>
-                      <p style={{ color: "o7393c" }}>{teamMembers}</p>
+                        <p
+                          style={{ textTransform: "capitalize" }}
+                          className="my-1"
+                        >
+                          <strong>
+                            {`${name}   `} {country}{" "}
+                          </strong>
+                        </p>
+                        <p style={{ color: "o7393c" }}>{teamMembers}</p>
+                      </div>
                     </div>
-                  </div>
+                  </Link>
 
                   <div
                     style={{ gap: "10%", flexDirection: "column" }}
@@ -183,6 +193,9 @@ const Details = ({
                       border: "2px solid white",
                       backgroundColor: "#07393c",
                       color: "white",
+                    }}
+                    onClick={() => {
+                      handlechatcreation(userid);
                     }}
                   >
                     CHAT WITH US{" "}

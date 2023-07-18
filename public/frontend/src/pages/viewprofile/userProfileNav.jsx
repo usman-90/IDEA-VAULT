@@ -32,13 +32,13 @@ const UserprofileNav = () => {
                       View Profile
                     </button>
                   </Link>
-                  <Link to={"/posterinfo"}>
+                  <Link to={`/posterinfo/${JSON.parse(getCookie("logindata")).userId}`}>
                     <button style={{ color: "white" }} className="nav-link">
                       <i className="fa-solid fa-pen-to-square mx-2"></i>
                       Edit Profile
                     </button>
                   </Link>
-                  <Link to={"/security"}>
+                  <Link to={`/security/${JSON.parse(getCookie("logindata")).userId}`}>
                     <button style={{ color: "white" }} className="nav-link">
                       <i className="fa-solid fa-lock mx-2"></i>
                       Security

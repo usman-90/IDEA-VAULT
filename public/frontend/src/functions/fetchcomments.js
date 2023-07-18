@@ -1,7 +1,7 @@
 export const fetchComments = async ({ queryKey }) => {
   const  ideaid  = queryKey[1];
   const res = await fetch(
-    `http://localhost:3000/ideavault/getcomments/${ideaid}`
+    `http://localhost:3000/ideavault/getcommentsandreplies/${ideaid}`
   );
   if (!res.ok) {
     console.log("ops error");

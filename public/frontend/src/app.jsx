@@ -81,9 +81,9 @@ const App = () => {
                 <Route path="/education" element={<Education />} />
                 <Route path="/science" element={<Science />} />
                 <Route path="/aboutus" element={<AboutUs />} />
-                <Route path="/posterinfo" element={<PosterInfo />} />
+                <Route path="/posterinfo/:userid" element={<PosterInfo />} />
                 <Route path="/profile/:userid" element={<UserProfile />} />
-                <Route path="/security" element={<PasswordReset />} />
+                <Route path="/security/:userid" element={<PasswordReset />} />
               </Routes>
             </Layout>
           </UserContext.Provider>
