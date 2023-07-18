@@ -20,9 +20,7 @@ const Content = () => {
   useEffect(() => {
     if (
       checkCookieExists("logindata") &&
-      checkCookieExists("forminfo") &&
-      checkCookieExists("forminfo") &&
-      checkCookieExists("forminfo")
+      checkCookieExists("contentinfo") 
     ) {
       setvideoUrl(JSON.parse(getCookie("contentinfo")).videoid ?? "");
       setDescription(JSON.parse(getCookie("contentinfo")).description ?? "");
@@ -79,6 +77,7 @@ const Content = () => {
       <SideBar />
       <div className="bg-white rounded container my-5">
         <div className="inner p-5 px-5">
+     
           <form
             onSubmit={async (e) => {
               e.preventDefault();
