@@ -73,20 +73,26 @@ const Content = () => {
           <form
             onSubmit={async (e) => {
               e.preventDefault();
-              const images = await Promise.all(
+              const imagesarr = await Promise.all(
                 selectedImages.map(async (image, index) => {
                   const path = `descriptionImages/${
                     JSON.parse(getCookie("logindata")).userId
                   }/${new Date().getMilliseconds().toString() + index}`;
 
-                  await uploadImages(path, image);
-
-                  await new Promise((resolve) => setTimeout(resolve, 2000));
+                  await uploadImages(path, image).then((res) => {
+                    console.log(res);
+                  });
+                  return path;
+                })
+              );
+              await new Promise((resolve) => setTimeout(resolve, 2000));
+              const images = await Promise.all(
+                imagesarr.map(async (path) => {
                   const url = await getUrl(path);
-
                   return { path: url, type: "ideaimage" };
                 })
               );
+              console.log(images);
 
               let faqs = mycomponents.map((comp) => {
                 return comp.data;
