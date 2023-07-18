@@ -32,7 +32,7 @@ const MyCarousel = () => {
           alt="Second slide"
         />
         <div class="carousel-caption d-none d-md-block col-md-8">
-          <a href="/ideasec" className="postidea_z">Post an Idea</a>
+          <a href="/basicinfo" className="postidea_z">Post an Idea</a>
         </div>
       </Carousel.Item>
     </Carousel>
