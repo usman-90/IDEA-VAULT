@@ -23,5 +23,5 @@ export const logIn = async (req, res) => {
     return;
   }
   const token = await createToken(rows[0]);
-  res.json({ token, message: "signed In", signedIn: true });
+  res.json({ token, rows, message: "ok", signedIn: true });
 };

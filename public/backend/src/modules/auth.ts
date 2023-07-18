@@ -1,10 +1,12 @@
-import jwt from 'jsonwebtoken';
+import jwt from "jsonwebtoken";
 
-const protect = (req, res, next) => {
-  const bearer = req.headers.authrization;
+const protect = async (req, res, next) => {
+  const bearer = req.headers.authorization;
+  console.log(bearer);
   if (!bearer) {
     res
       .json({
+        one: 1,
         authorized: false,
         message: "not authorized",
       })
@@ -13,9 +15,12 @@ const protect = (req, res, next) => {
     return;
   }
   const [, token] = bearer.split(" ");
+  console.log("token", token);
   if (!token) {
     res
       .json({
+        one: 2,
+
         authorized: false,
         message: "not authorized",
       })
@@ -24,19 +29,23 @@ const protect = (req, res, next) => {
     return;
   }
   try {
-    const payload = jwt.verify(token,process.env.JWT_PASSWORD);
+    const payload = await jwt.verify(token, process.env.JWT_PASSWORD);
     req.user = payload;
-    next()
+    console.log(req.user);
+    next();
   } catch (error) {
     res
-    .json({
-      authorized: false,
-      message: "not authorized",
-      error,
-    })
-    .status(401)
-    .end();
-  return;
-    
+      .json({
+        one: 3,
+
+        authorized: false,
+        message: "not authorized",
+        error,
+      })
+      .status(401)
+      .end();
+    return;
   }
 };
+
+export default protect;

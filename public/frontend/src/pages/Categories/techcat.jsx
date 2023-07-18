@@ -1,40 +1,41 @@
+import React from 'react';
 import IdeaCard from '../../components/ideacard/ideacard';
-import CategoryNav from "../../components/navbar/categorynav";
-import "./category.css";
-import cardData from './cardarray';
+import CategoryNav from '../../components/navbar/categorynav';
+import './category.css';
 import Heading from '../../components/headin/heading';
+import { useParams } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
+import fetchIdeaByCategory from '../../function2/fetchIdeaBycategory';
+
 const Technology = () => {
-    const techIdeas = cardData.filter((card) => card.ideaCategory === "Tech");
-    return (
-        <div  className='container'>
-            <CategoryNav />
-            <Heading text="Technology"/>
+  const { catid } = useParams();
+  const {cattitle} = useParams()
+    console.log(catid);
+  const ideasRes = useQuery(['catid', catid], fetchIdeaByCategory);
+  const ideasData = ideasRes?.data?.data;
+  console.log(ideasData);
 
-            <div style={{backgroundColor:"#daeaf0"}} className='container-fluid container-small'>
+  return (
+    <div className="container">
+      <CategoryNav />
+      <Heading text={`${cattitle}`} />
 
-                {techIdeas.map((card, index) => (
-                    <div className='technologyCategory_z' key={index}>
-                        {card.description.map((idea, ideaIndex) => (
-                            <IdeaCard
-                            className="mx-3"
-                                key={ideaIndex}
-                                ideaName={idea.ideaName}
-                                ideaCardDesc={idea.ideaCardDesc}
-                                cardSrc={idea.cardSrc}
-                                ideaDate={idea.ideaDate}
-                            />
-                        ))}
-                    </div>
-                ))}
-            </div>
-
-
-
+      <div style={{ backgroundColor: '#daeaf0' }} className="container-fluid container-small">
+        <div className="technologyCategory_z">
+          {ideasData?.map((idea, index) => (
+            <IdeaCard
+              className="mx-3"
+              key={index}
+              ideaName={idea.ideatitle}
+              ideaCardDesc={idea.carddescription}
+             
+              ideaDate={idea.postedat}
+            />
+          ))}
         </div>
-
-    );
+      </div>
+    </div>
+  );
 };
 
 export default Technology;
-
-

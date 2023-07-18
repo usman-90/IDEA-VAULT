@@ -1,146 +1,32 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import ChatLeft from "./chatleft.jsx";
 import ChatMid from "./chatmid.jsx";
 import ChatRight from "./chatright.jsx";
 import io from "socket.io-client";
 import "./chatbox.css";
-const users = [
-  {
-    id: 1,
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-TYzQNtDoHWPJTpL7JqtG9rSWs3Aie7-ZU_TSvXhP&s",
-    name: "usmanq",
-    last_msg: "hello, how are you",
-    date: `${new Date().getDay()}-${new Date().getMonth()}-${new Date().getFullYear()}`,
-    title: "best idea ever",
-  },
-  {
-    id: 2,
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-TYzQNtDoHWPJTpL7JqtG9rSWs3Aie7-ZU_TSvXhP&s",
-    name: "usmanw",
-    last_msg: "hello, how are you",
-    date: `${new Date().getDay()}-${new Date().getMonth()}-${new Date().getFullYear()}`,
-    title: "best idea ever",
-  },
-  {
-    id: 3,
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-TYzQNtDoHWPJTpL7JqtG9rSWs3Aie7-ZU_TSvXhP&s",
-    name: "usmane",
-    last_msg: "hello, how are you",
-    date: `${new Date().getDay()}-${new Date().getMonth()}-${new Date().getFullYear()}`,
-    title: "best idea ever",
-  },
-  {
-    id: 4,
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-TYzQNtDoHWPJTpL7JqtG9rSWs3Aie7-ZU_TSvXhP&s",
-    name: "usmanr",
-    last_msg: "hello, how are you",
-    date: `${new Date().getDay()}-${new Date().getMonth()}-${new Date().getFullYear()}`,
-    title: "best idea ever",
-  },
-  {
-    id: 5,
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-TYzQNtDoHWPJTpL7JqtG9rSWs3Aie7-ZU_TSvXhP&s",
-    name: "usmant",
-    last_msg: "hello, how are you",
-    date: `${new Date().getDay()}-${new Date().getMonth()}-${new Date().getFullYear()}`,
-    title: "best idea ever",
-  },
-  {
-    id: 6,
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-TYzQNtDoHWPJTpL7JqtG9rSWs3Aie7-ZU_TSvXhP&s",
-    name: "usmany",
-    last_msg: "hello, how are you",
-    date: `${new Date().getDay()}-${new Date().getMonth()}-${new Date().getFullYear()}`,
-    title: "best idea ever",
-  },
-  {
-    id: 7,
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-TYzQNtDoHWPJTpL7JqtG9rSWs3Aie7-ZU_TSvXhP&s",
-    name: "usmani",
-    last_msg: "hello, how are you",
-    date: `${new Date().getDay()}-${new Date().getMonth()}-${new Date().getFullYear()}`,
-    title: "best idea ever",
-  },
-];
-const messages = [
-  {
-    senderid: 1,
-    recieverid: 2,
-    body: "wassup ?",
-  },
-  {
-    senderid: 1,
-    recieverid: 2,
-    body: "wassup ?",
-  },
-  {
-    senderid: 1,
-    recieverid: 2,
-    body: "wassup ?",
-  },
-  {
-    senderid: 2,
-    recieverid: 1,
-    body: "wassup ?",
-  },
-  {
-    senderid: 1,
-    recieverid: 2,
-    body: "wassup ?",
-  },
-  {
-    senderid: 2,
-    recieverid: 1,
-    body: "wassup ?",
-  },
-  {
-    senderid: 2,
-    recieverid: 1,
-    body: "wassup ?",
-  },
-  {
-    senderid: 2,
-    recieverid: 1,
-    body: "wassup ?",
-  },
-  {
-    senderid: 1,
-    recieverid: 2,
-    body: "wassup ?",
-  },
-  {
-    senderid: 1,
-    recieverid: 2,
-    body: "wassup ?",
-  },
-];
+import { useQuery } from "@tanstack/react-query";
+import { fetchChat, getMessages } from "../../functions/message.js";
+import { getCookie } from "../../helpers/cookies.js";
+import { formatTime } from "../../helpers/formatTime.js";
 
 const socket = io.connect("http://localhost:3000");
-
 const Chatbox = () => {
-  const chatcontRef = useRef(null);
-  const [height, setheight] = useState(null);
-  const [openedChat, setopenedChat] = useState(null);
+  const [status, setstatus] = useState();
   const [isMobile, setIsMobile] = useState(false);
-  const [currUser, setcurrUser] = useState([]);
+  const [openedChat, setopenedChat] = useState(1);
   const [currSec, setcurrSec] = useState("chats");
-
-  const joinRoom = (roomid) => {
-    socket.emit("join_room", roomid);
-  };
-
-  const handleheight = () => {
-    setheight(window.innerHeight - chatcontRef.current.offsetTop - 10);
-  };
+  const chatsData = useQuery(["chats"], fetchChat);
+  const messageResult = useQuery(
+    ["messages", { id: openedChat, level: 0 }],
+    getMessages
+  );
   useEffect(() => {
-    handleheight();
-    window.addEventListener("resize", handleheight);
-    return () => {
-      window.removeEventListener("resize", handleheight);
-    };
+    socket.on("connect", () => {
+      console.log("connected to the server");
+    });
   }, []);
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 600px)");
@@ -158,44 +44,59 @@ const Chatbox = () => {
     };
   }, []);
 
-  useEffect(() => {
-    chatcontRef.current.style.height = `${height}px`;
-  }, [height]);
-
-  useEffect(() => {
-    let curr = users.filter((user) => {
-      return user.name == openedChat;
+  const joinRoom = (roomid) => {
+    socket.emit("join_room", roomid);
+  };
+  const chats = chatsData?.data;
+  let arr;
+  if (openedChat) {
+    arr = chats?.arr?.filter((user) => {
+      return user.other_user_id == openedChat;
     });
-    setcurrUser(curr);
-    joinRoom(2)
-    console.log("currUser", currUser);
+  }
+  useEffect(() => {
+    const roomid = parseInt(
+      [JSON.parse(getCookie("logindata")).userId, openedChat].sort().join("")
+    );
+    setstatus(formatTime(arr ? arr[0]?.messagetime : ""));
+    joinRoom(roomid);
   }, [openedChat]);
 
+  if (chatsData.isLoading) {
+    return <div>no</div>;
+  }
+
+  console.log("chat", chats);
+
+  console.log(openedChat);
+
+  const messages = messageResult?.data?.row ?? [];
+  console.log(messages);
+
   return (
-    <div className="m-0  p-0 chatcont_u d-flex " ref={chatcontRef}>
-      {(!isMobile || (isMobile && currSec == "chats")) && (
+    <div style={{ height: "85vh" }} className="m-0  p-0 chatcont_u d-flex ">
+      {(!isMobile || (isMobile && currSec === "chats")) && (
         <ChatLeft
-          users={users}
+          row={chats.arr}
           setopenedChat={setopenedChat}
           isMobile={isMobile}
           setcurrSec={setcurrSec}
         />
       )}
-      {(!isMobile || (isMobile && currSec == "messages")) && (
+      {(!isMobile || (isMobile && currSec === "messages")) && (
         <ChatMid
-          messages={messages}
-          currUser={currUser}
+          user={arr}
+          messages={messages ? messages : ""}
           isMobile={isMobile}
+          openedChat={openedChat}
           setcurrSec={setcurrSec}
           socket={socket}
+          status={status}
+          setstatus={setstatus}
         />
       )}
-      {(!isMobile || (isMobile && currSec == "chatinfo")) && (
-        <ChatRight
-          currUser={currUser}
-          setcurrSec={setcurrSec}
-          isMobile={isMobile}
-        />
+      {(!isMobile || (isMobile && currSec === "chatinfo")) && (
+        <ChatRight user={arr} currSec={currSec} setcurrSec={setcurrSec} isMobile={isMobile} />
       )}
     </div>
   );

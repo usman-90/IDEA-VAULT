@@ -3,44 +3,82 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useState } from "react";
 import Message from "./message.jsx";
-import { useRef, useEffect } from "react";
+import { useEffect } from "react";
+import ScrollToBottom from "react-scroll-to-bottom";
 import EmojiPicker from "emoji-picker-react";
-const ChatMid = ({ messages, currUser, isMobile, setcurrSec, socket }) => {
-  const messageRef = useRef();
-  const scrollToBottom = () => {
-    messageRef.current.scrollTop = messageRef.current.scrollHeight;
-  };
-  useEffect(() => {
-    scrollToBottom();
-  }, []);
+import { getCookie } from "../../helpers/cookies.js";
+const ChatMid = ({
+  status,
+  setstatus,
+  user,
+  messages,
+  isMobile,
+  setcurrSec,
+  socket,
+  openedChat,
+}) => {
+  const [message, setMessages] = useState([]);
   const [inputValue, setinputValue] = useState("");
   const [emojiOpened, setemojiOpened] = useState(false);
-  const [dropdownExpanded, setdropdownExpanded] = useState(false);
-  const [message, setMessages] = useState([]);
-  const handleMessageRecieve = (newmsg) => {
-    setMessages([...message, newmsg]);
+
+  // useEffect(() => {
+  //   setMessages([...messages, ...message]);
+  // }, []);
+  // console.log(message);
+  console.log("user", user);
+  useEffect(() => {
+    const recievemsg = async () => {
+      await socket.on("recieve_message", (data) => {
+        setMessages((prevMessages) => [...prevMessages, data]);
+
+        console.log("new message1", message);
+      });
+      await socket.on("settyping", (data) => {
+        setstatus(data.typing);
+      });
+    };
+
+    recievemsg();
+  }, [socket]);
+  console.log("recieved", messages);
+  const handleStatus = async (s) => {
+    const id = JSON.parse(getCookie("logindata")).userId;
+    const users = [id, openedChat].sort();
+    await socket.emit("typing", {
+      typing: s,
+      room: parseInt(users.join("")),
+    });
   };
   const sendMessage = async () => {
+    const id = JSON.parse(getCookie("logindata")).userId;
+    const users = [id, openedChat].sort();
     const data = {
-      body: inputValue,
-      room: 2,
-      senderid: 1,
+      messagebody: inputValue,
+      messagestatus: "delivered",
+      receiver: openedChat,
+      room: parseInt(users.join("")),
+      user1: users[0],
+      user2: users[1],
+      sender: id,
     };
     await socket.emit("send_message", data);
     setMessages([...message, data]);
     setinputValue("");
   };
-  useEffect(() => {
-    const recievemsg = async () => {
-      await socket.on("recieve_message", (data) => {
-        handleMessageRecieve(data);
-        console.log("new message", data);
-        console.log(message);
-      });
-    };
-    recievemsg();
-  }, [socket]);
+  socket.on("disconnect", async () => {
+    socket.emit("save_data", "loll");
+    const date = new Date();
 
+    // Format the date string
+    const formattedDate = date.toLocaleString("en-US", {
+      hour: "numeric",
+      minute: "numeric",
+      hour12: true,
+    });
+    setstatus(`Last seen: ${formattedDate}`);
+  });
+
+  console.log("mesa", message);
   return (
     <div
       className={`  position-relative chatmain_u w-50 h-100 flex-grow-1 b-white`}
@@ -61,7 +99,7 @@ const ChatMid = ({ messages, currUser, isMobile, setcurrSec, socket }) => {
           )}
           <img
             className="rounded-circle upimage"
-            src={`${currUser.length != 0 ? `${currUser[0].img}` : ""}`}
+            src={user[0]?.path ?? ""}
             alt=""
           />
 
@@ -72,62 +110,35 @@ const ChatMid = ({ messages, currUser, isMobile, setcurrSec, socket }) => {
             style={{ cursor: "pointer" }}
             className="d-flex flex-column justify-content-center align-items-start  mx-4"
           >
+            {console.log(user[0]?.other_user_name)}
             <h4 className="d-inline-block m-0">
-              {currUser.length == 1 ? `${currUser[0].name}` : ""}
+              {user[0]?.other_user_name ?? ""}
             </h4>
-            <p className="d-inline-block mb-2">is Typing...</p>
-          </div>
-        </div>
-        <div className="w-25 d-flex justify-content-center align-items-center">
-          <div className="dropdown">
-            <p
-              className="btn btn-success "
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-              onClick={() => {
-                setdropdownExpanded(!dropdownExpanded);
-              }}
-            >
-              <i className="fa-solid fs-4  px-2 fa-ellipsis-vertical"></i>
+            <p className="d-inline-block mb-2">
+              {status == "Invalid Date" || status == '1/1/1970' ? "" : status}
             </p>
-
-            <ul
-              className={`dropdown-menu ${
-                dropdownExpanded ? "d-block" : "d-none"
-              }`}
-            >
-              <li>
-                <a className="dropdown-item" href="/">
-                  Mark as unread
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item" href="/">
-                  Delete
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item text-danger" href="/">
-                  Report
-                </a>
-              </li>
-            </ul>
           </div>
         </div>
+        <div className="w-25 d-flex justify-content-center align-items-center"></div>
       </div>
-
-      <div ref={messageRef} className="messages overflow-y-scroll">
-        {message.map((msg) => {
-          return (
+      <div className="messages overflow-y-scroll">
+        <ScrollToBottom className="message-container">
+          {messages.map((msg) => (
             <Message
               key={Math.random()}
-              body={msg.body}
-              senderid={msg.senderid}
+              body={msg.messagebody}
+              senderid={msg.sender}
             />
-          );
-        })}
+          ))}
+          {message.map((msg) => (
+            <Message
+              key={Math.random()}
+              body={msg.messagebody}
+              senderid={msg.sender}
+            />
+          ))}
+        </ScrollToBottom>
       </div>
-
       <div className="messageinput h-12_5  w-100 position-absolute">
         <div className="d-flex m-3  rounded-pill bg-midnight-green">
           <input
@@ -136,7 +147,11 @@ const ChatMid = ({ messages, currUser, isMobile, setcurrSec, socket }) => {
             className="w-75 text-white"
             value={inputValue}
             onChange={(e) => {
+              handleStatus("typing...");
               setinputValue(e.target.value);
+            }}
+            onBlur={() => {
+              handleStatus("Online");
             }}
           />
           <div className="d-flex">

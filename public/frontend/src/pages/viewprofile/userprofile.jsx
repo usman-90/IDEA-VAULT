@@ -1,51 +1,23 @@
+import { useQuery } from "@tanstack/react-query";
 import Userprofiledetail from "./userprofiledetails";
+import UserprofileNav from "./userProfileNav";
+import { useParams } from "react-router-dom";
+import { getUserInfo } from "../../functions/user";
 
-const UserprofileNav=()=>{
-    return(<>
-        <div className="container my-3">
-        <nav
-          style={{ backgroundColor: "#2c666e", color: "white" }}
-          className="navbar navbar-expand-lg "
-        >
-          <div className="container-fluid">
-            <div className="navbar-nav detailnav">
-              <button
-                style={{ color: "white" }}
-                
-                className= "nav-link"
-                aria-current="page"
-              >
-                <i className="fa-regular fa-eye mx-2"></i>
-                View Profile
-              </button>
-              <button
-                style={{ color: "white" }}
-                
-                className= "nav-link"
-              ><i className="fa-solid fa-pen-to-square mx-2"></i>
-                Edit Profile
-              </button>
-            
-              
-            </div>
-          </div>
-        </nav>
-      </div>
-        </>
+const UserProfile = () => {
+  const { userid } = useParams();
+  const profileData = useQuery(["getuserinfo", userid], getUserInfo);
+  if (profileData.isLoading) {
+    console.log("fetching");
+  }
+  const profileres = profileData?.data?.row[0] ?? [];
 
-    );
-
+  console.log(profileres);
+  return (
+    <>
+      <UserprofileNav />
+      <Userprofiledetail profiledata={profileres} />
+    </>
+  );
 };
-
-
-
-const UserProfile=()=>{
-    return(
-        <>
-        <UserprofileNav/>
-        <Userprofiledetail/>
-        </>
-
-    );
-};
-export default UserProfile
+export default UserProfile;

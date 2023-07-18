@@ -10,38 +10,27 @@ const ChatLeftHeading = () => {
     </div>
   );
 };
-const ChatSearch = () => {
-  return (
-    <div className= " b-white h-12_5">
-      <form
-        action=""
-        className="px-3 py-2 search-bar d-flex justify-content-end"
-      >
-        <input type="search" name="search" pattern=".*\S.*" required />
-        <button className="search-btn" type="submit">
-          <span>Search</span>
-        </button>
-      </form>
-    </div>
-  );
-};
-const ChatLeft = ({ users, setopenedChat, isMobile, setcurrSec }) => {
-  console.log(isMobile);
+
+const ChatLeft = ({ row, setopenedChat, isMobile, setcurrSec }) => {
   return (
     <div className={` chatleft_u b-white h-100`}>
       <ChatLeftHeading />
-      <ChatSearch />
-      <div className="chats overflow-y-auto " style={{ height: "73%" }}>
-        {users.map((user) => {
+      
+      <div className="chats overflow-y-auto " style={{ height: "83%" }}>
+        {row.map((user) => {
           return (
             <Chat
               isMobile={isMobile}
               onChange={setopenedChat}
-              image={user.img}
-              name={user.name}
-              last_msg={user.last_msg}
-              date={user.date}
-              key={user.name}
+              image={
+                user[0]?.path ??
+                "https://www.dpforwhatsapp.in/img/no-dp-images/7.webp"
+              }
+              name={user?.other_user_name ?? ""}
+              last_msg={user?.messagebody ?? ""}
+              date={user?.messagetime ?? ""}
+              key={user?.messagetime ?? ""}
+              id={user?.other_user_id ?? ""}
               setcurrSec={setcurrSec}
             />
           );

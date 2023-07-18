@@ -25,3 +25,17 @@
     font-size: large;
     cursor: pointer;
 }
+.hiddenmsg{
+    position:relative;
+    top:5rem;
+    left:15%;
+}
+
+@media (max-width: 800px){
+    .hiddenmsg{
+       left: 0%;
+    }
+       }
+  .blurdiv > img{
+    width: 100%;
+  }

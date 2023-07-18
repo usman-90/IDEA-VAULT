@@ -9,6 +9,9 @@ import { signup } from "./handlers/login";
 import http from "http";
 import { logIn } from "./handlers/signup";
 import unprotectedRouter from "./routes/unprotectedRoutes";
+import protectedRouter from "./routes/protectedRoutes";
+import { logout } from "./handlers/logout";
+import protect from "./modules/auth";
 
 const app = express();
 app.use(morgan("dev"));
@@ -24,7 +27,9 @@ app.get("/api", async (req, res) => {
 });
 app.post("/signup", signup);
 app.post("/login", logIn);
+app.get("/logout", logout);
 app.use("/ideavault", unprotectedRouter);
+app.use("/ideavault", protect, protectedRouter);
 
 const server = http.createServer(app);
 const io = new Server(server, {
@@ -41,7 +46,15 @@ io.on("connection", (socket) => {
   });
   socket.on("send_message", (data) => {
     console.log(data);
+    // await postMessage(data);
     socket.to(data.room).emit("recieve_message", data);
+    console.log(data);
+  });
+  socket.on("typing", (data) => {
+    socket.to(data.room).emit("settyping",data);
+  });
+  socket.on("save_data", (data) => {
+    console.log("data", data);
   });
 
   socket.on("disconnect", () => {

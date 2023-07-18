@@ -43,7 +43,7 @@ export const upDateUserInfo = async (req, res) => {
     req.body.state,
     req.user.userId,
   ];
-  const query3 = `INSERT INTO Social (facebookLink,twitterLink, linkedinLink,instaLink,otherLink,userId) VALUES ($1,$2,$3,$4,$5,$6) ON CONFLICT (userId) DO UPDATE SET facebookLink = $1, twitterLink = $2, linkedinLink = $3 , instaLink = $4 otherLink = $5 `;
+  const query3 = `INSERT INTO Social (facebookLink,twitterLink, linkedinLink,instaLink,otherUrl,userId) VALUES ($1,$2,$3,$4,$5,$6) ON CONFLICT (userId) DO UPDATE SET facebookLink = $1, twitterLink = $2, linkedinLink = $3 , instaLink = $4 ,otherUrl = $5 `;
   const values3 = [
     req.body.facebookLink ?? "",
     req.body.twitterLink ?? "",
@@ -71,6 +71,20 @@ export const upDateUserInfo = async (req, res) => {
   ]);
   res
     .json({
+      message: "ok",
+    })
+    .status(200)
+    .end();
+};
+
+export const getUserInfo = async (req, res) => {
+  const query = `select u.userId, u.userName, u.name, u.lastName , u.email, u.contactNo,u.createdAt,u.profession,u.organizationType,u.bio ,a.country,a.city,a.state,s.facebookLink,s.twitterLink,s.instaLink,s.linkedinLink,s.otherUrl,img.path FROM "User" u left join Address a ON u.addressId = a.addressId left join Image img on img.userId=u.userId left join Social s ON s.userId=u.userId WHERE u.userId = $1`;
+  const values = [req.params.userid];
+
+  const row = await executeQuery(query, values);
+  res
+    .json({
+      row,
       message: "ok",
     })
     .status(200)

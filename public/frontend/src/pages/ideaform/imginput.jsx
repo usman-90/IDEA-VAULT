@@ -1,16 +1,16 @@
 /* eslint-disable jsx-a11y/no-noninteractive-tabindex */
 import { useState } from "react";
 
-const ImageInput = () => {
+const ImageInput = ({ setcardImage }) => {
   const [pictureImageTxt, setPictureImageTxt] = useState("Choose an image");
 
   function handleInputChange(e) {
     const inputTarget = e.target;
     const file = inputTarget.files[0];
-
+    setcardImage(file);
     if (file) {
       const reader = new FileReader();
-
+      console.log(reader);
       reader.addEventListener("load", function (e) {
         const readerTarget = e.target;
 

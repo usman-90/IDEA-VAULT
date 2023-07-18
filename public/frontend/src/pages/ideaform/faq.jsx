@@ -1,4 +1,4 @@
-const Faq = ({handleQuesChange, handleAnsChange,id}) => {
+const Faq = ({handleQuesChange, handleAnsChange,id ,question,ans}) => {
 
 
   return (
@@ -9,6 +9,7 @@ const Faq = ({handleQuesChange, handleAnsChange,id}) => {
             placeholder="   Type here..."
             className="rounded"
             type="text"
+            value={question}
             onChange={(e)=> {handleQuesChange(e.target.value,id)}}
           />
       </div>
@@ -17,6 +18,7 @@ const Faq = ({handleQuesChange, handleAnsChange,id}) => {
           <textarea
             placeholder="   Type here..."
             className="rounded"
+            value={ans}
             type="text"
             onChange={(e)=> {handleAnsChange(e.target.value,id)}}
 

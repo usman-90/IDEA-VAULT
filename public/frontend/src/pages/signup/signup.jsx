@@ -2,22 +2,32 @@ import { Link } from "react-router-dom";
 import { createAccount } from "./createAcc";
 import { useNavigate } from "react-router-dom";
 import "./signup.css";
-import {  setCookie } from "../../helpers/cookies";
+import { getCookie, setCookie } from "../../helpers/cookies";
 import UserContext from "../../context/context";
 import { useContext } from "react";
 
 function SignUpForm() {
-
   // eslint-disable-next-line no-unused-vars
-  const [_,loggedinUser] = useContext(UserContext)
-  
+  const [_, loggedinUser] = useContext(UserContext);
+
   const navigate = useNavigate();
 
   const createAcc = async (obj) => {
     const res = await createAccount(obj);
     if (res.message == "successful") {
-      setCookie("token", res.token);
-      loggedinUser(res)
+      setCookie("logindata", {
+        token: res.token,
+        userName: res.rows[0].username,
+        userId: res.rows[0].userid,
+        status: "loggedin",
+      });
+      loggedinUser({
+        token: res.token ?? null,
+        userName: res.rows[0].username ?? null,
+        userId: res.rows[0].userid ?? null,
+        status: "loggedin" ,
+      });
+      console.log("cookies",getCookie("logindata"));
       navigate("/");
     }
   };
