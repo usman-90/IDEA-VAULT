@@ -53,14 +53,14 @@ const Idea = () => {
         teamMembers={data?.idearow[0]?.state ?? ""}
         ideaid={ideaid}
         userid={data?.idearow[0]?.userid ?? ""}
-        path={data?.idearow[0]?.userid ?? ""}
+        path={data?.idearow[0]?.path ?? ""}
       />
       <DetailNav
         currSection={currSection}
         changeSection={handleSectionChange}
       />
         
-      <Comment commentsData={commentsData} currSection={currSection}  path={data?.idearow[0]?.userid ?? ""}/>
+      <Comment commentsData={commentsData} currSection={currSection}  path={data?.idearow[0]?.path ?? ""}/>
 
       <Description
         currSection={currSection}

@@ -6,7 +6,7 @@ import Postedcomment from "./postedComment";
 import "./postedcomment.css";
 import { postComment } from "../../functions/postComments";
 
-const Comment = ({ currSection, commentsData }) => {
+const Comment = ({ currSection, commentsData ,path}) => {
   const { ideaid } = useParams();
   const [comment, setComment] = useState("");
 
@@ -55,7 +55,7 @@ const Comment = ({ currSection, commentsData }) => {
                 <img
                   style={{ width: "4rem", height: "4rem", borderRadius: "50%" }}
                   className="img-fluid "
-                  src="../images/edu.jpg"
+                  src={path}
                   alt="oo"
                 />
               </div>

@@ -1,7 +1,8 @@
 import blurImage from "../../images/image-fotor-20230717233648.jpg";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const Description = ({ visData, visiblity, currSection, description }) => {
+  const divRef = useRef(null)
   const [vis, setVis] = useState(true);
   useEffect(() => {
     if (visiblity) {
@@ -9,6 +10,13 @@ const Description = ({ visData, visiblity, currSection, description }) => {
     } else if (!visiblity && visData?.length === 0) {
       setVis(false);
     }
+    vis? divRef.current.innerHTML=`${description}` : divRef.current.innerHTML=`<div className="position blurdiv reletive">
+    <h3 className="hiddenmsg text-midnight-green">
+      The idea is hidden, you need permission from Idea poster to
+      see Details
+    </h3>
+    <img className="image-fluid w-100" src=${blurImage} alt="" />
+  </div>`
   }, [visiblity, visData]);
   console.log(vis);
 
@@ -21,21 +29,11 @@ const Description = ({ visData, visiblity, currSection, description }) => {
       >
         <div className="row">
           <div className="col-xlg-6">
-            <div
+            <div ref={divRef}
               style={{ border: "2px solid #07393c", height: "maxcontent" }}
               className="container-fluid m-2 p-3 "
             >
-              {vis ? (
-               description
-              ) : (
-                <div className="position blurdiv reletive">
-                  <h3 className="hiddenmsg text-midnight-green">
-                    The idea is hidden, you need permission from Idea poster to
-                    see Details
-                  </h3>
-                  <img className="image-fluid" src={blurImage} alt="" />
-                </div>
-              )}
+              
             </div>
           </div>
           <div className="col-lg-6"></div>
