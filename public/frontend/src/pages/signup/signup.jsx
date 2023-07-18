@@ -30,6 +30,9 @@ function SignUpForm() {
       console.log("cookies",getCookie("logindata"));
       navigate("/");
     }
+    else if(res.message == "username already taken"){
+      alert('lol')
+    }
   };
 
   return (

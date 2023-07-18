@@ -26,10 +26,11 @@ import SignIn from "./pages/signin/signin";
 import Term from "./pages/terms-conditions/terms";
 import UserProfile from "./pages/viewprofile/userprofile";
 import Technology from "./pages/Categories/techcat";
-import Aboutus from "./pages/aboutUs/aboutus"
-import PasswordReset from "./pages/viewprofile/passwordreset"
+import Aboutus from "./pages/aboutUs/aboutus";
+import PasswordReset from "./pages/viewprofile/passwordreset";
 import AboutUs from "./pages/aboutUs/aboutus";
-import Visibility from "./pages/visiblity/assignvisiblity"
+import Visibility from "./pages/visiblity/assignvisiblity";
+import IdeaUpdate from "./pages/ideaform/ideaUpdate";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -71,12 +72,15 @@ const App = () => {
                 <Route path="/signin" element={<SignIn />} />
                 <Route path="/ideaposter" element={<IdeaPoster />} />
                 <Route path="/aboutus" element={<Aboutus />} />
-                <Route path="/category/:catid/:cattitle" element={<Technology />} />
+                <Route
+                  path="/category/:catid/:cattitle"
+                  element={<Technology />}
+                />
                 <Route path="/technology" element={<Technology />} />
-               
+                <Route path="/updateidea" element={<IdeaUpdate />} />
                 <Route path="/aboutus" element={<AboutUs />} />
                 <Route path="/posterinfo/:userid" element={<PosterInfo />} />
-                
+
                 <Route path="/profile/:userid" element={<UserProfile />} />
                 <Route path="/security/:userid" element={<PasswordReset />} />
               </Routes>

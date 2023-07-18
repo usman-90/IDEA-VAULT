@@ -56,7 +56,7 @@ const Settings = () => {
               console.log(setting);
               setCookie("settings", JSON.stringify(setting));
               let ideaData = {};
-              console.log(checkCookieExists("basicinfo"));
+              console.log(checkCookieExists("forminfo"));
               console.log(checkCookieExists("contentinfo"));
               console.log(checkCookieExists("settings"));
 
