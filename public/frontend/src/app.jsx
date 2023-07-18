@@ -76,7 +76,6 @@ const App = () => {
                
                 <Route path="/aboutus" element={<AboutUs />} />
                 <Route path="/posterinfo/:userid" element={<PosterInfo />} />
-                
                 <Route path="/profile/:userid" element={<UserProfile />} />
                 <Route path="/security/:userid" element={<PasswordReset />} />
               </Routes>
