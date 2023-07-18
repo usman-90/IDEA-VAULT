@@ -31,6 +31,8 @@ import PasswordReset from "./pages/viewprofile/passwordreset";
 import AboutUs from "./pages/aboutUs/aboutus";
 import Visibility from "./pages/visiblity/assignvisiblity";
 import IdeaUpdate from "./pages/ideaform/ideaUpdate";
+import AdminLogIn from "./pages/AdminPage/adminlogin";
+import UserEntry from "./pages/AdminPage/userentry";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -81,6 +83,9 @@ const App = () => {
                 <Route path="/aboutus" element={<AboutUs />} />
                 <Route path="/posterinfo/:userid" element={<PosterInfo />} />
 
+                <Route path="/adminlogin" element={<AdminLogIn />} />
+                <Route path="/userentry" element={<UserEntry />} />
+                
                 <Route path="/profile/:userid" element={<UserProfile />} />
                 <Route path="/security/:userid" element={<PasswordReset />} />
               </Routes>
