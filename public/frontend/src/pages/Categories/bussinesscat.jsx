@@ -3,7 +3,12 @@ import CategoryNav from "../../components/navbar/categorynav";
 import "./category.css";
 import cardData from './cardarray';
 import Heading from '../../components/headin/heading';
+import { useQuery } from "@tanstack/react-query";
+
+
 const Bussiness = () => {
+    const ideacat=useQuery(["fetchcategory",],fetchIdeaByCategory);
+    console.log(ideacat);
     const techIdeas = cardData.filter((card) => card.ideaCategory === "Category 2");
     return (
         <div  className='container'>
