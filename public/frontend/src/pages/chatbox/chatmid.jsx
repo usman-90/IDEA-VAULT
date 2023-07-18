@@ -115,7 +115,7 @@ const ChatMid = ({
               {user[0]?.other_user_name ?? ""}
             </h4>
             <p className="d-inline-block mb-2">
-              {status == "Invalid Date" ? "" : status}
+              {status == "Invalid Date" || status == '1/1/1970' ? "" : status}
             </p>
           </div>
         </div>

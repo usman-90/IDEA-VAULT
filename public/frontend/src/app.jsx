@@ -28,6 +28,7 @@ import UserProfile from "./pages/viewprofile/userprofile";
 import Technology from "./pages/Categories/techcat";
 import Aboutus from "./pages/aboutUs/aboutus"
 import PasswordReset from "./pages/viewprofile/passwordreset"
+import AboutUs from "./pages/aboutUs/aboutus";
 import Visibility from "./pages/visiblity/assignvisiblity"
 
 const queryClient = new QueryClient({
@@ -72,10 +73,12 @@ const App = () => {
                 <Route path="/aboutus" element={<Aboutus />} />
                 <Route path="/category/:catid/:cattitle" element={<Technology />} />
                 <Route path="/technology" element={<Technology />} />
+               
+                <Route path="/aboutus" element={<AboutUs />} />
+                <Route path="/posterinfo/:userid" element={<PosterInfo />} />
                 
-                <Route path="/posterinfo" element={<PosterInfo />} />
                 <Route path="/profile/:userid" element={<UserProfile />} />
-                <Route path="/security" element={<PasswordReset />} />
+                <Route path="/security/:userid" element={<PasswordReset />} />
               </Routes>
             </Layout>
           </UserContext.Provider>

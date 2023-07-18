@@ -2,7 +2,6 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import { useState } from "react";
 const Chat = ({ image, name, id, last_msg, date, onChange, setcurrSec }) => {
-
   const formatTime = (t) => {
     const timestamp = t;
 
@@ -23,10 +22,8 @@ const Chat = ({ image, name, id, last_msg, date, onChange, setcurrSec }) => {
 
   const handleChange = () => {
     onChange(id);
-    setisRead(true);
     setcurrSec("messages");
   };
-  const [isRead, setisRead] = useState(false);
   return (
     // eslint-disable-next-line jsx-a11y/click-events-have-key-events
 
@@ -40,13 +37,15 @@ const Chat = ({ image, name, id, last_msg, date, onChange, setcurrSec }) => {
       </div>
       <div className="mt-2 w-50 flex-grow-1 d-flex justify-content-center align-items-start flex-column">
         <h4 className="d-inline-block">{name}</h4>
-        <p className={`${isRead ? "" : "fw-bold"} d-inline-block`}>
+        <p className={`${ "fw-bold"} d-inline-block`}>
           {last_msg}
         </p>
       </div>
       <div className="w-25 d-flex flex-column justify-content-start align-items-center">
-        <span className="my-2">{formatTime(date)}</span>
-        <span className={`${isRead ? "d-none" : ""} msgread_u my-1`}></span>
+        <span className="my-2">
+          {isNaN(date) ?  formatTime(date) : "New!" }
+        </span>
+        <span className={`${"d-none" } msgread_u my-1`}></span>
       </div>
     </div>
   );

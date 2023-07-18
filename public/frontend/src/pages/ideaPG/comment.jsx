@@ -1,13 +1,15 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-
+import { useParams } from "react-router-dom";
 import { useState } from "react";
 import Postedcomment from "./postedComment";
-import "./postedcomment.css"
+import "./postedcomment.css";
+import { postComment } from "../../functions/postComments";
 
-const Comment = ({currSection}) => {
+const Comment = ({ currSection, commentsData }) => {
+  const { ideaid } = useParams();
   const [comment, setComment] = useState("");
- 
+
   const handleChange = (e) => {
     setComment(e.target.value);
   };
@@ -15,41 +17,50 @@ const Comment = ({currSection}) => {
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       e.preventDefault();
-      
+
       const obj = {
         comment: comment,
-        date: new Date()
+        date: new Date(),
       };
-      
+
       console.log(obj);
-      
+
       // Perform any action you need with the comment
-      
+
       setComment("");
     }
   };
 
-  const submitComment = () => {
-    // Perform any action you need with the comment
-    const obj = {
-      comment: comment,
-      date: new Date()
-    };
-    console.log(obj);
+  const submitComment = async () => {
+    const res = await postComment({ content: comment, ideaid });
+    console.log(res);
 
     setComment("");
   };
+  console.log(commentsData);
   return (
-    <div className={`${(currSection == "comment" ? "d-block" : "d-none") } container my-3`}>
+    <div
+      className={`${
+        currSection == "comment" ? "d-block" : "d-none"
+      } container my-3`}
+    >
       <div className="row">
         <div className="col-xlg-6  ">
-          <div style={{ height: "10rem",border:"2px solid #07303c" }} className="container-fluid  commentshadow">
+          <div
+            style={{ height: "10rem", border: "2px solid #07303c" }}
+            className="container-fluid  commentshadow"
+          >
             <div className="container-fluid d-flex gap-6 my-3">
               <div>
-                <img style={{ width: "4rem", height: "4rem", borderRadius: "50%" }} className="img-fluid " src="../images/edu.jpg" alt="oo" />
+                <img
+                  style={{ width: "4rem", height: "4rem", borderRadius: "50%" }}
+                  className="img-fluid "
+                  src="../images/edu.jpg"
+                  alt="oo"
+                />
               </div>
               <textarea
-                style={{ border: "none", width: "80%",height:"3rem" }}
+                style={{ border: "none", width: "80%", height: "3rem" }}
                 className="container-fluid my-3 ml-3"
                 placeholder="Write your comment..."
                 value={comment}
@@ -58,10 +69,14 @@ const Comment = ({currSection}) => {
               />
             </div>
             <div className="container-fluid d-flex justify-content-end">
-              <div >
-              <i
+              <div>
+                <i
                   className="fa-regular fa-paper-plane"
-                  style={{ color: "grey", cursor: "pointer", fontSize: "1.3rem" }}
+                  style={{
+                    color: "grey",
+                    cursor: "pointer",
+                    fontSize: "1.3rem",
+                  }}
                   onClick={submitComment}
                   onMouseEnter={(e) => (e.target.style.color = "black")}
                   onMouseLeave={(e) => (e.target.style.color = "grey")}
@@ -72,7 +87,21 @@ const Comment = ({currSection}) => {
         </div>
         <div className="col-lg-6"></div>
       </div>
-      <Postedcomment/>
+
+      {commentsData?.comments?.map((comment) => {
+        return (
+          <Postedcomment
+            key={comment.commentid}
+            id={comment.commentid}
+            time={comment.commentedat}
+            content={comment.content}
+            likescount={comment.likescount}
+            name={comment.name}
+            path={comment.path}
+            replies={commentsData.replies}
+          />
+        );
+      })}
     </div>
   );
 };

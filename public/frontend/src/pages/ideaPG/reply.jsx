@@ -1,4 +1,6 @@
-const Reply = () => {
+import { formatTime } from "../../helpers/formatTime";
+
+const Reply = ({name,path,replycontent,replytime}) => {
   return (
     <div
       style={{ height: "maxcontent", marginLeft: "9%", width: "90%" }}
@@ -20,7 +22,7 @@ const Reply = () => {
               borderRadius: "50%",
             }}
             className="img-fluid mx-2"
-            src="../images/edu.jpg"
+            src={path}
             alt="oo"
           />
         </div>
@@ -31,16 +33,14 @@ const Reply = () => {
           }}
           className="container-fluid d-flex commentheader"
         >
-          <h6 style={{ fontSize: ".8rem" }}>rajjafarhan@gamil.com</h6>
+          <h6 style={{ fontSize: ".8rem" }}>{name}</h6>
           <h6 style={{ fontSize: ".9rem" }} className="">
-            wednesday, 9:00 pm
+            {formatTime(replytime)}
           </h6>
         </div>
       </div>
       <p style={{ width: "90%", height: "maxcontent" }}>
-        learningorem20 Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        Porro, similique? Praesentium cumque, ipsum incidunt reprehenderit
-        voluptas inventore consequatur fuga enim.
+        {replycontent}
       </p>
     </div>
   );

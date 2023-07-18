@@ -35,7 +35,7 @@ export const dislikeComment = async (req, res) => {
 
 export const postReply = async (req, res) => {
   const query = `INSERT INTO Reply (commentId ,userId, replyContent) VALUES ($1,$2,$3)`;
-  const values = [req.params.commentid, req.user.userId, req.body.replyContent];
+  const values = [req.body.commentid, req.user.userId, req.body.replyContent];
   const row = await executeQuery(query, values);
   res
     .json({
