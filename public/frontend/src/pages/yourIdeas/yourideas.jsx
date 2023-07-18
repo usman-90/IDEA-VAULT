@@ -5,7 +5,7 @@ import UserprofileNav from "../viewprofile/userProfileNav";
 import { useParams } from "react-router-dom";
 import { getIdeasByUserId } from "../../functions/votes";
 import { useQuery } from "@tanstack/react-query";
-
+import { Link } from "react-router-dom";
 const YourIdeaArray = [
   {
     ideaCategory: "Category 2",
@@ -62,7 +62,6 @@ const YourIdeas = () => {
   }
   const userideas = ideasRes?.data?.row;
   console.log(userideas);
-
   return (
     <div>
       <UserprofileNav />
@@ -72,18 +71,15 @@ const YourIdeas = () => {
       <Banner />
       <div className=" container-fluid containerSet_z">
         <div className="cardidea_z">
-          {YourIdeaArray.map((card, index) => (
-            <div key={index}>
-              {card.description.map((idea, ideaIndex) => (
-                <IdeaCard
-                  key={ideaIndex}
-                  ideaName={idea.ideaName}
-                  ideaCardDesc={idea.ideaCardDesc}
-                  cardSrc={idea.cardSrc}
-                  ideaDate={idea.ideaDate}
-                />
-              ))}
-            </div>
+          {userideas?.map((idea, ideaIndex) => (
+            <Link key={ideaIndex} to={`/ideadetail/${idea.ideaid}`}>
+              <IdeaCard
+                ideaName={idea.ideatitle}
+                ideaCardDesc={idea.carddescription}
+                cardSrc={idea.path}
+                ideaDate={idea.postedat}
+              />
+            </Link>
           ))}
         </div>
       </div>

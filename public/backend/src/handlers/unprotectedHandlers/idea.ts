@@ -103,7 +103,7 @@ export const getVotes = async (req, res) => {
 };
 
 export const getIdeaByUserId = async (req, res) => {
-  const query = `select userId,ideaId, cardDescription,ideaTitle, ideaTagline, requiredAmount, postedAt from idea where idea.userId=$1`;
+  const query = `select i.userId,i.ideaId, i.cardDescription,i.ideaTitle, i.ideaTagline, i.requiredAmount, i.postedAt ,img.path from idea i left join image img on img.ideaid = i.ideaid where i.userId=$1 and img.type='cardimage'`;
   const value = [req.params.userid];
   const row = await executeQuery(query, value);
   res
