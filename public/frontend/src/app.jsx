@@ -26,14 +26,10 @@ import SignIn from "./pages/signin/signin";
 import Term from "./pages/terms-conditions/terms";
 import UserProfile from "./pages/viewprofile/userprofile";
 import Technology from "./pages/Categories/techcat";
-import Bussiness from "./pages/Categories/bussinesscat";
-import Arts from "./pages/Categories/arts";
-import Tourism from "./pages/Categories/tourism";
-import Education from "./pages/Categories/education";
-import Science from "./pages/Categories/sciencecat";
+import Aboutus from "./pages/aboutUs/aboutus"
+import PasswordReset from "./pages/viewprofile/passwordreset"
 import AboutUs from "./pages/aboutUs/aboutus";
-import PasswordReset from "./pages/viewprofile/passwordreset";
-import Visibility from "./pages/visiblity/assignvisiblity";
+import Visibility from "./pages/visiblity/assignvisiblity"
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -74,14 +70,13 @@ const App = () => {
                 <Route path="/terms" element={<Term />} />
                 <Route path="/signin" element={<SignIn />} />
                 <Route path="/ideaposter" element={<IdeaPoster />} />
+                <Route path="/aboutus" element={<Aboutus />} />
+                <Route path="/category/:catid/:cattitle" element={<Technology />} />
                 <Route path="/technology" element={<Technology />} />
-                <Route path="/bussiness" element={<Bussiness />} />
-                <Route path="/arts" element={<Arts />} />
-                <Route path="/tourism" element={<Tourism />} />
-                <Route path="/education" element={<Education />} />
-                <Route path="/science" element={<Science />} />
+               
                 <Route path="/aboutus" element={<AboutUs />} />
                 <Route path="/posterinfo/:userid" element={<PosterInfo />} />
+                
                 <Route path="/profile/:userid" element={<UserProfile />} />
                 <Route path="/security/:userid" element={<PasswordReset />} />
               </Routes>

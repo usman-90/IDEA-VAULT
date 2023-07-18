@@ -1,4 +1,9 @@
+
+
 const CategoryCard = ({ categoryCardSrc, categoryTitle, categoryDesc }) => {
+
+
+
   return (
     <div className="cardcat mx-1 ">
       <a href="/">

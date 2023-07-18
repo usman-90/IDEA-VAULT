@@ -54,7 +54,7 @@
 .aboutusbutton{
   display: inline-block;
   font-size: 1em;
-  background: #90c7e4;
+  background: #d5e2ea;
   width:10rem ;
   padding: 10px 30px;
   text-transform: uppercase;
@@ -67,4 +67,6 @@
 }
 .aboutusbutton{
   letter-spacing: 6px;
+  box-shadow:  0 0 5px 6px #41909b !important;
+
 }
