@@ -12,6 +12,7 @@ import unprotectedRouter from "./routes/unprotectedRoutes";
 import protectedRouter from "./routes/protectedRoutes";
 import { logout } from "./handlers/logout";
 import protect from "./modules/auth";
+import { checkUsernameAndEmail } from "./middlewares/checkEmail";
 
 const app = express();
 app.use(morgan("dev"));
@@ -25,7 +26,7 @@ app.use(express.static(frontendPath));
 app.get("/api", async (req, res) => {
   res.status(200).json({ message: "ok" }).end();
 });
-app.post("/signup", signup);
+app.post("/signup", checkUsernameAndEmail, signup);
 app.post("/login", logIn);
 app.get("/logout", logout);
 app.use("/ideavault", unprotectedRouter);
@@ -51,7 +52,7 @@ io.on("connection", (socket) => {
     console.log(data);
   });
   socket.on("typing", (data) => {
-    socket.to(data.room).emit("settyping",data);
+    socket.to(data.room).emit("settyping", data);
   });
   socket.on("save_data", (data) => {
     console.log("data", data);
