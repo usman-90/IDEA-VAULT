@@ -64,10 +64,6 @@ const Content = () => {
   const uploadImages = async (path, file) => {
     await uploadImage(path, file);
   };
-  const generateUrl = async (path) => {
-    const url = await getUrl(path);
-    return url;
-  };
 
   return (
     <>
@@ -84,7 +80,10 @@ const Content = () => {
                   }/${new Date().getMilliseconds().toString() + index}`;
 
                   await uploadImages(path, image);
-                  const url = await generateUrl(path);
+
+                  await new Promise((resolve) => setTimeout(resolve, 2000));
+                  const url = await getUrl(path);
+
                   return { path: url, type: "ideaimage" };
                 })
               );
