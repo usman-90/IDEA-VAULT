@@ -1,6 +1,7 @@
 import React from "react";
 import "./footer.css";
 import logo from '../../images/BULBLOGO.png'
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -30,12 +31,12 @@ const Footer = () => {
             <div className="col-sm-4 col-md-3 items">
               <h3>IDEA&apos;S CATEGORY</h3>
               <ul>
-                <li><a href="/">Education</a></li>
-                <li><a href="/">Science </a></li>
-                <li><a href="/">Art & Craft</a></li>
-                <li><a href="/">Technology</a></li>
-                <li><a href="/">Buisness</a></li>
-                <li><a href="/">Travel</a></li>
+                <li> <Link className="text-black " to={`/category/4/Education`}>Education  </Link></li>
+                <li><Link className="text-black " to={`/category/6/Science`}> Science</Link> </li>
+                <li><Link className="text-black " to={`/category/2/Art & Craft`}> Art & Craft</Link></li>
+                <li><Link className="text-black " to={`/category/3/Technology`}> Technology</Link></li>
+                <li><Link className="text-black " to={`/category/8/Business`}> Business</Link></li>
+                <li><Link className="text-black " to={`/category/7/Tourism`}> Travel</Link></li>
               </ul>
             </div>
             <div className="col-lg-3 items socials">

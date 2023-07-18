@@ -81,7 +81,7 @@ const Content = () => {
 
                   await uploadImages(path, image);
 
-                  await new Promise((resolve) => setTimeout(resolve, 2000));
+                  await new Promise((resolve) => setTimeout(resolve, 3000));
                   const url = await getUrl(path);
 
                   return { path: url, type: "ideaimage" };
