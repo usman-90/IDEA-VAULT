@@ -74,7 +74,7 @@ const Chatbox = () => {
   console.log(messages);
 
   return (
-    <div style={{ height: "85vh" }} className="m-0  p-0 chatcont_u d-flex ">
+    <div style={{ height: "85vh",backgroundColor: "burlywood"}} className="m-0  p-0 chatcont_u d-flex ">
       {(!isMobile || (isMobile && currSec === "chats")) && (
         <ChatLeft
           row={chats.arr}

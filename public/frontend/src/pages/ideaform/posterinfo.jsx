@@ -34,7 +34,11 @@ const PosterInfo = () => {
   }
   const profileData = useQuery(["getuserinfo", userid], getUserInfo);
   if (profileData.isLoading) {
-    console.log("fetching");
+    return (
+      <div className="loading-pane">
+        <h2 className="loader">🌀</h2>
+      </div>
+    );
   }
   const profileres = profileData?.data?.row[0] ?? [];
 
