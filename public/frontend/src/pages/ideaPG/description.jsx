@@ -1,11 +1,11 @@
 import blurImage from "../../images/image-fotor-20230717233648.jpg";
 import { useEffect, useRef, useState } from "react";
 
-const Description = ({ visData, visiblity, currSection, description }) => {
+const Description = ({ visData, visiblity, currSection, description,ideaid,userId }) => {
   const divRef = useRef(null);
   const [vis, setVis] = useState(true);
   useEffect(() => {
-    if (visiblity) {
+    if (visiblity || ideaid==userId) {
       setVis(true);
     } else if (!visiblity && visData?.length === 0) {
       setVis(false);

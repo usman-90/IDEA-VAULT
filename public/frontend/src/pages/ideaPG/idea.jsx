@@ -37,6 +37,7 @@ const Idea = () => {
   const data = ideaResult?.data?.data ?? [];
   const updatesdata = updates?.data?.data ?? [];
   console.log(data);
+  console.log(updatesdata);
 
   const handleSectionChange = (section) => {
     setcurrSection(section);
@@ -59,8 +60,12 @@ const Idea = () => {
         currSection={currSection}
         changeSection={handleSectionChange}
       />
-        
-      <Comment commentsData={commentsData} currSection={currSection}  path={data?.idearow[0]?.path ?? ""}/>
+
+      <Comment
+        commentsData={commentsData}
+        currSection={currSection}
+        path={data?.idearow[0]?.path ?? ""}
+      />
 
       <Description
         currSection={currSection}
@@ -68,6 +73,8 @@ const Idea = () => {
         ideaid={ideaid}
         visiblity={data?.idearow[0]?.visiblity ?? ""}
         visData={visData}
+        userId={userid}
+        
       />
       <Update
         updatesdata={updatesdata}

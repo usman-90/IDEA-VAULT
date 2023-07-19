@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useToasts } from 'react-toast-notifications';
 import MyCircularProgress from "../../components/circlecount/progreebar";
 import "../../style/detail.css";
 import { downvote, getVotes, upvote } from "../../functions/votes";
@@ -25,7 +26,9 @@ const Details = ({
   const navigate = useNavigate();
   const [currentImg, setCurrentImg] = useState();
   const [buttonColor, setButtonColor] = useState("");
-  const [upvoteCount, setUpvoteCount] = useState();
+  const [upvoteCount, setUpvoteCount] = useState(0);
+  const [hasVoted, sethasvoted] = useState(false);
+  const { addToast } = useToasts()
   const getinitialvotes = async (ideaid) => {
     console.log("ideaid", ideaid);
     const voteres = await getVotes(ideaid);
@@ -38,9 +41,17 @@ const Details = ({
   }, []);
 
   const handleUpvoteClick = async () => {
+    if (hasVoted) {
+      return;
+    }
     const result = await upvote(ideaid);
     if (result.message == "ok") {
-      setUpvoteCount(upvoteCount + 1);
+      setUpvoteCount(parseInt(upvoteCount) + 1);
+      addToast("Idea Up-Voted", {
+        appearance: 'success',
+        autoDismiss: true,
+      })
+      sethasvoted(true)
     }
     if (buttonColor === "green") {
       setButtonColor("");
@@ -50,9 +61,15 @@ const Details = ({
   };
 
   const handleDownvoteClick = async () => {
+   
     const result = await downvote(ideaid);
     if (result.message == "ok") {
       setUpvoteCount(upvoteCount - 1);
+      addToast("Idea Down-Voted", {
+        appearance: 'error',
+        autoDismiss: true,
+      })
+      
     }
     if (buttonColor === "red") {
       setButtonColor("");
@@ -127,9 +144,11 @@ const Details = ({
                 >
                   <b>{title}</b>
                   {checkCookieExists("logindata") && thisuserid == userid && (
-                    <button className="btn bg-midnight-green text-mustard ms-5">
-                      Update idea
-                    </button>
+                    <Link to={`/updateidea/${ideaid}`}>
+                      <button className="btn bg-midnight-green text-mustard ms-5">
+                        Update idea
+                      </button>
+                    </Link>
                   )}
                 </p>
                 <p

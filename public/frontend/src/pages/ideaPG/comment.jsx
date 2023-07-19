@@ -5,11 +5,12 @@ import { useState } from "react";
 import Postedcomment from "./postedComment";
 import "./postedcomment.css";
 import { postComment } from "../../functions/postComments";
+import { useToasts } from "react-toast-notifications";
 
-const Comment = ({ currSection, commentsData ,path}) => {
+const Comment = ({ currSection, commentsData, path }) => {
   const { ideaid } = useParams();
   const [comment, setComment] = useState("");
-
+  const { addToast } = useToasts();
   const handleChange = (e) => {
     setComment(e.target.value);
   };
@@ -34,6 +35,10 @@ const Comment = ({ currSection, commentsData ,path}) => {
   const submitComment = async () => {
     const res = await postComment({ content: comment, ideaid });
     console.log(res);
+    addToast("Comment Posted Successfully! ", {
+      appearance: "Success",
+      autoDismiss: true,
+    });
 
     setComment("");
   };
