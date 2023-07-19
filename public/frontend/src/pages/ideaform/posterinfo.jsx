@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import H2WithToolTip from "./h2withtooltip.jsx";
 import UserprofileNav from "../viewprofile/userProfileNav.jsx";
 import ImageInput from "./imginput.jsx";

@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import { useToasts } from "react-toast-notifications";
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable import/no-unresolved */

@@ -24,6 +24,7 @@ const Home = () => {
     console.log("loading reviews");
   }
   const result = ideadata?.data?.data ?? [];
+  console.log(result);
   const reviews = reviewsRes?.data?.data ?? [];
 
 
