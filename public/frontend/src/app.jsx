@@ -33,8 +33,8 @@ import Visibility from "./pages/visiblity/assignvisiblity";
 import IdeaUpdate from "./pages/ideaform/ideaUpdate";
 import AdminLogIn from "./pages/AdminPage/adminlogin";
 import UserEntry from "./pages/AdminPage/userentry";
-import { ToastProvider } from 'react-toast-notifications';
-
+import { ToastProvider } from "react-toast-notifications";
+import Loader from "./components/loader";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -52,48 +52,49 @@ const App = () => {
     <>
       <BrowserRouter>
         <QueryClientProvider client={queryClient}>
-        <ToastProvider>
-          <UserContext.Provider value={UserContextHook}>
-            <Layout>
-              <Routes>
-                <Route
-                  path="/assignvisiblity/:userid"
-                  element={<Visibility />}
-                />
-                <Route path="/" element={<Home />} />
-                <Route path="/ideadetail/:ideaid" element={<Idea />} />
-                <Route path="/inbox" element={<Chatbox />} />
-                <Route path="/bulb" element={<BulbCanvas />} />
-                <Route path="/basicinfo" element={<BasicInfoPage />} />
-                <Route path="/contentinfo" element={<Content />} />
-                <Route path="/settings" element={<Settings />} />
-                <Route path="/ideasection/:userid" element={<YourIdeas />} />
-                <Route path="/condition" element={<Condition />} />
-                <Route path="/privacy" element={<Privacy />} />
-                <Route path="/copyright1" element={<Copyright />} />
-                <Route path="/userguide1" element={<User />} />
-                <Route path="/signup" element={<SignUpForm />} />
-                <Route path="/terms" element={<Term />} />
-                <Route path="/signin" element={<SignIn />} />
-                <Route path="/ideaposter" element={<IdeaPoster />} />
-                <Route path="/aboutus" element={<Aboutus />} />
-                <Route
-                  path="/category/:catid/:cattitle"
-                  element={<Technology />}
-                />
-                <Route path="/technology" element={<Technology />} />
-                <Route path="/updateidea/:ideaid" element={<IdeaUpdate />} />
-                <Route path="/aboutus" element={<AboutUs />} />
-                <Route path="/posterinfo/:userid" element={<PosterInfo />} />
+          <ToastProvider>
+            <UserContext.Provider value={UserContextHook}>
+              <Layout>
+                <Routes>
+                  <Route
+                    path="/assignvisiblity/:userid"
+                    element={<Visibility />}
+                  />
+                  <Route path="/loader" element={Loader} />
+                  <Route path="/" element={<Home />} />
+                  <Route path="/ideadetail/:ideaid" element={<Idea />} />
+                  <Route path="/inbox" element={<Chatbox />} />
+                  <Route path="/bulb" element={<BulbCanvas />} />
+                  <Route path="/basicinfo" element={<BasicInfoPage />} />
+                  <Route path="/contentinfo" element={<Content />} />
+                  <Route path="/settings" element={<Settings />} />
+                  <Route path="/ideasection/:userid" element={<YourIdeas />} />
+                  <Route path="/condition" element={<Condition />} />
+                  <Route path="/privacy" element={<Privacy />} />
+                  <Route path="/copyright1" element={<Copyright />} />
+                  <Route path="/userguide1" element={<User />} />
+                  <Route path="/signup" element={<SignUpForm />} />
+                  <Route path="/terms" element={<Term />} />
+                  <Route path="/signin" element={<SignIn />} />
+                  <Route path="/ideaposter" element={<IdeaPoster />} />
+                  <Route path="/aboutus" element={<Aboutus />} />
+                  <Route
+                    path="/category/:catid/:cattitle"
+                    element={<Technology />}
+                  />
+                  <Route path="/technology" element={<Technology />} />
+                  <Route path="/updateidea/:ideaid" element={<IdeaUpdate />} />
+                  <Route path="/aboutus" element={<AboutUs />} />
+                  <Route path="/posterinfo/:userid" element={<PosterInfo />} />
 
-                <Route path="/adminlogin" element={<AdminLogIn />} />
-                <Route path="/userentry" element={<UserEntry />} />
-                
-                <Route path="/profile/:userid" element={<UserProfile />} />
-                <Route path="/security/:userid" element={<PasswordReset />} />
-              </Routes>
-            </Layout>
-          </UserContext.Provider>
+                  <Route path="/adminlogin" element={<AdminLogIn />} />
+                  <Route path="/userentry" element={<UserEntry />} />
+
+                  <Route path="/profile/:userid" element={<UserProfile />} />
+                  <Route path="/security/:userid" element={<PasswordReset />} />
+                </Routes>
+              </Layout>
+            </UserContext.Provider>
           </ToastProvider>
         </QueryClientProvider>
       </BrowserRouter>

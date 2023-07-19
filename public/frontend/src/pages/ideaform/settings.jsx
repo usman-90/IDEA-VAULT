@@ -90,7 +90,7 @@ const Settings = () => {
               destroyCookie("forminfo");
               destroyCookie("contentinfo");
               destroyCookie("settings");
-              addToast('Profile Updated Successfully! ', {
+              addToast('Idea posted Successfully! ', {
                 appearance: 'success',
                 autoDismiss: true,
               });
