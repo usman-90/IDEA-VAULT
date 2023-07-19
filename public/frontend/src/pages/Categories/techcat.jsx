@@ -33,7 +33,7 @@ const Technology = () => {
              
               ideaName={idea.ideatitle}
               ideaCardDesc={idea.carddescription}
-             
+             cardimage={idea.path}
               ideaDate={idea.postedat}
             />
             </Link>

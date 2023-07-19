@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import H2WithToolTip from "./h2withtooltip.jsx";
+import { useToasts } from 'react-toast-notifications';
 import SideBar from "./sidebar.jsx";
 import {
   checkCookieExists,
@@ -35,6 +36,7 @@ const Settings = () => {
     setSetting(data);
   }, []);
   const navigate = useNavigate("/");
+  const { addToast } = useToasts();
   const handleChange = (e) => {
     const { name, value } = e.target;
     setSetting({ ...setting, [name]: value });
@@ -88,6 +90,10 @@ const Settings = () => {
               destroyCookie("forminfo");
               destroyCookie("contentinfo");
               destroyCookie("settings");
+              addToast('Profile Updated Successfully! ', {
+                appearance: 'success',
+                autoDismiss: true,
+              });
 
               navigate("/");
             }}

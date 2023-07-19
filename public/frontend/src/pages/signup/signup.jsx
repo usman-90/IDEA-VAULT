@@ -3,12 +3,14 @@ import { createAccount } from "./createAcc";
 import { useNavigate } from "react-router-dom";
 import "./signup.css";
 import { getCookie, setCookie } from "../../helpers/cookies";
+import { useToasts } from "react-toast-notifications";
 import UserContext from "../../context/context";
 import { useContext } from "react";
 
 function SignUpForm() {
   // eslint-disable-next-line no-unused-vars
   const [_, loggedinUser] = useContext(UserContext);
+  const { addToast } = useToasts();
 
   const navigate = useNavigate();
 
@@ -30,10 +32,18 @@ function SignUpForm() {
         userId: res.rows[0].userid ?? null,
         status: "loggedin",
       });
+      addToast("Account Created Successfully!", {
+        appearance: "success",
+        autoDismiss: true,
+      });
       console.log("cookies", getCookie("logindata"));
       navigate("/");
     } else if (res.message == "username already taken") {
-      alert("lol");
+      addToast("Username Already Taken", {
+        appearance: "warning",
+        autoDismiss: true,
+      });
+    
     }
   };
 
@@ -88,7 +98,7 @@ function SignUpForm() {
               <input type="text" id="password" name="lastName" required />
             </label>
             <label className="signuplabel_z" htmlFor="username">
-              User Name:     
+              User Name:
               <input type="username" id="username" name="username" required />
             </label>
             <label className="signuplabel_z" htmlFor="email">

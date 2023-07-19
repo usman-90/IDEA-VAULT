@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Message from "./message.jsx";
 import { useEffect } from "react";
 import ScrollToBottom from "react-scroll-to-bottom";
@@ -97,11 +98,13 @@ const ChatMid = ({
               </button>
             </div>
           )}
+          <Link to={`/profile/${openedChat}`}>
           <img
             className="rounded-circle upimage"
             src={user[0]?.path ?? ""}
             alt=""
-          />
+            />
+            </Link>
 
           <div
             onClick={() => {
@@ -155,14 +158,14 @@ const ChatMid = ({
             }}
           />
           <div className="d-flex">
-            <div className="wrapper mx-2">
+            {/* <div className="wrapper mx-2">
               <input type="file" id="file-input" />
               <label htmlFor="file-input">
                 <i className="fs-4 fa fa-paperclip fa-2x"></i>
                 <span></span>
               </label>
               <i className="fa fa-times-circle remove"></i>
-            </div>
+            </div> */}
             <button onClick={sendMessage} className="bg-transparent border-0">
               <i className="text-light mx-2 fs-4 cursor-pointer fa-solid fa-paper-plane"></i>
             </button>

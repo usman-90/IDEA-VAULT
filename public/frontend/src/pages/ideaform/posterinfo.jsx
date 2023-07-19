@@ -7,6 +7,7 @@ import { getUserInfo, updateuserinfo } from "../../functions/user.js";
 import { useEffect, useState } from "react";
 import { getUrl, uploadImage } from "../../firebase/upload.jsx";
 import { useNavigate } from "react-router-dom";
+import { useToasts } from "react-toast-notifications";
 
 const PosterInfo = () => {
   const [profile, setprofile] = useState();
@@ -27,7 +28,7 @@ const PosterInfo = () => {
     instalink: "",
     userid: "",
   });
-
+  const { addToast } = useToasts();
   let userid;
   if (checkCookieExists("logindata")) {
     userid = JSON.parse(getCookie("logindata")).userId;
@@ -78,17 +79,22 @@ const PosterInfo = () => {
             onSubmit={async (e) => {
               e.preventDefault();
 
-          
-
-              await uploadImage(`/profiles/${data.userid}`, profile).then((res)=>{
-                console.log(res)
-              });
+              await uploadImage(`/profiles/${data.userid}`, profile).then(
+                (res) => {
+                  console.log(res);
+                }
+              );
 
               const path = await getUrl(`/profiles/${data.userid}`);
               const obj = { ...data, path };
               setdata({ ...data, path });
 
               const res = await updateuserinfo(obj);
+              
+              addToast("Profile Updated Successfully! ", {
+                appearance: "success",
+                autoDismiss: true,
+              });
               console.log(res);
               navigate(`/posterinfo/${userid}`);
             }}

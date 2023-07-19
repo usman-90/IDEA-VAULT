@@ -1,3 +1,4 @@
+import { useToasts } from "react-toast-notifications";
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable import/no-unresolved */
 import "./nav.css";
@@ -6,7 +7,11 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import UserContext from "../../context/context";
 import { logout } from "../../functions/logout";
-import { checkCookieExists, destroyCookie, getCookie } from "../../helpers/cookies";
+import {
+  checkCookieExists,
+  destroyCookie,
+  getCookie,
+} from "../../helpers/cookies";
 
 const Spoint2 = ({ point }) => {
   return <p className="text-light">{point}</p>;
@@ -21,10 +26,11 @@ const SPoint = (props) => {
         props.point.map((subhead) => {
           return (
             <>
-              <a href="#categoryDIVV"> 
-              <p className="sm-point text-light" key={subhead.head}>
-                {subhead.head}
-              </p></a>
+              <a href="#categoryDIVV">
+                <p className="sm-point text-light" key={subhead.head}>
+                  {subhead.head}
+                </p>
+              </a>
               {subhead.points.map((point) => {
                 return <Spoint2 point={point} key={point} />;
               })}
@@ -39,8 +45,13 @@ const SPoint = (props) => {
 const LPoint = ({ onChange, point, link, handleExpansion }) => {
   //eslint-disable-next-line no-unused-vars
   const [_, setcontext] = useContext(UserContext);
+  const { addToast } = useToasts();
   const handleLogout = async () => {
     const res = await logout();
+    addToast("Logged out Successfully! ", {
+      appearance: "success",
+      autoDismiss: true,
+    });
     destroyCookie("logindata");
     setcontext(null);
     console.log(res);
@@ -59,20 +70,23 @@ const LPoint = ({ onChange, point, link, handleExpansion }) => {
       onFocus={showNavContents}
       to={link}
     >
-      <a href="#categoryDIVV"> <p
-        onClick={point == "Logout" ? handleLogout : null}
-        className="px-2 xl-point text-white"
-      >
-        {point}
-      </p></a>
+      <a href="#categoryDIVV">
+        {" "}
+        <p
+          onClick={point == "Logout" ? handleLogout : null}
+          className="px-2 xl-point text-white"
+        >
+          {point}
+        </p>
+      </a>
     </Link>
   );
 };
 
 const NavExpansion = ({ width, width100, handleExpansion }) => {
   const [readContext] = useContext(UserContext);
-  console.log(getCookie("logindata"))
-  
+  console.log(getCookie("logindata"));
+
   console.log("context", readContext);
   let spArr = [
     {
@@ -81,19 +95,32 @@ const NavExpansion = ({ width, width100, handleExpansion }) => {
       subheads: [
         {
           head: "Categories",
-          points: ["Buisness", "Science", "Education","Art & Craft","Technology","Travel"],
+          points: [
+            "Buisness",
+            "Science",
+            "Education",
+            "Art & Craft",
+            "Technology",
+            "Travel",
+          ],
         },
         {
           head: "",
-          points: ["  "  ],
+          points: ["  "],
         },
         {
           head: "Top 10 Ideas",
-          points: ["Top Idea","Second Idea","Third Idea","Fourth Idea","Fifth Idea"],
+          points: [
+            "Top Idea",
+            "Second Idea",
+            "Third Idea",
+            "Fourth Idea",
+            "Fifth Idea",
+          ],
         },
         {
           head: "",
-          points: ["  "  ],
+          points: ["  "],
         },
         {
           head: "Feedback",
@@ -101,31 +128,31 @@ const NavExpansion = ({ width, width100, handleExpansion }) => {
         },
         {
           head: "",
-          points: ["  "  ],
+          points: ["  "],
         },
-       
+
         {
           head: "FAQs",
           points: ["Questions", "Answers"],
         },
-         {
+        {
           head: "",
-          points: ["  "  ],
+          points: ["  "],
         },
-       
+
         {
           head: "Explore More",
           points: [" About Us"],
         },
         {
           head: "",
-          points: ["  "  ],
+          points: ["  "],
         },
         {
           head: "Contact Us",
-          points: ["Message us", "Send us an email","Call Us"],
+          points: ["Message us", "Send us an email", "Call Us"],
         },
-       
+
         {
           head: "",
           points: [" "],
@@ -138,7 +165,14 @@ const NavExpansion = ({ width, width100, handleExpansion }) => {
       subheads: [
         {
           head: "Categories",
-          points: ["Buisness", "Science", "Education","Art & Craft","Technology","Travel"],
+          points: [
+            "Buisness",
+            "Science",
+            "Education",
+            "Art & Craft",
+            "Technology",
+            "Travel",
+          ],
         },
       ],
     },
@@ -160,9 +194,13 @@ const NavExpansion = ({ width, width100, handleExpansion }) => {
 
     {
       heading: "Profile",
-      link: `/profile/${checkCookieExists("logindata") && getCookie("logindata").toString() !== "[object Object]" ?`${JSON.parse(getCookie("logindata")).userId}`: ""}`,
+      link: `/profile/${
+        checkCookieExists("logindata") &&
+        getCookie("logindata").toString() !== "[object Object]"
+          ? `${JSON.parse(getCookie("logindata")).userId}`
+          : ""
+      }`,
 
-    
       subheads: [
         {
           head: "view Profile",
@@ -170,13 +208,17 @@ const NavExpansion = ({ width, width100, handleExpansion }) => {
         },
         {
           head: "Edit Profile",
-          points: ["Edit Name", "Edit profile picture", "Edit socials","Edit BIO"],
+          points: [
+            "Edit Name",
+            "Edit profile picture",
+            "Edit socials",
+            "Edit BIO",
+          ],
         },
         {
           head: "View Security",
           points: ["Check the availabilty", "Grant avaiabilty"],
         },
-
       ],
     },
     {
@@ -205,7 +247,12 @@ const NavExpansion = ({ width, width100, handleExpansion }) => {
       subheads: [
         {
           head: "Policies",
-          points: ["Terms & Conditions", "Privacy Policy", "Copyright Policy","User guideline"],
+          points: [
+            "Terms & Conditions",
+            "Privacy Policy",
+            "Copyright Policy",
+            "User guideline",
+          ],
         },
       ],
     },
@@ -251,7 +298,9 @@ const NavExpansion = ({ width, width100, handleExpansion }) => {
         <div className={`right_nav_content`}>
           {spArr?.map((point) => {
             if (
-              (point.heading == "Inbox" || point.heading == "Post Your Idea" || point.heading == "Profile") &&
+              (point.heading == "Inbox" ||
+                point.heading == "Post Your Idea" ||
+                point.heading == "Profile") &&
               !checkCookieExists("logindata")
             ) {
               return null;

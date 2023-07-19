@@ -2,18 +2,24 @@ import H2WithToolTip from "./h2withtooltip";
 import Editor from "./editor";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-
+import { postUpdate } from "../../functions/update";
+import { useToasts } from 'react-toast-notifications';
 const IdeaUpdate = () => {
   const [description, setDecription] = useState();
   const { ideaid } = useParams();
   const navigate = useNavigate();
-  const postUpdate = async (ideaid, description) => {
+  const { addToast } = useToasts();
+  const handleUpdate = async (ideaid, description) => {
     const data = {
       description,
       ideaid,
     };
     const res = await postUpdate(data);
     console.log(res);
+    addToast('Profile Updated Successfully! ', {
+        appearance: 'success',
+        autoDismiss: true,
+      });
     navigate(`/ideadetail/${ideaid}`);
   };
 
@@ -37,7 +43,7 @@ const IdeaUpdate = () => {
             className="formbtn bg-midnight-green"
             style={{ verticalAlign: "middle" }}
             onClick={() => {
-              postUpdate(ideaid, description);
+              handleUpdate(ideaid, description);
             }}
           >
             <span>Post Update </span>

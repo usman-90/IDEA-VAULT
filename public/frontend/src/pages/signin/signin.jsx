@@ -5,6 +5,7 @@ import { signin } from "../../functions/signin";
 import { getCookie, setCookie } from "../../helpers/cookies";
 import UserContext from "../../context/context";
 import { useNavigate } from "react-router-dom";
+import { useToasts } from "react-toast-notifications";
 import { Link } from "react-router-dom";
 document.body.style.backgroundColor = "white";
 
@@ -14,6 +15,7 @@ const SignIn = () => {
   const navigate = useNavigate();
   // eslint-disable-next-line no-unused-vars
   const [_, setusercontext] = useContext(UserContext);
+  const { addToast } = useToasts();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,6 +29,10 @@ const SignIn = () => {
       } else if (res.message == "wrong password") {
         alert("Entered Password is incorrect");
       } else if (res.message == "ok") {
+        addToast("Logged In Successfully! ", {
+          appearance: "success",
+          autoDismiss: true,
+        });
         setCookie(
           "logindata",
           JSON.stringify({
@@ -36,7 +42,7 @@ const SignIn = () => {
             status: "loggedin",
           })
         );
-          console.log(JSON.parse(getCookie("logindata")))
+        console.log(JSON.parse(getCookie("logindata")));
         setusercontext(JSON.parse(getCookie("logindata")));
         navigate("/");
       }
@@ -113,9 +119,7 @@ const SignIn = () => {
         <br /> <br />
         <div className="signup_z">
           Don&apos;t have an account?{" "}
-          <Link to="/signup"
-            className="signup1_"
-          >
+          <Link to="/signup" className="signup1_">
             Sign Up
           </Link>
         </div>

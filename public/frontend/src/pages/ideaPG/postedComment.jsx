@@ -7,11 +7,13 @@ import Reply from "./reply.jsx";
 import { formatTime } from "../../helpers/formatTime";
 import { likeComment, postReply } from "../../functions/reply";
 
+
 const Replybox = ({ setreply, reply, setreplydisplay, commentid }) => {
+  
   const sendreply = async () => {
     const res = await postReply({ replyContent: reply, commentid });
     console.log(res);
-
+    
     setreply("");
     setreplydisplay(false);
   };
@@ -60,9 +62,11 @@ const Postedcomment = ({
   const [replydisplay, setreplydisplay] = useState(false);
   const [likescolor, setlikescolor] = useState("");
   const [filteredReplies,setfilteredReplies] = useState([])
+
   const postLike = async () => {
     const res = await likeComment(id);
     console.log(res);
+  
   }
   console.log(replies)
   useEffect(()=> {

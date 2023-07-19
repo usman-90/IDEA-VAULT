@@ -33,12 +33,14 @@ import Visibility from "./pages/visiblity/assignvisiblity";
 import IdeaUpdate from "./pages/ideaform/ideaUpdate";
 import AdminLogIn from "./pages/AdminPage/adminlogin";
 import UserEntry from "./pages/AdminPage/userentry";
+import { ToastProvider } from 'react-toast-notifications';
+
 
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: Infinity,
-      cacheTime: Infinity,
+      staleTime: 2000,
+      cacheTime: 2000,
     },
   },
 });
@@ -50,6 +52,7 @@ const App = () => {
     <>
       <BrowserRouter>
         <QueryClientProvider client={queryClient}>
+        <ToastProvider>
           <UserContext.Provider value={UserContextHook}>
             <Layout>
               <Routes>
@@ -79,7 +82,7 @@ const App = () => {
                   element={<Technology />}
                 />
                 <Route path="/technology" element={<Technology />} />
-                <Route path="/updateidea" element={<IdeaUpdate />} />
+                <Route path="/updateidea/:ideaid" element={<IdeaUpdate />} />
                 <Route path="/aboutus" element={<AboutUs />} />
                 <Route path="/posterinfo/:userid" element={<PosterInfo />} />
 
@@ -91,6 +94,7 @@ const App = () => {
               </Routes>
             </Layout>
           </UserContext.Provider>
+          </ToastProvider>
         </QueryClientProvider>
       </BrowserRouter>
     </>

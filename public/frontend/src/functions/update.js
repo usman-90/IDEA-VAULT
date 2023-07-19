@@ -17,7 +17,7 @@ export const postUpdate = async (data) => {
     };
 
     const res = await fetch(
-      `http://localhost:3000/ideavault/postideaupdate/${data.ideaid}`,
+      `http://localhost:3000/ideavault/postideaupdates/${data.ideaid}`,
       options
     );
 

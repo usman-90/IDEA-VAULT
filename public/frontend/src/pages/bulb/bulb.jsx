@@ -1,12 +1,13 @@
 /* eslint-disable react/no-unknown-property */
 import React, { Suspense, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
+
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 import Switch_btn from "./switch.jsx";
 
 // import CanvasLoader from "../Loader";
 const Bulb = (props) => {
-  const bulb = useGLTF("scene.gltf");
+  const bulb = useGLTF('./bulb/scene.gltf');
   return (
     <>
       {/* <ambientLight /> */}

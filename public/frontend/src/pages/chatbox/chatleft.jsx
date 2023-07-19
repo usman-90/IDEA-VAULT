@@ -4,8 +4,7 @@ const ChatLeftHeading = () => {
     <div className="py-3 d-flex w-100 justify-content-around align-items-center  b-white">
       <h1 className="fs-2">Messages</h1>
       <div className="icons">
-        <i className="fa-solid px-2 fs-4 fa-pen-to-square"></i>
-        <i className="fa-solid fs-4  px-2 fa-ellipsis-vertical"></i>
+     
       </div>
     </div>
   );

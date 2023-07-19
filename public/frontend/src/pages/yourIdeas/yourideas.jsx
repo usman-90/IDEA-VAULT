@@ -28,10 +28,11 @@ const YourIdeas = () => {
           {userideas?.map((idea, ideaIndex) => (
             <Link key={ideaIndex} to={`/ideadetail/${idea.ideaid}`}>
               <IdeaCard
-                ideaName={idea.ideatitle}
-                ideaCardDesc={idea.carddescription}
-                cardSrc={idea.path}
-                ideaDate={idea.postedat}
+                ideaName={idea?.ideatitle}
+                ideaCardDesc={idea?.carddescription}
+                cardSrc={idea?.path}
+                ideaDate={idea?.postedat}
+                cardimage={idea?.path}
               />
             </Link>
           ))}

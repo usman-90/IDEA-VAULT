@@ -7,7 +7,7 @@ export const postIdea = async ({ basicinfo, contentinfo, setting }) => {
       requiredAmount: basicinfo.requiredAmount,
       ideaTagline: basicinfo.tagline,
       tags: basicinfo.tags,
-      cardDescription: basicinfo.carddescription ?? "",
+      cardDescription: basicinfo.cardDescription ?? "",
       categoryName: basicinfo.category,
       visiblity: setting.visiblity,
       detailedDescription: contentinfo.description,

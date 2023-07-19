@@ -2,14 +2,16 @@ import "./ideacard.css";
 const IdeaCard = ({
   ideaName,
   ideaCardDesc,
-  cardSrc,
+
+  cardimage,
   ideaCategory,
   ideaDate,
 }) => {
+  console.log(cardimage);
   return (
-    <div >
+    <div>
       <article className="article-wrapper my-2 ">
-        <img className="container-project rounded-lg" src={cardSrc} alt="" />
+        <img className="container-project rounded-lg" src={cardimage} alt="" />
         <div className="project-info">
           <div className="flex-pr">
             <div className="project-title text-nowrap">{ideaName}</div>
@@ -37,8 +39,7 @@ const IdeaCard = ({
           <div className="types">
             <span
               style={{
-                backgroundColor:
-                  "#2c6663"
+                backgroundColor: "#2c6663",
               }}
               className="project-type"
             >
@@ -46,8 +47,8 @@ const IdeaCard = ({
             </span>
             <span
               style={{
-                backgroundColor:
-                  "#2c6663",color:"f4d77f"
+                backgroundColor: "#2c6663",
+                color: "f4d77f",
               }}
               className="project-type"
             >

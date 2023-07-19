@@ -16,16 +16,16 @@ import { fetchReviews } from "../../functions/fetchreviews";
 const Home = () => {
   const ideadata = useQuery(["idea"], fetchIdea);
   const reviewsRes = useQuery(["reviews"], fetchReviews);
+ 
   if (reviewsRes.isLoading) {
     console.log("loading reviews");
   }
   if (reviewsRes.isError) {
     console.log("loading reviews");
   }
-  console.log(reviewsRes.data);
   const result = ideadata?.data?.data ?? [];
   const reviews = reviewsRes?.data?.data ?? [];
-  console.log(reviews);
+
 
   return (
     <div>
@@ -47,15 +47,14 @@ const Home = () => {
 
       <SimpleSlider>
         {result.map((idea, index) => (
-          <Link key={index} to={`/ideadetail/${idea.ideaid}`}>
+          <Link key={index} to={`/ideadetail/${idea?.ideaid}`}>
             <IdeaCard
-              cardSrc={
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8FuKg3nog0iQGtEKOc_Hdo4nx0Dp0u5x-46o1wBygjA&s"
-              }
-              ideaName={idea.ideatitle}
-              ideaCardDesc={idea.carddescription}
-              ideaDate={idea.postedat}
+            
+              ideaName={idea?.ideatitle}
+              ideaCardDesc={idea?.carddescription}
+              ideaDate={idea?.postedat}
               ideaCategory={"Technology"}
+              cardimage={idea?.path}
             />
           </Link>
         ))}
@@ -70,10 +69,10 @@ const Home = () => {
           {reviews.map((review) => {
             return (
               <ReviewCard
-                key={review.feedbackid ?? ""}
-                reviewBody={review.reviewbody ?? ""}
-                name={review.name ?? ""}
-                starCount={review.starcount ?? ""}
+                key={review?.feedbackid ?? ""}
+                reviewBody={review?.reviewbody ?? ""}
+                name={review?.name ?? ""}
+                starCount={review?.starcount ?? ""}
                 imgSrc={review.path ?? ""}
               />
             );
