@@ -1,7 +1,8 @@
 import executeQuery from "../../db";
 
 export const getAllIdeas = async (req, res) => {
-  const query = "SELECT ideaTitle , cardDescription, postedAt,ideaId FROM Idea";
+  const query =
+    "SELECT i.ideaTitle , i.cardDescription, i.postedAt,i.ideaId ,img.path FROM Idea i left join Image img on i.ideaid=img.ideaid where img.type='cardimage'";
   const row = await executeQuery(query, []);
   res
     .json({

@@ -45,7 +45,10 @@ export const postIdea = async (req, res) => {
       row[0].ideaid,
     ]
   );
-
+  await executeQuery(`insert into visiblity (userid,ideaid) values ($1,$2)`, [
+    req.user.userId,
+    row[0].ideaid,
+  ]);
   res
     .json({
       message: "ok",

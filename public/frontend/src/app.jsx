@@ -39,8 +39,8 @@ import Loader from "./components/loader";
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: 2000,
-      cacheTime: 2000,
+      staleTime: Infinity,
+      cacheTime: Infinity,
     },
   },
 });

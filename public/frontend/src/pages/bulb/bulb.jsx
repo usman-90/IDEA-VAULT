@@ -7,7 +7,7 @@ import Switch_btn from "./switch.jsx";
 
 // import CanvasLoader from "../Loader";
 const Bulb = (props) => {
-  const bulb = useGLTF('./bulb/scene.gltf');
+  const bulb = useGLTF("bulb/scene.gltf");
   return (
     <>
       {/* <ambientLight /> */}

@@ -59,9 +59,7 @@ export const getMessages = async (req, res) => {
     .end();
 };
 export const getChats = async (req, res) => {
-  const query1 = `SELECT u.userid AS other_user_id, u.name AS other_user_name,  m.messagebody, m.messagetime FROM chatbox AS c JOIN "User" AS u ON u.userid = CASE WHEN c.user1 = $1 THEN c.user2 ELSE c.user1 END LEFT JOIN message AS m ON (c.user1 = m.sender AND c.user2 = 
-    m.receiver) OR (c.user1 = m.receiver AND c.user2 = m.sender) WHERE (c.user1 = $1 OR c.user2 = $1) AND (  m.messagetime IS NULL OR m.messagetime = (SELECT MAX(messagetime) FROM message WHERE (sender = c.user1 AND receiver = c.user2) OR (sender = c.user2 AND receiver = 
-     c.user1) ) );
+  const query1 = `SELECT u.userid AS other_user_id, u.name AS other_user_name,  m.messagebody, m.messagetime FROM chatbox AS c JOIN "User" AS u ON u.userid = CASE WHEN c.user1 = $1 THEN c.user2 ELSE c.user1 END LEFT JOIN message AS m ON (c.user1 = m.sender AND c.user2 = m.receiver) OR (c.user1 = m.receiver AND c.user2 = m.sender) WHERE (c.user1 = $1 OR c.user2 = $1) AND (  m.messagetime IS NULL OR m.messagetime = (SELECT MAX(messagetime) FROM message WHERE (sender = c.user1 AND receiver = c.user2) OR (sender = c.user2 AND receiver = c.user1) ) );
     
 
 `;
