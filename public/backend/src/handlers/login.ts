@@ -13,6 +13,10 @@ export const signup = async (req, res) => {
       name: req.body.name,
       lastName: req.body.lastName,
       email: req.body.email,
+      createdAt: new Date(),
+      visibleIdeas: [],
+      upvotedIdeas: [],
+      downvotedIdeas: [],
     });
     if (!userInsertion) {
       res.json({ message: "User not created" }).status(401).end();
@@ -43,3 +47,5 @@ export const signup = async (req, res) => {
     );
   }
 };
+
+

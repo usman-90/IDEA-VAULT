@@ -7,8 +7,8 @@ import { Server } from "socket.io";
 import { signup } from "./handlers/login";
 import http from "http";
 import { logIn } from "./handlers/signup";
-//import unprotectedRouter from "./routes/unprotectedRoutes";
-//import protectedRouter from "./routes/protectedRoutes";
+import unprotectedRouter from "./routes/unprotectedRoutes";
+import protectedRouter from "./routes/protectedRoutes";
 import { logout } from "./handlers/logout";
 import protect from "./modules/auth";
 import { checkUsernameAndEmail } from "./middlewares/checkEmail";
@@ -21,13 +21,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/api", async (req, res) => {
-  res.send("helloworld");
+  res.send("helloworld")
 });
 app.post("/signup", checkUsernameAndEmail, signup);
 app.post("/login", logIn);
 app.get("/logout", logout);
-//app.use("/ideavault", unprotectedRouter);
-//app.use("/ideavault", protect, protectedRouter);
+app.use("/ideavault", unprotectedRouter);
+app.use("/ideavault", protect, protectedRouter);
 
 const server = http.createServer(app);
 const io = new Server(server, {
@@ -60,3 +60,5 @@ io.on("connection", (socket) => {
   });
 });
 export default server;
+
+

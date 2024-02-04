@@ -2,7 +2,6 @@ import jwt from "jsonwebtoken";
 
 const protect = async (req, res, next) => {
   const bearer = req.headers.authorization;
-  console.log(bearer);
   if (!bearer) {
     res
       .json({
@@ -15,7 +14,6 @@ const protect = async (req, res, next) => {
     return;
   }
   const [, token] = bearer.split(" ");
-  console.log("token", token);
   if (!token) {
     res
       .json({
@@ -31,7 +29,6 @@ const protect = async (req, res, next) => {
   try {
     const payload = await jwt.verify(token, process.env.JWT_PASSWORD);
     req.user = payload;
-    console.log(req.user);
     next();
   } catch (error) {
     res
@@ -49,3 +46,5 @@ const protect = async (req, res, next) => {
 };
 
 export default protect;
+
+
