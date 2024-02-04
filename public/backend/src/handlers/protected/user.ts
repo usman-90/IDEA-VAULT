@@ -60,7 +60,7 @@ export const upDateUserInfo = async (req, res) => {
     if (imagerow.length == 0) {
       await executeQuery(
         `INSERT INTO Image (type,path,userId) values ($1,$2,$3)`,
-        [req.body.type ?? "", req.body.path ?? "", req.user.userId]
+        [req.body.type ?? "", req.body.path ?? "", req.user.userId],
       );
     }
   }

@@ -2,6 +2,7 @@
 import {  ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import storage from "./firebase.jsx";
 
+
 export const uploadImage = async (path, file) => {
   const imagesRef = ref(storage, `images/${path}`);
   uploadBytes(imagesRef, file).then((snapshot) => {

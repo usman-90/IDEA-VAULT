@@ -30,7 +30,7 @@ unprotectedRouter.get("/getuserinfo/:userid", getUserInfo);
 unprotectedRouter.get("/getideasbyuserid/:userid", getIdeaByUserId);
 unprotectedRouter.get(
   "/checkspecificvisiblity/:userid/:ideaid",
-  checkSpecificVsiblity
+  checkSpecificVsiblity,
 );
 
 export default unprotectedRouter;

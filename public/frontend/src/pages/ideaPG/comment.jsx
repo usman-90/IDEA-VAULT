@@ -89,7 +89,7 @@ const Comment = ({ currSection, commentsData, path }) => {
                     cursor: "pointer",
                     fontSize: "1.3rem",
                   }}
-                  onClick={submitComment}
+                  onClick={() => {submitComment()}}
                   onMouseEnter={(e) => (e.target.style.color = "black")}
                   onMouseLeave={(e) => (e.target.style.color = "grey")}
                 ></i>

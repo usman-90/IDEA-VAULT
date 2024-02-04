@@ -4,12 +4,11 @@ import express from "express";
 import morgan from "morgan";
 import cors from "cors";
 import { Server } from "socket.io";
-import path from "path";
 import { signup } from "./handlers/login";
 import http from "http";
 import { logIn } from "./handlers/signup";
-import unprotectedRouter from "./routes/unprotectedRoutes";
-import protectedRouter from "./routes/protectedRoutes";
+//import unprotectedRouter from "./routes/unprotectedRoutes";
+//import protectedRouter from "./routes/protectedRoutes";
 import { logout } from "./handlers/logout";
 import protect from "./modules/auth";
 import { checkUsernameAndEmail } from "./middlewares/checkEmail";
@@ -21,16 +20,14 @@ app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
 
-const frontendPath = path.join(__dirname, "../../frontend/dist");
-app.use(express.static(frontendPath));
 app.get("/api", async (req, res) => {
-  res.status(200).json({ message: "ok" }).end();
+  res.send("helloworld");
 });
 app.post("/signup", checkUsernameAndEmail, signup);
 app.post("/login", logIn);
 app.get("/logout", logout);
-app.use("/ideavault", unprotectedRouter);
-app.use("/ideavault", protect, protectedRouter);
+//app.use("/ideavault", unprotectedRouter);
+//app.use("/ideavault", protect, protectedRouter);
 
 const server = http.createServer(app);
 const io = new Server(server, {

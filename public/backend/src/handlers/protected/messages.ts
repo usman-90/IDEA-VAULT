@@ -35,7 +35,7 @@ export const saveMessages = async (req, res) => {
   await Promise.all(
     messages.map(async (message) => {
       await postMessage(message);
-    })
+    }),
   );
   res
     .json({
@@ -69,7 +69,7 @@ export const getChats = async (req, res) => {
   const path = await Promise.all(
     row.map(async (r) => {
       return await executeQuery(query2, [r.other_user_id]);
-    })
+    }),
   );
   console.log(path);
   let arr = [];

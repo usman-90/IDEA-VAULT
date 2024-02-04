@@ -52,6 +52,6 @@ protectedRouter.post("/setpreferences", setPreferences);
 protectedRouter.post("/setvisiblity", setVisiblity);
 protectedRouter.get("/getvisiblity/:ideaId", checkVisiblity);
 protectedRouter.get("/chatbox", getChats);
-protectedRouter.get("/savemessages",saveMessages);
+protectedRouter.get("/savemessages", saveMessages);
 
 export default protectedRouter;

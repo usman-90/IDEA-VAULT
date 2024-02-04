@@ -1,4 +1,6 @@
-import executeQuery from "../../db";
+import { database_connection } from "../../db";
+
+
 export const postIdea = async (req, res) => {
   const query = `INSERT INTO Idea (ideaTitle, requiredAmount, ideaTagline, tags, cardDescription, userId, categoryId, visiblity, detailedDescription, youtubeId)
   VALUES ($1, $2, $3, $4, $5, $6, (SELECT categoryId FROM Category WHERE categoryName = $7), $8, $9, $10)
@@ -22,17 +24,17 @@ export const postIdea = async (req, res) => {
     req.body.faqs.map(async (faq) => {
       await executeQuery(
         `INSERT INTO Faq (question, answer, ideaId) VALUES ($1, $2, $3)`,
-        [faq.question, faq.ans, row[0].ideaid]
+        [faq.question, faq.ans, row[0].ideaid],
       );
-    })
+    }),
   );
   await Promise.all(
     req.body.images.map(async (img) => {
       await executeQuery(
         `INSERT INTO Image (type,path,ideaId) VALUES ($1,$2,$3)`,
-        [img.type, img.path, row[0].ideaid]
+        [img.type, img.path, row[0].ideaid],
       );
-    })
+    }),
   );
   await executeQuery(
     `INSERT INTO Social (facebookLink,twitterLink,instaLink,linkedinLink,otherUrl,ideaId) VALUES ($1,$2,$3,$4,$5,$6)`,
@@ -43,7 +45,7 @@ export const postIdea = async (req, res) => {
       req.body.instaLink ?? "",
       req.body.otherLink ?? "",
       row[0].ideaid,
-    ]
+    ],
   );
   await executeQuery(`insert into visiblity (userid,ideaid) values ($1,$2)`, [
     req.user.userId,

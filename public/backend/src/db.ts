@@ -1,21 +1,25 @@
-import { Pool } from "pg";
+import { MongoClient, ServerApiVersion } from "mongodb";
 
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false,
+const url = process.env.DATABASE_URL;
+const client = new MongoClient(url, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    deprecationErrors: true,
   },
 });
-async function executeQuery(query, values) {
-  const client = await pool.connect();
+export async function database_connection(ideaVaultCollections: string[]) {
   try {
-    const result = await client.query(query, values);
-    return result.rows;
-  } catch (e) {
-    console.log(e);
-  } finally {
-    client.release();
+    await client.connect();
+    const db = client.db("IdeaVault");
+    const collections = ideaVaultCollections.map((element) => {
+      return db.collection(element);
+    });
+
+    return collections;
+  } catch (error) {
+    console.error(
+      "Error occurred while connecting to MongoDB Atlas...\n",
+      error,
+    );
   }
 }
-
-export default executeQuery;

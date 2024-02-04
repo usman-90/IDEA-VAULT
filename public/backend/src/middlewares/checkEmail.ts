@@ -1,18 +1,28 @@
-import executeQuery from "../db";
+import { database_connection } from "../db";
 
 export const checkUsernameAndEmail = async (req, res, next) => {
-  const query = `select username,email from "User" where username = $1 or email=$2`;
-  const values = [req.body.userName, req.body.email];
-  const row = await executeQuery(query, values);
-  console.log(row);
-  if (row.length == 0) {
+  try {
+    const collections = await database_connection(["Users"]);
+    const userCollection = collections[0];
+    const user = await userCollection.findOne({
+      userName: req.body.userName,
+      email: req.body.email,
+    });
+    console.log(req.body);
+    console.log(user, "middleware", user === null);
+    if (user) {
+      res
+        .json({
+          message: "username already taken",
+        })
+        .status(401)
+        .end();
+    }
     next();
-  } else {
-    res
-      .json({
-        message: "username already taken",
-      })
-      .status(401)
-      .end();
+  } catch (error) {
+    console.error(
+      "Error occurred while checking username and email...\n",
+      error,
+    );
   }
 };

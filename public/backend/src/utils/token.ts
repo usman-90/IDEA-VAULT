@@ -1,11 +1,19 @@
 import jwt from "jsonwebtoken";
 
 export const createToken = async (user) => {
-    console.log(user)
-  const token = await jwt.sign(
-    { userName: user.username, userId: user.userid },
-    process.env.JWT_PASSWORD
-  );
-
+  let userName = user.userName;
+  let email = user.email;
+  let token: string = "";
+  if (userName) {
+    token = await jwt.sign(
+      { userName: user.userName, userId: user._id },
+      process.env.JWT_PASSWORD,
+    );
+  } else if (email) {
+    token = await jwt.sign(
+      { email: user.email, userId: user._id },
+      process.env.JWT_PASSWORD,
+    );
+  }
   return token;
 };
