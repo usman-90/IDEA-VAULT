@@ -21,7 +21,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/api", async (req, res) => {
-  res.send("helloworld")
+  res.send("helloworld");
 });
 app.post("/signup", checkUsernameAndEmail, signup);
 app.post("/login", logIn);
@@ -60,5 +60,3 @@ io.on("connection", (socket) => {
   });
 });
 export default server;
-
-
