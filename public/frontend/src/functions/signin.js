@@ -1,15 +1,15 @@
+
+
+
+import axios from 'axios';
+
 export const signin = async (data) => {
-  const option = {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data),
-  };
-  const result = await fetch("http://localhost:3000/login", option);
-  if (!result.ok) {
-    console.log("ops error");
-    return;
+  try {
+    const response = await axios.post('http://localhost:3000/login', data);
+    // console.log('response api', response)
+    
+    return response;
+  } catch (error) {
+    console.error('Error:', error);
   }
-  return result.json();
 };

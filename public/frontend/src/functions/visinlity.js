@@ -36,15 +36,17 @@ console.log(body)
 
 
 export const checkUserVisiblity = async ({ queryKey }) => {
-  const userid = queryKey[1];
-  const ideaid = queryKey[2];
+  try{
 
-  const res = await fetch(
-    `http://localhost:3000/ideavault/checkspecificvisiblity/${userid}/${ideaid}`
-  );
-
-  if (!res.ok) {
-    console.log("lol eruur");
-  }
-  return res.json();
+    const userid = queryKey[1];
+    const ideaid = queryKey[2];
+    
+    const res = await fetch(
+      `http://localhost:3000/ideavault/checkspecificvisiblity/${userid}/${ideaid}`
+      );
+      return res;
+    }
+    catch (error) {
+      console.error("Error:", error);
+    }
 };

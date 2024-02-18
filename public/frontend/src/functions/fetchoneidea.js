@@ -1,10 +1,15 @@
+import axios from "axios";
 export const fetchOneIdea = async ({ queryKey }) => {
-  console.log("in")
-  const ideaid = queryKey[1];
-  const res = await fetch(`http://localhost:3000/ideavault/getoneidea/${ideaid}`);
-  if (!res.ok) {
-    console.log("ops error");
+  try{
+    const ideaid = queryKey[1];
+
+    const res = await axios.get(`http://localhost:3000/ideavault/getoneidea/${ideaid}`);
+    // console.log("response of fetch one idea api", res);
+    return res;
+  }
+ 
+  catch (error) {
+    console.error("Error:", error);
   }
 
-  return res.json();
 };

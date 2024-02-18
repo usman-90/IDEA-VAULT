@@ -11,10 +11,10 @@ import { Link } from "react-router-dom";
 const Technology = () => {
   const { catid } = useParams();
   const {cattitle} = useParams()
-    console.log(catid);
+    console.log(catid,cattitle,"hello catid");
   const ideasRes = useQuery(['catid', catid], fetchIdeaByCategory);
-  const ideasData = ideasRes?.data?.data;
-  console.log(ideasData);
+  const ideasData = ideasRes?.data?.data.ideas;
+  console.log(ideasData,"hello idea data");
 
   return (
     <div className="container">
@@ -30,11 +30,10 @@ const Technology = () => {
             <Link key={index} to={`/ideadetail/${idea.ideaid}`}>
             <IdeaCard
               className="mx-3"
-             
-              ideaName={idea.ideatitle}
-              ideaCardDesc={idea.carddescription}
-             cardimage={idea.path}
-              ideaDate={idea.postedat}
+              ideaName={idea.ideaTitle}
+              ideaCardDesc={idea.cardDescription}
+             cardimage={idea.cardImage}
+              ideaDate={idea.postedAt}
             />
             </Link>
           ))}

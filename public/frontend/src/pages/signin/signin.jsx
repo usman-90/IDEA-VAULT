@@ -20,31 +20,37 @@ const SignIn = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (fullNameOrEmail && password) {
-      const res = await signin({
-        userName: fullNameOrEmail,
-        password: password,
-      });
-      if (res.message == "User not found") {
-        alert("User not found");
-      } else if (res.message == "wrong password") {
-        alert("Entered Password is incorrect");
-      } else if (res.message == "ok") {
-        addToast("Logged In Successfully! ", {
-          appearance: "success",
-          autoDismiss: true,
+      try {
+        const response= await signin({
+          userName: fullNameOrEmail,
+          password: password,
         });
-        setCookie(
-          "logindata",
-          JSON.stringify({
-            token: res.token,
-            userName: res.rows[0].username,
-            userId: res.rows[0].userid,
+        console.log("response", response.data)
+       
+
+        const res = response.data;
+        if (res.message === "User not found") {
+          alert("User not found");
+        } else if (res.message === "wrong password") {
+          alert("Entered Password is incorrect");
+        } else if (res.message === "ok") {
+          addToast("Logged In Successfully! ", {
+            appearance: "success",
+            autoDismiss: true,
+          });
+          // Save data to local storage
+          localStorage.setItem("logindata", JSON.stringify({
+            token: res.token ?? null,
+            userName: res.user.userName,
+            userId: res.user.userId,
             status: "loggedin",
-          })
-        );
-        console.log(JSON.parse(getCookie("logindata")));
-        setusercontext(JSON.parse(getCookie("logindata")));
-        navigate("/");
+          }));
+          
+          
+          navigate("/");
+        }
+      } catch (error) {
+        console.error("Error:", error);
       }
 
       setFullNameOrEmail("");
@@ -53,7 +59,6 @@ const SignIn = () => {
       console.log("Please fill in all fields");
     }
   };
-
   return (
     <div className="parent_z">
       <div className="phone-container_z">

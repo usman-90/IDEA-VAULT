@@ -1,15 +1,16 @@
+import axios from "axios";
 const fetchIdea = async ( ) => {
-   
-    const apiRes = await fetch(`http://localhost:3000/ideavault/getallideas`);
-  
-    if (!apiRes.ok) {
-      throw new Error(`idea fetch not ok`);
+   try{
+    const apiRes = await axios.get(`http://localhost:3000/ideavault/getallideas`,{params:{pageNo:1}});
+    // console.log("response api", apiRes);
+    return apiRes
+   }
+    
+    catch (error) {
+      console.error("Error:", error);
     }
+  }
   
-    return apiRes.json();
-  };
-  
-  export default fetchIdea;
+export default fetchIdea;
 
 
-  

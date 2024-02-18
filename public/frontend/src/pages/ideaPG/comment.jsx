@@ -49,7 +49,7 @@ const Comment = ({ currSection, commentsData, path }) => {
 
     setComment("");
   };
-  console.log(commentsData);
+  console.log(commentsData,"hello commments here");
   return (
     <div
       className={`${
@@ -104,13 +104,13 @@ const Comment = ({ currSection, commentsData, path }) => {
         return (
           <Postedcomment
             key={comment.commentid}
-            id={comment.commentid}
-            time={comment.commentedat}
+            id={comment._id}
+            // time={"bla"}
             content={comment.content}
             likescount={comment.likescount}
-            name={comment.name}
-            path={comment.path}
-            replies={commentsData.replies}
+            // name={"Rajja"}
+            // path={"https://i.seadn.io/gae/2hDpuTi-0AMKvoZJGd-yKWvK4tKdQr_kLIpB_qSeMau2TNGCNidAosMEvrEXFO9G6tmlFlPQplpwiqirgrIPWnCKMvElaYgI-HiVvXc?auto=format&dpr=1&w=1000"}
+            // replies={"oo"}
           />
         );
       })}

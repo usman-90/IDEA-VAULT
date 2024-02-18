@@ -15,37 +15,35 @@ function SignUpForm() {
   const navigate = useNavigate();
 
   const createAcc = async (obj) => {
+    try{
     const res = await createAccount(obj);
-    if (res.message == "successful") {
-      setCookie(
-        "logindata",
-        JSON.stringify({
-          token: res.token,
-          userName: res.rows[0].username,
-          userId: res.rows[0].userid,
-          status: "loggedin",
-        })
-      );
-      loggedinUser({
+    console.log("res", res)
+    if (res.message === "successful") {
+      // Save data to local storage
+      localStorage.setItem("logindata", JSON.stringify({
         token: res.token ?? null,
-        userName: res.rows[0].username ?? null,
-        userId: res.rows[0].userid ?? null,
+        userName: res.user.userName,
+        userId: res.user.userId,
         status: "loggedin",
-      });
+      }));
+          
       addToast("Account Created Successfully!", {
         appearance: "success",
         autoDismiss: true,
       });
-      console.log("cookies", getCookie("logindata"));
+      
       navigate("/");
     } else if (res.message == "username already taken") {
       addToast("Username Already Taken", {
         appearance: "warning",
         autoDismiss: true,
       });
-    
+      
     }
-  };
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
 
   return (
     <div className="container">

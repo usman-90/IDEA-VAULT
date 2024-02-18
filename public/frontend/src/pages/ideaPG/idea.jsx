@@ -18,14 +18,14 @@ const Idea = () => {
   const [currSection, setcurrSection] = useState("description");
   const { ideaid } = useParams();
   const ideaResult = useQuery(["getidea", ideaid], fetchOneIdea);
+  // console.log(ideaResult, "ideaResult");
   const updates = useQuery(["updates", ideaid], fetchIdeaUpdates);
-  const visiblityRes = useQuery(
-    ["checkVis", userid, ideaid],
-    checkUserVisiblity
-  );
+  // console.log(updates, "updates");
+  const visiblityRes = useQuery( ["checkVis", userid, ideaid],checkUserVisiblity);
   const commentsRes = useQuery(["comments", ideaid], fetchComments);
-  const commentsData = commentsRes?.data;
-  console.log(commentsData);
+  console.log("commentsRes", commentsRes);
+  const commentsData = commentsRes?.data?.data?.comments ?? [];
+  console.log(commentsData, "commentsData");
   const visData = visiblityRes?.data?.row;
   if (ideaResult.isLoading) {
     return (
@@ -40,10 +40,10 @@ const Idea = () => {
         <h2 className="loader">🌀</h2>
       </div>
     );}
-  const data = ideaResult?.data?.data ?? [];
-  const updatesdata = updates?.data?.data ?? [];
-  console.log(data);
-  console.log(updatesdata);
+  const data = ideaResult?.data?.data.idea ?? [];
+  const updatesdata = updates?.data?.data.updates ?? [];
+  console.log(data,"data of idea");
+  // console.log(updatesdata,"updatesdata");
 
   const handleSectionChange = (section) => {
     setcurrSection(section);
@@ -51,18 +51,18 @@ const Idea = () => {
   return (
     <>
       <Details
-        images={data?.ideaimagesrow}
-        title={data?.idearow[0]?.ideatitle ?? ""}
-        tagline={data?.idearow[0]?.ideatagline ?? ""}
-        name={data?.idearow[0]?.name ?? ""}
-        country={data?.idearow[0]?.country ?? ""}
-        funding={data?.idearow[0]?.requiredamount ?? ""}
-        teamMembers={data?.idearow[0]?.state ?? ""}
-        ideaid={ideaid}
-        userid={data?.idearow[0]?.userid ?? ""}
-        path={data?.idearow[0]?.path ?? ""}
+        images={data?.otherImages ?? ""}
+        title={data?.ideaTitle ?? ""}
+        tagline={data?.ideaTagline ?? ""}
+        name={"Rajja "}
+        country={ "Canada"}
+        funding={data?.requiredamount ?? ""}
+        teamMembers={"usman "}
+        ideaid={data._id}
+        userid={data?.userid ?? ""}
+        path={ "https://i.seadn.io/gae/2hDpuTi-0AMKvoZJGd-yKWvK4tKdQr_kLIpB_qSeMau2TNGCNidAosMEvrEXFO9G6tmlFlPQplpwiqirgrIPWnCKMvElaYgI-HiVvXc?auto=format&dpr=1&w=1000"}
       />
-      <DetailNav
+       <DetailNav
         currSection={currSection}
         changeSection={handleSectionChange}
       />
@@ -70,23 +70,23 @@ const Idea = () => {
       <Comment
         commentsData={commentsData}
         currSection={currSection}
-        path={data?.idearow[0]?.path ?? ""}
+        path={ "https://i.seadn.io/gae/2hDpuTi-0AMKvoZJGd-yKWvK4tKdQr_kLIpB_qSeMau2TNGCNidAosMEvrEXFO9G6tmlFlPQplpwiqirgrIPWnCKMvElaYgI-HiVvXc?auto=format&dpr=1&w=1000"}
       />
 
       <Description
         currSection={currSection}
-        description={data?.idearow[0]?.detaileddescription ?? ""}
-        ideaid={ideaid}
-        visiblity={data?.idearow[0]?.visiblity ?? ""}
-        visData={visData}
-        userId={userid}
+        description={data?.detaileddescription ?? ""}
+        ideaid={data._id}
+        visiblity={data?.visiblity ?? ""} 
+        visData={"visData"} //?? where is visData
+        userId={data?.userid ?? ""} 
         
-      />
+      /> 
       <Update
         updatesdata={updatesdata}
         currSection={currSection}
         ideaid={ideaid}
-      />
+      /> 
     </>
   );
 };

@@ -15,7 +15,10 @@ import { fetchReviews } from "../../functions/fetchreviews";
 
 const Home = () => {
   const ideadata = useQuery(["idea"], fetchIdea);
+  // console.log(ideadata,"ideadata");
   const reviewsRes = useQuery(["reviews"], fetchReviews);
+  console.log(reviewsRes, "reviewsRes from home")
+
  
   if (reviewsRes.isLoading) {
     console.log("loading reviews");
@@ -23,9 +26,10 @@ const Home = () => {
   if (reviewsRes.isError) {
     console.log("loading reviews");
   }
-  const result = ideadata?.data?.data ?? [];
-  console.log(result);
-  const reviews = reviewsRes?.data?.data ?? [];
+  const result = ideadata?.data?.data.ideas ?? [];
+  // console.log(result,"result");
+  const reviews = reviewsRes?.data?.data.feedback ?? [];
+  console.log(reviews, "reviews main");
 
 
   return (
@@ -48,14 +52,14 @@ const Home = () => {
 
       <SimpleSlider>
         {result.map((idea, index) => (
-          <Link key={index} to={`/ideadetail/${idea?.ideaid}`}>
+          <Link key={index} to={`/ideadetail/${idea._id}`}>
             <IdeaCard
             
-              ideaName={idea?.ideatitle}
-              ideaCardDesc={idea?.carddescription}
-              ideaDate={idea?.postedat}
+              ideaName={idea.ideaTitle}
+              ideaCardDesc={idea.cardDescription}
+              ideaDate={idea.postedAt}
               ideaCategory={"Technology"}
-              cardimage={idea?.path}
+              cardimage={idea.cardImage}
             />
           </Link>
         ))}
@@ -71,9 +75,9 @@ const Home = () => {
             return (
               <ReviewCard
                 key={review?.feedbackid ?? ""}
-                reviewBody={review?.reviewbody ?? ""}
+                reviewBody={review?.reviewBody ?? ""}
                 name={review?.name ?? ""}
-                starCount={review?.starcount ?? ""}
+                starCount={review?.starCount ?? ""}
                 imgSrc={review.path ?? ""}
               />
             );
