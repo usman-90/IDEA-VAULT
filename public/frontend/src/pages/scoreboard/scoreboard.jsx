@@ -1,44 +1,46 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./scoreboard.css";
+import Heading from "../../components/headin/heading";
 
 const Scoreboard = () => {
-  useEffect(() => {
-    const partyPopper = document.querySelector(".party-popper");
-    setTimeout(() => {
-      partyPopper.style.display = "none";
-    }, 1000); // Adjust the timeout based on the duration of your animation
-  }, []);
+  // Array of objects containing data for each person
+  const peopleData = [
+    { rank: 1, name: "Paul Adraneda", votes: 1002 },
+    { rank: 2, name: "Don Gyver Gabito", votes: 1002 },
+    { rank: 3, name: "Mico Reyes", votes: 1002 },
+    { rank: 4, name: "Danilo Madrigalejos", votes: 1002 },
+    { rank: 5, name: "Fifth Person", votes: 1002 },
+    { rank: 6, name: "Sixth Person", votes: 1002 },
+    { rank: 7, name: "Seventh Person", votes: 1002 },
+    { rank: 8, name: "Eighth Person", votes: 1002 },
+    { rank: 9, name: "Ninth Person", votes: 1002 },
+    { rank: 10, name: "Tenth Person", votes: 1002 },
+  ];
 
   return (
-    <div className='quizgame-rankings'>
-      <div className='party-popper'></div> {/* Add the party popper background */}
-      <div className='quizgame-board col-md-6 offset-md-3'>
-        <div className='quizgame-board-title'>RANKINGS</div>
-        
-        <div className='row quizgame-rank text-md-left text-center'>
-          <div className='col-md-1 rank rank-1'><span>1</span></div>
-          <div className='col-md-8'>Paul Adraneda</div>
-          <div className='col-md-3'>999,999</div>
+    <div>
+      {/* News ticker-like navbar */}
+      <div className="news-ticker ">
+        <marquee behavior="scroll" direction="left" scrollamount="4">
+          The scoreboard shows the positions based on the upvotes on your respective ideas.
+        </marquee>
+      </div>
+
+      {/* Scoreboard component */}
+      <div className="bg-partyPopper">
+        <div className='quizgame-rankings'>
+          <Heading className="flex tex-center" text='Scoreboard' />
+          <div className='quizgame-board col-md-6 offset-md-3'>
+            {/* Map over the array of people data to render each person */}
+            {peopleData.map((person, index) => (
+              <div key={index} className='row quizgame-rank text-md-left justify-content-md-center'>
+                <div className={`col-md-1 col-12 text-center mb-3 mb-md-0 rank rank-${person.rank}`}><span>{person.rank}</span></div>
+                <div className='col-md-8 col-12 text-md-left text-center'>{person.name}</div>
+                <div className='col-md-3 col-12 text-md-left text-center upvoteBox'>{person.votes}</div>
+              </div>
+            ))}
+          </div>
         </div>
-        
-        <div className='row quizgame-rank text-md-left text-center'>
-          <div className='col-md-1 rank rank-2'><span>2</span></div>
-          <div className='col-md-8'>Don Gyver Gabito</div>
-          <div className='col-md-3'>999,999</div>
-        </div>
-        
-        <div className='row quizgame-rank text-md-left text-center'>
-          <div className='col-md-1 rank rank-3'><span>3</span></div>
-          <div className='col-md-8'>Mico Reyes</div>
-          <div className='col-md-3'>999,999</div>
-        </div>
-        
-        <div className='row quizgame-rank text-md-left text-center'>
-          <div className='col-md-1 rank'><span>4</span></div>
-          <div className='col-md-8'>Danilo Madrigalejos</div>
-          <div className='col-md-3'>999,999</div>
-        </div>
-        
       </div>
     </div>
   );

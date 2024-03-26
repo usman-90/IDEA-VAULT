@@ -8,7 +8,7 @@ const Heading = ({ text }) => {
           lineHeight: "1em",
           textTransform: "uppercase",
           marginTop: "3rem",
-          marginBottom:"3rem",
+          marginBottom:"1rem",
           borderBottom:"3px solid #fed766"
         }}
         className="text-center text-midnight-green"
