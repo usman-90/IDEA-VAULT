@@ -35,6 +35,7 @@ import AdminLogIn from "./pages/AdminPage/adminlogin";
 import UserEntry from "./pages/AdminPage/userentry";
 import { ToastProvider } from "react-toast-notifications";
 import Loader from "./components/loader";
+import Scoreboard from "./pages/scoreboard/scoreboard";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -93,6 +94,7 @@ const App = () => {
 
                   <Route path="/profile/:userid" element={<UserProfile />} />
                   <Route path="/security/:userid" element={<PasswordReset />} />
+                  <Route path="/scoreboard" element={<Scoreboard/>} />
                 </Routes>
               </Layout>
             </UserContext.Provider>
