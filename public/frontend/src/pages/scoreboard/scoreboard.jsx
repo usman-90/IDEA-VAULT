@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./scoreboard.css";
 
 const Scoreboard = () => {
+  useEffect(() => {
+    const partyPopper = document.querySelector(".party-popper");
+    setTimeout(() => {
+      partyPopper.style.display = "none";
+    }, 1000); // Adjust the timeout based on the duration of your animation
+  }, []);
+
   return (
     <div className='quizgame-rankings'>
+      <div className='party-popper'></div> {/* Add the party popper background */}
       <div className='quizgame-board col-md-6 offset-md-3'>
         <div className='quizgame-board-title'>RANKINGS</div>
         
