@@ -33,7 +33,6 @@
 }
 
 .login_z{
-    border:1px solid black;
     width:25%;
     text-align: center;
     height: 660px;
@@ -150,7 +149,6 @@ font-size: 20px;
    
 }
 .login_z{
-    border:1px solid black;
     width:45%;
     text-align: center;
     height: 460px;
@@ -269,7 +267,6 @@ font-size: 14px;
    
 }
 .login_z{
-    border:1px solid black;
     width:57%;
     text-align: center;
     height: 460px;
@@ -380,7 +377,6 @@ font-size: 14px;
     
     }
     .login_z{
-        border:1px solid black;
         width:57%;
         text-align: center;
         height: 460px;            
@@ -500,7 +496,6 @@ font-size: 14px;
     
     }
     .login_z{
-        border:1px solid black;
         width:85%;
         text-align: center;
         height: 460px;            

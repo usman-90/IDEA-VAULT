@@ -34,7 +34,6 @@ const Home = () => {
 
   return (
     <div>
-      <Showcase />
       <div
         style={{ backgroundColor: "#daeaf0" }}
         className="container-fluid py-3"

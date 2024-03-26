@@ -3,29 +3,11 @@
     width: 100%;
     height: 100%;
     position: relative;
-    /* Add the following lines */
-    border: 5px solid;
-    border-radius: 6px;
-    background-color: #000;
-    animation: borderAnimation 5s infinite;
   }
-  
-  @keyframes borderAnimation {
-    0% {
-      border-color:#07393c;
-    }
-    25% {
-      border-color:#2c666e ;
-    }
-    50% {
-      border-color:#90ddf0  ;
-    }
-    75% {
-      border-color:#fed766 ;
-    }
-    100% {
-      border-color: #f0edee ;
-    }
+
+  .bg-shade {
+    background: rgba(0, 0, 0, 0.5) !important;
+    z-index: 1;
   }
   
   .cardcat-heading {

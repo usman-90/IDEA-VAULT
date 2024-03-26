@@ -5,15 +5,14 @@ export const checkUsernameAndEmail = async (req, res, next) => {
     const collections = await database_connection(["Users"]);
     const userCollection = collections[0];
     const user = await userCollection.findOne({
-      userName: req.body.userName,
-      email: req.body.email,
+      $or: [{ email: req?.body?.email }, { userName: req?.body?.userName }],
     });
     console.log(req.body);
     console.log(user, "middleware", user === null);
     if (user) {
       res
         .json({
-          message: "username already taken",
+          message: "Username or Email already taken",
         })
         .status(401)
         .end();

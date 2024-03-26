@@ -53,7 +53,7 @@ const LPoint = ({ onChange, point, link, handleExpansion }) => {
       appearance: "success",
       autoDismiss: true,
     });
-    destroyCookie("logindata");
+    window.localStorage.removeItem("userData");
     setcontext(null);
     console.log(res);
   };
@@ -85,10 +85,9 @@ const LPoint = ({ onChange, point, link, handleExpansion }) => {
 };
 
 const NavExpansion = ({ width, width100, handleExpansion }) => {
-  const [readContext] = useContext(UserContext);
-  console.log(getCookie("logindata"));
+  const [user] = useContext(UserContext);
 
-  console.log("context", readContext);
+
   let spArr = [
     {
       heading: "Home",
@@ -195,12 +194,7 @@ const NavExpansion = ({ width, width100, handleExpansion }) => {
 
     {
       heading: "Profile",
-      link: `/profile/${
-        checkCookieExists("logindata") &&
-        getCookie("logindata").toString() !== "[object Object]"
-          ? `${JSON.parse(getCookie("logindata")).userId}`
-          : ""
-      }`,
+      link: `/profile/${user?.userId}`,
 
       subheads: [
         {
@@ -223,8 +217,8 @@ const NavExpansion = ({ width, width100, handleExpansion }) => {
       ],
     },
     {
-      heading: checkCookieExists("logindata") ? "Post Your Idea" : "",
-      link: checkCookieExists("logindata") ? "/basicinfo" : "",
+      heading: user ? "Post Your Idea" : "",
+      link: user ? "/basicinfo" : "",
       subheads: [
         {
           head: "Post Your Idea",
@@ -258,8 +252,8 @@ const NavExpansion = ({ width, width100, handleExpansion }) => {
       ],
     },
     {
-      heading: checkCookieExists("logindata") ? "Logout" : "Login",
-      link: readContext ? "/signin" : "/signin",
+      heading: user ? "Logout" : "Login",
+      link: user ? "/signin" : "/signin",
       subheads: [
         {
           head: "",
@@ -302,7 +296,7 @@ const NavExpansion = ({ width, width100, handleExpansion }) => {
               (point.heading == "Inbox" ||
                 point.heading == "Post Your Idea" ||
                 point.heading == "Profile") &&
-              !checkCookieExists("logindata")
+              !user
             ) {
               return null;
             }
