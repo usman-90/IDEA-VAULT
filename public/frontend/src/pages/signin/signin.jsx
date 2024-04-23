@@ -10,57 +10,77 @@ import { Link } from "react-router-dom";
 document.body.style.backgroundColor = "white";
 
 const SignIn = () => {
-    const [fullNameOrEmail, setFullNameOrEmail] = useState("");
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
     // eslint-disable-next-line no-unused-vars
     const [_, setusercontext] = useContext(UserContext);
     const { addToast } = useToasts();
 
+    console.log(email, password)
+
     const handleSubmit = async (e) => {
+
         e.preventDefault();
-        if (fullNameOrEmail && password) {
-            try {
-                const response = await signin({
-                    userName: fullNameOrEmail,
-                    password: password,
-                });
-                console.log("response", response.data)
 
-
-                const res = response.data;
-                if (res.message === "User not found") {
-                    alert("User not found");
-                } else if (res.message === "wrong password") {
-                    alert("Entered Password is incorrect");
-                } else if (res.message === "ok") {
-                    addToast("Logged In Successfully! ", {
-                        appearance: "success",
-                        autoDismiss: true,
-                    });
-                    // Save data to local storage
-                    localStorage.setItem("userData", JSON.stringify({
-                        token: res.token ?? null,
-                        userName: res.user.userName,
-                        userId: res.user.userId,
-                        email: res?.user?.email,
-                        name: res?.user?.name,
-                        lastName: res?.user?.lastName,
-                        status: "loggedin",
-                    }));
-
-
-                    navigate("/");
-                }
-            } catch (error) {
-                console.error("Error:", error);
-            }
-
-            setFullNameOrEmail("");
-            setPassword("");
-        } else {
-            console.log("Please fill in all fields");
+        if (!email|| !password) {
+            addToast("Please Fill in All Fields", {
+                appearance: "error",
+                autoDismiss: true,
+            });
+            return
         }
+
+        if (password.length < 6) {
+            addToast("Invalid Password", {
+                appearance: "error",
+                autoDismiss: true,
+            });
+            return
+        }
+
+        try {
+            const response = await signin({
+                userName: email,
+                password: password,
+            });
+
+
+
+            const res = response.data;
+
+            if (res.message === "User not found") {
+                alert("User not found");
+                return
+            } else if (res.message === "wrong password") {
+                alert("Entered Password is incorrect");
+                return
+            } else if (res.message === "ok") {
+                addToast("Logged In Successfully! ", {
+                    appearance: "success",
+                    autoDismiss: true,
+                });
+                const userObj = {
+                    token: res.token ?? null,
+                    userName: res.user.userName,
+                    userId: res.user.userId,
+                    email: res?.user?.email,
+                    name: res?.user?.name,
+                    lastName: res?.user?.lastName,
+                    status: "loggedin",
+                }
+                setusercontext(userObj)
+                localStorage.setItem("userData", JSON.stringify(userObj));
+
+
+                navigate("/");
+            }
+        } catch (error) {
+            console.error("Error:", error);
+        }
+
+        setEmail("");
+        setPassword("");
     };
     return (
         <div className="parent_z">
@@ -83,15 +103,17 @@ const SignIn = () => {
                 <h1 className="head_z">Idea Vault</h1>
                 <form className="signinform_z">
                     <input
+                        data-cypress="email"
                         className="cred_z"
                         type="text"
                         placeholder="Full Name or Email"
-                        value={fullNameOrEmail}
-                        onChange={(e) => setFullNameOrEmail(e.target.value)}
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                         required
                     />
                     <br />
                     <input
+                        data-cypress="password"
                         className="cred_z"
                         type="password"
                         placeholder="Password"
@@ -100,7 +122,7 @@ const SignIn = () => {
                         required
                     />
                     <br />
-                    <button className="btn_z" type="submit" onClick={handleSubmit}>
+                    <button className="btn_z" data-cypress="loginBtn" type="submit" onClick={handleSubmit}>
                         Log in
                     </button>
                 </form>

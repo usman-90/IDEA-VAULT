@@ -34,6 +34,7 @@ const Home = () => {
 
   return (
     <div>
+      <Showcase />
       <div
         style={{ backgroundColor: "#daeaf0" }}
         className="container-fluid py-3"
@@ -71,6 +72,7 @@ const Home = () => {
       <div style={{ backgroundColor: "#daeaf0", paddingBottom: "4rem" }}>
         <SimpleSlider>
           {reviews.map((review) => {
+              console.log(review,"Reviewwwww")
             return (
               <ReviewCard
                 key={review?.feedbackid ?? ""}
@@ -87,8 +89,8 @@ const Home = () => {
       <Heading text="Frequently Ask Questions" />
       <FaqSection />
       <div
-        style={{ backgroundColor: "#daeaf0" }}
-        className="container-fluid py-1"
+        style={{ backgroundColor: "" }}
+        className="container-fluid bg-light pt-4"
       >
         <Heading text="Contact Us" />
       </div>

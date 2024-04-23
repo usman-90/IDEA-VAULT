@@ -9,10 +9,10 @@ const Banner=()=>{
                 <div className="col-md-8 ">
                     <div className="textbanner px-5">
                     <h2>Unlocking Limitless Innovation</h2>
-                    <h3>Welcome to the Idea Vault</h3>
+                    <h3 className="text-mustard">Welcome to the Idea Vault</h3>
                     <h5 style={{marginTop:"4%"}}> <i  style={{marginRight:"4%"}}className="fa-solid fa-check my-2"></i>Idea Poster</h5>
                     <h5><i  style={{marginRight:"4%"}} className="fa-solid fa-check my-2"></i> Investor</h5>
-                    <a href="/"> <Link to={"./aboutus"}>Explore</Link></a>
+                 <Link to={"./aboutus"}>Explore</Link>
 
                     </div>
                 </div>

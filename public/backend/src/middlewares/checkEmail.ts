@@ -16,6 +16,7 @@ export const checkUsernameAndEmail = async (req, res, next) => {
         })
         .status(401)
         .end();
+        return
     }
     next();
   } catch (error) {

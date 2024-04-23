@@ -34,9 +34,10 @@
     padding-left: 3rem ;
     padding-right: 3rem;
 }
-.btn-submit:hover{
-background-color: #60d4e3;
-color: rgb(161, 94, 5);
+.btn-submit{
+    border:none;
+    border-radius:10px;
+    padding:10px 0
 }
 
 @media screen and (max-width: 480px) {
